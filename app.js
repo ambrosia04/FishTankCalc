@@ -134,14 +134,14 @@ list.innerHTML = "";
 
 selectedFish.forEach((fish,i)=>{
 
-let li = document.createElement("li");
-
 let invalid="";
 let tankType=document.getElementById("tankType").value;
 
 if(fish.type !== tankType){
-invalid="invalid";
+    invalid="invalid";
 }
+
+li = document.createElement("li");
 
 li.innerHTML=`
 <span class="${invalid}">
@@ -154,6 +154,8 @@ min="0"
 onchange="updateAmount(${i},this.value)">
 
 <button onclick="removeFish(${i})">Remove</button>
+<br>
+<small>Energy: ${fish.activity} | Aggression: ${fish.aggression}</small>
 `;
 
 list.appendChild(li);
@@ -170,34 +172,57 @@ let warnings = "";
 
 let wrongType = false;
 
+// Track shrimp/snails in tank
+let shrimpPresent = selectedFish.some(f=>f.category==="shrimp");
+let snailPresent = selectedFish.some(f=>f.category==="snail");
+
+// Track max/min activity levels (for energy incompatibility)
+let activityLevels = selectedFish.filter(f=>!f.category || (f.category!=="shrimp" && f.category!=="snail"))
+                                 .map(f=>f.activity);
+
 selectedFish.forEach(fish=>{
 
 // Tank type compatibility
 if(fish.type === document.getElementById("tankType").value){
-total += fish.size_cm * fish.amount;
+    total += fish.size_cm * fish.amount;
 }else{
-wrongType = true;
+    wrongType = true;
 }
 
-// School size warning
+// Schooling warning
 if (fish.schooling && fish.amount < fish.min_school) {
+    warnings +=
+    `<div class="warning">
+    ${fish.latin_name} needs at least ${fish.min_school} fish
+    </div>`;
+}
 
-warnings +=
-`<div class="warning">
-${fish.latin_name} needs at least ${fish.min_school}
-</div>`;
-
+// Shrimp/snail predation warning
+if(shrimpPresent && fish.eat_shrimp){
+    warnings += `<div class="warning">${fish.latin_name} may eat shrimp!</div>`;
+}
+if(snailPresent && fish.eat_snails){
+    warnings += `<div class="warning">${fish.latin_name} may eat snails!</div>`;
 }
 
 });
 
 // Tank type warning
 if(wrongType){
-warnings += `
-<div class="warning">
-Some fish are not compatible with the selected tank type
-</div>
-`;
+    warnings += `<div class="warning">Some fish are not compatible with the selected tank type</div>`;
+}
+
+// Energy incompatibility warning
+if(activityLevels.length > 1){
+    let energyValues = activityLevels.map(a=>{
+        if(a==="low") return 1;
+        if(a==="medium") return 2;
+        if(a==="high") return 3;
+    });
+    let diff = Math.max(...energyValues) - Math.min(...energyValues);
+    if(diff >= 2){
+        warnings += `<div class="warning">High and low energy fish detected: may compete for food</div>`;
+    }
 }
 
 let percent = (total / tank) * 100;
