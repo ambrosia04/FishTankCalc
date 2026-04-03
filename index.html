@@ -1,4 +1,31 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fish Stocking Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left">
+
+<h1>Fish Stocking Calculator</h1>
+
+<div class="tank">
+
+<label>Tank Size</label>
+
+<div class="tank-input">
+<input type="number" id="tankSize" value="100">
+
+<select id="unit" onchange="convertTank()">
+<option value="liters">Liters</option>
+<option value="gallons">Gallons</option>
+</select>
+</div>
 
 <label>Tank Type</label>
 <select id="tankType" onchange="reloadTankType()">
@@ -17,7 +44,7 @@
 
 <select id="fishSelect"></select>
 
-<input type="number" id="amount" value="1">
+<input type="number" id="amount" value="1" min="1">
 
 <button onclick="addFish()">Add</button>
 
