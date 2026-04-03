@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<label>Tank Type</label>
+<select id="tankType" onchange="reloadTankType()">
+<option value="freshwater">Freshwater</option>
+<option value="marine">Marine</option>
+</select>
+
+<label>Planted</label>
+<input type="checkbox" id="planted">
+
+</div>
+
+<hr>
+
+<div>
+
+<select id="fishSelect"></select>
+
+<input type="number" id="amount" value="1">
+
+<button onclick="addFish()">Add</button>
+
+</div>
+
+<h2>Fish</h2>
+<ul id="fishList"></ul>
+
+<h2>Capacity</h2>
+<div id="capacity"></div>
+
+<div id="warnings"></div>
+
+</div>
+
+<div class="right">
+
+<h3>Converter</h3>
+
+<input type="number" id="convertValue">
+
+<select id="convertFrom">
+<option value="liters">Liters</option>
+<option value="gallons">Gallons</option>
+</select>
+
+<button onclick="convertMini()">Convert</button>
+
+<div id="convertResult"></div>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

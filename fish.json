@@ -1,0 +1,30 @@
+[
+{
+"latin_name": "Paracheirodon innesi",
+"common_name": "Neon tetra",
+"type": "freshwater",
+"size_cm": 3.5,
+"min_tank": 40,
+"temperature": [20, 26],
+"ph": [5.5, 7],
+"aggression": "peaceful",
+"schooling": true,
+"min_school": 6,
+"bioload": "low",
+"plant_safe": true
+},
+{
+"latin_name": "Amphiprion ocellaris",
+"common_name": "Clownfish",
+"type": "marine",
+"size_cm": 8,
+"min_tank": 60,
+"temperature": [24, 27],
+"ph": [8.0, 8.4],
+"aggression": "semi-aggressive",
+"schooling": false,
+"min_school": 1,
+"bioload": "medium",
+"plant_safe": true
+}
+]
