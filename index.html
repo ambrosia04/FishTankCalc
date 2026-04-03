@@ -75,6 +75,51 @@
 
 <div id="convertResult"></div>
 
+<hr>
+
+<h3>Real Tank Volume</h3>
+
+<label>Mode</label>
+<select id="volumeMode" onchange="toggleVolumeMode()">
+<option value="liters">Known Volume</option>
+<option value="dimensions">Dimensions</option>
+</select>
+
+<div id="volumeLiters">
+<input type="number" id="tankVolumeInput" placeholder="Tank Size">
+<select id="tankVolumeUnit">
+<option value="liters">Liters</option>
+<option value="gallons">Gallons</option>
+</select>
+</div>
+
+<div id="volumeDimensions" style="display:none">
+
+<input type="number" id="length" placeholder="Length">
+<input type="number" id="width" placeholder="Width">
+<input type="number" id="height" placeholder="Height">
+
+<select id="dimensionUnit">
+<option value="cm">cm</option>
+<option value="inch">inch</option>
+</select>
+
+</div>
+
+<label>Substrate (kg)</label>
+<input type="number" id="substrate">
+
+<label>Big Rocks (10cm cubes)</label>
+<input type="number" id="rocks">
+
+<button onclick="calculateRealVolume()">Calculate Real Volume</button>
+
+<div id="realVolume"></div>
+
+<hr>
+
+<a href="ammonia.html" class="btn-nav">Ammonia Calculator</a>
+
 </div>
 
 </div>

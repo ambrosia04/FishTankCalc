@@ -45,6 +45,67 @@ calculate();
 
 }
 
+function calculateRealVolume(){
+
+let mode=document.getElementById("volumeMode").value;
+let volume;
+
+if(mode==="liters"){
+
+let size=document.getElementById("tankVolumeInput").value;
+let unit=document.getElementById("tankVolumeUnit").value;
+
+if(unit==="gallons"){
+volume=size*3.785;
+}else{
+volume=size;
+}
+
+}else{
+
+let l=document.getElementById("length").value;
+let w=document.getElementById("width").value;
+let h=document.getElementById("height").value;
+
+let unit=document.getElementById("dimensionUnit").value;
+
+if(unit==="inch"){
+
+l*=2.54;
+w*=2.54;
+h*=2.54;
+
+}
+
+volume=(l*w*h)/1000;
+
+}
+
+// substrate displacement (approx 1kg = 0.6L)
+let substrate=document.getElementById("substrate").value;
+let rocks=document.getElementById("rocks").value;
+
+let substrateDisplacement=substrate*0.6;
+
+// rocks 10x10x10 cm
+let rockDisplacement=rocks*1;
+
+let real=volume-substrateDisplacement-rockDisplacement;
+
+let gallons=real/3.785;
+
+
+document.getElementById("realVolume").innerHTML=
+`
+Real Volume:
+<br>
+${real.toFixed(1)} Liters
+<br>
+${gallons.toFixed(1)} Gallons
+`;
+
+}
+
 function updateAmount(index,value){
 
 value = parseInt(value);
@@ -185,5 +246,24 @@ result = value * 3.785;
 
 document.getElementById("convertResult").innerHTML =
 result.toFixed(2);
+
+function toggleVolumeMode(){
+
+let mode=document.getElementById("volumeMode").value;
+
+if(mode==="liters"){
+
+document.getElementById("volumeLiters").style.display="block";
+document.getElementById("volumeDimensions").style.display="none";
+
+}else{
+
+
+document.getElementById("volumeLiters").style.display="none";
+document.getElementById("volumeDimensions").style.display="block";
+
+}
+
+}
 
 }
