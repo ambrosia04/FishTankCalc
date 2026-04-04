@@ -110,3 +110,15 @@ margin-top: 5px;
     color: red;
     font-weight: bold;
 }
+
+#fishPreview {
+    background: #132938;
+    padding: 5px;
+    border-radius: 10px;
+    transition: opacity 0.2s ease;
+}
+
+#previewImg {
+    display: block;
+    background: #0e1a24; /* Placeholder color while loading */
+}

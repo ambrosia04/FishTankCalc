@@ -2,6 +2,7 @@
 {
 "latin_name": "Neocaridina davidi",
 "common_name": "Cherry Shrimp",
+"photo": "images/cherry_shrimp.jpg",
 "type": "freshwater",
 "size_cm": 2.5,
 "min_tank": 10,
@@ -46,6 +47,7 @@
 {
 "latin_name": "Abalistes stellatus",
 "common_name": "Starry Triggerfish",
+"photo": "images/Abalistes_stellatus.jpg",
 "type": "marine",
 "size_cm": 60,
 "min_tank": 800,
@@ -67,6 +69,7 @@
 {
 "latin_name": "Aborichthys elongatus",
 "common_name": "Elongated loach",
+"photo": "images/Aborichthys_elongatus.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 120,
@@ -88,6 +91,7 @@
 {
 "latin_name": "Abramis brama",
 "common_name": "Common Bream",
+"photo": "images/Abramis_brama.jpg",
 "type": "freshwater",
 "size_cm": 60,
 "min_tank": 1000,
@@ -109,6 +113,7 @@
 {
 "latin_name": "Abramites hypselonotus",
 "common_name": "Marbled headstander",
+"photo": "images/Abramites_hypselonotus.jpg",
 "type": "freshwater",
 "size_cm": 14,
 "min_tank": 200,
@@ -130,6 +135,7 @@
 {
 "latin_name": "Abudefduf margariteus",
 "common_name": "Pearl Sergeant",
+"photo": "images/Abudefduf_margariteus.jpg",
 "type": "marine",
 "size_cm": 18,
 "min_tank": 200,
@@ -151,6 +157,7 @@
 {
 "latin_name": "Abudefduf saxatilis",
 "common_name": "Sergeant Major",
+"photo": "images/Abudefduf_saxatilis.jpg",
 "type": "marine",
 "size_cm": 20,
 "min_tank": 250,
@@ -172,6 +179,7 @@
 {
 "latin_name": "Acanthicus adonis",
 "common_name": "Adonis Pleco",
+"photo": "images/Acanthicus_adonis.jpg",
 "type": "freshwater",
 "size_cm": 100,
 "min_tank": 1000,
@@ -193,6 +201,7 @@
 {
 "latin_name": "Acanthurus achilles",
 "common_name": "Achilles Tang",
+"photo": "images/Acanthurus_achilles.jpg",
 "type": "marine",
 "size_cm": 25,
 "min_tank": 400,
@@ -213,6 +222,7 @@
 {
 "latin_name": "Abudefduf sexfasciatus",
 "common_name": "Scissortail Sergeant",
+"photo": "images/Abudefduf_sexfasciatus.jpg",
 "type": "marine",
 "size_cm": 16,
 "min_tank": 200,
@@ -233,6 +243,7 @@
 {
 "latin_name": "Abudefduf sparoides",
 "common_name": "False Sergeant",
+"photo": "images/Abudefduf_sparoides.jpg",
 "type": "marine",
 "size_cm": 18,
 "min_tank": 250,
@@ -253,6 +264,7 @@
 {
 "latin_name": "Abudefduf vaigiensis",
 "common_name": "Indo-Pacific Sergeant",
+"photo": "images/Abudefduf_vaigiensis.jpg",
 "type": "marine",
 "size_cm": 20,
 "min_tank": 250,
@@ -273,6 +285,7 @@
 {
 "latin_name": "Acanthochromis polyacanthus",
 "common_name": "Spiny Chromis",
+"photo": "images/Acanthochromis_polyacanthus.jpg",
 "type": "marine",
 "size_cm": 14,
 "min_tank": 150,
@@ -293,6 +306,7 @@
 {
 "latin_name": "Acanthostracion polygonius",
 "common_name": "Honeycomb Cowfish",
+"photo": "images/Acanthostracion_polygonius.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 400,
@@ -313,6 +327,7 @@
 {
 "latin_name": "Acanthurus albipectoralis",
 "common_name": "Whitecheek Surgeonfish",
+"photo": "images/Acanthurus_albipectoralis.jpg",
 "type": "marine",
 "size_cm": 24,
 "min_tank": 400,
@@ -333,6 +348,7 @@
 {
 "latin_name": "Acanthurus bahianus",
 "common_name": "Ocean Surgeonfish",
+"photo": "images/Acanthurus_bahianus.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 500,
@@ -353,6 +369,7 @@
 {
 "latin_name": "Acanthurus bariene",
 "common_name": "Black Surgeonfish",
+"photo": "images/Acanthurus_bariene.jpg",
 "type": "marine",
 "size_cm": 25,
 "min_tank": 400,
@@ -373,6 +390,7 @@
 {
 "latin_name": "Acanthurus blochii",
 "common_name": "Bloch's Surgeonfish",
+"photo": "images/Acanthurus_blochii.jpg",
 "type": "marine",
 "size_cm": 40,
 "min_tank": 700,
@@ -393,6 +411,7 @@
 {
 "latin_name": "Acanthuridae",
 "common_name": "Surgeonfish Family",
+"photo": "images/Acanthuridae.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 400,
@@ -413,6 +432,7 @@
 {
 "latin_name": "Acanthurus coeruleus",
 "common_name": "Blue Tang",
+"photo": "images/Acanthurus_coeruleus.jpg",
 "type": "marine",
 "size_cm": 25,
 "min_tank": 350,
@@ -433,6 +453,7 @@
 {
 "latin_name": "Acanthurus dussumieri",
 "common_name": "Eyestripe Surgeonfish",
+"photo": "images/Acanthurus_dussumieri.jpg",
 "type": "marine",
 "size_cm": 50,
 "min_tank": 900,
@@ -453,6 +474,7 @@
 {
 "latin_name": "Acanthurus japonicus",
 "common_name": "Powder Brown Tang",
+"photo": "images/Acanthurus_japonicus.jpg",
 "type": "marine",
 "size_cm": 21,
 "min_tank": 300,
@@ -474,6 +496,7 @@
 {
 "latin_name": "Acanthurus leucosternon",
 "common_name": "Powder Blue Tang",
+"photo": "images/Acanthurus_leucosternon.jpg",
 "type": "marine",
 "size_cm": 23,
 "min_tank": 350,
@@ -495,6 +518,7 @@
 {
 "latin_name": "Acanthurus lineatus",
 "common_name": "Clown Surgeonfish",
+"photo": "images/Acanthurus_lineatus.jpg",
 "type": "marine",
 "size_cm": 38,
 "min_tank": 700,
@@ -516,6 +540,7 @@
 {
 "latin_name": "Acanthurus mata",
 "common_name": "Elongate Surgeonfish",
+"photo": "images/Acanthurus_mata.jpg",
 "type": "marine",
 "size_cm": 50,
 "min_tank": 900,
@@ -537,6 +562,7 @@
 {
 "latin_name": "Acanthurus nigricans",
 "common_name": "Whitecheek Surgeonfish",
+"photo": "images/Acanthurus_nigricans.jpg",
 "type": "marine",
 "size_cm": 21,
 "min_tank": 300,
@@ -558,6 +584,7 @@
 {
 "latin_name": "Acanthurus nigricauda",
 "common_name": "Epaulette Surgeonfish",
+"photo": "images/Acanthurus_nigricauda.jpg",
 "type": "marine",
 "size_cm": 25,
 "min_tank": 400,
@@ -579,6 +606,7 @@
 {
 "latin_name": "Acanthurus nigrofuscus",
 "common_name": "Brown Surgeonfish",
+"photo": "images/Acanthurus_nigrofuscus.jpg",
 "type": "marine",
 "size_cm": 21,
 "min_tank": 300,
@@ -600,6 +628,7 @@
 {
 "latin_name": "Acanthurus olivaceus",
 "common_name": "Orange Shoulder Tang",
+"photo": "images/Acanthurus_olivaceus.jpg",
 "type": "marine",
 "size_cm": 35,
 "min_tank": 600,
@@ -617,31 +646,10 @@
 "eat_snails": false,
 "needs_algae": true
 },
-
-{
-"latin_name": "Acanthuridae",
-"common_name": "Surgeonfish Family",
-"type": "marine",
-"size_cm": 30,
-"min_tank": 400,
-"temperature": [24, 28],
-"ph": [8.0, 8.4],
-"aggression": "semi-aggressive",
-"schooling": false,
-"min_school": 1,
-"max_group": 1,
-"bioload": "medium",
-"plant_safe": true,
-"activity": "high",
-"tank_position": "middle",
-"eat_shrimp": false,
-"eat_snails": false,
-"needs_algae": true
-},
-
 {
 "latin_name": "Acanthurus pyroferus",
 "common_name": "Mimic Surgeonfish",
+"photo": "images/Acanthurus_pyroferus.jpg",
 "type": "marine",
 "size_cm": 25,
 "min_tank": 350,
@@ -659,10 +667,10 @@
 "eat_snails": false,
 "needs_algae": true
 },
-
 {
 "latin_name": "Acanthurus sohal",
 "common_name": "Sohal Tang",
+"photo": "images/Acanthurus_sohal.jpg",
 "type": "marine",
 "size_cm": 40,
 "min_tank": 700,
@@ -680,10 +688,10 @@
 "eat_snails": false,
 "needs_algae": true
 },
-
 {
 "latin_name": "Acanthurus tennentii",
 "common_name": "Lieutenant Tang",
+"photo": "images/Acanthurus_tennentii.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 500,
@@ -701,10 +709,10 @@
 "eat_snails": false,
 "needs_algae": true
 },
-
 {
 "latin_name": "Acanthurus tractus",
 "common_name": "Ocean Surgeonfish",
+"photo": "images/Acanthurus_tractus.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 500,
@@ -722,10 +730,10 @@
 "eat_snails": false,
 "needs_algae": true
 },
-
 {
 "latin_name": "Acanthurus triostegus",
 "common_name": "Convict Tang",
+"photo": "images/Acanthurus_triostegus.jpg",
 "type": "marine",
 "size_cm": 26,
 "min_tank": 400,

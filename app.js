@@ -100,25 +100,53 @@ function filterFish(query) {
     */
 }
 
-// Helper function to render options into the select
 function renderSelectOptions(fishArray) {
     const select = document.getElementById("fishSelect");
-    select.innerHTML = ""; // Clear current list
+    select.innerHTML = ""; 
 
-    // We sort the provided array alphabetically
     const sorted = [...fishArray].sort((a, b) => a.latin_name.localeCompare(b.latin_name));
 
     sorted.forEach(fish => {
-        // We find the original index in fishDB so selection always works
         let originalIndex = fishDB.findIndex(f => f.latin_name === fish.latin_name);
         let option = document.createElement("option");
         option.value = originalIndex;
         option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
+        
+        // Save the photo path into the option tag
+        if(fish.photo) {
+            option.setAttribute('data-photo', fish.photo);
+        }
+        
         select.appendChild(option);
     });
 
     select.style.display = sorted.length ? "block" : "none";
 }
+
+// Hover logic - Place this inside or after your populate() function
+document.addEventListener('mousemove', function(e) {
+    const previewDiv = document.getElementById("fishPreview");
+    const previewImg = document.getElementById("previewImg");
+    const select = document.getElementById("fishSelect");
+
+    // Check if we are hovering over the select box
+    if (e.target.tagName === 'OPTION' && e.target.parentElement.id === 'fishSelect') {
+        const photoUrl = e.target.getAttribute('data-photo');
+        
+        if (photoUrl) {
+            previewImg.src = photoUrl;
+            previewDiv.style.display = "block";
+            // Position the image next to the cursor
+            previewDiv.style.left = (e.clientX + 15) + "px";
+            previewDiv.style.top = (e.clientY + 15) + "px";
+        } else {
+            previewDiv.style.display = "none";
+        }
+    } else {
+        // Hide if the mouse moves away from an option
+        if (previewDiv) previewDiv.style.display = "none";
+    }
+});
 
 function addFish() {
     const input = document.getElementById("fishInput");
