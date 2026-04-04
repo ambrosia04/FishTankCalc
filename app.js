@@ -401,8 +401,23 @@ phText = `<div class="warning">No PH overlap</div>`;
 
 let percent = (total / tank) * 100;
 
-document.getElementById("capacity").innerHTML =
-`Capacity: ${percent.toFixed(1)}%`;
+let capacityEl = document.getElementById("capacity");
+
+if (percent > 100) {
+    capacityEl.classList.add("overstock");
+
+    let requiredLiters = total; // total stocking load = required tank size
+    let requiredGallons = requiredLiters / 3.785;
+
+    capacityEl.innerHTML = `
+    Capacity: ${percent.toFixed(1)}%
+    <br>
+    You will need ${requiredLiters.toFixed(1)} Liters / ${requiredGallons.toFixed(1)} Gallons
+    `;
+} else {
+    capacityEl.classList.remove("overstock");
+    capacityEl.innerHTML = `Capacity: ${percent.toFixed(1)}%`;
+}
 
 document.getElementById("temperatureRange").innerHTML = tempText;
 document.getElementById("phRange").innerHTML = phText;

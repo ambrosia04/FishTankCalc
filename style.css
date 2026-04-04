@@ -31,7 +31,7 @@ button {
 }
 
 #fishSelect {
-  width: 100%;         /* leave 10% space on the right */
+  width: auto;         /* leave 10% space on the right */
   font-size: 14px;
   max-height: 150px;  /* smaller height */
   overflow-y: auto;
@@ -104,4 +104,9 @@ display:flex;
 color: #ffcc00;
 font-weight: bold;
 margin-top: 5px;
+}
+
+.overstock {
+    color: red;
+    font-weight: bold;
 }
