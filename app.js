@@ -232,13 +232,18 @@ let warnings = "";
 
 let wrongType = false;
 
-// Track shrimp/snails in tank
+// Track shrimp/snails
 let shrimpPresent = selectedFish.some(f=>f.category==="shrimp");
 let snailPresent = selectedFish.some(f=>f.category==="snail");
 
-// Track max/min activity levels (for energy incompatibility)
-let activityLevels = selectedFish.filter(f=>!f.category || (f.category!=="shrimp" && f.category!=="snail"))
-                                 .map(f=>f.activity);
+// Track activity
+let activityLevels = selectedFish.map(f=>f.activity);
+
+// Temperature & PH arrays
+let tempMins = [];
+let tempMaxs = [];
+let phMins = [];
+let phMaxs = [];
 
 selectedFish.forEach(fish=>{
 
@@ -249,6 +254,18 @@ if(fish.type === document.getElementById("tankType").value){
     wrongType = true;
 }
 
+// Collect temperature
+if(fish.temperature){
+    tempMins.push(fish.temperature[0]);
+    tempMaxs.push(fish.temperature[1]);
+}
+
+// Collect PH
+if(fish.ph){
+    phMins.push(fish.ph[0]);
+    phMaxs.push(fish.ph[1]);
+}
+
 // Schooling warning
 if (fish.schooling && fish.amount < fish.min_school) {
     warnings +=
@@ -257,14 +274,24 @@ if (fish.schooling && fish.amount < fish.min_school) {
     </div>`;
 }
 
-// Shrimp/snail predation warning
-if(shrimpPresent && fish.eat_shrimp){
-    warnings += `<div class="warning">${fish.latin_name} may eat shrimp!</div>`;
-}
-if(snailPresent && fish.eat_snails){
-    warnings += `<div class="warning">${fish.latin_name} may eat snails!</div>`;
+// max group warning
+if(fish.max_group && fish.amount > fish.max_group){
+warnings +=
+`<div class="warning-yellow">
+${fish.latin_name} cannot be kept in groups
+</div>`;
 }
 
+// Shrimp/snail warning
+if(shrimpPresent && fish.eat_shrimp){
+warnings += `<div class="warning">${fish.latin_name} may eat shrimp!</div>`;
+}
+
+if(snailPresent && fish.eat_snails){
+warnings += `<div class="warning">${fish.latin_name} may eat snails!</div>`;
+}
+
+// algae warning
 if(fish.needs_algae && !document.getElementById("planted").checked){
 warnings += `<div class="warning">${fish.latin_name} needs algae / mature tank</div>`;
 }
@@ -273,26 +300,66 @@ warnings += `<div class="warning">${fish.latin_name} needs algae / mature tank</
 
 // Tank type warning
 if(wrongType){
-    warnings += `<div class="warning">Some fish are not compatible with the selected tank type</div>`;
+warnings += `<div class="warning">Some fish are not compatible with tank type</div>`;
 }
 
-// Energy incompatibility warning
+// Energy compatibility
 if(activityLevels.length > 1){
-    let energyValues = activityLevels.map(a=>{
-        if(a==="low") return 1;
-        if(a==="medium") return 2;
-        if(a==="high") return 3;
-    });
-    let diff = Math.max(...energyValues) - Math.min(...energyValues);
-    if(diff >= 2){
-        warnings += `<div class="warning">High and low energy fish detected: may compete for food</div>`;
-    }
+
+let values = activityLevels.map(a=>{
+if(a==="low") return 1;
+if(a==="medium") return 2;
+if(a==="high") return 3;
+});
+
+let diff = Math.max(...values) - Math.min(...values);
+
+if(diff >= 2){
+warnings += `<div class="warning">High and low energy fish detected</div>`;
+}
+
+}
+
+// Calculate temperature overlap
+
+let tempText = "";
+let phText = "";
+
+if(tempMins.length){
+
+let minTemp = Math.max(...tempMins);
+let maxTemp = Math.min(...tempMaxs);
+
+if(minTemp <= maxTemp){
+tempText = `Temperature: ${minTemp}°C - ${maxTemp}°C`;
+}else{
+tempText = `<div class="warning">No temperature overlap</div>`;
+}
+
+}
+
+// Calculate PH overlap
+
+if(phMins.length){
+
+let minPh = Math.max(...phMins);
+let maxPh = Math.min(...phMaxs);
+
+if(minPh <= maxPh){
+phText = `PH: ${minPh} - ${maxPh}`;
+}else{
+phText = `<div class="warning">No PH overlap</div>`;
+}
+
 }
 
 let percent = (total / tank) * 100;
 
 document.getElementById("capacity").innerHTML =
 `Capacity: ${percent.toFixed(1)}%`;
+
+document.getElementById("temperatureRange").innerHTML = tempText;
+document.getElementById("phRange").innerHTML = phText;
 
 document.getElementById("warnings").innerHTML = warnings;
 
