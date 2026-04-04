@@ -21,9 +21,25 @@ function populate() {
     sortedFish.forEach(({fish, idx}) => {
         let option = document.createElement("option");
         option.value = idx; // original index in fishDB
-        option.text = fish.latin_name;
+        option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
         select.appendChild(option);
     });
+
+    if(fish.max_group === 1){
+
+        if(fish.amount === 2){
+        warnings += `<div class="warning-yellow">
+        ${fish.latin_name} can only be in pairs when breeding
+        </div>`;
+        }
+
+        if(fish.amount > 2){
+        warnings += `<div class="warning-yellow">
+        ${fish.latin_name} cannot be kept in groups
+        </div>`;
+        }
+
+    }
 
     // Filter as you type
     input.addEventListener("input", () => {
@@ -247,6 +263,10 @@ if(shrimpPresent && fish.eat_shrimp){
 }
 if(snailPresent && fish.eat_snails){
     warnings += `<div class="warning">${fish.latin_name} may eat snails!</div>`;
+}
+
+if(fish.needs_algae && !document.getElementById("planted").checked){
+warnings += `<div class="warning">${fish.latin_name} needs algae / mature tank</div>`;
 }
 
 });
