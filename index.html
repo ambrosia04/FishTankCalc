@@ -42,11 +42,15 @@
 
 <div>
 
-<select id="fishSelect"></select>
-
-<input type="number" id="amount" value="1" min="1">
-
-<button onclick="addFish()">Add</button>
+<div class="fish-input-container">
+  <label>Fish name</label>
+  <div class="fish-input-row">
+    <input type="text" id="fishInput" placeholder="Type to filter...">
+    <input type="number" id="amount" value="1" min="1">
+    <button onclick="addFish()">Add</button>
+  </div>
+  <select id="fishSelect" size="8"></select>
+</div>
 
 </div>
 

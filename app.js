@@ -8,20 +8,64 @@ fishDB = data;
 populate();
 });
 
+
 function populate() {
-let select = document.getElementById("fishSelect");
-select.innerHTML = "";
+    const input = document.getElementById("fishInput");
+    const select = document.getElementById("fishSelect");
 
-fishDB.forEach((fish, index) => {
+    // Sort fish alphabetically
+    const sortedFish = [...fishDB].map((fish, idx) => ({fish, idx}))
+                                  .sort((a,b) => a.fish.latin_name.localeCompare(b.fish.latin_name));
 
-let option = document.createElement("option");
+    // Populate select with all fish
+    sortedFish.forEach(({fish, idx}) => {
+        let option = document.createElement("option");
+        option.value = idx; // original index in fishDB
+        option.text = fish.latin_name;
+        select.appendChild(option);
+    });
 
-option.value = index;
-option.text = fish.latin_name;
+    // Filter as you type
+    input.addEventListener("input", () => {
+        let query = input.value.toLowerCase();
+        Array.from(select.options).forEach(opt => {
+            if(opt.text.toLowerCase().includes(query)){
+                opt.style.display = "block";
+            } else {
+                opt.style.display = "none";
+            }
+        });
+    });
 
-select.appendChild(option);
+    // When user clicks a fish in the select
+    select.addEventListener("change", () => {
+        let idx = select.value;
+        if(idx !== ""){
+            input.value = fishDB[idx].latin_name; // use original index
+        }
+    });
+}
 
-});
+// Filter function
+function filterFish(query) {
+    let select = document.getElementById("fishSelect");
+    let input = document.getElementById("fishInput");
+    let filtered = [...fishDB].filter(fish => 
+        fish.latin_name.toLowerCase().includes(query.toLowerCase())
+    ).sort((a,b)=> a.latin_name.localeCompare(b.latin_name));
+
+    select.innerHTML = "";
+
+    filtered.forEach(fish => {
+        let index = fishDB.findIndex(f => f.latin_name === fish.latin_name);
+        let option = document.createElement("option");
+        option.value = index;
+        option.text = fish.latin_name;
+        select.appendChild(option);
+    });
+
+    // Hide select if no matches
+    select.style.display = filtered.length ? "block" : "none";
 }
 
 function addFish() {

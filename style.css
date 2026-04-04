@@ -19,9 +19,23 @@ padding:20px;
 background:#132938;
 }
 
-input,select,button{
+input,select{
 padding:8px;
 margin:5px;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#fishSelect {
+  width: 100%;         /* leave 10% space on the right */
+  font-size: 14px;
+  max-height: 150px;  /* smaller height */
+  overflow-y: auto;
+  margin-right: 10%;  /* visually pushes it left to leave right gap */
 }
 
 .warning{
@@ -61,4 +75,27 @@ display:flex;
 
 .btn-nav:active {
     transform: translateY(0);    /* Pushes down when clicked */
+}
+
+.fish-input-container {
+  margin-bottom: 20px;
+  width: 30%;
+}
+
+.fish-input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+#fishInput {
+  flex: 2;
+  padding: 8px;
+  font-size: 14px;
+}
+
+#amount {
+  width: 60px;
+  padding: 8px;
+  font-size: 14px;
 }
