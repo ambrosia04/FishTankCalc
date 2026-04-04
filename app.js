@@ -377,7 +377,7 @@ let minTemp = Math.max(...tempMins);
 let maxTemp = Math.min(...tempMaxs);
 
 if(minTemp <= maxTemp){
-tempText = `Temperature: ${minTemp}°C - ${maxTemp}°C`;
+tempText = `Temperature: ${minTemp}°C - ${maxTemp}°C (most fish can tolerate a few degrees outside their range)`;
 }else{
 tempText = `<div class="warning">No temperature overlap</div>`;
 }
