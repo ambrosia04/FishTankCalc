@@ -24,33 +24,13 @@ function populate() {
         option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
         select.appendChild(option);
     });
-
-    if(fish.max_group === 1){
-
-        if(fish.amount === 2){
-        warnings += `<div class="warning-yellow">
-        ${fish.latin_name} can only be in pairs when breeding
-        </div>`;
-        }
-
-        if(fish.amount > 2){
-        warnings += `<div class="warning-yellow">
-        ${fish.latin_name} cannot be kept in groups
-        </div>`;
-        }
-
-    }
+    // Clear and Initial Fill
+    renderSelectOptions(fishDB);
 
     // Filter as you type
     input.addEventListener("input", () => {
         let query = input.value.toLowerCase();
-        Array.from(select.options).forEach(opt => {
-            if(opt.text.toLowerCase().includes(query)){
-                opt.style.display = "block";
-            } else {
-                opt.style.display = "none";
-            }
-        });
+        filterFish(query);
     });
 
     // When user clicks a fish in the select
@@ -60,14 +40,45 @@ function populate() {
             input.value = fishDB[idx].latin_name; // use original index
         }
     });
+    // Enter to select the first option
+    input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault(); // prevent form submission if inside a form
+
+        const select = document.getElementById("fishSelect");
+
+        // Get the first visible option
+        const firstOption = Array.from(select.options).find(opt => opt.style.display !== "none");
+
+        if(firstOption){
+            select.value = firstOption.value; // select the first matching fish
+            addFish(); // add it
+            input.value = ""; // clear input
+            filterFish("");
+        }
+    }
+});
 }
 
 // Filter function
 function filterFish(query) {
+    const filtered = fishDB.filter(fish => {
+        const latin = fish.latin_name.toLowerCase();
+        const common = (fish.common_name || "").toLowerCase();
+        // Returns true if the query (chain of words) exists in either name
+        return latin.includes(query) || common.includes(query);
+    });
+
+    renderSelectOptions(filtered);
+
+    if (filtered.length > 0) {
+        document.getElementById("fishSelect").selectedIndex = 0;
+    }
+    /**
     let select = document.getElementById("fishSelect");
-    let input = document.getElementById("fishInput");
     let filtered = [...fishDB].filter(fish => 
-        fish.latin_name.toLowerCase().includes(query.toLowerCase())
+        fish.latin_name.toLowerCase().includes(query.toLowerCase()) ||
+        (fish.common_name && fish.common_name.toLowerCase().includes(query.toLowerCase()))
     ).sort((a,b)=> a.latin_name.localeCompare(b.latin_name));
 
     select.innerHTML = "";
@@ -76,33 +87,65 @@ function filterFish(query) {
         let index = fishDB.findIndex(f => f.latin_name === fish.latin_name);
         let option = document.createElement("option");
         option.value = index;
-        option.text = fish.latin_name;
+        option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
         select.appendChild(option);
     });
 
-    // Hide select if no matches
+    // Show select only if results exist
     select.style.display = filtered.length ? "block" : "none";
+
+    if(filtered.length){
+        document.getElementById("fishSelect").selectedIndex = 0;
+    }
+    */
+}
+
+// Helper function to render options into the select
+function renderSelectOptions(fishArray) {
+    const select = document.getElementById("fishSelect");
+    select.innerHTML = ""; // Clear current list
+
+    // We sort the provided array alphabetically
+    const sorted = [...fishArray].sort((a, b) => a.latin_name.localeCompare(b.latin_name));
+
+    sorted.forEach(fish => {
+        // We find the original index in fishDB so selection always works
+        let originalIndex = fishDB.findIndex(f => f.latin_name === fish.latin_name);
+        let option = document.createElement("option");
+        option.value = originalIndex;
+        option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
+        select.appendChild(option);
+    });
+
+    select.style.display = sorted.length ? "block" : "none";
 }
 
 function addFish() {
+    const input = document.getElementById("fishInput");
+    const select = document.getElementById("fishSelect");
+    let index = select.value;
+    let amount = parseInt(document.getElementById("amount").value) || 1;
 
-let index = document.getElementById("fishSelect").value;
-let amount = parseInt(document.getElementById("amount").value);
+    // Prevent adding if nothing is selected
+    if(index === "" || !fishDB[index]) return;
 
-let existing = selectedFish.find(f => f.latin_name === fishDB[index].latin_name);
+    let existing = selectedFish.find(f => f.latin_name === fishDB[index].latin_name);
 
-if(existing){
-existing.amount += amount;
-}else{
-selectedFish.push({
-...fishDB[index],
-amount: amount
-});
-}
+    if(existing){
+        existing.amount += amount;
+    }else{
+        selectedFish.push({
+            ...fishDB[index],
+            amount: amount
+        });
+    }
 
-updateList();
-calculate();
+    // Reset UI after adding
+    input.value = "";
+    filterFish("");
 
+    updateList();
+    calculate();
 }
 
 function calculateRealVolume(){
@@ -247,54 +290,57 @@ let phMaxs = [];
 
 selectedFish.forEach(fish=>{
 
-// Tank type compatibility
-if(fish.type === document.getElementById("tankType").value){
-    total += fish.size_cm * fish.amount;
-}else{
-    wrongType = true;
-}
+    // Tank type compatibility
+    if(fish.type === document.getElementById("tankType").value){
+        total += fish.size_cm * fish.amount;
+    }else{
+        wrongType = true;
+    }
 
-// Collect temperature
-if(fish.temperature){
-    tempMins.push(fish.temperature[0]);
-    tempMaxs.push(fish.temperature[1]);
-}
+    // Collect temperature
+    if(fish.temperature){
+        tempMins.push(fish.temperature[0]);
+        tempMaxs.push(fish.temperature[1]);
+    }
 
-// Collect PH
-if(fish.ph){
-    phMins.push(fish.ph[0]);
-    phMaxs.push(fish.ph[1]);
-}
+    // Collect PH
+    if(fish.ph){
+        phMins.push(fish.ph[0]);
+        phMaxs.push(fish.ph[fish.ph.length - 1]);
+    }
 
-// Schooling warning
-if (fish.schooling && fish.amount < fish.min_school) {
-    warnings +=
-    `<div class="warning">
-    ${fish.latin_name} needs at least ${fish.min_school} fish
-    </div>`;
-}
+    // Schooling warning
+    if (fish.schooling && fish.amount < fish.min_school) {
+        warnings +=
+        `<div class="warning">
+        ${fish.latin_name} needs at least ${fish.min_school} fish
+        </div>`;
+    }
 
-// max group warning
-if(fish.max_group && fish.amount > fish.max_group){
-warnings +=
-`<div class="warning-yellow">
-${fish.latin_name} cannot be kept in groups
-</div>`;
-}
+    // MOVED FROM POPULATE TO CALCULATE: Max group/Pair logic
+    if (fish.max_group === 1) {
+        if (fish.amount === 2) {
+            warnings += `<div class="warning-yellow">${fish.latin_name} can only be in pairs when breeding</div>`;
+        } else if (fish.amount > 2) {
+            warnings += `<div class="warning-yellow">${fish.latin_name} cannot be kept in groups</div>`;
+        }
+    } else if (fish.max_group && fish.amount > fish.max_group) {
+        warnings += `<div class="warning-yellow">${fish.latin_name} max group size is ${fish.max_group}</div>`;
+    }
 
-// Shrimp/snail warning
-if(shrimpPresent && fish.eat_shrimp){
-warnings += `<div class="warning">${fish.latin_name} may eat shrimp!</div>`;
-}
+    // Shrimp/snail warning
+    if(shrimpPresent && fish.eat_shrimp){
+    warnings += `<div class="warning">${fish.latin_name} may eat shrimp!</div>`;
+    }
 
-if(snailPresent && fish.eat_snails){
-warnings += `<div class="warning">${fish.latin_name} may eat snails!</div>`;
-}
+    if(snailPresent && fish.eat_snails){
+    warnings += `<div class="warning">${fish.latin_name} may eat snails!</div>`;
+    }
 
-// algae warning
-if(fish.needs_algae && !document.getElementById("planted").checked){
-warnings += `<div class="warning">${fish.latin_name} needs algae / mature tank</div>`;
-}
+    // algae warning
+    if(fish.needs_algae && !document.getElementById("planted").checked){
+    warnings += `<div class="warning">${fish.latin_name} needs algae / mature tank</div>`;
+    }
 
 });
 
