@@ -1,5 +1,11 @@
 let fishDB = [];
 let selectedFish = [];
+let activeCategories = {
+    fish: true,
+    shrimp: true,
+    snail: true,
+    crab: true
+};
 
 fetch("fish.json")
 .then(res => res.json())
@@ -60,8 +66,22 @@ function populate() {
 });
 }
 
+function toggleCategory(category) {
+    activeCategories[category] = !activeCategories[category];
+
+    // Optional: visual feedback (toggle class)
+    const btn = document.querySelector(`[onclick="toggleCategory('${category}')"]`);
+    if (btn) {
+        btn.classList.toggle("inactive", !activeCategories[category]);
+    }
+
+    // Re-run filter
+    const query = document.getElementById("fishInput").value.toLowerCase();
+    filterFish(query);
+}
+
 // Filter function
-function filterFish(query) {
+/*function filterFish(query) {
     const filtered = fishDB.filter(fish => {
         const latin = fish.latin_name.toLowerCase();
         const common = (fish.common_name || "").toLowerCase();
@@ -75,6 +95,28 @@ function filterFish(query) {
         document.getElementById("fishSelect").selectedIndex = 0;
     }
     
+}*/
+
+function filterFish(query) {
+    const filtered = fishDB.filter(fish => {
+
+        const latin = fish.latin_name.toLowerCase();
+        const common = (fish.common_name || "").toLowerCase();
+
+        // 🧠 CATEGORY MATCH
+        let category = fish.category || "fish"; // default to fish if undefined
+
+        if (!activeCategories[category]) return false;
+
+        // 🔎 TEXT MATCH
+        return latin.includes(query) || common.includes(query);
+    });
+
+    renderSelectOptions(filtered);
+
+    if (filtered.length > 0) {
+        document.getElementById("fishSelect").selectedIndex = 0;
+    }
 }
 
 function renderSelectOptions(fishArray) {
@@ -387,6 +429,22 @@ selectedFish.forEach(fish=>{
 
     const rule = getSpeciesRule(fish);
 
+    // PREDATOR WARNING (fish eating fish)
+    if (fish.aggression === "predatory") {
+
+        let prey = selectedFish.filter(other =>
+            fish !== other && fish.size_cm > other.size_cm * 1.5
+        );
+
+        if (prey.length) {
+            warnings += `
+            <div class="warning">
+            ${fish.latin_name} may eat smaller tank mates
+            </div>
+            `;
+        }
+    }
+
     // Shrimp / snail special rules
     if (fish.category === "shrimp") {
         total += fish.amount * rule.litersPerFish;
@@ -597,5 +655,6 @@ document.getElementById("volumeDimensions").style.display="block";
 }
 
 }
+
 
 }

@@ -45,13 +45,18 @@
 <div>
 
 <div class="fish-input-container">
-  <label>Fish name</label>
-  <div class="fish-input-row">
-    <input type="text" id="fishInput" placeholder="Type to filter...">
-    <input type="number" id="amount" value="1" min="1">
-    <button onclick="addFish()">Add</button>
-  </div>
-  <select id="fishSelect" size="8"></select>
+    
+    <label>Fish name</label>
+    <button id="filter" onclick="toggleCategory('fish')">🐟</button>
+    <button id="filter" onclick="toggleCategory('shrimp')">🦐</button>
+    <button id="filter" onclick="toggleCategory('snail')">🐌</button>
+    <button id="filter" onclick="toggleCategory('crab')">🦀</button>
+    <div class="fish-input-row">
+        <input type="text" id="fishInput" placeholder="Type to filter...">
+        <input type="number" id="amount" value="1" min="1">
+        <button onclick="addFish()">Add</button>
+    </div>
+    <select id="fishSelect" size="8"></select>
 </div>
 
 </div>

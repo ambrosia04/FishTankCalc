@@ -122,3 +122,14 @@ margin-top: 5px;
     display: block;
     background: #0e1a24; /* Placeholder color while loading */
 }
+
+#filter{
+ background-color: #132938;
+ border-radius: 50%;
+ border-color: #0e1a24;
+}
+
+.inactive {
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
