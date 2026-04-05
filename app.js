@@ -74,30 +74,7 @@ function filterFish(query) {
     if (filtered.length > 0) {
         document.getElementById("fishSelect").selectedIndex = 0;
     }
-    /**
-    let select = document.getElementById("fishSelect");
-    let filtered = [...fishDB].filter(fish => 
-        fish.latin_name.toLowerCase().includes(query.toLowerCase()) ||
-        (fish.common_name && fish.common_name.toLowerCase().includes(query.toLowerCase()))
-    ).sort((a,b)=> a.latin_name.localeCompare(b.latin_name));
-
-    select.innerHTML = "";
-
-    filtered.forEach(fish => {
-        let index = fishDB.findIndex(f => f.latin_name === fish.latin_name);
-        let option = document.createElement("option");
-        option.value = index;
-        option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
-        select.appendChild(option);
-    });
-
-    // Show select only if results exist
-    select.style.display = filtered.length ? "block" : "none";
-
-    if(filtered.length){
-        document.getElementById("fishSelect").selectedIndex = 0;
-    }
-    */
+    
 }
 
 function renderSelectOptions(fishArray) {
@@ -295,6 +272,89 @@ list.appendChild(li);
 
 }
 
+function getSpeciesRule(fish) {
+    const latin = (fish.latin_name || "").toLowerCase();
+    const common = (fish.common_name || "").toLowerCase();
+
+    // default fallback
+    let rule = {
+        factor: fish.bioload === "low" ? 1
+              : fish.bioload === "medium" ? 1.5
+              : fish.bioload === "high" ? 2.5
+              : 3.5,
+        warnings: []
+    };
+
+    // shrimp/snails
+    if (fish.category === "shrimp") {
+        rule.litersPerFish = 0.5; // 2 shrimp = 1L
+        rule.factor = 0;
+        return rule;
+    }
+
+    if (fish.category === "snail") {
+        rule.litersPerFish = 1.0;
+        rule.factor = 0;
+        return rule;
+    }
+
+    // clownfish
+    if (latin.startsWith("amphiprion") || common.includes("clownfish")) {
+        rule.factor = 2.0;
+        rule.warnings.push("Clownfish are territorial; keep a pair or a single fish.");
+        return rule;
+    }
+
+    // tangs / surgeonfish
+    if (latin.startsWith("acanthurus") || common.includes("tang") || common.includes("surgeonfish")) {
+        rule.factor = 3.0;
+        rule.warnings.push("Tang / surgeonfish need lots of swimming room and algae.");
+        return rule;
+    }
+
+    // cichlids that are usually territorial
+    if (
+        latin.startsWith("amatitlania") ||
+        latin.startsWith("amphilophus") ||
+        latin.startsWith("aequidens") ||
+        latin.startsWith("altolamprologus") ||
+        latin.startsWith("acarichthys") ||
+        latin.startsWith("acaronia")
+    ) {
+        rule.factor = 2.25;
+        rule.warnings.push("Cichlid: territorial; pairs or solo often work best.");
+        rule.warnings.push("May eat shrimp/snails.");
+        return rule;
+    }
+
+    // plecos / catfish / bottom dwellers
+    if (
+        latin.startsWith("acanthicus") ||
+        latin.startsWith("acestridium") ||
+        common.includes("pleco") ||
+        common.includes("catfish")
+    ) {
+        rule.factor = fish.bioload === "low" ? 1.25 : 2.0;
+        rule.warnings.push("Bottom-dweller: needs hides and floor space.");
+        return rule;
+    }
+
+    // huge species where min_tank matters more than the formula
+    if (
+        latin.startsWith("huso") ||
+        latin.startsWith("acipenser") ||
+        common.includes("sturgeon") ||
+        common.includes("ray") ||
+        common.includes("shark") ||
+        common.includes("guitarfish")
+    ) {
+        rule.factor = 0;
+        return rule;
+    }
+
+    return rule;
+}
+
 function calculate() {
 
 let tank = getTankLiters();
@@ -316,28 +376,41 @@ let tempMaxs = [];
 let phMins = [];
 let phMaxs = [];
 
+const tankType = document.getElementById("tankType").value;
+
 selectedFish.forEach(fish=>{
 
-    // Tank type compatibility
-    if (fish.type === document.getElementById("tankType").value) {
-
-        // SHRIMP RULE
-        if (fish.category === "shrimp") {
-            total += (fish.amount * 0.5); // 2 shrimp = 1L
-
-        // SMALL LOW BIOLOAD (<5cm)
-        } else if (fish.bioload === "low" && fish.size_cm < 5) {
-            total += (fish.size_cm * fish.amount); // 1cm per liter
-
-        // EVERYTHING ELSE (fallback rule)
-        } else {
-            //  tweak this multiplier later for more realism
-            total += (fish.size_cm * fish.amount * 1.5);
-        }
-
-    } else {
+    if (fish.type !== tankType) {
         wrongType = true;
+        return;
     }
+
+    const rule = getSpeciesRule(fish);
+
+    // Shrimp / snail special rules
+    if (fish.category === "shrimp") {
+        total += fish.amount * rule.litersPerFish;
+    } else if (fish.category === "snail") {
+        total += fish.amount * rule.litersPerFish;
+    } else if (rule.factor > 0) {
+        //  nano-fish rule
+        if (fish.bioload === "low" && fish.size_cm < 5) {
+            total += fish.size_cm * fish.amount;
+        } else {
+            total += fish.size_cm * fish.amount * rule.factor;
+        }
+    }
+
+    // Species warnings
+    rule.warnings.forEach(msg => {
+        warnings += `<div class="warning">${fish.latin_name}: ${msg}</div>`;
+    });
+
+    // generic checks 
+    if (fish.min_tank && tank < fish.min_tank) {
+        warnings += `<div class="warning">${fish.latin_name} needs at least ${fish.min_tank}L</div>`;
+    }
+
 
     // Collect temperature
     if(fish.temperature){
