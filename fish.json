@@ -2,6 +2,7 @@
 {
 "latin_name": "Neritina natalensis",
 "common_name": "Nerite snail",
+"photo": "images/Neritina_natalensis.jpg",
 "type": "freshwater",
 "size_cm": 2.5,
 "min_tank": 10,
@@ -732,6 +733,7 @@
 {
 "latin_name": "Acanthurus xanthopterus",
 "common_name": "Yellowfin Surgeonfish",
+"photo": "images/Acanthurus_xanthopterus.jpg",
 "type": "marine",
 "size_cm": 70,
 "min_tank": 1200,
@@ -752,6 +754,7 @@
 {
 "latin_name": "Acapoeta tanganicae",
 "common_name": "Tanganyika Scraper",
+"photo": "images/Acapoeta_tanganicae.jpg",
 "type": "freshwater",
 "size_cm": 18,
 "min_tank": 200,
@@ -773,6 +776,7 @@
 {
 "latin_name": "Acarichthys heckelii",
 "common_name": "Threadfin Acara",
+"photo": "images/Acarichthys_heckelii.jpg",
 "type": "freshwater",
 "size_cm": 20,
 "min_tank": 250,
@@ -794,6 +798,7 @@
 {
 "latin_name": "Acaronia nassa",
 "common_name": "Nassa Acara",
+"photo": "images/Acaronia_nassa.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 200,
@@ -815,6 +820,7 @@
 {
 "latin_name": "Acestridium dichromum",
 "common_name": "Needle Nose Pleco",
+"photo": "images/Acestridium_dichromum.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 80,
@@ -836,6 +842,7 @@
 {
 "latin_name": "Huso baerii",
 "common_name": "Siberian Sturgeon",
+"photo": "images/Huso_baerii.jpg",
 "type": "freshwater",
 "size_cm": 200,
 "min_tank": 5000,
@@ -857,6 +864,7 @@
 {
 "latin_name": "Huso ruthenus",
 "common_name": "Sterlet Sturgeon",
+"photo": "images/Huso_ruthenus.jpg",
 "type": "freshwater",
 "size_cm": 120,
 "min_tank": 3000,
@@ -878,6 +886,7 @@
 {
 "latin_name": "Acipenser sturio",
 "common_name": "European Sea Sturgeon",
+"photo": "images/Acipenser_sturio.jpg",
 "type": "freshwater",
 "size_cm": 350,
 "min_tank": 10000,
@@ -899,6 +908,7 @@
 {
 "latin_name": "Acnodon normani",
 "common_name": "Norman's Headstander",
+"photo": "images/Acnodon_normani.jpg",
 "type": "freshwater",
 "size_cm": 14,
 "min_tank": 180,
@@ -920,6 +930,7 @@
 {
 "latin_name": "Acreichthys tomentosus",
 "common_name": "Bristletail Filefish",
+"photo": "images/Acreichthys_tomentosus.jpg",
 "type": "marine",
 "size_cm": 12,
 "min_tank": 120,
@@ -941,6 +952,7 @@
 {
 "latin_name": "Acroteriobatus zanzibarensis",
 "common_name": "Zanzibar Guitarfish",
+"photo": "images/Acroteriobatus_zanzibarensis.jpg",
 "type": "marine",
 "size_cm": 90,
 "min_tank": 2000,
@@ -962,6 +974,7 @@
 {
 "latin_name": "Aeoliscus strigatus",
 "common_name": "Razorfish",
+"photo": "images/Aeoliscus_strigatus.jpg",
 "type": "marine",
 "size_cm": 15,
 "min_tank": 150,
@@ -983,6 +996,7 @@
 {
 "latin_name": "Aequidens diadema",
 "common_name": "Diadem Acara",
+"photo": "images/Aequidens_diadema.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 180,
@@ -1003,6 +1017,7 @@
 {
 "latin_name": "Aequidens metae",
 "common_name": "Meta Acara",
+"photo": "images/Aequidens_metae.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 180,
@@ -1024,6 +1039,7 @@
 {
 "latin_name": "Aequidens pallidus",
 "common_name": "Pallid Acara",
+"photo": "images/Aequidens_pallidus.jpg",
 "type": "freshwater",
 "size_cm": 14,
 "min_tank": 160,
@@ -1045,6 +1061,7 @@
 {
 "latin_name": "Aequidens patricki",
 "common_name": "Patrick's Acara",
+"photo": "images/Aequidens_patricki.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 140,
@@ -1066,6 +1083,7 @@
 {
 "latin_name": "Aequidens tetramerus",
 "common_name": "Green Terror (True)",
+"photo": "images/Aequidens_tetramerus.jpg",
 "type": "freshwater",
 "size_cm": 20,
 "min_tank": 250,
@@ -1087,6 +1105,7 @@
 {
 "latin_name": "Aetobatus narinari",
 "common_name": "Spotted Eagle Ray",
+"photo": "images/Aetobatus_narinari.jpg",
 "type": "marine",
 "size_cm": 300,
 "min_tank": 20000,
@@ -1108,6 +1127,7 @@
 {
 "latin_name": "Aetobatus ocellatus",
 "common_name": "Ocellated Eagle Ray",
+"photo": "images/Aetobatus_ocellatus.jpg",
 "type": "marine",
 "size_cm": 250,
 "min_tank": 20000,
@@ -1129,6 +1149,7 @@
 {
 "latin_name": "Aetomylaeus bovinus",
 "common_name": "Bull Ray",
+"photo": "images/Aetomylaeus_bovinus.jpg",
 "type": "marine",
 "size_cm": 200,
 "min_tank": 15000,
@@ -1150,6 +1171,7 @@
 {
 "latin_name": "Agamyxis pectinifrons",
 "common_name": "Spotted Raphael Catfish",
+"photo": "images/Agamyxis_pectinifrons.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 120,
