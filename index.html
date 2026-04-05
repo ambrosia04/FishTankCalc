@@ -47,10 +47,15 @@
 <div class="fish-input-container">
     
     <label>Fish name</label>
-    <button id="filter" onclick="toggleCategory('fish')">🐟</button>
-    <button id="filter" onclick="toggleCategory('shrimp')">🦐</button>
-    <button id="filter" onclick="toggleCategory('snail')">🐌</button>
-    <button id="filter" onclick="toggleCategory('crab')">🦀</button>
+    <div class="category-row">
+        <button id="btn-fish" onclick="toggleCategory('fish')">🐟</button>
+        <button id="btn-shrimp" onclick="toggleCategory('shrimp')">🦐</button>
+        <button id="btn-snail" onclick="toggleCategory('snail')">🐌</button>
+        <button id="btn-crab" onclick="toggleCategory('crab')">🦀</button>
+        <button id="btn-stars" onclick="toggleCategory('stars')">⭐</button>
+        <button id="btn-corals" onclick="toggleCategory('coral')">🪸</button>
+    </div>
+        
     <div class="fish-input-row">
         <input type="text" id="fishInput" placeholder="Type to filter...">
         <input type="number" id="amount" value="1" min="1">

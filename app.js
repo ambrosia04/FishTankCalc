@@ -4,7 +4,9 @@ let activeCategories = {
     fish: true,
     shrimp: true,
     snail: true,
-    crab: true
+    crab: true,
+    stars: true,
+    coral: true
 };
 
 fetch("fish.json")
@@ -32,6 +34,7 @@ function populate() {
     });
     // Clear and Initial Fill
     renderSelectOptions(fishDB);
+    updateCategoryButtons();
 
     // Filter as you type
     input.addEventListener("input", () => {
@@ -78,6 +81,33 @@ function toggleCategory(category) {
     // Re-run filter
     const query = document.getElementById("fishInput").value.toLowerCase();
     filterFish(query);
+}
+
+function updateCategoryButtons() {
+    const tankType = document.getElementById("tankType").value;
+
+    const starsBtn = document.getElementById("btn-stars");
+    const coralsBtn = document.getElementById("btn-corals");
+
+    if (tankType === "marine") {
+        starsBtn.style.display = "inline-block";
+        coralsBtn.style.display = "inline-block";
+
+        // reset state
+        activeCategories.stars = true;
+        activeCategories.coral = true;
+
+        // sync UI (remove inactive look)
+        starsBtn.classList.remove("inactive");
+        coralsBtn.classList.remove("inactive");
+
+    } else {
+        starsBtn.style.display = "none";
+        coralsBtn.style.display = "none";
+
+        activeCategories.stars = false;
+        activeCategories.coral = false;
+    }
 }
 
 // Filter function
@@ -600,8 +630,13 @@ document.getElementById("warnings").innerHTML = warnings;
 }
 
 function reloadTankType(){
-updateList();
-calculate();
+    updateCategoryButtons();
+    updateList();
+    calculate();
+
+    // re-filter list so hidden categories disappear
+    const query = document.getElementById("fishInput").value.toLowerCase();
+    filterFish(query);
 }
 
 function getTankLiters(){

@@ -9,7 +9,7 @@ display:flex;
 }
 
 .left{
-flex:3;
+flex:2;
 padding:20px;
 }
 
@@ -17,6 +17,7 @@ padding:20px;
 flex:1;
 padding:20px;
 background:#132938;
+min-width: 250px; /* optional to prevent collapsing too much */
 }
 
 input,select{
@@ -123,10 +124,55 @@ margin-top: 5px;
     background: #0e1a24; /* Placeholder color while loading */
 }
 
-#filter{
+#btn-fish{
  background-color: #132938;
  border-radius: 50%;
  border-color: #0e1a24;
+}
+
+#btn-shrimp{
+ background-color: #132938;
+ border-radius: 50%;
+ border-color: #0e1a24;
+}
+
+#btn-snail{
+ background-color: #132938;
+ border-radius: 50%;
+ border-color: #0e1a24;
+}
+
+#btn-crab{
+ background-color: #132938;
+ border-radius: 50%;
+ border-color: #0e1a24;
+}
+
+#btn-stars{
+ background-color: #132938;
+ border-radius: 50%;
+ border-color: #0e1a24;
+}
+
+#btn-corals{
+ background-color: #132938;
+ border-radius: 50%;
+ border-color: #0e1a24;
+}
+
+.category-row {
+    display: flex;
+    flex-wrap: nowrap;   /* 🚨 prevents wrapping */
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.category-row button {
+    flex-shrink: 0;      /* 🚨 prevents buttons from shrinking */
+    padding: 6px 10px;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .inactive {
