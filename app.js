@@ -319,9 +319,23 @@ let phMaxs = [];
 selectedFish.forEach(fish=>{
 
     // Tank type compatibility
-    if(fish.type === document.getElementById("tankType").value){
-        total += fish.size_cm * fish.amount;
-    }else{
+    if (fish.type === document.getElementById("tankType").value) {
+
+        // SHRIMP RULE
+        if (fish.category === "shrimp") {
+            total += (fish.amount * 0.5); // 2 shrimp = 1L
+
+        // SMALL LOW BIOLOAD (<5cm)
+        } else if (fish.bioload === "low" && fish.size_cm < 5) {
+            total += (fish.size_cm * fish.amount); // 1cm per liter
+
+        // EVERYTHING ELSE (fallback rule)
+        } else {
+            //  tweak this multiplier later for more realism
+            total += (fish.size_cm * fish.amount * 1.5);
+        }
+
+    } else {
         wrongType = true;
     }
 
