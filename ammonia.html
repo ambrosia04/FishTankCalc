@@ -184,20 +184,27 @@
 </div>
 
 <script>
-function calcAmmonia(){
+function calcAmmonia() {
     let size = parseFloat(document.getElementById("amTank").value);
     let unit = document.getElementById("amUnit").value;
-    
-    if(!size) { alert("Please enter a tank size"); return; }
+    let percent = parseFloat(document.getElementById("percent").value);
 
-    if(unit === "gallons"){
-        size *= 3.78541; // More precise conversion
+    // --- VALIDATION ---
+    if (!size || size <= 0) { 
+        alert("Please enter a valid tank size greater than 0."); 
+        return; 
+    }
+    if (!percent || percent <= 0) { 
+        alert("Ammonia Concentration must be greater than 0%."); 
+        return; 
     }
 
-    let ppm = parseFloat(document.getElementById("ppm").value);
-    let percent = parseFloat(document.getElementById("percent").value);
-    let salinity = parseFloat(document.getElementById("salinity").value);
-    let temp = parseFloat(document.getElementById("temp").value);
+    // Convert to Liters for calculation
+    let calcSize = (unit === "gallons") ? size * 3.78541 : size;
+
+    let ppm = parseFloat(document.getElementById("ppm").value) || 0;
+    let salinity = parseFloat(document.getElementById("salinity").value) || 0;
+    let temp = parseFloat(document.getElementById("temp").value) || 0;
     let tempUnit = document.getElementById("tempUnit").value;
 
     let tempC = (tempUnit === "f") ? (temp - 32) * 5/9 : temp;
@@ -206,7 +213,7 @@ function calcAmmonia(){
     let density = 1 + (salinity * 0.0008);
     
     // Dosage formula: (Liters * ppm) / (Concentration% * 10)
-    let result = (size * ppm) / (percent * 10);
+    let result = (calcSize * ppm) / (percent * 10);
     result *= density;
 
     let tempF = (tempC * 9/5) + 32;

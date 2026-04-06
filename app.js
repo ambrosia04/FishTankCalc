@@ -235,65 +235,50 @@ function addFish() {
     calculate();
 }
 
-function calculateRealVolume(){
+function calculateRealVolume() {
+    let mode = document.getElementById("volumeMode").value;
+    let volume = 0;
 
-let mode=document.getElementById("volumeMode").value;
-let volume;
+    if (mode === "liters") {
+        let size = parseFloat(document.getElementById("tankVolumeInput").value);
+        let unit = document.getElementById("tankVolumeUnit").value;
+        
+        if (isNaN(size) || size <= 0) { alert("Please enter tank size"); return; }
+        
+        volume = (unit === "gallons") ? size * 3.785 : size;
+    } else {
+        let l = parseFloat(document.getElementById("length").value) || 0;
+        let w = parseFloat(document.getElementById("width").value) || 0;
+        let h = parseFloat(document.getElementById("height").value) || 0;
+        let unit = document.getElementById("dimensionUnit").value;
 
-if(mode==="liters"){
+        if (l === 0 || w === 0 || h === 0) { alert("Please enter all dimensions"); return; }
 
-let size=document.getElementById("tankVolumeInput").value;
-let unit=document.getElementById("tankVolumeUnit").value;
+        if (unit === "inch") {
+            l *= 2.54; w *= 2.54; h *= 2.54;
+        }
+        volume = (l * w * h) / 1000;
+    }
 
-if(unit==="gallons"){
-volume=size*3.785;
-}else{
-volume=size;
-}
+    // Default to 0 if input is empty
+    let substrate = parseFloat(document.getElementById("substrate").value) || 0;
+    let rocks = parseFloat(document.getElementById("rocks").value) || 0;
 
-}else{
+    // substrate displacement (approx 1kg = 0.6L)
+    let substrateDisplacement = substrate * 0.6;
+    // rocks 10x10x10 cm = 1L
+    let rockDisplacement = rocks * 1;
 
-let l=document.getElementById("length").value;
-let w=document.getElementById("width").value;
-let h=document.getElementById("height").value;
+    let real = volume - substrateDisplacement - rockDisplacement;
+    if (real < 0) real = 0; // Prevent negative volume
 
-let unit=document.getElementById("dimensionUnit").value;
+    let gallons = real / 3.785;
 
-if(unit==="inch"){
-
-l*=2.54;
-w*=2.54;
-h*=2.54;
-
-}
-
-volume=(l*w*h)/1000;
-
-}
-
-// substrate displacement (approx 1kg = 0.6L)
-let substrate=document.getElementById("substrate").value;
-let rocks=document.getElementById("rocks").value;
-
-let substrateDisplacement=substrate*0.6;
-
-// rocks 10x10x10 cm
-let rockDisplacement=rocks*1;
-
-let real=volume-substrateDisplacement-rockDisplacement;
-
-let gallons=real/3.785;
-
-
-document.getElementById("realVolume").innerHTML=
-`
-Real Volume:
-<br>
-${real.toFixed(1)} Liters
-<br>
-${gallons.toFixed(1)} Gallons
-`;
-
+    document.getElementById("realVolume").innerHTML = `
+        <strong>Real Volume:</strong><br>
+        ${real.toFixed(1)} Liters<br>
+        ${gallons.toFixed(1)} Gallons
+    `;
 }
 
 function updateAmount(index,value){
@@ -697,42 +682,24 @@ function convertTank(){
 calculate();
 }
 
-function convertMini(){
+function convertMini() {
+    let value = parseFloat(document.getElementById("convertValue").value);
+    let from = document.getElementById("convertFrom").value;
+    let resEl = document.getElementById("convertResult");
 
-let value = document.getElementById("convertValue").value;
-let from = document.getElementById("convertFrom").value;
+    if (isNaN(value) || value <= 0) {
+        resEl.innerHTML = "Enter a value";
+        return;
+    }
 
-let result;
-
-if(from === "liters"){
-result = value / 3.785;
-}else{
-result = value * 3.785;
-}
-
-document.getElementById("convertResult").innerHTML =
-result.toFixed(2);
-
-function toggleVolumeMode(){
-
-let mode=document.getElementById("volumeMode").value;
-
-if(mode==="liters"){
-
-document.getElementById("volumeLiters").style.display="block";
-document.getElementById("volumeDimensions").style.display="none";
-
-}else{
-
-
-document.getElementById("volumeLiters").style.display="none";
-document.getElementById("volumeDimensions").style.display="block";
-
-}
-
-}
-
-
+    let result;
+    if (from === "liters") {
+        result = value / 3.785;
+        resEl.innerHTML = result.toFixed(2) + " Gallons";
+    } else {
+        result = value * 3.785;
+        resEl.innerHTML = result.toFixed(2) + " Liters";
+    }
 }
 
 function checkEmojiSupport() {
