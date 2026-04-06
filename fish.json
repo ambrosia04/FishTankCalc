@@ -1326,6 +1326,7 @@
 {
 "latin_name": "Alestopetersius brichardi",
 "common_name": "Brichard's Tetra",
+"photo": "images/Alestopetersius_brichardi.jpg",
 "type": "freshwater",
 "size_cm": 9,
 "min_tank": 120,
@@ -1347,6 +1348,7 @@
 {
 "latin_name": "Alestopetersius caudalis",
 "common_name": "Yellowtail Congo Tetra",
+"photo": "images/Alestopetersius_caudalis.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 100,
@@ -1368,6 +1370,7 @@
 {
 "latin_name": "Alestopetersius nigropterus",
 "common_name": "Blackfin Tetra",
+"photo": "images/Alestopetersius_nigropterus.jpg",
 "type": "freshwater",
 "size_cm": 7,
 "min_tank": 100,
@@ -1389,6 +1392,7 @@
 {
 "latin_name": "Alestopetersius smykalai",
 "common_name": "Smykal's Tetra",
+"photo": "images/Alestopetersius_smykalai.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 100,
@@ -1409,6 +1413,7 @@
 {
 "latin_name": "Alfaro cultratus",
 "common_name": "Knife Livebearer",
+"photo": "images/Alfaro_cultratus.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 120,
@@ -1429,6 +1434,7 @@
 {
 "latin_name": "Alopias pelagicus",
 "common_name": "Pelagic Thresher Shark",
+"photo": "images/Alopias_pelagicus.jpg",
 "type": "marine",
 "size_cm": 330,
 "min_tank": 50000,
@@ -1449,6 +1455,7 @@
 {
 "latin_name": "Alopias vulpinus",
 "common_name": "Common Thresher Shark",
+"photo": "images/Alopias_vulpinus.jpg",
 "type": "marine",
 "size_cm": 570,
 "min_tank": 100000,
@@ -1469,6 +1476,7 @@
 {
 "latin_name": "Alosa fallax",
 "common_name": "Twaite Shad",
+"photo": "images/Alosa_fallax.jpg",
 "type": "marine",
 "size_cm": 60,
 "min_tank": 1000,
@@ -1489,6 +1497,7 @@
 {
 "latin_name": "Altolamprologus calvus",
 "common_name": "Pearly Compressiceps",
+"photo": "images/Altolamprologus_calvus.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 200,
@@ -1509,6 +1518,7 @@
 {
 "latin_name": "Altolamprologus compressiceps",
 "common_name": "Compressed Cichlid",
+"photo": "images/Altolamprologus_compressiceps.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 200,
@@ -1529,6 +1539,7 @@
 {
 "latin_name": "Amatitlania altoflava",
 "common_name": "Yellow Convict Cichlid",
+"photo": "images/Amatitlania_altoflava.jpg",
 "type": "freshwater",
 "size_cm": 9,
 "min_tank": 120,
@@ -1549,6 +1560,7 @@
 {
 "latin_name": "Amatitlania kanna",
 "common_name": "Panama Convict Cichlid",
+"photo": "images/Amatitlania_kanna.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 120,
@@ -1569,6 +1581,7 @@
 {
 "latin_name": "Amatitlania myrnae",
 "common_name": "Topaz Cichlid",
+"photo": "images/Amatitlania_myrnae.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 120,
@@ -1589,6 +1602,7 @@
 {
 "latin_name": "Amatitlania nanolutea",
 "common_name": "Yellow Dwarf Cichlid",
+"photo": "images/Amatitlania_nanolutea.jpg",
 "type": "freshwater",
 "size_cm": 7,
 "min_tank": 100,
@@ -1609,6 +1623,7 @@
 {
 "latin_name": "Amatitlania nigrofasciata",
 "common_name": "Convict Cichlid",
+"photo": "images/Amatitlania_nigrofasciata.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 100,
@@ -1629,6 +1644,7 @@
 {
 "latin_name": "Amatitlania sajica",
 "common_name": "T-bar Cichlid",
+"photo": "images/Amatitlania_sajica.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 120,
@@ -1649,6 +1665,7 @@
 {
 "latin_name": "Amatitlania septemfasciata",
 "common_name": "Seven-stripe Cichlid",
+"photo": "images/Amatitlania_septemfasciata.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 150,
@@ -1669,6 +1686,7 @@
 {
 "latin_name": "Amatitlania siquia",
 "common_name": "Honduran Red Point Cichlid",
+"photo": "images/Amatitlania_siquia.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 120,
@@ -1689,6 +1707,7 @@
 {
 "latin_name": "Amatitlania sp. Honduran",
 "common_name": "Honduran Red Point",
+"photo": "images/Amatitlania_honduran.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 150,
@@ -1709,6 +1728,7 @@
 {
 "latin_name": "Amatitlania sp. Yoyoa",
 "common_name": "Yojoa Cichlid",
+"photo": "images/Amatitlania_yoyoa.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 100,
@@ -1729,6 +1749,7 @@
 {
 "latin_name": "Ambassis interrupta",
 "common_name": "Longspine Glassfish",
+"photo": "images/Ambassis_interrupta.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 300,
@@ -1749,6 +1770,7 @@
 {
 "latin_name": "Ambastaia nigrolineata",
 "common_name": "Black-lined Loach",
+"photo": "images/Ambastaia_nigrolineata.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 120,
@@ -1769,6 +1791,7 @@
 {
 "latin_name": "Ambastaia sidthimunki",
 "common_name": "Dwarf Chain Loach",
+"photo": "images/Ambastaia_sidthimunki.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 100,
@@ -1789,6 +1812,7 @@
 {
 "latin_name": "Amblydoras nauticus",
 "common_name": "Marbled Talking Catfish",
+"photo": "images/Amblydoras_nauticus.jpg",
 "type": "freshwater",
 "size_cm": 7.5,
 "min_tank": 100,
@@ -1809,6 +1833,7 @@
 {
 "latin_name": "Amblyeleotris aurora",
 "common_name": "Pinkbar Goby",
+"photo": "images/Amblyeleotris_aurora.jpg",
 "type": "marine",
 "size_cm": 11,
 "min_tank": 100,
@@ -1829,6 +1854,7 @@
 {
 "latin_name": "Amblyglyphidodon curacao",
 "common_name": "Staghorn Damselfish",
+"photo": "images/Amblyglyphidodon_curacao.jpg",
 "type": "marine",
 "size_cm": 11,
 "min_tank": 200,
@@ -1849,6 +1875,7 @@
 {
 "latin_name": "Amblyglyphidodon leucogaster",
 "common_name": "Yellowbelly Damselfish",
+"photo": "images/Amblyglyphidodon_leucogaster.jpg",
 "type": "marine",
 "size_cm": 13,
 "min_tank": 250,
@@ -1869,6 +1896,7 @@
 {
 "latin_name": "Amblygobius phalaena",
 "common_name": "Banded Goby",
+"photo": "images/Amblygobius_phalaena.jpg",
 "type": "marine",
 "size_cm": 15,
 "min_tank": 200,
@@ -1889,6 +1917,7 @@
 {
 "latin_name": "Ameca splendens",
 "common_name": "Butterfly Splitfin",
+"photo": "images/Ameca_splendens.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 120,
@@ -1909,6 +1938,7 @@
 {
 "latin_name": "Ameiurus melas",
 "common_name": "Black Bullhead",
+"photo": "images/Ameiurus_melas.jpg",
 "type": "freshwater",
 "size_cm": 45,
 "min_tank": 600,
@@ -1929,6 +1959,7 @@
 {
 "latin_name": "Ameiurus nebulosus",
 "common_name": "Brown Bullhead",
+"photo": "images/Ameiurus_nebulosus.jpg",
 "type": "freshwater",
 "size_cm": 45,
 "min_tank": 600,
@@ -1949,6 +1980,7 @@
 {
 "latin_name": "Ammocryptocharax elegans",
 "common_name": "Green Darter Characin",
+"photo": "images/Ammocryptocharax_elegans.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -1969,6 +2001,7 @@
 {
 "latin_name": "Amphilophus citrinellus",
 "common_name": "Midas Cichlid",
+"photo": "images/Amphilophus_citrinellus.jpg",
 "type": "freshwater",
 "size_cm": 35,
 "min_tank": 450,
@@ -1989,6 +2022,7 @@
 {
 "latin_name": "Amphilophus hogaboomorum",
 "common_name": "Hogaboomorum Cichlid",
+"photo": "images/Amphilophus_hogaboomorum.jpg",
 "type": "freshwater",
 "size_cm": 25,
 "min_tank": 400,
@@ -2009,6 +2043,7 @@
 {
 "latin_name": "Amphilophus istlanus",
 "common_name": "Istlanum Cichlid",
+"photo": "images/Amphilophus_istlanus.jpg",
 "type": "freshwater",
 "size_cm": 25,
 "min_tank": 400,
@@ -2029,6 +2064,7 @@
 {
 "latin_name": "Amphilophus labiatus",
 "common_name": "Red Devil Cichlid",
+"photo": "images/Amphilophus_labiatus.jpg",
 "type": "freshwater",
 "size_cm": 35,
 "min_tank": 450,
@@ -2049,6 +2085,7 @@
 {
 "latin_name": "Amphilophus trimaculatus",
 "common_name": "Three Spot Cichlid",
+"photo": "images/Amphilophus_trimaculatus.jpg",
 "type": "freshwater",
 "size_cm": 35,
 "min_tank": 500,
@@ -2069,6 +2106,7 @@
 {
 "latin_name": "Amphilophus xiloaensis",
 "common_name": "Xiloaensis Cichlid",
+"photo": "images/Amphilophus_xiloaensis.jpg",
 "type": "freshwater",
 "size_cm": 20,
 "min_tank": 350,
@@ -2088,7 +2126,8 @@
 },
 {
 "latin_name": "Amphiprion akallopisos",
-"common_name": "Skunk Clownfish",
+"common_name": "Nosestripe Anemonefish",
+"photo": "images/Amphiprion_akallopisos.jpg",
 "type": "marine",
 "size_cm": 10,
 "min_tank": 100,
@@ -2109,6 +2148,7 @@
 {
 "latin_name": "Amphiprion akindynos",
 "common_name": "Barrier Reef Anemonefish",
+"photo": "images/Amphiprion_akindynos.jpg",
 "type": "marine",
 "size_cm": 12,
 "min_tank": 120,
@@ -2129,6 +2169,7 @@
 {
 "latin_name": "Amphiprion allardi",
 "common_name": "Allard's Anemonefish",
+"photo": "images/Amphiprion_allardi.jpg",
 "type": "marine",
 "size_cm": 14,
 "min_tank": 150,
@@ -2149,6 +2190,7 @@
 {
 "latin_name": "Amphiprion biaculeatus",
 "common_name": "Maroon Clownfish",
+"photo": "images/Amphiprion_biaculeatus.jpg",
 "type": "marine",
 "size_cm": 17,
 "min_tank": 200,
@@ -2169,6 +2211,7 @@
 {
 "latin_name": "Amphiprion bicinctus",
 "common_name": "Two-band Anemonefish",
+"photo": "images/Amphiprion_bicinctus.jpg",
 "type": "marine",
 "size_cm": 14,
 "min_tank": 150,
@@ -2189,6 +2232,7 @@
 {
 "latin_name": "Amphiprion chrysogaster",
 "common_name": "Mauritian Anemonefish",
+"photo": "images/Amphiprion_chrysogaster.jpg",
 "type": "marine",
 "size_cm": 15,
 "min_tank": 200,
@@ -2209,6 +2253,7 @@
 {
 "latin_name": "Amphiprion chrysopterus",
 "common_name": "Orange-fin Anemonefish",
+"photo": "images/Amphiprion_chrysopterus.jpg",
 "type": "marine",
 "size_cm": 17,
 "min_tank": 250,
@@ -2229,6 +2274,7 @@
 {
 "latin_name": "Amphiprion clarkii",
 "common_name": "Clark's Anemonefish",
+"photo": "images/Amphiprion_clarkii.jpg",
 "type": "marine",
 "size_cm": 15,
 "min_tank": 150,
@@ -2249,6 +2295,7 @@
 {
 "latin_name": "Amphiprion ephippium",
 "common_name": "Red Saddleback Anemonefish",
+"photo": "images/Amphiprion_ephippium.jpg",
 "type": "marine",
 "size_cm": 12,
 "min_tank": 150,
@@ -2269,6 +2316,7 @@
 {
 "latin_name": "Amphiprion frenatus",
 "common_name": "Tomato Clownfish",
+"photo": "images/Amphiprion_frenatus.jpg",
 "type": "marine",
 "size_cm": 14,
 "min_tank": 150,
@@ -2289,6 +2337,7 @@
 {
 "latin_name": "Amphiprion melanopus",
 "common_name": "Fire Clownfish",
+"photo": "images/Amphiprion_melanopus.jpg",
 "type": "marine",
 "size_cm": 12,
 "min_tank": 150,
@@ -2309,6 +2358,7 @@
 {
 "latin_name": "Amphiprion ocellaris",
 "common_name": "Ocellaris Clownfish",
+"photo": "images/Amphiprion_ocellaris.jpg",
 "type": "marine",
 "size_cm": 9,
 "min_tank": 80,
@@ -2329,6 +2379,7 @@
 {
 "latin_name": "Amphiprion percula",
 "common_name": "Orange Clownfish",
+"photo": "images/Amphiprion_percula.jpg",
 "type": "marine",
 "size_cm": 8,
 "min_tank": 80,
@@ -2349,6 +2400,7 @@
 {
 "latin_name": "Amphiprion perideraion",
 "common_name": "Pink Skunk Clownfish",
+"photo": "images/Amphiprion_perideraion.jpg",
 "type": "marine",
 "size_cm": 10,
 "min_tank": 100,
@@ -2369,6 +2421,7 @@
 {
 "latin_name": "Amphiprion polymnus",
 "common_name": "Saddleback Clownfish",
+"photo": "images/Amphiprion_polymnus.jpg",
 "type": "marine",
 "size_cm": 13,
 "min_tank": 150,
@@ -2389,6 +2442,7 @@
 {
 "latin_name": "Amphiprion sandaracinos",
 "common_name": "Orange Skunk Clownfish",
+"photo": "images/Amphiprion_sandaracinos.jpg",
 "type": "marine",
 "size_cm": 14,
 "min_tank": 150,
@@ -2409,6 +2463,7 @@
 {
 "latin_name": "Amphiprion tricinctus",
 "common_name": "Three-band Anemonefish",
+"photo": "images/Amphiprion_tricinctus.jpg",
 "type": "marine",
 "size_cm": 12,
 "min_tank": 150,
@@ -2429,6 +2484,7 @@
 {
 "latin_name": "Anableps anableps",
 "common_name": "Four-eyed Fish",
+"photo": "images/Anableps_anableps.jpg",
 "type": "freshwater",
 "size_cm": 30,
 "min_tank": 400,
@@ -2449,6 +2505,7 @@
 {
 "latin_name": "Anampses femininus",
 "common_name": "Blue-tail Wrasse",
+"photo": "images/Anampses_femininus.jpg",
 "type": "marine",
 "size_cm": 24,
 "min_tank": 500,
@@ -2469,6 +2526,7 @@
 {
 "latin_name": "Anampses neoguinaicus",
 "common_name": "New Guinea Wrasse",
+"photo": "images/Anampses_neoguinaicus.jpg",
 "type": "marine",
 "size_cm": 20,
 "min_tank": 400,
@@ -2489,6 +2547,7 @@
 {
 "latin_name": "Anarhichas lupus",
 "common_name": "Atlantic Wolffish",
+"photo": "images/Anarhichas_lupus.jpg",
 "type": "marine",
 "size_cm": 150,
 "min_tank": 5000,
@@ -2509,6 +2568,7 @@
 {
 "latin_name": "Anarrhichthys ocellatus",
 "common_name": "Wolf Eel",
+"photo": "images/Anarrhichthys_ocellatus.jpg",
 "type": "marine",
 "size_cm": 240,
 "min_tank": 8000,
@@ -2529,6 +2589,7 @@
 {
 "latin_name": "Ancistrus aff. hoplogenys",
 "common_name": "Starlight Bristlenose Pleco",
+"photo": "images/Ancistrus_aff_hoplogenys.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 150,
@@ -2549,6 +2610,7 @@
 {
 "latin_name": "Ancistrus dolichopterus",
 "common_name": "Bushymouth Catfish",
+"photo": "images/Ancistrus_dolichopterus.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 150,
@@ -2569,6 +2631,7 @@
 {
 "latin_name": "Ancistrus gymnorhynchus",
 "common_name": "Naked-snout Bristlenose",
+"photo": "images/Ancistrus_gymnorhynchus.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 150,
@@ -2589,6 +2652,7 @@
 {
 "latin_name": "Ancistrus hoplogenys",
 "common_name": "Starlight Bristlenose",
+"photo": "images/Ancistrus_hoplogenys.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 150,
@@ -2609,6 +2673,7 @@
 {
 "latin_name": "Ancistrus sp. LDA016",
 "common_name": "Calico Bristlenose",
+"photo": "images/Ancistrus_LDA016.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 100,
@@ -2629,6 +2694,7 @@
 {
 "latin_name": "Ancistrus tamboensis",
 "common_name": "Tambo River Bristlenose",
+"photo": "images/Ancistrus_tamboensis.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 80,
@@ -2649,6 +2715,7 @@
 {
 "latin_name": "Andinoacara coeruleopunctatus",
 "common_name": "Blue-spotted Acara",
+"photo": "images/Andinoacara_coeruleopunctatus.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 200,
@@ -2669,6 +2736,7 @@
 {
 "latin_name": "Andinoacara pulcher",
 "common_name": "Blue Acara",
+"photo": "images/Andinoacara_pulcher.jpg",
 "type": "freshwater",
 "size_cm": 16,
 "min_tank": 200,
@@ -2689,6 +2757,7 @@
 {
 "latin_name": "Andinoacara rivulatus",
 "common_name": "Green Terror",
+"photo": "images/Andinoacara_rivulatus.jpg",
 "type": "freshwater",
 "size_cm": 30,
 "min_tank": 300,
@@ -2709,6 +2778,7 @@
 {
 "latin_name": "Andinoacara stalsbergi",
 "common_name": "White Saum Green Terror",
+"photo": "images/Andinoacara_stalsbergi.jpg",
 "type": "freshwater",
 "size_cm": 25,
 "min_tank": 300,
@@ -2729,6 +2799,7 @@
 {
 "latin_name": "Anguilla anguilla",
 "common_name": "European Eel",
+"photo": "images/Anguilla_anguilla.jpg",
 "type": "freshwater",
 "size_cm": 100,
 "min_tank": 1000,
@@ -2749,6 +2820,7 @@
 {
 "latin_name": "Anguilla marmorata",
 "common_name": "Giant Mottled Eel",
+"photo": "images/Anguilla_marmorata.jpg",
 "type": "freshwater",
 "size_cm": 200,
 "min_tank": 2000,
@@ -2769,6 +2841,7 @@
 {
 "latin_name": "Anguilla reinhardtii",
 "common_name": "Long-finned Eel",
+"photo": "images/Anguilla_reinhardtii.jpg",
 "type": "freshwater",
 "size_cm": 160,
 "min_tank": 1500,
@@ -2789,6 +2862,7 @@
 {
 "latin_name": "Anisotremus virginicus",
 "common_name": "Porkfish",
+"photo": "images/Anisotremus_virginicus.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 500,
@@ -2809,6 +2883,7 @@
 {
 "latin_name": "Anomalochromis thomasi",
 "common_name": "African Butterfly Cichlid",
+"photo": "images/Anomalochromis_thomasi.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 80,
@@ -2829,6 +2904,7 @@
 {
 "latin_name": "Anostomus anostomus",
 "common_name": "Striped Headstander",
+"photo": "images/Anostomus_anostomus.jpg",
 "type": "freshwater",
 "size_cm": 18,
 "min_tank": 250,
@@ -2849,6 +2925,7 @@
 {
 "latin_name": "Anostomus ternetzi",
 "common_name": "Ternetz's Headstander",
+"photo": "images/Anostomus_ternetzi.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 200,
@@ -2869,6 +2946,7 @@
 {
 "latin_name": "Antennarius commerson",
 "common_name": "Commerson's Frogfish",
+"photo": "images/Antennarius_commerson.jpg",
 "type": "marine",
 "size_cm": 35,
 "min_tank": 400,
@@ -2889,6 +2967,7 @@
 {
 "latin_name": "Antennarius hispidus",
 "common_name": "Shaggy Frogfish",
+"photo": "images/Antennarius_hispidus.jpg",
 "type": "marine",
 "size_cm": 20,
 "min_tank": 200,
@@ -2909,6 +2988,7 @@
 {
 "latin_name": "Antennarius maculatus",
 "common_name": "Warty Frogfish",
+"photo": "images/Antennarius_maculatus.jpg",
 "type": "marine",
 "size_cm": 15,
 "min_tank": 150,
@@ -2929,6 +3009,7 @@
 {
 "latin_name": "Antennarius pictus",
 "common_name": "Painted Frogfish",
+"photo": "images/Antennarius_pictus.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 300,
@@ -2949,6 +3030,7 @@
 {
 "latin_name": "Anthias anthias",
 "common_name": "Swallowtail Seaperch",
+"photo": "images/Anthias_anthias.jpg",
 "type": "marine",
 "size_cm": 25,
 "min_tank": 500,
@@ -2969,6 +3051,7 @@
 {
 "latin_name": "Apareiodon affinis",
 "common_name": "Darter Characin",
+"photo": "images/Apareiodon_affinis.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 200,
@@ -2989,6 +3072,7 @@
 {
 "latin_name": "Aphanius anatoliae",
 "common_name": "Anatolian Toothcarp",
+"photo": "images/Aphanius_anatoliae.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -3009,6 +3093,7 @@
 {
 "latin_name": "Aphanius danfordii",
 "common_name": "Sultan Sazlığı Toothcarp",
+"photo": "images/Aphanius_danfordii.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -3029,6 +3114,7 @@
 {
 "latin_name": "Aphanius farsicus",
 "common_name": "Fars Toothcarp",
+"photo": "images/Aphanius_farsicus.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -3049,6 +3135,7 @@
 {
 "latin_name": "Aphanius fasciatus",
 "common_name": "Mediterranean Banded Killifish",
+"photo": "images/Aphanius_fasciatus.jpg",
 "type": "brackish",
 "size_cm": 6,
 "min_tank": 80,
@@ -3069,6 +3156,7 @@
 {
 "latin_name": "Aphyocharax anisitsi",
 "common_name": "Bloodfin Tetra",
+"photo": "images/Aphyocharax_anisitsi.jpg",
 "type": "freshwater",
 "size_cm": 5.5,
 "min_tank": 80,
@@ -3089,6 +3177,7 @@
 {
 "latin_name": "Aphyocharax nattereri",
 "common_name": "Dawn Tetra",
+"photo": "images/Aphyocharax_nattereri.jpg",
 "type": "freshwater",
 "size_cm": 4,
 "min_tank": 60,
@@ -3109,6 +3198,7 @@
 {
 "latin_name": "Aphyocharax rathbuni",
 "common_name": "Rathbun's Bloodfin Tetra",
+"photo": "images/Aphyocharax_rathbuni.jpg",
 "type": "freshwater",
 "size_cm": 4.5,
 "min_tank": 60,
@@ -3129,6 +3219,7 @@
 {
 "latin_name": "Aphyocypris amnis",
 "common_name": "Taiwanese Minnow",
+"photo": "images/Aphyocypris_amnis.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -3149,6 +3240,7 @@
 {
 "latin_name": "Aphyocypris kikuchii",
 "common_name": "Kikuchi's Minnow",
+"photo": "images/Aphyocypris_kikuchii.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 80,
@@ -3169,6 +3261,7 @@
 {
 "latin_name": "Aphyosemion australe",
 "common_name": "Lyretail Killifish",
+"photo": "images/Aphyosemion_australe.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 40,
@@ -3189,6 +3282,7 @@
 {
 "latin_name": "Aphyosemion bitaeniatum",
 "common_name": "Two-striped Killi",
+"photo": "images/Aphyosemion_bitaeniatum.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 40,
@@ -3209,6 +3303,7 @@
 {
 "latin_name": "Aphyosemion bivittatum",
 "common_name": "Two-banded Killi",
+"photo": "images/Aphyosemion_bivittatum.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 40,
@@ -3229,6 +3324,7 @@
 {
 "latin_name": "Aphyosemion celiae",
 "common_name": "Celia's Killi",
+"photo": "images/Aphyosemion_celiae.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 40,
@@ -3249,6 +3345,7 @@
 {
 "latin_name": "Aphyosemion cognatum",
 "common_name": "Red-spotted Killi",
+"photo": "images/Aphyosemion_cognatum.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 40,
@@ -3269,6 +3366,7 @@
 {
 "latin_name": "Aphyosemion elberti",
 "common_name": "Elbert's Killi",
+"photo": "images/Aphyosemion_elberti.jpg",
 "type": "freshwater",
 "size_cm": 4,
 "min_tank": 40,
@@ -3289,6 +3387,7 @@
 {
 "latin_name": "Aphyosemion ogoense",
 "common_name": "Ogooue Killi",
+"photo": "images/Aphyosemion_ogoense.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 40,
@@ -3309,6 +3408,7 @@
 {
 "latin_name": "Aphyosemion striatum",
 "common_name": "Five-lined Killifish",
+"photo": "images/Aphyosemion_striatum.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 40,
@@ -3329,6 +3429,7 @@
 {
 "latin_name": "Aphyosemion volcanum",
 "common_name": "Volcano Killi",
+"photo": "images/Aphyosemion_vulcanum.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 40,
@@ -3349,6 +3450,7 @@
 {
 "latin_name": "Apistogramma agassizii",
 "common_name": "Agassiz's Dwarf Cichlid",
+"photo": "images/Apistogramma_agassizii.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 60,
@@ -3369,6 +3471,7 @@
 {
 "latin_name": "Apistogramma alacrina",
 "common_name": "Guaviare Dwarf Cichlid",
+"photo": "images/Apistogramma_alacrina.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3389,6 +3492,7 @@
 {
 "latin_name": "Apistogramma allpahuayo",
 "common_name": "Black-chin Dwarf Cichlid",
+"photo": "images/Apistogramma_allpahuayo.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3409,6 +3513,7 @@
 {
 "latin_name": "Apistogramma baenschi",
 "common_name": "Inka Dwarf Cichlid",
+"photo": "images/Apistogramma_baenschi.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3429,6 +3534,7 @@
 {
 "latin_name": "Apistogramma barlowi",
 "common_name": "Barlow's Dwarf Cichlid",
+"photo": "images/Apistogramma_barlowi.jpg",
 "type": "freshwater",
 "size_cm": 7,
 "min_tank": 80,
@@ -3449,6 +3555,7 @@
 {
 "latin_name": "Apistogramma bitaeniata",
 "common_name": "Two-banded Dwarf Cichlid",
+"photo": "images/Apistogramma_bitaeniata.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3469,6 +3576,7 @@
 {
 "latin_name": "Apistogramma borellii",
 "common_name": "Umbrella Dwarf Cichlid",
+"photo": "images/Apistogramma_borellii.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3489,6 +3597,7 @@
 {
 "latin_name": "Apistogramma cacatuoides",
 "common_name": "Cockatoo Dwarf Cichlid",
+"photo": "images/Apistogramma_cacatuoides.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 60,
@@ -3509,6 +3618,7 @@
 {
 "latin_name": "Apistogramma caetei",
 "common_name": "Caete Dwarf Cichlid",
+"photo": "images/Apistogramma_caetei.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -3529,6 +3639,7 @@
 {
 "latin_name": "Apistogramma commbrae",
 "common_name": "Corumba Dwarf Cichlid",
+"photo": "images/Apistogramma_commbrae.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -3549,6 +3660,7 @@
 {
 "latin_name": "Apistogramma diplotaenia",
 "common_name": "Double-banded Dwarf Cichlid",
+"photo": "images/Apistogramma_diplotaenia.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
