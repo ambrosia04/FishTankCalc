@@ -1,3 +1,11 @@
+fetch("fish.json")
+.then(res => res.json())
+.then(data => {
+    fishDB = data;
+    populate();
+    checkEmojiSupport(); // <--- Add this line here
+});
+
 let fishDB = [];
 let selectedFish = [];
 let activeCategories = {
@@ -67,6 +75,15 @@ function populate() {
         }
     }
 });
+
+// Auto-calculate when user types a new tank size
+document.getElementById("tankSize").addEventListener("input", calculate);
+
+// Auto-calculate when user changes between Gallons/Liters
+document.getElementById("unit").addEventListener("change", calculate);
+
+// Auto-calculate when tank type (Marine/Freshwater) changes
+document.getElementById("tankType").addEventListener("change", reloadTankType);
 }
 
 function toggleCategory(category) {
@@ -429,204 +446,235 @@ function getSpeciesRule(fish) {
 
 function calculate() {
 
-let tank = getTankLiters();
-let total = 0;
-let warnings = "";
+    let tank = getTankLiters();
 
-let wrongType = false;
-
-// Track shrimp/snails
-let shrimpPresent = selectedFish.some(f=>f.category==="shrimp");
-let snailPresent = selectedFish.some(f=>f.category==="snail");
-
-// Track activity
-let activityLevels = selectedFish.map(f=>f.activity);
-
-// Temperature & PH arrays
-let tempMins = [];
-let tempMaxs = [];
-let phMins = [];
-let phMaxs = [];
-
-const tankType = document.getElementById("tankType").value;
-
-selectedFish.forEach(fish=>{
-
-    if (fish.type !== tankType) {
-        wrongType = true;
+    // ✅ Tank safety check
+    if (!tank || tank <= 0) {
+        document.getElementById("capacity").innerHTML = "Enter tank size";
         return;
     }
 
-    const rule = getSpeciesRule(fish);
+    let totalBioloadLiters = 0;
+    let maxMinTankRequirement = 0;
+    let warnings = "";
+    let warningSet = new Set();
 
-    // PREDATOR WARNING (fish eating fish)
-    if (fish.aggression === "predatory") {
+    let wrongType = false;
+    let hardMinTankOnly = false;
 
-        let prey = selectedFish.filter(other =>
-            fish !== other && fish.size_cm > other.size_cm * 1.5
-        );
+    // Track categories
+    let shrimpPresent = selectedFish.some(f => f.category === "shrimp");
+    let snailPresent = selectedFish.some(f => f.category === "snail");
 
-        if (prey.length) {
-            warnings += `
-            <div class="warning">
-            ${fish.latin_name} may eat smaller tank mates
-            </div>
-            `;
+    // Track activity properly (ONLY valid fish)
+    let activityLevels = [];
+
+    // Compatibility tracking
+    let predators = [];
+    let territorialFish = [];
+    let schoolingFish = [];
+    let aggressiveFish = [];
+
+    // Temp / PH
+    let tempMins = [];
+    let tempMaxs = [];
+    let phMins = [];
+    let phMaxs = [];
+
+    const tankType = document.getElementById("tankType").value;
+
+    selectedFish.forEach(fish => {
+
+        if (fish.type !== tankType) {
+            wrongType = true;
+            return;
         }
-    }
 
-    // Shrimp / snail special rules
-    if (fish.category === "shrimp") {
-        total += fish.amount * rule.litersPerFish;
-    } else if (fish.category === "snail") {
-        total += fish.amount * rule.litersPerFish;
-    } else if (rule.factor > 0) {
-        //  nano-fish rule
-        if (fish.bioload === "low" && fish.size_cm < 5) {
-            total += fish.size_cm * fish.amount;
-        } else {
-            total += fish.size_cm * fish.amount * rule.factor;
+        // ✅ Only valid fish tracked
+        activityLevels.push(fish.activity);
+
+        const rule = getSpeciesRule(fish);
+
+        // Track min tank
+        if (fish.min_tank && fish.min_tank > maxMinTankRequirement) {
+            maxMinTankRequirement = fish.min_tank;
         }
-    }
 
-    // Species warnings
-    rule.warnings.forEach(msg => {
-        warnings += `<div class="warning">${fish.latin_name}: ${msg}</div>`;
+        // ✅ Huge species override detection
+        if (rule.factor === 0 && fish.min_tank) {
+            hardMinTankOnly = true;
+        }
+
+        // --- Bioload ---
+        if (fish.category === "shrimp") {
+            totalBioloadLiters += fish.amount * rule.litersPerFish;
+        } 
+        else if (fish.category === "snail") {
+            totalBioloadLiters += fish.amount * rule.litersPerFish;
+        } 
+        else if (rule.factor > 0) {
+            if (fish.bioload === "low" && fish.size_cm < 5) {
+                totalBioloadLiters += fish.size_cm * fish.amount;
+            } else {
+                totalBioloadLiters += fish.size_cm * fish.amount * rule.factor;
+            }
+        }
+
+        // --- Behavior tracking ---
+        if (fish.aggression === "predatory") predators.push(fish);
+        if (fish.aggression === "territorial" || fish.aggression === "semi-aggressive") territorialFish.push(fish);
+        if (fish.schooling) schoolingFish.push(fish);
+        if (fish.aggression === "aggressive" || fish.aggression === "predatory") aggressiveFish.push(fish);
+
+        // --- Predator warning ---
+        if (fish.aggression === "predatory") {
+            let prey = selectedFish.filter(other =>
+                fish !== other && fish.size_cm > other.size_cm * 1.5
+            );
+            if (prey.length) {
+                warningSet.add(`<div class="warning">${fish.latin_name} may eat smaller tank mates</div>`);
+            }
+        }
+
+        // Species warnings
+        rule.warnings.forEach(msg => {
+            warningSet.add(`<div class="warning">${fish.latin_name}: ${msg}</div>`);
+        });
+
+        // Min tank warning
+        if (fish.min_tank && tank < fish.min_tank) {
+            warningSet.add(`<div class="warning">${fish.latin_name} needs at least ${fish.min_tank}L</div>`);
+        }
+
+        // Temperature
+        if (fish.temperature) {
+            tempMins.push(fish.temperature[0]);
+            tempMaxs.push(fish.temperature[1]);
+        }
+
+        // PH
+        if (fish.ph) {
+            phMins.push(fish.ph[0]);
+            phMaxs.push(fish.ph[fish.ph.length - 1]);
+        }
+
+        // Schooling
+        if (fish.schooling && fish.amount < fish.min_school) {
+            warningSet.add(`<div class="warning">${fish.latin_name} needs at least ${fish.min_school} fish</div>`);
+        }
+
+        // Group limits
+        if (fish.max_group === 1) {
+            if (fish.amount === 2) {
+                warningSet.add(`<div class="warning-yellow">${fish.latin_name} can only be in pairs when breeding</div>`);
+            } else if (fish.amount > 2) {
+                warningSet.add(`<div class="warning-yellow">${fish.latin_name} cannot be kept in groups</div>`);
+            }
+        } else if (fish.max_group && fish.amount > fish.max_group) {
+            warningSet.add(`<div class="warning-yellow">${fish.latin_name} max group size is ${fish.max_group}</div>`);
+        }
+
+        // Shrimp/snail risk
+        if (shrimpPresent && fish.eat_shrimp) {
+            warningSet.add(`<div class="warning">${fish.latin_name} may eat shrimp!</div>`);
+        }
+        if (snailPresent && fish.eat_snails) {
+            warningSet.add(`<div class="warning">${fish.latin_name} may eat snails!</div>`);
+        }
+
+        // Algae requirement
+        if (fish.needs_algae && !document.getElementById("planted").checked) {
+            warningSet.add(`<div class="warning">${fish.latin_name} needs algae / mature tank</div>`);
+        }
+
     });
 
-    // generic checks 
-    if (fish.min_tank && tank < fish.min_tank) {
-        warnings += `<div class="warning">${fish.latin_name} needs at least ${fish.min_tank}L</div>`;
+    // --- GLOBAL CHECKS ---
+
+    if (wrongType) {
+        warningSet.add(`<div class="warning">Some fish are not compatible with tank type</div>`);
     }
 
-
-    // Collect temperature
-    if(fish.temperature){
-        tempMins.push(fish.temperature[0]);
-        tempMaxs.push(fish.temperature[1]);
+    if (territorialFish.length > 1) {
+        warningSet.add(`<div class="warning">Multiple territorial species may fight</div>`);
     }
 
-    // Collect PH
-    if(fish.ph){
-        phMins.push(fish.ph[0]);
-        phMaxs.push(fish.ph[fish.ph.length - 1]);
+    if (predators.length > 1) {
+        warningSet.add(`<div class="warning">Multiple predatory species may compete or kill tank mates</div>`);
     }
 
-    // Schooling warning
-    if (fish.schooling && fish.amount < fish.min_school) {
-        warnings +=
-        `<div class="warning">
-        ${fish.latin_name} needs at least ${fish.min_school} fish
-        </div>`;
+    if (schoolingFish.length && aggressiveFish.length) {
+        warningSet.add(`<div class="warning">Schooling fish may be stressed by aggressive tank mates</div>`);
     }
 
-    // MOVED FROM POPULATE TO CALCULATE: Max group/Pair logic
-    if (fish.max_group === 1) {
-        if (fish.amount === 2) {
-            warnings += `<div class="warning-yellow">${fish.latin_name} can only be in pairs when breeding</div>`;
-        } else if (fish.amount > 2) {
-            warnings += `<div class="warning-yellow">${fish.latin_name} cannot be kept in groups</div>`;
+    if (tank < 20 && selectedFish.length > 3) {
+        warningSet.add(`<div class="warning">Small tanks are unstable; limit species variety</div>`);
+    }
+
+    if (selectedFish.length === 1) {
+        warningSet.add(`<div class="warning-yellow">Single-species tank — consider compatible tank mates</div>`);
+    }
+
+    // --- ENERGY CHECK ---
+    if (activityLevels.length > 1) {
+        let values = activityLevels.map(a => a === "low" ? 1 : a === "high" ? 3 : 2);
+        let diff = Math.max(...values) - Math.min(...values);
+        if (diff >= 2) {
+            warningSet.add(`<div class="warning">High and low energy fish detected</div>`);
         }
-    } else if (fish.max_group && fish.amount > fish.max_group) {
-        warnings += `<div class="warning-yellow">${fish.latin_name} max group size is ${fish.max_group}</div>`;
     }
 
-    // Shrimp/snail warning
-    if(shrimpPresent && fish.eat_shrimp){
-    warnings += `<div class="warning">${fish.latin_name} may eat shrimp!</div>`;
+    // --- TEMP ---
+    let tempText = "";
+    if (tempMins.length) {
+        let minTemp = Math.max(...tempMins);
+        let maxTemp = Math.min(...tempMaxs);
+        tempText = (minTemp <= maxTemp)
+            ? `Temperature: ${minTemp}°C - ${maxTemp}°C`
+            : `<div class="warning">No temperature overlap</div>`;
     }
 
-    if(snailPresent && fish.eat_snails){
-    warnings += `<div class="warning">${fish.latin_name} may eat snails!</div>`;
+    // --- PH ---
+    let phText = "";
+    if (phMins.length) {
+        let minPh = Math.max(...phMins);
+        let maxPh = Math.min(...phMaxs);
+        phText = (minPh <= maxPh)
+            ? `PH: ${minPh} - ${maxPh}`
+            : `<div class="warning">No PH overlap</div>`;
     }
 
-    // algae warning
-    if(fish.needs_algae && !document.getElementById("planted").checked){
-    warnings += `<div class="warning">${fish.latin_name} needs algae / mature tank</div>`;
+    // --- FINAL CAPACITY ---
+    let percent = (totalBioloadLiters / tank) * 100;
+
+    let requiredLiters = hardMinTankOnly
+        ? maxMinTankRequirement
+        : Math.max(totalBioloadLiters, maxMinTankRequirement);
+
+    let capacityEl = document.getElementById("capacity");
+
+    if (percent > 100 || tank < maxMinTankRequirement) {
+        capacityEl.classList.add("overstock");
+
+        let requiredGallons = requiredLiters / 3.785;
+        let reason = (tank < maxMinTankRequirement)
+            ? " (Tank too small for species)"
+            : " (Overcrowded)";
+
+        capacityEl.innerHTML = `
+            Capacity: ${percent.toFixed(1)}% ${reason}
+            <br>
+            You will need at least ${requiredLiters.toFixed(1)} L / ${requiredGallons.toFixed(1)} Gal
+        `;
+    } else {
+        capacityEl.classList.remove("overstock");
+        capacityEl.innerHTML = `Capacity: ${percent.toFixed(1)}%`;
     }
 
-});
-
-// Tank type warning
-if(wrongType){
-warnings += `<div class="warning">Some fish are not compatible with tank type</div>`;
-}
-
-// Energy compatibility
-if(activityLevels.length > 1){
-
-let values = activityLevels.map(a=>{
-if(a==="low") return 1;
-if(a==="medium") return 2;
-if(a==="high") return 3;
-});
-
-let diff = Math.max(...values) - Math.min(...values);
-
-if(diff >= 2){
-warnings += `<div class="warning">High and low energy fish detected</div>`;
-}
-
-}
-
-// Calculate temperature overlap
-
-let tempText = "";
-let phText = "";
-
-if(tempMins.length){
-
-let minTemp = Math.max(...tempMins);
-let maxTemp = Math.min(...tempMaxs);
-
-if(minTemp <= maxTemp){
-tempText = `Temperature: ${minTemp}°C - ${maxTemp}°C (most fish can tolerate a few degrees outside their range)`;
-}else{
-tempText = `<div class="warning">No temperature overlap</div>`;
-}
-
-}
-
-// Calculate PH overlap
-
-if(phMins.length){
-
-let minPh = Math.max(...phMins);
-let maxPh = Math.min(...phMaxs);
-
-if(minPh <= maxPh){
-phText = `PH: ${minPh} - ${maxPh}`;
-}else{
-phText = `<div class="warning">No PH overlap</div>`;
-}
-
-}
-
-let percent = (total / tank) * 100;
-
-let capacityEl = document.getElementById("capacity");
-
-if (percent > 100) {
-    capacityEl.classList.add("overstock");
-
-    let requiredLiters = total; // total stocking load = required tank size
-    let requiredGallons = requiredLiters / 3.785;
-
-    capacityEl.innerHTML = `
-    Capacity: ${percent.toFixed(1)}%
-    <br>
-    You will need ${requiredLiters.toFixed(1)} Liters / ${requiredGallons.toFixed(1)} Gallons
-    `;
-} else {
-    capacityEl.classList.remove("overstock");
-    capacityEl.innerHTML = `Capacity: ${percent.toFixed(1)}%`;
-}
-
-document.getElementById("temperatureRange").innerHTML = tempText;
-document.getElementById("phRange").innerHTML = phText;
-
-document.getElementById("warnings").innerHTML = warnings;
-
+    // --- OUTPUT ---
+    document.getElementById("temperatureRange").innerHTML = tempText;
+    document.getElementById("phRange").innerHTML = phText;
+    document.getElementById("warnings").innerHTML = Array.from(warningSet).join("");
 }
 
 function reloadTankType(){
@@ -692,4 +740,37 @@ document.getElementById("volumeDimensions").style.display="block";
 }
 
 
+}
+
+function checkEmojiSupport() {
+    const coralBtn = document.getElementById("btn-corals");
+    if (!coralBtn) return;
+
+    const coralEmoji = "🪸"; // The emoji to test
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = 20;
+    canvas.height = 20;
+
+    ctx.fillStyle = "#000";
+    ctx.textBaseline = "top";
+    ctx.font = "16px Arial";
+    ctx.fillText(coralEmoji, 0, 0);
+
+    // Get pixel data from the canvas
+    const pixels = ctx.getImageData(0, 0, 20, 20).data;
+    
+    // Check if any pixels were actually colored (not black/transparent)
+    // If the emoji isn't supported, it usually draws nothing or a thin empty box
+    let supported = false;
+    for (let i = 0; i < pixels.length; i += 4) {
+        if (pixels[i] !== 0 || pixels[i+1] !== 0 || pixels[i+2] !== 0) {
+            supported = true;
+            break;
+        }
+    }
+
+    if (!supported) {
+        coralBtn.innerText = "🏝️"; // Fallback to Island
+    }
 }
