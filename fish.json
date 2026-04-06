@@ -3681,6 +3681,7 @@
 {
 "latin_name": "Apistogramma elizabethae",
 "common_name": "Elizabeth's Dwarf Cichlid",
+"photo": "images/Apistogramma_elizabethae.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3701,6 +3702,7 @@
 {
 "latin_name": "Apistogramma eremnopyge",
 "common_name": "Strawberry Dwarf Cichlid",
+"photo": "images/Apistogramma_eremnopyge.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3721,6 +3723,7 @@
 {
 "latin_name": "Apistogramma erythrura",
 "common_name": "Rio Mamore Dwarf Cichlid",
+"photo": "images/Apistogramma_eremnopyge.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3741,6 +3744,7 @@
 {
 "latin_name": "Apistogramma eunotus",
 "common_name": "Eunotus Dwarf Cichlid",
+"photo": "images/Apistogramma_eunotus.jpg",
 "type": "freshwater",
 "size_cm": 7,
 "min_tank": 80,
@@ -3761,6 +3765,7 @@
 {
 "latin_name": "Apistogramma gephyra",
 "common_name": "Swan Dwarf Cichlid",
+"photo": "images/Apistogramma_gephyra.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3781,6 +3786,7 @@
 {
 "latin_name": "Apistogramma gibbiceps",
 "common_name": "Lyretail Dwarf Cichlid",
+"photo": "images/Apistogramma_gibbiceps.jpg",
 "type": "freshwater",
 "size_cm": 7,
 "min_tank": 80,
@@ -3801,6 +3807,7 @@
 {
 "latin_name": "Apistogramma gossei",
 "common_name": "Gosse's Dwarf Cichlid",
+"photo": "images/Apistogramma_gossei.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3821,6 +3828,7 @@
 {
 "latin_name": "Apistogramma guttata",
 "common_name": "Spotted Dwarf Cichlid",
+"photo": "images/Apistogramma_gutttata.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3841,6 +3849,7 @@
 {
 "latin_name": "Apistogramma helkeri",
 "common_name": "Helker's Dwarf Cichlid",
+"photo": "images/Apistogramma_helkeri.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -3861,6 +3870,7 @@
 {
 "latin_name": "Apistogramma hongsloi",
 "common_name": "Hongslo's Dwarf Cichlid",
+"photo": "images/Apistogramma_hongsloi.jpg",
 "type": "freshwater",
 "size_cm": 7,
 "min_tank": 80,
@@ -3881,6 +3891,7 @@
 {
 "latin_name": "Apistogramma huascar",
 "common_name": "Huascar Dwarf Cichlid",
+"photo": "images/Apistogramma_huascar.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3901,6 +3912,7 @@
 {
 "latin_name": "Apistogramma inconspicua",
 "common_name": "Inconspicuous Dwarf Cichlid",
+"photo": "images/Apistogramma_inconspicua.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -3921,6 +3933,7 @@
 {
 "latin_name": "Apistogramma iniridae",
 "common_name": "Inirida Dwarf Cichlid",
+"photo": "images/Apistogramma_iniridae.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -3941,6 +3954,7 @@
 {
 "latin_name": "Apistogramma kullanderi",
 "common_name": "Giant Dwarf Cichlid",
+"photo": "images/Apistogramma_kullanderi.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 150,
@@ -3961,6 +3975,7 @@
 {
 "latin_name": "Apistogramma luelingi",
 "common_name": "Lueling's Dwarf Cichlid",
+"photo": "images/Apistogramma_luelingi.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -3981,6 +3996,7 @@
 {
 "latin_name": "Apistogramma macmasteri",
 "common_name": "Macmaster's Dwarf Cichlid",
+"photo": "images/Apistogramma_macmasteri.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 80,
@@ -4001,6 +4017,7 @@
 {
 "latin_name": "Apistogramma megaptera",
 "common_name": "Big-finned Dwarf Cichlid",
+"photo": "images/Apistogramma_megaptera.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4021,6 +4038,7 @@
 {
 "latin_name": "Apistogramma mendezi",
 "common_name": "Mendez's Dwarf Cichlid",
+"photo": "images/Apistogramma_mendezi.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4041,6 +4059,7 @@
 {
 "latin_name": "Apistogramma nijsseni",
 "common_name": "Panda Dwarf Cichlid",
+"photo": "images/Apistogramma_nijsseni.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4061,6 +4080,7 @@
 {
 "latin_name": "Apistogramma nororientalis",
 "common_name": "Nororientalis Dwarf Cichlid",
+"photo": "images/Apistogramma_nororientalis.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4081,6 +4101,7 @@
 {
 "latin_name": "Apistogramma ortegai",
 "common_name": "Pebas Dwarf Cichlid",
+"photo": "images/Apistogramma_ortegai.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4101,6 +4122,7 @@
 {
 "latin_name": "Apistogramma panduro",
 "common_name": "Panduro's Dwarf Cichlid",
+"photo": "images/Apistogramma_panduro.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4121,6 +4143,7 @@
 {
 "latin_name": "Apistogramma paucisquamis",
 "common_name": "Paucisquamis Dwarf Cichlid",
+"photo": "images/Apistogramma_paucisquamis.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -4141,6 +4164,7 @@
 {
 "latin_name": "Apistogramma pedunculata",
 "common_name": "Pedunculated Dwarf Cichlid",
+"photo": "images/Apistogramma_pedunculata.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4161,6 +4185,7 @@
 {
 "latin_name": "Apistogramma pertensis abacaxi",
 "common_name": "Abacaxi Dwarf Cichlid",
+"photo": "images/Apistogramma_pertensis_abacaxi.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4181,6 +4206,7 @@
 {
 "latin_name": "Apistogramma piaroa",
 "common_name": "Piaroa Dwarf Cichlid",
+"photo": "images/Apistogramma_piaroa.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4201,6 +4227,7 @@
 {
 "latin_name": "Apistogramma pulchra",
 "common_name": "Pulchra Dwarf Cichlid",
+"photo": "images/Apistogramma_pulchra.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4221,6 +4248,7 @@
 {
 "latin_name": "Apistogramma rositae",
 "common_name": "Rosita's Dwarf Cichlid",
+"photo": "images/Apistogramma_rositae.jpg",
 "type": "freshwater",
 "size_cm": 7,
 "min_tank": 80,
@@ -4241,6 +4269,7 @@
 {
 "latin_name": "Apistogramma rubrolineata",
 "common_name": "Red-lined Dwarf Cichlid",
+"photo": "images/Apistogramma_rubrolineata.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4261,6 +4290,7 @@
 {
 "latin_name": "Apistogramma rupununi",
 "common_name": "Rupununi Dwarf Cichlid",
+"photo": "images/Apistogramma_rupununi.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -4281,6 +4311,7 @@
 {
 "latin_name": "Apistogramma sp. 'Abacaxis'",
 "common_name": "Wilhelmi Dwarf Cichlid",
+"photo": "images/Apistogramma_sp._'Abacaxis'.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4301,6 +4332,7 @@
 {
 "latin_name": "Apistogramma sp. 'rio Xingu'",
 "common_name": "Rio Xingu Dwarf Cichlid",
+"photo": "images/Apistogramma_sp._'rio Xingu'.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4321,6 +4353,7 @@
 {
 "latin_name": "Apistogramma sp. 'Vielfleck'",
 "common_name": "Multi-spot Dwarf Cichlid",
+"photo": "images/Apistogramma_sp._'Vielfleck'.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4341,6 +4374,7 @@
 {
 "latin_name": "Apistogramma sp. jurua II",
 "common_name": "Jurua Dwarf Cichlid II",
+"photo": "images/Apistogramma_sp._juruaII.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4361,6 +4395,7 @@
 {
 "latin_name": "Apistogramma steindachneri",
 "common_name": "Steindachner's Dwarf Cichlid",
+"photo": "images/Apistogramma_steindachneri.jpg",
 "type": "freshwater",
 "size_cm": 8,
 "min_tank": 80,
@@ -4381,6 +4416,7 @@
 {
 "latin_name": "Apistogramma trifasciata",
 "common_name": "Three-striped Dwarf Cichlid",
+"photo": "images/Apistogramma_trifasciata.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -4401,6 +4437,7 @@
 {
 "latin_name": "Apistogramma tucurui",
 "common_name": "Tucurui Dwarf Cichlid",
+"photo": "images/Apistogramma_tucurui.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 80,
@@ -4421,6 +4458,7 @@
 {
 "latin_name": "Apistogramma urteagai",
 "common_name": "Urteaga's Dwarf Cichlid",
+"photo": "images/Apistogramma_urteagai.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4441,6 +4479,7 @@
 {
 "latin_name": "Apistogramma velifera",
 "common_name": "Sailfin Dwarf Cichlid",
+"photo": "images/Apistogramma_velifera.jpg",
 "type": "freshwater",
 "size_cm": 6,
 "min_tank": 60,
@@ -4461,6 +4500,7 @@
 {
 "latin_name": "Apistogramma viejita",
 "common_name": "Viejita Dwarf Cichlid",
+"photo": "images/Apistogramma_viejita.jpg",
 "type": "freshwater",
 "size_cm": 7,
 "min_tank": 80,
@@ -4481,6 +4521,7 @@
 {
 "latin_name": "Apistogramma wapisana",
 "common_name": "Wapisana Dwarf Cichlid",
+"photo": "images/Apistogramma_wapisana.jpg",
 "type": "freshwater",
 "size_cm": 4,
 "min_tank": 40,
@@ -4501,6 +4542,7 @@
 {
 "latin_name": "Apletodon incognitus",
 "common_name": "Incognito Clingfish",
+"photo": "images/Apletodon_incognitus.jpg",
 "type": "marine",
 "size_cm": 4,
 "min_tank": 60,
@@ -4521,6 +4563,7 @@
 {
 "latin_name": "Aplocheilus lineatus",
 "common_name": "Striped Panchax",
+"photo": "images/Aplocheilus_lineatus.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 100,
@@ -4541,6 +4584,7 @@
 {
 "latin_name": "Aplocheilus panchax",
 "common_name": "Blue Panchax",
+"photo": "images/Aplocheilus_panchax.jpg",
 "type": "freshwater",
 "size_cm": 9,
 "min_tank": 80,
@@ -4561,6 +4605,7 @@
 {
 "latin_name": "Apogon capricornis",
 "common_name": "Capricorn Cardinalfish",
+"photo": "images/Apogon_capricornis.jpg",
 "type": "marine",
 "size_cm": 8,
 "min_tank": 100,
@@ -4581,6 +4626,7 @@
 {
 "latin_name": "Apogon doryssa",
 "common_name": "Longspine Cardinalfish",
+"photo": "images/Apogon_doryssa.jpg",
 "type": "marine",
 "size_cm": 5,
 "min_tank": 60,
@@ -4601,6 +4647,7 @@
 {
 "latin_name": "Apogon imberbis",
 "common_name": "Mediterranean Cardinalfish",
+"photo": "images/Apogon_imberbis.jpg",
 "type": "marine",
 "size_cm": 15,
 "min_tank": 200,
@@ -4621,6 +4668,7 @@
 {
 "latin_name": "Apolemichthys trimaculatus",
 "common_name": "Three-spot Angelfish",
+"photo": "images/Apolemichthys_trimaculatus.jpg",
 "type": "marine",
 "size_cm": 25,
 "min_tank": 500,
@@ -4641,6 +4689,7 @@
 {
 "latin_name": "Apolemichthys xanthurus",
 "common_name": "Indian Yellowtail Angelfish",
+"photo": "images/Apolemichthys_xanthurus.jpg",
 "type": "marine",
 "size_cm": 15,
 "min_tank": 300,
@@ -4661,6 +4710,7 @@
 {
 "latin_name": "Apteronotus albifrons",
 "common_name": "Black Ghost Knifefish",
+"photo": "images/Apteronotus_albifrons.jpg",
 "type": "freshwater",
 "size_cm": 50,
 "min_tank": 500,
@@ -4681,6 +4731,7 @@
 {
 "latin_name": "Arapaima gigas",
 "common_name": "Arapaima",
+"photo": "images/Arapaima_gigas.jpg",
 "type": "freshwater",
 "size_cm": 300,
 "min_tank": 10000,
@@ -4701,6 +4752,7 @@
 {
 "latin_name": "Archocentrus centrarchus",
 "common_name": "Flier Cichlid",
+"photo": "images/Archocentrus_centrarchus.jpg",
 "type": "freshwater",
 "size_cm": 15,
 "min_tank": 200,
@@ -4721,6 +4773,7 @@
 {
 "latin_name": "Archocentrus spinosissimus",
 "common_name": "Spiny Cichlid",
+"photo": "images/Archocentrus_spinosissimus.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 150,
@@ -4741,6 +4794,7 @@
 {
 "latin_name": "Archosargus probatocephalus",
 "common_name": "Sheepshead",
+"photo": "images/Archosargus_probatocephalus.jpg",
 "type": "marine",
 "size_cm": 90,
 "min_tank": 2000,
@@ -4761,6 +4815,7 @@
 {
 "latin_name": "Ariopsis seemanni",
 "common_name": "Columbian Shark Catfish",
+"photo": "images/Ariopsis_seemanni.jpg",
 "type": "brackish",
 "size_cm": 35,
 "min_tank": 500,
@@ -4781,6 +4836,7 @@
 {
 "latin_name": "Aristochromis christyi",
 "common_name": "Malawi Hawk Cichlid",
+"photo": "images/Aristochromis_christyi.jpg",
 "type": "freshwater",
 "size_cm": 30,
 "min_tank": 600,
@@ -4801,6 +4857,7 @@
 {
 "latin_name": "Arnoldichthys spilopterus",
 "common_name": "Niger Tetra",
+"photo": "images/Arnoldichthys_spilopterus.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 120,
@@ -4821,6 +4878,7 @@
 {
 "latin_name": "Arothron diadematus",
 "common_name": "Masked Puffer",
+"photo": "images/Arothron_diadematus.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 500,
@@ -4841,6 +4899,7 @@
 {
 "latin_name": "Arothron hispidus",
 "common_name": "White-spotted Puffer",
+"photo": "images/Arothron_hispidus.jpg",
 "type": "marine",
 "size_cm": 50,
 "min_tank": 1000,
@@ -4861,6 +4920,7 @@
 {
 "latin_name": "Arothron immaculatus",
 "common_name": "Immaculate Puffer",
+"photo": "images/Arothron_immaculatus.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 500,
@@ -4881,6 +4941,7 @@
 {
 "latin_name": "Arothron manilensis",
 "common_name": "Narrow-lined Puffer",
+"photo": "images/Arothron_manilensis.jpg",
 "type": "marine",
 "size_cm": 30,
 "min_tank": 500,
@@ -4901,6 +4962,7 @@
 {
 "latin_name": "Arothron mappa",
 "common_name": "Map Puffer",
+"photo": "images/Arothron_mappa.jpg",
 "type": "marine",
 "size_cm": 65,
 "min_tank": 1500,
@@ -4921,6 +4983,7 @@
 {
 "latin_name": "Arothron meleagris",
 "common_name": "Guineafowl Puffer",
+"photo": "images/Arothron_meleagris.jpg",
 "type": "marine",
 "size_cm": 50,
 "min_tank": 1000,
