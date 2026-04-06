@@ -1,11 +1,3 @@
-fetch("fish.json")
-.then(res => res.json())
-.then(data => {
-    fishDB = data;
-    populate();
-    checkEmojiSupport(); // <--- Add this line here
-});
-
 let fishDB = [];
 let selectedFish = [];
 let activeCategories = {
@@ -20,8 +12,9 @@ let activeCategories = {
 fetch("fish.json")
 .then(res => res.json())
 .then(data => {
-fishDB = data;
-populate();
+    fishDB = data;
+    populate();
+    checkEmojiSupport();
 });
 
 

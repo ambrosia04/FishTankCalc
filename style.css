@@ -1,110 +1,160 @@
 body {
-background:#0e1a24;
-color:white;
-font-family:Arial;
+    background: #0e1a24;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
 
-.container{
-display:flex;
+.container {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: flex-start; /* 🚨 FIX: This prevents the right box from stretching downwards */
 }
 
-.left{
-flex:2;
-padding:20px;
+.left {
+    flex: 2;
+    padding: 20px;
+    min-width: 300px;
 }
 
-.right{
-flex:1;
-padding:20px;
-background:#132938;
-min-width: 250px; /* optional to prevent collapsing too much */
+.right {
+    flex: 1;
+    padding: 20px;
+    background: #132938;
+    min-width: 300px; 
+    border-radius: 0 0 0 10px; /* Optional: adds a nice curve to the bottom left of the sidebar */
 }
 
-input,select{
-padding:8px;
-margin:5px;
+/* --- NEW: COLUMN LAYOUT FOR REAL VOLUME --- */
+.calculator-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between rows */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #a0c4ff;
+}
+
+/* For side-by-side elements like Size + Unit */
+.inline-row {
+    display: flex;
+    gap: 10px;
+}
+
+.inline-row input {
+    flex: 2;
+}
+
+.inline-row select {
+    flex: 1;
+}
+
+/* Grid for L x W x H */
+.dimension-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+/* --- END NEW LAYOUT --- */
+
+input, select {
+    padding: 8px;
+    margin: 0; /* Reset margins to use gap instead */
+    background: #0e1a24;
+    color: white;
+    border: 1px solid #1e90ff;
+    border-radius: 4px;
 }
 
 button {
-  padding: 8px 12px;
-  font-size: 14px;
-  cursor: pointer;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 #fishSelect {
-  width: auto;         /* leave 10% space on the right */
-  font-size: 14px;
-  max-height: 150px;  /* smaller height */
-  overflow-y: auto;
-  margin-right: 10%;  /* visually pushes it left to leave right gap */
+    width: auto;
+    font-size: 14px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-right: 10%;
 }
 
-.warning{
-color:red;
+.warning {
+    color: red;
 }
 
-.invalid{
-color:red;
-font-weight:bold;
+.invalid {
+    color: red;
+    font-weight: bold;
 }
 
-.tank-input{
-display:flex;
+.tank-input {
+    display: flex;
 }
 
 .btn-nav {
-    display: block;             /* Makes it take up the full width of the sidebar */
-    background: #1e90ff;        /* Bright blue color */
-    color: white;               /* White text */
-    text-align: center;         /* Centers text */
-    padding: 12px 20px;         /* Adds thickness */
-    text-decoration: none;      /* Removes the underline */
-    border-radius: 8px;         /* Rounded corners */
-    font-weight: bold;          /* Makes text thicker */
-    margin-top: 20px;           /* Space from the elements above */
-    transition: all 0.3s ease;  /* Smooth hover animation */
-    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3); /* Soft glow effect */
+    display: block;
+    background: #1e90ff;
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
     border: none;
 }
 
 .btn-nav:hover {
-    background: #46a3ff;        /* Lighter blue on hover */
-    transform: translateY(-2px); /* Lifts slightly when hovered */
-    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.5); /* Stronger glow */
-    color: white;               /* Keeps text white */
+    background: #46a3ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.5);
+    color: white;
 }
 
 .btn-nav:active {
-    transform: translateY(0);    /* Pushes down when clicked */
+    transform: translateY(0);
 }
 
 .fish-input-container {
-  margin-bottom: 20px;
-  width: 30%;
+    margin-bottom: 20px;
+    width: 100%; 
+    max-width: 400px;
 }
 
 .fish-input-row {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 5px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
 }
 
 #fishInput {
-  flex: 2;
-  padding: 8px;
-  font-size: 14px;
+    flex: 2;
+    padding: 8px;
+    font-size: 14px;
 }
 
 #amount {
-  width: 60px;
-  padding: 8px;
-  font-size: 14px;
+    width: 60px;
+    padding: 8px;
+    font-size: 14px;
 }
 
-.warning-yellow{
-color: #ffcc00;
-font-weight: bold;
-margin-top: 5px;
+.warning-yellow {
+    color: #ffcc00;
+    font-weight: bold;
+    margin-top: 5px;
 }
 
 .overstock {
@@ -121,55 +171,26 @@ margin-top: 5px;
 
 #previewImg {
     display: block;
-    background: #0e1a24; /* Placeholder color while loading */
+    background: #0e1a24;
 }
 
-#btn-fish{
- background-color: #132938;
- border-radius: 50%;
- border-color: #0e1a24;
-}
-
-#btn-shrimp{
- background-color: #132938;
- border-radius: 50%;
- border-color: #0e1a24;
-}
-
-#btn-snail{
- background-color: #132938;
- border-radius: 50%;
- border-color: #0e1a24;
-}
-
-#btn-crab{
- background-color: #132938;
- border-radius: 50%;
- border-color: #0e1a24;
-}
-
-#btn-stars{
- background-color: #132938;
- border-radius: 50%;
- border-color: #0e1a24;
-}
-
-#btn-corals{
- background-color: #132938;
- border-radius: 50%;
- border-color: #0e1a24;
+/* CATEGORY BUTTONS */
+#btn-fish, #btn-shrimp, #btn-snail, #btn-crab, #btn-stars, #btn-corals {
+    background-color: #132938;
+    border-radius: 50%;
+    border: 1px solid #0e1a24;
 }
 
 .category-row {
     display: flex;
-    flex-wrap: nowrap;   /* 🚨 prevents wrapping */
+    flex-wrap: nowrap;
     gap: 6px;
     align-items: center;
     margin-bottom: 5px;
 }
 
 .category-row button {
-    flex-shrink: 0;      /* 🚨 prevents buttons from shrinking */
+    flex-shrink: 0;
     padding: 6px 10px;
     font-size: 18px;
     cursor: pointer;
@@ -178,4 +199,16 @@ margin-top: 5px;
 .inactive {
     opacity: 0.4;
     filter: grayscale(100%);
+}
+
+/* RESPONSIVE MEDIA QUERY */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch; /* Reset for mobile so it fills width */
+    }
+    .left, .right {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }

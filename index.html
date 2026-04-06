@@ -77,69 +77,70 @@
 <div id="warnings"></div>
 
 </div>
-
 <div class="right">
+    <h3>Converter</h3>
+    <div class="inline-row">
+        <input type="number" id="convertValue">
+        <select id="convertFrom">
+            <option value="liters">Liters</option>
+            <option value="gallons">Gallons</option>
+        </select>
+        <button onclick="convertMini()">Convert</button>
+    </div>
+    <div id="convertResult"></div>
 
-<h3>Converter</h3>
+    <hr>
 
-<input type="number" id="convertValue">
+    <h3>Real Tank Volume</h3>
+    <div class="calculator-column">
+        <div class="input-group">
+            <label>Mode</label>
+            <select id="volumeMode" onchange="toggleVolumeMode()">
+                <option value="liters">Known Volume</option>
+                <option value="dimensions">Dimensions</option>
+            </select>
+        </div>
 
-<select id="convertFrom">
-<option value="liters">Liters</option>
-<option value="gallons">Gallons</option>
-</select>
+        <div id="volumeLiters" class="input-group">
+            <label>Tank Size</label>
+            <div class="inline-row">
+                <input type="number" id="tankVolumeInput" placeholder="Tank Size">
+                <select id="tankVolumeUnit">
+                    <option value="liters">Liters</option>
+                    <option value="gallons">Gallons</option>
+                </select>
+            </div>
+        </div>
 
-<button onclick="convertMini()">Convert</button>
+        <div id="volumeDimensions" class="input-group" style="display:none">
+            <label>Dimensions</label>
+            <div class="dimension-grid">
+                <input type="number" id="length" placeholder="Length">
+                <input type="number" id="width" placeholder="Width">
+                <input type="number" id="height" placeholder="Height">
+                <select id="dimensionUnit">
+                    <option value="cm">cm</option>
+                    <option value="inch">inch</option>
+                </select>
+            </div>
+        </div>
 
-<div id="convertResult"></div>
+        <div class="input-group">
+            <label>Substrate (kg)</label>
+            <input type="number" id="substrate" placeholder="0">
+        </div>
 
-<hr>
+        <div class="input-group">
+            <label>Big Rocks (10cm cubes)</label>
+            <input type="number" id="rocks" placeholder="0">
+        </div>
 
-<h3>Real Tank Volume</h3>
+        <button onclick="calculateRealVolume()">Calculate Real Volume</button>
+        <div id="realVolume"></div>
+    </div>
 
-<label>Mode</label>
-<select id="volumeMode" onchange="toggleVolumeMode()">
-<option value="liters">Known Volume</option>
-<option value="dimensions">Dimensions</option>
-</select>
-
-<div id="volumeLiters">
-<input type="number" id="tankVolumeInput" placeholder="Tank Size">
-<select id="tankVolumeUnit">
-<option value="liters">Liters</option>
-<option value="gallons">Gallons</option>
-</select>
-</div>
-
-<div id="volumeDimensions" style="display:none">
-
-<input type="number" id="length" placeholder="Length">
-<input type="number" id="width" placeholder="Width">
-<input type="number" id="height" placeholder="Height">
-
-<select id="dimensionUnit">
-<option value="cm">cm</option>
-<option value="inch">inch</option>
-</select>
-
-</div>
-
-<label>Substrate (kg)</label>
-<input type="number" id="substrate">
-
-<label>Big Rocks (10cm cubes)</label>
-<input type="number" id="rocks">
-
-<button onclick="calculateRealVolume()">Calculate Real Volume</button>
-
-<div id="realVolume"></div>
-
-<hr>
-
-<a href="ammonia.html" class="btn-nav">Ammonia Calculator</a>
-
-</div>
-
+    <hr>
+    <a href="ammonia.html" class="btn-nav">Ammonia Calculator</a>
 </div>
 
 <script src="app.js"></script>
