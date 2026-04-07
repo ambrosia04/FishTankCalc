@@ -363,16 +363,24 @@ function getSpeciesRule(fish) {
     const latin = (fish.latin_name || "").toLowerCase();
     const common = (fish.common_name || "").toLowerCase();
 
-    // default fallback
+    // Default base rule
     let rule = {
         factor: fish.bioload === "low" ? 1
               : fish.bioload === "medium" ? 1.5
               : fish.bioload === "high" ? 2.5
               : 3.5,
-        warnings: []
+        warnings: [],
+        territoryLiters: fish.territorial ? fish.territory_volume_liters || 0 : 0,
+        predatory: fish.predatory || false,
+        minSchool: fish.min_school || 1,
+        maxGroup: fish.max_group || Infinity,
+        plantSafe: fish.plant_safe || false,
+        needsAlgae: fish.needs_algae || false,
+        activity: fish.activity || "medium",
+        minTank: fish.min_tank || 0
     };
 
-    // shrimp/snails
+    // Shrimp/snail overrides
     if (fish.category === "shrimp") {
         rule.litersPerFish = 0.5; // 2 shrimp = 1L
         rule.factor = 0;
@@ -385,58 +393,77 @@ function getSpeciesRule(fish) {
         return rule;
     }
 
-    // clownfish
+    // Clownfish
     if (latin.startsWith("amphiprion") || common.includes("clownfish")) {
         rule.factor = 2.0;
-        rule.warnings.push("Clownfish are territorial; keep a pair or a single fish.");
-        return rule;
+        rule.warnings.push("Clownfish are territorial; keep a pair or single fish.");
+        rule.territoryLiters = fish.territory_volume_liters || 30;
     }
 
-    // tangs / surgeonfish
+    // Tangs / Surgeonfish
     if (latin.startsWith("acanthurus") || common.includes("tang") || common.includes("surgeonfish")) {
         rule.factor = 3.0;
         rule.warnings.push("Tang / surgeonfish need lots of swimming room and algae.");
-        return rule;
+        rule.territoryLiters = fish.territory_volume_liters || 100;
     }
 
-    // cichlids that are usually territorial
-    if (
-        latin.startsWith("amatitlania") ||
-        latin.startsWith("amphilophus") ||
-        latin.startsWith("aequidens") ||
-        latin.startsWith("altolamprologus") ||
-        latin.startsWith("acarichthys") ||
-        latin.startsWith("acaronia")
-    ) {
+    // Cichlids (territorial)
+    const cichlids = ["amatitlania","amphilophus","aequidens","altolamprologus","acarichthys","acaronia"];
+    if (cichlids.some(c => latin.startsWith(c))) {
         rule.factor = 2.25;
         rule.warnings.push("Cichlid: territorial; pairs or solo often work best.");
         rule.warnings.push("May eat shrimp/snails.");
-        return rule;
+        rule.territoryLiters = fish.territory_volume_liters || 50;
     }
 
-    // plecos / catfish / bottom dwellers
-    if (
-        latin.startsWith("acanthicus") ||
-        latin.startsWith("acestridium") ||
-        common.includes("pleco") ||
-        common.includes("catfish")
-    ) {
+    // Bottom-dwellers: plecos, catfish
+    if (latin.startsWith("acanthicus") || latin.startsWith("acestridium") || common.includes("pleco") || common.includes("catfish")) {
         rule.factor = fish.bioload === "low" ? 1.25 : 2.0;
         rule.warnings.push("Bottom-dweller: needs hides and floor space.");
-        return rule;
+        rule.territoryLiters = fish.territory_volume_liters || 20;
     }
 
-    // huge species where min_tank matters more than the formula
-    if (
-        latin.startsWith("huso") ||
-        latin.startsWith("acipenser") ||
-        common.includes("sturgeon") ||
-        common.includes("ray") ||
-        common.includes("shark") ||
-        common.includes("guitarfish")
-    ) {
+    // Huge species where min_tank dominates
+    const hugeSpecies = ["huso","acipenser"];
+    if (hugeSpecies.some(h => latin.startsWith(h)) || common.includes("sturgeon") || common.includes("ray") || common.includes("shark") || common.includes("guitarfish")) {
         rule.factor = 0;
-        return rule;
+        rule.warnings.push("Huge species: tank must meet minimum volume; ignore formula.");
+        rule.territoryLiters = fish.min_tank || 200;
+    }
+
+    // Predatory behavior
+    if (fish.predatory) {
+        rule.warnings.push("Predatory: may eat smaller tank mates.");
+    }
+
+    // Schooling rules
+    if (fish.schooling && fish.amount < fish.min_school) {
+        rule.warnings.push(`Schooling fish: needs at least ${fish.min_school} individuals.`);
+    }
+
+    // Territorial warning if user may under-stock tank
+    if (fish.territorial && !fish.min_tank) {
+        rule.warnings.push("Territorial: ensure enough space per individual.");
+    }
+
+    // Plant-safe warning
+    if (!fish.plant_safe) {
+        rule.warnings.push("May damage live plants.");
+    }
+
+    // Algae / mature tank warning
+    if (fish.needs_algae) {
+        rule.warnings.push("Needs algae or mature tank.");
+    }
+
+    // Max group size
+    if (fish.max_group && fish.max_group < Infinity) {
+        rule.warnings.push(`Maximum group size: ${fish.max_group}`);
+    }
+
+    // Default litersPerFish if not set
+    if (!rule.litersPerFish) {
+        rule.litersPerFish = fish.size_cm * rule.factor;
     }
 
     return rule;
@@ -446,7 +473,7 @@ function calculate() {
 
     let tank = getTankLiters();
 
-    // ✅ Tank safety check
+    // Tank safety check
     if (!tank || tank <= 0) {
         document.getElementById("capacity").innerHTML = "Enter tank size";
         return;
@@ -488,7 +515,7 @@ function calculate() {
             return;
         }
 
-        // ✅ Only valid fish tracked
+        // Only valid fish tracked
         activityLevels.push(fish.activity);
 
         const rule = getSpeciesRule(fish);
@@ -498,7 +525,7 @@ function calculate() {
             maxMinTankRequirement = fish.min_tank;
         }
 
-        // ✅ Huge species override detection
+        // Huge species override detection
         if (rule.factor === 0 && fish.min_tank) {
             hardMinTankOnly = true;
         }
@@ -587,6 +614,45 @@ function calculate() {
 
     });
 
+    // --- TERRITORIAL CHECK ---
+    let territorialVolumeRequired = territorialFish.reduce((sum, f) => {
+        const rule = getSpeciesRule(f);
+        return sum + (rule.territoryLiters || 0) * f.amount;
+    }, 0);
+
+    if (territorialFish.length > 1 && tank < territorialVolumeRequired) {
+        warningSet.add(`<div class="warning">Tank too small for multiple territorial species (need ${territorialVolumeRequired} L)</div>`);
+    }
+
+    // --- SCHOOLING vs TERRITORIAL ---
+    schoolingFish.forEach(s => {
+        territorialFish.forEach(t => {
+            const tRule = getSpeciesRule(t);
+            if (tRule.territoryLiters && tank < tRule.territoryLiters) {
+                warningSet.add(`<div class="warning">${s.latin_name} (schooling) may be stressed by territorial ${t.latin_name}</div>`);
+            }
+        });
+    });
+
+    // --- SPECIES COMPATIBILITY ---
+    selectedFish.forEach(fish => {
+        if(fish.compatible_with && fish.compatible_with.length){
+            selectedFish.forEach(other => {
+                if(fish !== other && !fish.compatible_with.includes(other.latin_name)){
+                    warningSet.add(`<div class="warning">${fish.latin_name} may be incompatible with ${other.latin_name}</div>`);
+                }
+            });
+        }
+    });
+
+    // --- PREDATORS ---
+    predators.forEach(p => {
+        selectedFish.forEach(other => {
+            if(p !== other && p.size_cm > other.size_cm * 1.5){
+                warningSet.add(`<div class="warning">${p.latin_name} may eat ${other.latin_name}</div>`);
+            }
+        });
+    });
     // --- GLOBAL CHECKS ---
 
     if (wrongType) {
