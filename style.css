@@ -99,6 +99,7 @@ button {
 
 .tank-input {
     display: flex;
+    padding-bottom: 1%;
 }
 
 .btn-nav {
@@ -174,11 +175,22 @@ button {
     background: #0e1a24;
 }
 
+#plantedLabel {
+    margin-left: 2%;
+    color: #3ca721;
+}
+
+#planted {
+    transform: scale(1.5);
+    margin-left: 5px;
+    accent-color: #3ca721; /* ✅ green when checked */
+}
+
 /* CATEGORY BUTTONS */
 #btn-fish, #btn-shrimp, #btn-snail, #btn-crab, #btn-stars, #btn-corals {
-    background-color: #132938;
+    background-color: #316283;
     border-radius: 50%;
-    border: 1px solid #0e1a24;
+    border: 2px solid #66b1e4;
 }
 
 .category-row {
@@ -186,7 +198,8 @@ button {
     flex-wrap: nowrap;
     gap: 6px;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 3%;
+    padding-top: 3%;
 }
 
 .category-row button {
@@ -227,4 +240,10 @@ button {
 
 .dimension-calculator select {
     padding: 4px;
+}
+
+#convertResult {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 20px;
 }
