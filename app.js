@@ -22,6 +22,10 @@ const linkedSpecies = {
     "hoplisoma": ["corydoras", "hoplisoma"]
 };
 
+const genusLinks = {
+    "corydoras": "hoplisoma",
+    "hoplisoma": "corydoras"
+};
 
 function populate() {
     const input = document.getElementById("fishInput");
@@ -147,13 +151,7 @@ function updateCategoryButtons() {
 }*/
 
 function filterFish(query) {
-    query = query.toLowerCase();
-
-    // Check if query has a linked alias
-    let queryTerms = [query];
-    if(linkedSpecies[query]) {
-        queryTerms = linkedSpecies[query];
-    }
+    query = query.toLowerCase().trim();
 
     const filtered = fishDB.filter(fish => {
         const latin = fish.latin_name.toLowerCase();
@@ -162,8 +160,24 @@ function filterFish(query) {
 
         if (!activeCategories[category]) return false;
 
-        // Check if any of the query terms match either latin or common name
-        return queryTerms.some(term => latin.includes(term) || common.includes(term));
+        // Split query into words
+        const words = query.split(/\s+/);
+
+        // Original text match
+        let match = words.every(w => latin.includes(w) || common.includes(w));
+
+        // 🧠 Check genus-links
+        if (!match && words.length > 1) {
+            let genus = words[0];   // first word in the query
+            let species = words.slice(1).join(" "); // rest of the name
+
+            if (genusLinks[genus]) {
+                const linkedLatin = genusLinks[genus] + " " + species;
+                match = latin.includes(linkedLatin);
+            }
+        }
+
+        return match;
     });
 
     renderSelectOptions(filtered);
