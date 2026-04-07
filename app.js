@@ -67,6 +67,10 @@ function populate() {
             filterFish("");
         }
     }
+    // Auto-recalculate warnings when tank is planted
+    document.getElementById("planted").addEventListener("change", () => {
+        calculate();
+    });
 });
 
 // Auto-calculate when user types a new tank size
@@ -229,6 +233,7 @@ function addFish() {
 
     // Reset UI after adding
     input.value = "";
+    document.getElementById("amount").value = 1;
     filterFish("");
 
     updateList();
