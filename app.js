@@ -299,49 +299,64 @@ calculate();
 
 }
 
-function removeFish(i) {
+function removeFish(index) {
+    const inputEl = document.getElementById(`removeInput-${index}`);
+    let removeAmount = parseInt(inputEl.value) || 0;
 
-selectedFish.splice(i,1);
-updateList();
-calculate();
+    if (removeAmount < 0) removeAmount = 0; // prevent negative numbers
 
+    if (removeAmount >= selectedFish[index].amount) {
+        // Remove the fish entirely
+        selectedFish.splice(index, 1);
+    } else {
+        // Subtract from the fixed stock
+        selectedFish[index].amount -= removeAmount;
+    }
+
+    // Reset the input box to 0
+    if(inputEl) inputEl.value = 0;
+
+    updateList();
+    calculate();
 }
 
 function updateList() {
+    const list = document.getElementById("fishList");
+    list.innerHTML = "";
 
-let list = document.getElementById("fishList");
-list.innerHTML = "";
+    selectedFish.forEach((fish, i) => {
+        let invalid = "";
+        const tankType = document.getElementById("tankType").value;
 
-selectedFish.forEach((fish,i)=>{
+        if (fish.type !== tankType) invalid = "invalid";
 
-let invalid="";
-let tankType=document.getElementById("tankType").value;
+        const li = document.createElement("li");
 
-if(fish.type !== tankType){
-    invalid="invalid";
-}
+        li.innerHTML = `
+            <span class="${invalid}">${fish.latin_name}</span>
+            <span style="margin-left:10px; font-weight:bold;">${fish.amount}</span>
+            <input type="number" value="0" min="0" style="width:50px; margin-left:5px;" id="removeInput-${i}">
+            <button onclick="removeFish(${i})" style="margin-left:5px;">Remove</button>
+            <br>
+            <small>Energy: ${fish.activity} | Aggression: ${fish.aggression}</small>
+        `;
 
-li = document.createElement("li");
+        list.appendChild(li);
 
-li.innerHTML=`
-<span class="${invalid}">
-${fish.latin_name}
-</span>
+        // Restrict input to numbers only, no negative
+        const inputEl = document.getElementById(`removeInput-${i}`);
+        inputEl.addEventListener("keydown", (e) => {
+            // Allow: backspace, delete, tab, escape, enter, arrows
+            if (["Backspace","Delete","Tab","Escape","Enter","ArrowLeft","ArrowRight"].includes(e.key)) return;
+            // Prevent - symbol and non-numeric keys
+            if (e.key === "-" || isNaN(Number(e.key))) e.preventDefault();
+        });
 
-<input type="number"
-value="${fish.amount}"
-min="0"
-onchange="updateAmount(${i},this.value)">
-
-<button onclick="removeFish(${i})">Remove</button>
-<br>
-<small>Energy: ${fish.activity} | Aggression: ${fish.aggression}</small>
-`;
-
-list.appendChild(li);
-
-});
-
+        // Remove any non-numeric characters if pasted
+        inputEl.addEventListener("input", () => {
+            inputEl.value = inputEl.value.replace(/[^0-9]/g, "");
+        });
+    });
 }
 
 function getSpeciesRule(fish) {
