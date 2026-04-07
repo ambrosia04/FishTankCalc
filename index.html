@@ -20,12 +20,26 @@
 <label>Tank Size</label>
 
 <div class="tank-input">
-<input type="number" id="tankSize" value="100">
+    <input type="number" id="tankSize" value="100" placeholder="Tank Size">
 
-<select id="unit" onchange="convertTank()">
-<option value="liters">Liters</option>
-<option value="gallons">Gallons</option>
-</select>
+    <select id="unit" onchange="convertTank()">
+        <option value="liters">Liters</option>
+        <option value="gallons">Gallons</option>
+    </select>
+
+    <!-- Mini dimension calculator -->
+    <div class="dimension-calculator">
+        <input type="number" id="dimLength" placeholder="L">
+        <input type="number" id="dimWidth" placeholder="W">
+        <input type="number" id="dimHeight" placeholder="H">
+        <select id="dimUnit">
+            <option value="cm">cm</option>
+            <option value="inch">inch</option>
+        </select>
+        <button onclick="calculateTankFromDimensions()">Calc</button>
+    </div>
+
+    <div id="dimResult" style="margin-left:10px; color:#a0c4ff;"></div>
 </div>
 
 <label>Tank Type</label>

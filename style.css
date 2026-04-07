@@ -212,3 +212,19 @@ button {
         box-sizing: border-box;
     }
 }
+
+.dimension-calculator {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.dimension-calculator input {
+    width: 50px;
+    padding: 4px;
+}
+
+.dimension-calculator select {
+    padding: 4px;
+}

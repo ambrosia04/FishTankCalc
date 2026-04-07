@@ -734,3 +734,35 @@ function checkEmojiSupport() {
         coralBtn.innerText = "🏝️"; // Fallback to Island
     }
 }
+
+function calculateTankFromDimensions() {
+    let l = parseFloat(document.getElementById("dimLength").value) || 0;
+    let w = parseFloat(document.getElementById("dimWidth").value) || 0;
+    let h = parseFloat(document.getElementById("dimHeight").value) || 0;
+    let unit = document.getElementById("dimUnit").value;
+    let resEl = document.getElementById("dimResult");
+
+    if(l <=0 || w <=0 || h <=0){
+        resEl.innerHTML = "Enter all dimensions!";
+        return;
+    }
+
+    // Convert to cm if inch
+    if(unit === "inch"){
+        l *= 2.54;
+        w *= 2.54;
+        h *= 2.54;
+    }
+
+    // Volume in liters
+    let volumeLiters = (l * w * h) / 1000;
+    let volumeGallons = volumeLiters / 3.785;
+
+    resEl.innerHTML = `${volumeLiters.toFixed(1)} L / ${volumeGallons.toFixed(1)} Gal`;
+
+    // Optional: update Tank Size field automatically
+    let tankUnit = document.getElementById("unit").value;
+    document.getElementById("tankSize").value = tankUnit === "liters" ? volumeLiters.toFixed(1) : volumeGallons.toFixed(1);
+
+    calculate(); // recalc capacity with new tank size
+}

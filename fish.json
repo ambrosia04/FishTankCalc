@@ -45237,7 +45237,7 @@
 "ph": [6.5, 7.5],
 "aggression": "peaceful",
 "schooling": true,
-"min_school": 6,
+"min_school": 2,
 "max_group": 50,
 "bioload": "low",
 "plant_safe": true,
