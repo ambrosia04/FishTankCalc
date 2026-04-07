@@ -470,11 +470,6 @@ function getSpeciesRule(fish) {
         rule.warnings.push("Needs algae or mature tank.");
     }
 
-    // Max group size
-    if (fish.max_group && fish.max_group < Infinity) {
-        rule.warnings.push(`Maximum group size: ${fish.max_group}`);
-    }
-
     // Default litersPerFish if not set
     if (!rule.litersPerFish) {
         rule.litersPerFish = fish.size_cm * rule.factor;
@@ -595,6 +590,11 @@ function calculate() {
             warningSet.add(`<div class="warning">${fish.latin_name} needs at least ${fish.min_tank}L</div>`);
         }
 
+        // Warn if user exceeds the max group
+        if(fish.max_group && fish.amount > fish.max_group){
+            warningSet.add(`<div class="warning-yellow">${fish.latin_name} max group size is ${fish.max_group}</div>`);
+        }
+
         // Temperature
         if (fish.temperature) {
             tempMins.push(fish.temperature[0]);
@@ -663,17 +663,6 @@ function calculate() {
                 warningSet.add(`<div class="warning">${s.latin_name} (schooling) may be stressed by territorial ${t.latin_name}</div>`);
             }
         });
-    });
-
-    // --- SPECIES COMPATIBILITY ---
-    selectedFish.forEach(fish => {
-        if(fish.compatible_with && fish.compatible_with.length){
-            selectedFish.forEach(other => {
-                if(fish !== other && !fish.compatible_with.includes(other.latin_name)){
-                    warningSet.add(`<div class="warning">${fish.latin_name} may be incompatible with ${other.latin_name}</div>`);
-                }
-            });
-        }
     });
 
     // --- PREDATORS ---
