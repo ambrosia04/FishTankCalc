@@ -17,6 +17,11 @@ fetch("fish.json")
     checkEmojiSupport();
 });
 
+const linkedSpecies = {
+    "corydoras": ["corydoras", "hoplisoma"],
+    "hoplisoma": ["corydoras", "hoplisoma"]
+};
+
 
 function populate() {
     const input = document.getElementById("fishInput");
@@ -142,18 +147,23 @@ function updateCategoryButtons() {
 }*/
 
 function filterFish(query) {
-    const filtered = fishDB.filter(fish => {
+    query = query.toLowerCase();
 
+    // Check if query has a linked alias
+    let queryTerms = [query];
+    if(linkedSpecies[query]) {
+        queryTerms = linkedSpecies[query];
+    }
+
+    const filtered = fishDB.filter(fish => {
         const latin = fish.latin_name.toLowerCase();
         const common = (fish.common_name || "").toLowerCase();
-
-        // 🧠 CATEGORY MATCH
-        let category = fish.category || "fish"; // default to fish if undefined
+        const category = fish.category || "fish";
 
         if (!activeCategories[category]) return false;
 
-        // 🔎 TEXT MATCH
-        return latin.includes(query) || common.includes(query);
+        // Check if any of the query terms match either latin or common name
+        return queryTerms.some(term => latin.includes(term) || common.includes(term));
     });
 
     renderSelectOptions(filtered);
