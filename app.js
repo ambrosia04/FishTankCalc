@@ -320,6 +320,16 @@ function removeFish(index) {
     calculate();
 }
 
+function removeAllFish(index) {
+    const fishName = selectedFish[index].latin_name;
+
+    if (confirm(`Remove ALL ${fishName}?`)) {
+        selectedFish.splice(index, 1);
+        updateList();
+        calculate();
+    }
+}
+
 function updateList() {
     const list = document.getElementById("fishList");
     list.innerHTML = "";
@@ -335,8 +345,12 @@ function updateList() {
         li.innerHTML = `
             <span class="${invalid}">${fish.latin_name}</span>
             <span style="margin-left:10px; font-weight:bold;">${fish.amount}</span>
+
             <input type="number" value="0" min="0" style="width:50px; margin-left:5px;" id="removeInput-${i}">
+            
             <button onclick="removeFish(${i})" style="margin-left:5px;">Remove</button>
+            <button onclick="removeAllFish(${i})" style="margin-left:5px; background:#ff6b6b;">Remove All</button>
+
             <br>
             <small>Energy: ${fish.activity} | Aggression: ${fish.aggression}</small>
         `;
@@ -510,10 +524,19 @@ function calculate() {
 
     selectedFish.forEach(fish => {
 
-        if (fish.type !== tankType) {
-            wrongType = true;
-            return;
-        }
+        // --- GROWTH PROJECTION ---
+        let monthsAhead = 6; // or make this a UI input later
+
+        let projectedSize = fish.current_size_cm 
+            ? fish.current_size_cm + (fish.growth_rate_cm_per_month || 0) * monthsAhead
+            : fish.size_cm;
+
+        let size = Math.min(projectedSize, fish.max_size_cm || fish.size_cm);
+
+                if (fish.type !== tankType) {
+                    wrongType = true;
+                    return;
+                }
 
         // Only valid fish tracked
         activityLevels.push(fish.activity);
@@ -538,10 +561,11 @@ function calculate() {
             totalBioloadLiters += fish.amount * rule.litersPerFish;
         } 
         else if (rule.factor > 0) {
-            if (fish.bioload === "low" && fish.size_cm < 5) {
-                totalBioloadLiters += fish.size_cm * fish.amount;
+            if (fish.bioload === "low" && size < 5) {
+                totalBioloadLiters += size * fish.amount;
             } else {
-                totalBioloadLiters += fish.size_cm * fish.amount * rule.factor;
+                let waste = fish.waste_factor || 1;
+                totalBioloadLiters += size * fish.amount * rule.factor * waste;
             }
         }
 
@@ -624,6 +648,13 @@ function calculate() {
         warningSet.add(`<div class="warning">Tank too small for multiple territorial species (need ${territorialVolumeRequired} L)</div>`);
     }
 
+    // --- CONSPECIFIC TERRITORIAL AGGRESSION ---
+    territorialFish.forEach(f => {
+        if (f.amount > 1 && f.territorial) {
+            warningSet.add(`<div class="warning">${f.latin_name} may fight conspecifics</div>`);
+        }
+    });
+
     // --- SCHOOLING vs TERRITORIAL ---
     schoolingFish.forEach(s => {
         territorialFish.forEach(t => {
@@ -653,6 +684,55 @@ function calculate() {
             }
         });
     });
+
+    // --- OXYGEN NEEDS ---
+    let oxygenNeeds = [];
+
+    selectedFish.forEach(f => {
+        if(f.oxygen_requirement_mg_per_l){
+            oxygenNeeds.push(f.oxygen_requirement_mg_per_l);
+        }
+    });
+
+    if(oxygenNeeds.length){
+        let maxOxygen = Math.max(...oxygenNeeds);
+
+        if(maxOxygen > 7 && tank > 25){
+            warningSet.add(`<div class="warning">High oxygen-demand species present — requires strong aeration</div>`);
+        }
+    }
+
+    // --- FLOW REQUIREMENTS ---
+    let flows = selectedFish.map(f => f.flow_requirement).filter(Boolean);
+
+    if(flows.length > 1){
+        let unique = [...new Set(flows)];
+        if(unique.length > 1){
+            warningSet.add(`<div class="warning">Flow requirement mismatch (low vs high flow species)</div>`);
+        }
+    }
+
+    // --- TANK POSITIONING ---
+    let positions = {top:0, middle:0, bottom:0};
+
+    selectedFish.forEach(f => {
+        if(positions[f.tank_position] !== undefined){
+            positions[f.tank_position] += f.amount;
+        }
+    });
+
+    if(positions.bottom > positions.middle + positions.top){
+        warningSet.add(`<div class="warning">Too many bottom-dwelling fish — space conflict likely</div>`);
+    }
+
+    // --- FISH DIETS ---
+    let diets = selectedFish.map(f => f.diet).filter(Boolean);
+    let uniqueDiets = [...new Set(diets)];
+
+    if(uniqueDiets.length > 2){
+        warningSet.add(`<div class="warning">Mixed diets may complicate feeding</div>`);
+    }
+
     // --- GLOBAL CHECKS ---
 
     if (wrongType) {
