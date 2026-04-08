@@ -15,6 +15,7 @@ fetch("fish.json")
     fishDB = data;
     populate();
     checkEmojiSupport();
+    loadState();
 });
 
 const linkedSpecies = {
@@ -103,6 +104,7 @@ function toggleCategory(category) {
 
     // Re-run filter
     const query = document.getElementById("fishInput").value.toLowerCase();
+    saveState();
     filterFish(query);
 }
 
@@ -410,6 +412,7 @@ function updateList() {
             inputEl.value = inputEl.value.replace(/[^0-9]/g, "");
         });
     });
+    saveState();
 }
 
 function getSpeciesRule(fish) {
@@ -911,6 +914,13 @@ function calculate() {
     document.getElementById("phRange").innerHTML = phText;
     document.getElementById("warnings").innerHTML = Array.from(warningSet).join("");
 
+    // Auto-save when user level changes
+    document.getElementById("userLevel").addEventListener("change", calculate);
+
+    // Auto-save when planted status changes
+    document.getElementById("planted").addEventListener("change", calculate);
+
+    saveState();
 }
 
 function reloadTankType(){
@@ -1142,4 +1152,50 @@ async function generatePDF() {
     doc.text("Note: This is an automated estimate. Always research specific species compatibility.", 20, y);
 
     doc.save("Aquarium_Stocking_Report.pdf");
+}
+
+// Function to save current data to Local Storage
+function saveState() {
+    const state = {
+        selectedFish: selectedFish,
+        activeCategories: activeCategories,
+        userLevel: document.getElementById("userLevel").value,
+        tankSize: document.getElementById("tankSize").value,
+        unit: document.getElementById("unit").value,
+        tankType: document.getElementById("tankType").value,
+        planted: document.getElementById("planted").checked
+    };
+    localStorage.setItem("aquariumCalcState", JSON.stringify(state));
+}
+
+// Function to load data when page opens
+function loadState() {
+    const saved = localStorage.getItem("aquariumCalcState");
+    if (!saved) return;
+
+    const state = JSON.parse(saved);
+
+    // Restore variables
+    selectedFish = state.selectedFish || [];
+    activeCategories = state.activeCategories || activeCategories;
+
+    // Restore UI elements
+    document.getElementById("userLevel").value = state.userLevel || "beginner";
+    document.getElementById("tankSize").value = state.tankSize || "100";
+    document.getElementById("unit").value = state.unit || "liters";
+    document.getElementById("tankType").value = state.tankType || "freshwater";
+    document.getElementById("planted").checked = state.planted || false;
+
+    // Refresh the category button visuals (active vs inactive)
+    Object.keys(activeCategories).forEach(cat => {
+        const btn = document.querySelector(`[onclick="toggleCategory('${cat}')"]`);
+        if (btn) {
+            btn.classList.toggle("inactive", !activeCategories[cat]);
+        }
+    });
+
+    // Final UI refresh
+    updateList();
+    calculate();
+    updateCategoryButtons();
 }
