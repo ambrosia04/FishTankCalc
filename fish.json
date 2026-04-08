@@ -11747,6 +11747,7 @@
   {
     "latin_name": "Badis blosyrus",
     "common_name": "Large-mouth Badis",
+    "photo": "images/Badis_blosyrus.jpg",
     "type": "freshwater",
     "size_cm": 6,
     "min_tank": 80,
@@ -11781,6 +11782,7 @@
   {
     "latin_name": "Badis juergenschmidti",
     "common_name": "Juergen Schmidt's Badis",
+    "photo": "images/Badis_juergenschmidti.jpg",
     "type": "freshwater",
     "size_cm": 6,
     "min_tank": 80,
@@ -11815,6 +11817,7 @@
   {
     "latin_name": "Balantiocheilos melanopterus",
     "common_name": "Bala Shark",
+    "photo": "images/Balantiocheilos_melanopterus.jpg",
     "type": "freshwater",
     "size_cm": 35,
     "min_tank": 1000,
@@ -11849,6 +11852,7 @@
   {
     "latin_name": "Balistapus undulatus",
     "common_name": "Orange-lined Triggerfish",
+    "photo": "images/Balistapus_undulatus.jpg",
     "type": "marine",
     "size_cm": 30,
     "min_tank": 500,
@@ -11883,6 +11887,7 @@
   {
     "latin_name": "Balistes capriscus",
     "common_name": "Grey Triggerfish",
+    "photo": "images/Balistes_capriscus.jpg",
     "type": "marine",
     "size_cm": 60,
     "min_tank": 1500,
@@ -11917,6 +11922,7 @@
   {
     "latin_name": "Balistes vetula",
     "common_name": "Queen Triggerfish",
+    "photo": "images/Balistes_vetula.jpg",
     "type": "marine",
     "size_cm": 60,
     "min_tank": 1500,
@@ -11951,6 +11957,7 @@
   {
     "latin_name": "Balistoides conspicillum",
     "common_name": "Clown Triggerfish",
+    "photo": "images/Balistoides_conspicillum.jpg",
     "type": "marine",
     "size_cm": 50,
     "min_tank": 1000,
@@ -11985,6 +11992,7 @@
   {
     "latin_name": "Balistoides viridescens",
     "common_name": "Titan Triggerfish",
+    "photo": "images/Balistoides_viridescens.jpg",
     "type": "marine",
     "size_cm": 75,
     "min_tank": 2000,
@@ -12019,6 +12027,7 @@
   {
     "latin_name": "Barbatula barbatula",
     "common_name": "Stone Loach",
+    "photo": "images/Barbatula_barbatula.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 200,
@@ -12053,6 +12062,7 @@
   {
     "latin_name": "Barbodes everetti",
     "common_name": "Clown Barb",
+    "photo": "images/Barbodes_everetti.jpg",
     "type": "freshwater",
     "size_cm": 12,
     "min_tank": 250,
@@ -12087,6 +12097,7 @@
   {
     "latin_name": "Striuntius lateristriga",
     "common_name": "T-Barb",
+    "photo": "images/Striuntius_lateristriga.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 300,
@@ -12121,6 +12132,7 @@
   {
     "latin_name": "Barbodes semifasciolatus",
     "common_name": "Gold Barb",
+    "photo": "images/Barbodes_semifasciolatus.jpg",
     "type": "freshwater",
     "size_cm": 7,
     "min_tank": 100,
@@ -12155,6 +12167,7 @@
   {
     "latin_name": "Barbodes snyderi",
     "common_name": "Snyder's Barb",
+    "photo": "images/Barbodes_snyderi.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 60,
@@ -12189,6 +12202,7 @@
   {
     "latin_name": "Barbonymus schwanenfeldii",
     "common_name": "Tinfoil Barb",
+    "photo": "images/Barbonymus_schwanenfeldii.jpg",
     "type": "freshwater",
     "size_cm": 35,
     "min_tank": 1000,
@@ -12223,6 +12237,7 @@
   {
     "latin_name": "Barbus barbus",
     "common_name": "Common Barbel",
+    "photo": "images/Barbus_barbus.jpg",
     "type": "freshwater",
     "size_cm": 80,
     "min_tank": 1500,
@@ -12257,6 +12272,7 @@
   {
     "latin_name": "Barbus fasciolatus",
     "common_name": "African Banded Barb",
+    "photo": "images/Barbus_fasciolatus.jpg",
     "type": "freshwater",
     "size_cm": 6,
     "min_tank": 80,
@@ -12291,6 +12307,7 @@
   {
     "latin_name": "Barbus hulstaerti",
     "common_name": "Butterfly Barb",
+    "photo": "images/Barbus_hulstaerti.jpg",
     "type": "freshwater",
     "size_cm": 3.5,
     "min_tank": 60,
@@ -12325,6 +12342,7 @@
   {
     "latin_name": "Barbus meridionalis",
     "common_name": "Mediterranean Barbel",
+    "photo": "images/Barbus_meridionalis.jpg",
     "type": "freshwater",
     "size_cm": 25,
     "min_tank": 500,
@@ -12359,6 +12377,7 @@
   {
     "latin_name": "Barilius bakeri",
     "common_name": "Malabar Danio",
+    "photo": "images/Barilius_bakeri.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 300,
@@ -12393,6 +12412,7 @@
   {
     "latin_name": "Barilius canarensis",
     "common_name": "Canara Pearl Danio",
+    "photo": "images/Barilius_canarensis.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 300,
@@ -12427,6 +12447,7 @@
   {
     "latin_name": "Baryancistrus chrysolomus",
     "common_name": "Magnum Pleco (L047)",
+    "photo": "images/Baryancistrus_chrysolomus.jpg",
     "type": "freshwater",
     "size_cm": 30,
     "min_tank": 400,
@@ -12461,6 +12482,7 @@
   {
     "latin_name": "Baryancistrus demantoides",
     "common_name": "Hi-Fin Green Phantom Pleco (L200)",
+    "photo": "images/Baryancistrus_demantoides.jpg",
     "type": "freshwater",
     "size_cm": 20,
     "min_tank": 300,
@@ -12495,6 +12517,7 @@
   {
     "latin_name": "Baryancistrus niveatus",
     "common_name": "Snowy Pleco (L026)",
+    "photo": "images/Baryancistrus_niveatus.jpg",
     "type": "freshwater",
     "size_cm": 25,
     "min_tank": 350,
@@ -12529,6 +12552,7 @@
   {
     "latin_name": "Baryancistrus xanthellus",
     "common_name": "Gold Nugget Pleco (L018)",
+    "photo": "images/Baryancistrus_xanthellus.jpg",
     "type": "freshwater",
     "size_cm": 25,
     "min_tank": 350,
@@ -12563,6 +12587,7 @@
   {
     "latin_name": "Baryancistrus xanthellus - sp. L081",
     "common_name": "Fine-spot Gold Nugget Pleco",
+    "photo": "images/Baryancistrus_xanthellus_L081.jpg",
     "type": "freshwater",
     "size_cm": 25,
     "min_tank": 350,
@@ -12597,6 +12622,7 @@
   {
     "latin_name": "Bathyaethiops breuseghemi",
     "common_name": "Breuseghem's African Tetra",
+    "photo": "images/Bathyaethiops_breuseghemi.jpg",
     "type": "freshwater",
     "size_cm": 7,
     "min_tank": 120,
@@ -12631,6 +12657,7 @@
   {
     "latin_name": "Bathyaethiops caudomaculatus",
     "common_name": "African Moon Tetra",
+    "photo": "images/Bathyaethiops_caudomaculatus.jpg",
     "type": "freshwater",
     "size_cm": 8,
     "min_tank": 120,
@@ -12665,6 +12692,7 @@
   {
     "latin_name": "Bathybates fasciatus",
     "common_name": "Banded Bathybates",
+    "photo": "images/Bathybates_fasciatus.jpg",
     "type": "freshwater",
     "size_cm": 40,
     "min_tank": 1000,
@@ -12699,6 +12727,7 @@
   {
     "latin_name": "Bathybates ferox",
     "common_name": "Fierce Bathybates",
+    "photo": "images/Bathybates_ferox.jpg",
     "type": "freshwater",
     "size_cm": 35,
     "min_tank": 800,
@@ -12733,6 +12762,7 @@
   {
     "latin_name": "Bathybates minor",
     "common_name": "Lesser Bathybates",
+    "photo": "images/Bathybates_minor.jpg",
     "type": "freshwater",
     "size_cm": 20,
     "min_tank": 450,
@@ -12767,6 +12797,7 @@
   {
     "latin_name": "Bathytoshia brevicaudata",
     "common_name": "Short-tail Stingray",
+    "photo": "images/Bathytoshia_brevicaudata.jpg",
     "type": "marine",
     "size_cm": 400,
     "min_tank": 100000,
@@ -12800,6 +12831,7 @@
   {
     "latin_name": "Bathytoshia centroura",
     "common_name": "Roughtail Stingray",
+    "photo": "images/Bathytoshia_centroura.jpg",
     "type": "marine",
     "size_cm": 250,
     "min_tank": 50000,
@@ -12833,6 +12865,7 @@
   {
     "latin_name": "Bathytoshia lata",
     "common_name": "Brown Stingray",
+    "photo": "images/Bathytoshia_lata.jpg",
     "type": "marine",
     "size_cm": 200,
     "min_tank": 30000,
@@ -12866,6 +12899,7 @@
   {
     "latin_name": "Beaufortia leveretti",
     "common_name": "Leverett's Hillstream Loach",
+    "photo": "images/Beaufortia_leveretti.jpg",
     "type": "freshwater",
     "size_cm": 8,
     "min_tank": 100,
@@ -12900,6 +12934,7 @@
   {
     "latin_name": "Bedotia geayi",
     "common_name": "Madagascar Rainbowfish",
+    "photo": "images/Bedotia_geayi.jpg",
     "type": "freshwater",
     "size_cm": 10,
     "min_tank": 200,
@@ -12934,6 +12969,7 @@
   {
     "latin_name": "Bedotia madagascariensis",
     "common_name": "Zonatus Rainbowfish",
+    "photo": "images/Bedotia_madagascariensis.jpg",
     "type": "freshwater",
     "size_cm": 12,
     "min_tank": 250,
@@ -12968,6 +13004,7 @@
   {
     "latin_name": "Belone belone",
     "common_name": "Garfish",
+    "photo": "images/Belone_belone.jpg",
     "type": "marine",
     "size_cm": 90,
     "min_tank": 3000,
@@ -13002,6 +13039,7 @@
   {
     "latin_name": "Belontia signata",
     "common_name": "Combtail Gourami",
+    "photo": "images/Belontia_signata.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 200,
@@ -13036,6 +13074,7 @@
   {
     "latin_name": "Benthochromis tricoti",
     "common_name": "Giant Tanganyika Cichlid",
+    "photo": "images/Benthochromis_tricoti.jpg",
     "type": "freshwater",
     "size_cm": 30,
     "min_tank": 800,
@@ -13070,6 +13109,7 @@
   {
     "latin_name": "Betta albimarginata",
     "common_name": "White-seam Betta",
+    "photo": "images/Betta_albimarginata.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 60,
@@ -13104,6 +13144,7 @@
   {
     "latin_name": "Betta bellica",
     "common_name": "Slim Betta",
+    "photo": "images/Betta_bellica.jpg",
     "type": "freshwater",
     "size_cm": 10,
     "min_tank": 120,
@@ -13138,6 +13179,7 @@
   {
     "latin_name": "Betta brownorum",
     "common_name": "Brown's Betta",
+    "photo": "images/Betta_brownorum.jpg",
     "type": "freshwater",
     "size_cm": 4,
     "min_tank": 40,
@@ -13172,6 +13214,7 @@
   {
     "latin_name": "Betta channoides",
     "common_name": "Snakehead Betta",
+    "photo": "images/Betta_channoides.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 60,
@@ -13206,6 +13249,7 @@
   {
     "latin_name": "Betta coccina",
     "common_name": "Wine-red Betta",
+    "photo": "images/Betta_coccina.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 60,
@@ -13240,6 +13284,7 @@
   {
     "latin_name": "Betta foerschi",
     "common_name": "Foersch's Betta",
+    "photo": "images/Betta_foerschi.jpg",
     "type": "freshwater",
     "size_cm": 6,
     "min_tank": 60,
@@ -13274,6 +13319,7 @@
   {
     "latin_name": "Betta gladiator",
     "common_name": "Gladiator Betta",
+    "photo": "images/Betta_gladiator.jpg",
     "type": "freshwater",
     "size_cm": 10,
     "min_tank": 100,
@@ -13308,6 +13354,7 @@
   {
     "latin_name": "Betta imbellis",
     "common_name": "Crescent Betta",
+    "photo": "images/Betta_imbellis.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 40,
@@ -13342,6 +13389,7 @@
   {
     "latin_name": "Betta macrostoma",
     "common_name": "Brunei Beauty",
+    "photo": "images/Betta_macrostoma.jpg",
     "type": "freshwater",
     "size_cm": 11,
     "min_tank": 120,
@@ -13376,6 +13424,7 @@
   {
     "latin_name": "Betta mahachaiensis",
     "common_name": "Mahachai Betta",
+    "photo": "images/Betta_mahachaiensis.jpg",
     "type": "freshwater",
     "size_cm": 6,
     "min_tank": 40,
@@ -13410,6 +13459,7 @@
   {
     "latin_name": "Betta pallida",
     "common_name": "Pale Betta",
+    "photo": "images/Betta_pallida.jpg",
     "type": "freshwater",
     "size_cm": 7,
     "min_tank": 80,
@@ -13444,6 +13494,7 @@
   {
     "latin_name": "Betta patoti",
     "common_name": "Tiger Betta",
+    "photo": "images/Betta_patoti.jpg",
     "type": "freshwater",
     "size_cm": 10,
     "min_tank": 100,
@@ -13478,6 +13529,7 @@
   {
     "latin_name": "Betta persephone",
     "common_name": "Black Small Betta",
+    "photo": "images/Betta_persephone.jpg",
     "type": "freshwater",
     "size_cm": 3.5,
     "min_tank": 40,
@@ -13512,6 +13564,7 @@
   {
     "latin_name": "Betta rubra",
     "common_name": "Toba Flame Betta",
+    "photo": "images/Betta_rubra.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 60,
@@ -13546,6 +13599,7 @@
   {
     "latin_name": "Betta rutilans",
     "common_name": "Rutilans Betta",
+    "photo": "images/Betta_rutilans.jpg",
     "type": "freshwater",
     "size_cm": 3.5,
     "min_tank": 40,
@@ -13579,6 +13633,7 @@
   {
     "latin_name": "Betta simorum",
     "common_name": "Simor Betta",
+    "photo": "images/Betta_simorum.jpg",
     "type": "freshwater",
     "size_cm": 9,
     "min_tank": 100,
@@ -13613,6 +13668,7 @@
   {
     "latin_name": "Betta simplex",
     "common_name": "Krabi Mouthbrooding Betta",
+    "photo": "images/Betta_simplex.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 60,
@@ -13647,6 +13703,7 @@
   {
     "latin_name": "Betta splendens",
     "common_name": "Siamese Fighting Fish",
+    "photo": "images/Betta_splendens.jpg",
     "type": "freshwater",
     "size_cm": 7,
     "min_tank": 30,
@@ -13681,6 +13738,7 @@
   {
     "latin_name": "Betta strohi",
     "common_name": "Stroh's Betta",
+    "photo": "images/Betta_strohi.jpg",
     "type": "freshwater",
     "size_cm": 7,
     "min_tank": 80,
@@ -13715,6 +13773,7 @@
   {
     "latin_name": "Betta unimaculata",
     "common_name": "Howong Betta",
+    "photo": "images/Betta_unimaculata.jpg",
     "type": "freshwater",
     "size_cm": 12,
     "min_tank": 150,
@@ -13749,6 +13808,7 @@
   {
     "latin_name": "Biotodoma cupido",
     "common_name": "Cupid Cichlid",
+    "photo": "images/Biotodoma_cupido.jpg",
     "type": "freshwater",
     "size_cm": 14,
     "min_tank": 300,
@@ -13783,6 +13843,7 @@
   {
     "latin_name": "Biotodoma wavrini",
     "common_name": "Wavrin's Cupid Cichlid",
+    "photo": "images/Biotodoma_wavrini.jpg",
     "type": "freshwater",
     "size_cm": 12,
     "min_tank": 250,
