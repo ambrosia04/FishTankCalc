@@ -191,15 +191,30 @@ function renderSelectOptions(fishArray) {
     const select = document.getElementById("fishSelect");
     select.innerHTML = ""; 
 
-    const sorted = [...fishArray].sort((a, b) => a.latin_name.localeCompare(b.latin_name));
+    // 1. Create a unique list based on latin_name to prevent duplicates
+    const uniqueFish = [];
+    const seenNames = new Set();
 
+    fishArray.forEach(fish => {
+        const name = fish.latin_name.toLowerCase().trim();
+        if (!seenNames.has(name)) {
+            seenNames.add(name);
+            uniqueFish.push(fish);
+        }
+    });
+
+    // 2. Sort the unique list
+    const sorted = [...uniqueFish].sort((a, b) => a.latin_name.localeCompare(b.latin_name));
+
+    // 3. Render
     sorted.forEach(fish => {
+        // Find the original index in the main fishDB for adding logic
         let originalIndex = fishDB.findIndex(f => f.latin_name === fish.latin_name);
+        
         let option = document.createElement("option");
         option.value = originalIndex;
         option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
         
-        // Save the photo path into the option tag
         if(fish.photo) {
             option.setAttribute('data-photo', fish.photo);
         }
@@ -486,8 +501,12 @@ function getSpeciesRule(fish) {
 
     // Plant-safe warning
     if (!fish.plant_safe) {
-        rule.warnings.push("May damage live plants.");
+    if (!document.getElementById("planted").checked) {
+        // no warning
+    } else {
+        warningSet.add(`<div class="warning-yellow">${fish.latin_name} may damage plants (depends on setup)</div>`);
     }
+}
 
     // Algae / mature tank warning
     if (fish.needs_algae) {
@@ -503,6 +522,7 @@ function getSpeciesRule(fish) {
 }
 
 function calculate() {
+    console.log("CALULATING...");
 
     let tank = getTankLiters();
 
@@ -539,7 +559,41 @@ function calculate() {
     let phMins = [];
     let phMaxs = [];
 
+    let tankMultiplier = 1.0;
+    let territoryFactor = 1;
+
     const tankType = document.getElementById("tankType").value;
+
+    
+    let userLevel = document.getElementById("userLevel").value;
+
+    
+    console.log("Tank:", tank);
+    console.log("Bioload:", totalBioloadLiters);
+    console.log("Multiplier:", tankMultiplier);
+
+    if (userLevel === "expert") {
+        tankMultiplier *= 1.3;
+        territoryFactor *= 0.7;
+    }
+
+    if (userLevel === "beginner") {
+        tankMultiplier *= 0.8;
+    }
+
+    // Filtration bonus
+    let filtrationLevel = "high"; // later make UI
+    if (filtrationLevel === "high") tankMultiplier *= 1.25;
+    if (filtrationLevel === "extreme") tankMultiplier *= 1.5;
+
+    // Planted bonus
+    if (document.getElementById("planted").checked) {
+        tankMultiplier *= 1.2;
+    }
+
+    // Hardscape bonus (NEW idea)
+    let hardscapeLevel = "high"; // later UI
+    if (hardscapeLevel === "high") tankMultiplier *= 1.15;
 
     selectedFish.forEach(fish => {
 
@@ -668,8 +722,30 @@ function calculate() {
         return sum + (rule.territoryLiters || 0) * f.amount;
     }, 0);
 
-    if (territorialFish.length > 1 && tank < territorialVolumeRequired) {
-        warningSet.add(`<div class="warning">Tank too small for multiple territorial species (need ${territorialVolumeRequired} L)</div>`);
+    if (document.getElementById("planted").checked) {
+        territoryFactor *= 0.7; // plants reduce aggression
+    }
+
+    if (hardscapeLevel === "high") {
+        territoryFactor *= 0.6; // caves reduce conflict
+    }
+
+    // (optional) user skill adjustment
+    userLevel = document.getElementById("userLevel").value;
+    if (userLevel === "expert") territoryFactor *= 0.7;
+    if (userLevel === "beginner") territoryFactor *= 1.2;
+
+    // Apply adjustment
+    let adjustedTerritory = territorialVolumeRequired * territoryFactor;
+
+    // Final check
+    if (territorialFish.length > 1 && tank < adjustedTerritory) {
+        warningSet.add(
+            `<div class="warning">
+            Tank may be too small for multiple territorial species 
+            (adjusted need: ${adjustedTerritory.toFixed(1)} L)
+            </div>`
+        );
     }
 
     // --- CONSPECIFIC TERRITORIAL AGGRESSION ---
@@ -734,7 +810,7 @@ function calculate() {
         }
     });
 
-    if(positions.bottom > positions.middle + positions.top){
+    if(positions.bottom > 5 && positions.bottom > (positions.middle + positions.top)){
         warningSet.add(`<div class="warning">Too many bottom-dwelling fish — space conflict likely</div>`);
     }
 
@@ -802,13 +878,15 @@ function calculate() {
     }
 
     // --- FINAL CAPACITY ---
-    let percent = (totalBioloadLiters / tank) * 100;
+    let effectiveTank = tank * tankMultiplier;
+    let percent = (totalBioloadLiters / effectiveTank) * 100;
 
     let requiredLiters = hardMinTankOnly
         ? maxMinTankRequirement
         : Math.max(totalBioloadLiters, maxMinTankRequirement);
 
     let capacityEl = document.getElementById("capacity");
+    console.log("capacityEl:", capacityEl);
 
     if (percent > 100 || tank < maxMinTankRequirement) {
         capacityEl.classList.add("overstock");
@@ -832,6 +910,7 @@ function calculate() {
     document.getElementById("temperatureRange").innerHTML = tempText;
     document.getElementById("phRange").innerHTML = phText;
     document.getElementById("warnings").innerHTML = Array.from(warningSet).join("");
+
 }
 
 function reloadTankType(){
@@ -944,4 +1023,123 @@ function calculateTankFromDimensions() {
     document.getElementById("tankSize").value = tankUnit === "liters" ? volumeLiters.toFixed(1) : volumeGallons.toFixed(1);
 
     calculate(); // recalc capacity with new tank size
+}
+async function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    let y = 20;
+
+    // Helper to convert Image URL to Base64
+    const getBase64Image = (url) => {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.crossOrigin = 'Anonymous';
+            img.src = url;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                resolve(canvas.toDataURL('image/jpeg'));
+            };
+            img.onerror = (err) => reject(err);
+        });
+    };
+
+    // --- TITLE ---
+    doc.setFontSize(22);
+    doc.setTextColor(30, 144, 255);
+    doc.text("Tank Stocking Report", 20, y);
+    y += 15;
+
+    // --- FISH LIST ---
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+
+    for (const fish of selectedFish) {
+        if (y > 250) { // Safety margin for page break
+            doc.addPage();
+            y = 20;
+        }
+
+        if (fish.photo) {
+            try {
+                const imgData = await getBase64Image(fish.photo);
+                doc.addImage(imgData, 'JPEG', 20, y, 30, 20);
+            } catch (e) { console.error("PDF Image Error", e); }
+        }
+
+        doc.setFont("helvetica", "bold");
+        doc.text(`${fish.latin_name}`, 55, y + 7);
+        doc.setFont("helvetica", "italic");
+        doc.text(`(${fish.common_name || "Unknown"})`, 55, y + 13);
+        doc.setFont("helvetica", "normal");
+        doc.text(`Quantity: ${fish.amount}`, 55, y + 19);
+        y += 30;
+    }
+
+    // --- TANK SPECIFICATIONS SECTION ---
+    y += 10;
+    if (y > 230) { doc.addPage(); y = 20; } // Check for space
+
+    doc.setDrawColor(30, 144, 255);
+    doc.line(20, y, 190, y);
+    y += 12;
+
+    doc.setFontSize(16);
+    doc.setFont("helvetica", "bold");
+    doc.text("Tank Specifications:", 20, y);
+    y += 10;
+
+    doc.setFontSize(11);
+    doc.setFont("helvetica", "normal");
+
+    // Gather data from your inputs
+    const tankSizeVal = document.getElementById("tankSize").value;
+    const tankUnit = document.getElementById("unit").value;
+    const userLevel = document.getElementById("userLevel").value;
+    const tankType = document.getElementById("tankType").value;
+    const isPlanted = document.getElementById("planted").checked ? "Planted" : "Not Planted";
+
+    // Format the strings
+    const specLines = [
+        `System Size: ${tankSizeVal} ${tankUnit.charAt(0).toUpperCase() + tankUnit.slice(1)}`,
+        `Aquarist Mode: ${userLevel.charAt(0).toUpperCase() + userLevel.slice(1)} Aquarist`,
+        `Environment: ${tankType.charAt(0).toUpperCase() + tankType.slice(1)} Setup`,
+        `Decoration: ${isPlanted}`
+    ];
+
+    specLines.forEach(line => {
+        doc.text(line, 20, y);
+        y += 7;
+    });
+
+    // --- CALCULATED RESULTS ---
+    y += 5;
+    doc.setFontSize(16);
+    doc.setFont("helvetica", "bold");
+    doc.text("Estimated Compatibility:", 20, y);
+    y += 10;
+
+    doc.setFontSize(11);
+    doc.setFont("helvetica", "normal");
+
+    const capText = document.getElementById("capacity").innerText.replace(/\n/g, ' ');
+    const tempText = document.getElementById("temperatureRange").innerText;
+    const phText = document.getElementById("phRange").innerText;
+
+    doc.text(capText, 20, y);
+    y += 7;
+    doc.text(tempText, 20, y);
+    y += 7;
+    doc.text(phText, 20, y);
+
+    // Final Footer Note
+    y += 15;
+    doc.setFontSize(9);
+    doc.setTextColor(100);
+    doc.text("Note: This is an automated estimate. Always research specific species compatibility.", 20, y);
+
+    doc.save("Aquarium_Stocking_Report.pdf");
 }

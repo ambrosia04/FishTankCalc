@@ -5,6 +5,8 @@
 <title>Fish Stocking Calculator</title>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="Icon.png">
+<!-- PDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -13,9 +15,21 @@
 
 <div class="left">
 
-<h1>Fish Stocking Calculator</h1>
+<h1>FISH STOCKING CALCULATOR</h1>
 
-<div class="tank">
+<h3>Always check with an expert of with other fishkeepers before making a decision, remeber this is just an estimated number.</h3>
+
+<div class="user">
+<label>USER LEVEL</label> <br>
+<select id="userLevel">
+  <option value="beginner">Beginner</option>
+  <option value="intermediate">Intermediate</option>
+  <option value="expert">Expert</option>
+</select>
+</div>
+
+<div class="tank" style="padding-top: 1%;">
+    
 
 <label>TANK SIZE</label>
 
@@ -92,6 +106,7 @@
 
 </div>
 <div class="right">
+    <button onclick="generatePDF()" class="btn-nav" style="background: #27ae60;">Download Stocking Report</button>
     <h3>Converter</h3>
     <div class="inline-row">
         <input type="number" id="convertValue">
