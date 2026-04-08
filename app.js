@@ -19,13 +19,15 @@ fetch("fish.json")
 });
 
 const linkedSpecies = {
-    "corydoras": ["corydoras", "hoplisoma"],
-    "hoplisoma": ["corydoras", "hoplisoma"]
+    "corydoras": ["corydoras", "hoplisoma", "aspidoras"],
+    "hoplisoma": ["corydoras", "hoplisoma", "aspidoras"],
+    "aspidoras": ["corydoras", "hoplisoma", "aspidoras"]
 };
 
 const genusLinks = {
     "corydoras": "hoplisoma",
-    "hoplisoma": "corydoras"
+    "hoplisoma": "corydoras",
+    "aspidoras": "corydoras"
 };
 
 function populate() {

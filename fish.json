@@ -9858,6 +9858,7 @@
   {
     "latin_name": "Arothron nigropunctatus",
     "common_name": "Black-spotted Puffer",
+    "photo": "images/Arothron_nigropunctatus.jpg",
     "type": "marine",
     "size_cm": 30,
     "min_tank": 500,
@@ -9892,6 +9893,7 @@
   {
     "latin_name": "Arothron reticularis",
     "common_name": "Reticulated Puffer",
+    "photo": "images/Arothron_reticularis.jpg",
     "type": "marine",
     "size_cm": 45,
     "min_tank": 800,
@@ -9926,6 +9928,7 @@
   {
     "latin_name": "Arothron stellatus",
     "common_name": "Starry Puffer",
+    "photo": "images/Arothron_stellatus.jpg",
     "type": "marine",
     "size_cm": 120,
     "min_tank": 3000,
@@ -9960,6 +9963,7 @@
   {
     "latin_name": "Aspidontus taeniatus",
     "common_name": "Mimic Blenny",
+    "photo": "images/Aspidontus_taeniatus.jpg",
     "type": "marine",
     "size_cm": 12,
     "min_tank": 150,
@@ -9994,6 +9998,7 @@
   {
     "latin_name": "Aspidoras pauciradiatus",
     "common_name": "Sixray Corydoras",
+    "photo": "images/Aspidoras_pauciradiatus.jpg",
     "type": "freshwater",
     "size_cm": 4,
     "min_tank": 100,
@@ -10028,6 +10033,7 @@
   {
     "latin_name": "Aspidoras taurus",
     "common_name": "Taurus Aspidoras",
+    "photo": "images/Aspidoras_taurus.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 100,
@@ -10062,6 +10068,7 @@
   {
     "latin_name": "Astatheros macracanthus",
     "common_name": "Blackthroat Cichlid",
+    "photo": "images/Astatheros_macracanthus.jpg",
     "type": "freshwater",
     "size_cm": 25,
     "min_tank": 1000,
@@ -10096,6 +10103,7 @@
   {
     "latin_name": "Astatotilapia burtoni",
     "common_name": "Burton's Mouthbrooder",
+    "photo": "images/Astatotilapia_burtoni.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 200,
@@ -10130,6 +10138,7 @@
   {
     "latin_name": "Astatotilapia calliptera",
     "common_name": "Eastern Happy",
+    "photo": "images/Astatotilapia_calliptera.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 170,
@@ -10164,6 +10173,7 @@
   {
     "latin_name": "Astatotilapia latifasciata",
     "common_name": "Crimson Tide Cichlid",
+    "photo": "images/Astatotilapia_latifasciata.jpg",
     "type": "freshwater",
     "size_cm": 11,
     "min_tank": 180,
@@ -10198,6 +10208,7 @@
   {
     "latin_name": "Asterophysus batrachus",
     "common_name": "Gulper Catfish",
+    "photo": "images/Asterophysus_batrachus.jpg",
     "type": "freshwater",
     "size_cm": 28,
     "min_tank": 400,
@@ -10232,6 +10243,7 @@
   {
     "latin_name": "Asterropteryx semipunctata",
     "common_name": "Starry Goby",
+    "photo": "images/Asterropteryx_semipunctata.jpg",
     "type": "marine",
     "size_cm": 6,
     "min_tank": 60,
@@ -10266,6 +10278,7 @@
   {
     "latin_name": "Astronotus ocellatus",
     "common_name": "Oscar",
+    "photo": "images/Astronotus_ocellatus.jpg",
     "type": "freshwater",
     "size_cm": 45,
     "min_tank": 600,
@@ -10300,6 +10313,7 @@
   {
     "latin_name": "Astyanax mexicanus",
     "common_name": "Mexican Tetra",
+    "photo": "images/Astyanax_mexicanus.jpg",
     "type": "freshwater",
     "size_cm": 12,
     "min_tank": 300,
@@ -10334,6 +10348,7 @@
   {
     "latin_name": "Astyanax jordani",
     "common_name": "Blind Cave Fish",
+    "photo": "images/Astyanax_jordani.jpg",
     "type": "freshwater",
     "size_cm": 8,
     "min_tank": 100,
@@ -10368,6 +10383,7 @@
   {
     "latin_name": "Astyanax venezuelae",
     "common_name": "Venezuelan Astyanax",
+    "photo": "images/Astyanax_venezuelae.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 80,
@@ -10402,6 +10418,7 @@
   {
     "latin_name": "Atelomycterus marmoratus",
     "common_name": "Coral Catshark",
+    "photo": "images/Atelomycterus_marmoratus.jpg",
     "type": "marine",
     "size_cm": 70,
     "min_tank": 1000,
@@ -10436,6 +10453,7 @@
   {
     "latin_name": "Atherina boyeri",
     "common_name": "Big-scale Sand Smelt",
+    "photo": "images/Atherina_boyeri.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 300,
@@ -10470,6 +10488,7 @@
   {
     "latin_name": "Atherina hepsetus",
     "common_name": "Mediterranean Sand Smelt",
+    "photo": "images/Atherina_hepsetus.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 300,
@@ -10504,6 +10523,7 @@
   {
     "latin_name": "Atherina presbyter",
     "common_name": "Sand Smelt",
+    "photo": "images/Atherina_presbyter.jpg",
     "type": "marine",
     "size_cm": 18,
     "min_tank": 300,
@@ -10538,6 +10558,7 @@
   {
     "latin_name": "Atherinomorus lacunosus",
     "common_name": "Hardyhead Silverside",
+    "photo": "images/Atherinomorus_lacunosus.jpg",
     "type": "marine",
     "size_cm": 25,
     "min_tank": 500,
@@ -10572,6 +10593,7 @@
   {
     "latin_name": "Atractosteus spatula",
     "common_name": "Alligator Gar",
+    "photo": "images/Atractosteus_spatula.jpg",
     "type": "freshwater",
     "size_cm": 300,
     "min_tank": 10000,
@@ -10606,6 +10628,7 @@
   {
     "latin_name": "Atrosalarias fuscus",
     "common_name": "Black Sailfin Blenny",
+    "photo": "images/Atrosalarias_fuscus.jpg",
     "type": "marine",
     "size_cm": 14,
     "min_tank": 114,
@@ -10640,6 +10663,7 @@
   {
     "latin_name": "Atrosalarias holomelas",
     "common_name": "Dusky Blenny",
+    "photo": "images/Atrosalarias_holomelas.jpg",
     "type": "marine",
     "size_cm": 14,
     "min_tank": 114,
@@ -10674,6 +10698,7 @@
   {
     "latin_name": "Auchenoglanis occidentalis",
     "common_name": "Giraffe Catfish",
+    "photo": "images/Auchenoglanis_occidentalis.jpg",
     "type": "freshwater",
     "size_cm": 80,
     "min_tank": 1000,
@@ -10708,6 +10733,7 @@
   {
     "latin_name": "Aulonocara baenschi",
     "common_name": "Nkhomo-benga Peacock",
+    "photo": "images/Aulonocara_baenschi.jpg",
     "type": "freshwater",
     "size_cm": 13,
     "min_tank": 200,
@@ -10742,6 +10768,7 @@
   {
     "latin_name": "Aulonocara brevinidus",
     "common_name": "Brevinidus Peacock",
+    "photo": "images/Aulonocara_brevinidus.jpg",
     "type": "freshwater",
     "size_cm": 12,
     "min_tank": 200,
@@ -10776,6 +10803,7 @@
   {
     "latin_name": "Aulonocara gertrudae",
     "common_name": "Lupingu Peacock",
+    "photo": "images/Aulonocara_gertrudae.jpg",
     "type": "freshwater",
     "size_cm": 16,
     "min_tank": 300,
@@ -10810,6 +10838,7 @@
   {
     "latin_name": "Aulonocara hansbaenschi",
     "common_name": "Fort Maguire Peacock",
+    "photo": "images/Aulonocara_hansbaenschi.jpg",
     "type": "freshwater",
     "size_cm": 12,
     "min_tank": 200,
@@ -10844,6 +10873,7 @@
   {
     "latin_name": "Aulonocara hueseri",
     "common_name": "Night Aulonocara",
+    "photo": "images/Aulonocara_hueseri.jpg",
     "type": "freshwater",
     "size_cm": 14,
     "min_tank": 200,
@@ -10878,6 +10908,7 @@
   {
     "latin_name": "Aulonocara jacobfreibergi 'mamelela'",
     "common_name": "Mamelela Fairy Peacock",
+    "photo": "images/Aulonocara_jacobfreibergi_mamelela.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 300,
@@ -10912,6 +10943,7 @@
   {
     "latin_name": "Aulonocara jacobfreibergi 'Otter Point'",
     "common_name": "Otter Point Cichlid",
+    "photo": "images/Aulonocara_jacobfreibergi_otter_point.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 300,
@@ -10946,6 +10978,7 @@
   {
     "latin_name": "Aulonocara kandeensis",
     "common_name": "Blue Orchid Aulonocara",
+    "photo": "images/Aulonocara_kandeensis.jpg",
     "type": "freshwater",
     "size_cm": 10,
     "min_tank": 200,
@@ -10980,6 +11013,7 @@
   {
     "latin_name": "Aulonocara koningsi",
     "common_name": "Konings's Peacock",
+    "photo": "images/Aulonocara_koningsi.jpg",
     "type": "freshwater",
     "size_cm": 10,
     "min_tank": 200,
@@ -11014,6 +11048,7 @@
   {
     "latin_name": "Aulonocara korneliae",
     "common_name": "Chizumulu Peacock",
+    "photo": "images/Aulonocara_korneliae.jpg",
     "type": "freshwater",
     "size_cm": 9,
     "min_tank": 150,
@@ -11048,6 +11083,7 @@
   {
     "latin_name": "Aulonocara maylandi",
     "common_name": "Sulfurhead Peacock",
+    "photo": "images/Aulonocara_maylandi.jpg",
     "type": "freshwater",
     "size_cm": 14,
     "min_tank": 200,
@@ -11082,6 +11118,7 @@
   {
     "latin_name": "Aulonocara rostratum",
     "common_name": "Rostrate Peacock",
+    "photo": "images/Aulonocara_rostratum.jpg",
     "type": "freshwater",
     "size_cm": 18,
     "min_tank": 350,
@@ -11116,6 +11153,7 @@
   {
     "latin_name": "Aulonocara saulosi",
     "common_name": "Greenface Aulonocara",
+    "photo": "images/Aulonocara_saulosi.jpg",
     "type": "freshwater",
     "size_cm": 10,
     "min_tank": 200,
@@ -11150,6 +11188,7 @@
   {
     "latin_name": "Aulonocara sp. Chitende Nkatabay",
     "common_name": "Chitende Peacock",
+    "photo": "images/Aulonocara_Chitende_Nkatabay.jpg",
     "type": "freshwater",
     "size_cm": 11,
     "min_tank": 300,
@@ -11184,6 +11223,7 @@
   {
     "latin_name": "Aulonocara sp.[1] Lwanda",
     "common_name": "Lwanda Peacock Cichlid",
+    "photo": "images/Aulonocara_1Lwanda.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 300,
@@ -11218,6 +11258,7 @@
   {
     "latin_name": "Aulonocara sp.[1][2] Mamelela",
     "common_name": "Mamelela Peacock",
+    "photo": "images/Aulonocara_Mamelela.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 300,
@@ -11252,6 +11293,7 @@
   {
     "latin_name": "Aulonocara steveni",
     "common_name": "Pale Usisya Aulonocara",
+    "photo": "images/Aulonocara_steveni.jpg",
     "type": "freshwater",
     "size_cm": 10,
     "min_tank": 200,
@@ -11286,6 +11328,7 @@
   {
     "latin_name": "Aulonocara stuartgranti",
     "common_name": "Flavescent Peacock",
+    "photo": "images/Aulonocara_stuartgranti.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 200,
@@ -11320,6 +11363,7 @@
   {
     "latin_name": "Aulonocara stuartgranti Chitumba",
     "common_name": "Chitumba Peacock",
+    "photo": "images/Aulonocara_stuartgranti.jpg",
     "type": "freshwater",
     "size_cm": 12,
     "min_tank": 200,
@@ -11354,6 +11398,7 @@
   {
     "latin_name": "Aulonocranus dewindti",
     "common_name": "Featherfin Cichlid",
+    "photo": "images/Aulonocranus_dewindti.jpg",
     "type": "freshwater",
     "size_cm": 14,
     "min_tank": 400,
@@ -11388,6 +11433,7 @@
   {
     "latin_name": "Aulostomus chinensis",
     "common_name": "Chinese Trumpetfish",
+    "photo": "images/Aulostomus_chinensis.jpg",
     "type": "marine",
     "size_cm": 80,
     "min_tank": 1000,
@@ -11422,6 +11468,7 @@
   {
     "latin_name": "Aulostomus maculatus",
     "common_name": "Trumpetfish",
+    "photo": "images/Aulostomus_maculatus.jpg",
     "type": "marine",
     "size_cm": 100,
     "min_tank": 1200,
@@ -11456,6 +11503,7 @@
   {
     "latin_name": "Aulostomus strigosus",
     "common_name": "Atlantic Trumpetfish",
+    "photo": "images/Aulostomus_strigosus.jpg",
     "type": "marine",
     "size_cm": 75,
     "min_tank": 1000,
@@ -11490,6 +11538,7 @@
   {
     "latin_name": "Garcialebias minuano",
     "common_name": "Minuano Killifish",
+    "photo": "images/Garcialebias_minuano.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 15,
@@ -11523,6 +11572,7 @@
   {
     "latin_name": "Argolebias nigripinnis",
     "common_name": "Blackfin Pearlfish",
+    "photo": "images/Argolebias_nigripinnis.jpg",
     "type": "freshwater",
     "size_cm": 7,
     "min_tank": 45,
@@ -11557,6 +11607,7 @@
   {
     "latin_name": "Matilebias toba",
     "common_name": "Toba Killifish",
+    "photo": "images/Matilebias_toba.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 40,
@@ -11591,6 +11642,7 @@
   {
     "latin_name": "Awaous guamensis",
     "common_name": "Guam River Goby",
+    "photo": "images/Awaous_guamensis.jpg",
     "type": "freshwater",
     "size_cm": 30,
     "min_tank": 400,
@@ -11625,6 +11677,7 @@
   {
     "latin_name": "Axelrodia riesei",
     "common_name": "Ruby Tetra",
+    "photo": "images/Axelrodia_riesei.jpg",
     "type": "freshwater",
     "size_cm": 3,
     "min_tank": 60,
@@ -11659,6 +11712,7 @@
   {
     "latin_name": "Badis badis",
     "common_name": "Chameleon Fish",
+    "photo": "images/Badis_badis.jpg",
     "type": "freshwater",
     "size_cm": 6,
     "min_tank": 80,
