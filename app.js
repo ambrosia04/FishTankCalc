@@ -371,6 +371,18 @@ function removeAllFish(index) {
     }
 }
 
+function addMoreFish(index) {
+    const inputEl = document.getElementById(`addInput-${index}`);
+    let addAmount = parseInt(inputEl.value) || 0;
+
+    if (addAmount > 0) {
+        selectedFish[index].amount += addAmount;
+        inputEl.value = 0; // Reset input to 0
+        updateList();
+        calculate();
+    }
+}
+
 function updateList() {
     const list = document.getElementById("fishList");
     list.innerHTML = "";
@@ -382,15 +394,22 @@ function updateList() {
         if (fish.type !== tankType) invalid = "invalid";
 
         const li = document.createElement("li");
+        li.style.marginBottom = "10px"; // Spacing between fish rows
 
         li.innerHTML = `
             <span class="${invalid}">${fish.latin_name}</span>
-            <span style="margin-left:10px; font-weight:bold;">${fish.amount}</span>
+            <span style="margin-left:10px; font-weight:bold; font-size: 1.1em;">${fish.amount}</span>
 
-            <input type="number" value="0" min="0" style="width:50px; margin-left:5px;" id="removeInput-${i}">
+            <!-- Remove Controls -->
+            <input type="number" value="0" min="0" style="width:50px; margin-left:15px;" id="removeInput-${i}">
+            <button onclick="removeFish(${i})" style="margin-left:5px; background:#b67474; color:white; border:none; border-radius:4px;">Remove</button>
             
-            <button onclick="removeFish(${i})" style="margin-left:5px;">Remove</button>
-            <button onclick="removeAllFish(${i})" style="margin-left:5px; background:#ff6b6b;">Remove All</button>
+            <!-- Add Controls -->
+            <input type="number" value="0" min="0" style="width:50px; margin-left:15px;" id="addInput-${i}">
+            <button onclick="addMoreFish(${i})" style="margin-left:5px; background:#27ae60; color:white; border:none; border-radius:4px;">Add</button>
+
+            <!-- Remove All -->
+            <button onclick="removeAllFish(${i})" style="margin-left:15px; background:#ff6b6b; color:white; border:none; border-radius:4px;">Remove All</button>
 
             <br>
             <small>Energy: ${fish.activity} | Aggression: ${fish.aggression}</small>
@@ -398,18 +417,16 @@ function updateList() {
 
         list.appendChild(li);
 
-        // Restrict input to numbers only, no negative
-        const inputEl = document.getElementById(`removeInput-${i}`);
-        inputEl.addEventListener("keydown", (e) => {
-            // Allow: backspace, delete, tab, escape, enter, arrows
-            if (["Backspace","Delete","Tab","Escape","Enter","ArrowLeft","ArrowRight"].includes(e.key)) return;
-            // Prevent - symbol and non-numeric keys
-            if (e.key === "-" || isNaN(Number(e.key))) e.preventDefault();
-        });
-
-        // Remove any non-numeric characters if pasted
-        inputEl.addEventListener("input", () => {
-            inputEl.value = inputEl.value.replace(/[^0-9]/g, "");
+        // Apply restrictions to both inputs (Remove and Add)
+        [ `removeInput-${i}`, `addInput-${i}` ].forEach(id => {
+            const inputEl = document.getElementById(id);
+            inputEl.addEventListener("keydown", (e) => {
+                if (["Backspace","Delete","Tab","Escape","Enter","ArrowLeft","ArrowRight"].includes(e.key)) return;
+                if (e.key === "-" || isNaN(Number(e.key))) e.preventDefault();
+            });
+            inputEl.addEventListener("input", () => {
+                inputEl.value = inputEl.value.replace(/[^0-9]/g, "");
+            });
         });
     });
     saveState();

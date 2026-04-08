@@ -247,3 +247,12 @@ button {
     padding-bottom: 2%;
     font-size: 20px;
 }
+
+#fishList input[type="number"] {
+    background: #0e1a24;
+    color: white;
+    border: 1px solid #1e90ff;
+    padding: 4px;
+    border-radius: 4px;
+    text-align: center;
+}
