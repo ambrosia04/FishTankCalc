@@ -229,6 +229,70 @@ function calcAmmonia() {
         </div>
     `;
 }
+
+function preventInvalidNumberInput(input, minValue = 0, allowNegative = false) {
+
+    input.addEventListener("keydown", (e) => {
+        // 1. Block Scientific notation and Plus sign
+        const blockedKeys = ["e", "E", "+"];
+        if (blockedKeys.includes(e.key)) {
+            e.preventDefault();
+            return;
+        }
+
+        // 2. Handle Minus sign
+        if (e.key === "-") {
+            if (!allowNegative) {
+                e.preventDefault();
+            } else {
+                /* 
+                   Logic to prevent double minus:
+                   - input.value.includes("-") catches cases like "-5"
+                   - input.validity.badInput catches cases where the box ONLY has a "-"
+                */
+                if (input.value.includes("-") || input.validity.badInput) {
+                    e.preventDefault();
+                }
+            }
+        }
+    });
+
+    // 3. Enforce minimum value ONLY when the user finished typing (on blur)
+    input.addEventListener("blur", () => {
+        // If the field is invalid (like just a minus sign) or empty, clear it
+        if (input.validity.badInput || input.value === "") {
+            input.value = "";
+            return;
+        }
+        
+        let num = parseFloat(input.value);
+        if (!isNaN(num)) {
+            // Only apply minValue if we aren't allowing negatives
+            if (!allowNegative && num < minValue) {
+                input.value = minValue;
+            }
+        }
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    // Tank and Ammonia must be >= 1
+    ["amTank", "ppm", "percent"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) preventInvalidNumberInput(el, 1, false);
+    });
+
+    // Salinity can be 0 or more
+    ["salinity"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) preventInvalidNumberInput(el, 0, false);
+    });
+
+    // Temperature (ALLOW negative, no min value enforced)
+    const tempEl = document.getElementById("temp");
+    if (tempEl) preventInvalidNumberInput(tempEl, 0, true);
+});
+
 </script>
 
 </body>
