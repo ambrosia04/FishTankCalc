@@ -13878,6 +13878,7 @@
   {
     "latin_name": "Biotoecus dicentrarchus",
     "common_name": "Orinoco Dwarf Cichlid",
+    "photo": "images/Biotoecus_dicentrarchus.jpg",
     "type": "freshwater",
     "size_cm": 4,
     "min_tank": 80,
@@ -13912,6 +13913,7 @@
   {
     "latin_name": "Biotoecus opercularis",
     "common_name": "Green Dwarf Cichlid",
+    "photo": "images/Biotoecus_opercularis.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 80,
@@ -13946,6 +13948,7 @@
   {
     "latin_name": "Blennius ocellaris",
     "common_name": "Butterfly Blenny",
+    "photo": "images/Blennius_ocellaris.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 250,
@@ -13980,6 +13983,7 @@
   {
     "latin_name": "Blicca bjoerkna",
     "common_name": "Silver Bream",
+    "photo": "images/Blicca_bjoerkna.jpg",
     "type": "freshwater",
     "size_cm": 35,
     "min_tank": 1000,
@@ -14014,6 +14018,7 @@
   {
     "latin_name": "Bodianus anthioides",
     "common_name": "Lyretail Hogfish",
+    "photo": "images/Bodianus_anthioides.jpg",
     "type": "marine",
     "size_cm": 25,
     "min_tank": 500,
@@ -14048,6 +14053,7 @@
   {
     "latin_name": "Bodianus axillaris",
     "common_name": "Axilspot Hogfish",
+    "photo": "images/Bodianus_axillaris.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 400,
@@ -14082,6 +14088,7 @@
   {
     "latin_name": "Bodianus bilunulatus",
     "common_name": "Saddleback Hogfish",
+    "photo": "images/Bodianus_bilunulatus.jpg",
     "type": "marine",
     "size_cm": 50,
     "min_tank": 1000,
@@ -14116,6 +14123,7 @@
   {
     "latin_name": "Bodianus diana",
     "common_name": "Diana's Hogfish",
+    "photo": "images/Bodianus_diana.jpg",
     "type": "marine",
     "size_cm": 25,
     "min_tank": 500,
@@ -14150,6 +14158,7 @@
   {
     "latin_name": "Bodianus dictynna",
     "common_name": "Redfin Hogfish",
+    "photo": "images/Bodianus_dictynna.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 300,
@@ -14184,6 +14193,7 @@
   {
     "latin_name": "Bodianus diplotaenia",
     "common_name": "Mexican Hogfish",
+    "photo": "images/Bodianus_diplotaenia.jpg",
     "type": "marine",
     "size_cm": 70,
     "min_tank": 1500,
@@ -14218,6 +14228,7 @@
   {
     "latin_name": "Bodianus loxozonus",
     "common_name": "Blackfin Hogfish",
+    "photo": "images/Bodianus_loxozonus.jpg",
     "type": "marine",
     "size_cm": 40,
     "min_tank": 800,
@@ -14252,6 +14263,7 @@
   {
     "latin_name": "Bodianus mesothorax",
     "common_name": "Splitlevel Hogfish",
+    "photo": "images/Bodianus_mesothorax.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 400,
@@ -14286,6 +14298,7 @@
   {
     "latin_name": "Bodianus perditio",
     "common_name": "Golden-spot Hogfish",
+    "photo": "images/Bodianus_perditio.jpg",
     "type": "marine",
     "size_cm": 80,
     "min_tank": 2000,
@@ -14320,6 +14333,7 @@
   {
     "latin_name": "Bodianus rufus",
     "common_name": "Spanish Hogfish",
+    "photo": "images/Bodianus_rufus.jpg",
     "type": "marine",
     "size_cm": 40,
     "min_tank": 800,
@@ -14354,6 +14368,7 @@
   {
     "latin_name": "Bodianus scrofa",
     "common_name": "Barred Hogfish",
+    "photo": "images/Bodianus_scrofa.jpg",
     "type": "marine",
     "size_cm": 45,
     "min_tank": 1000,
@@ -14388,6 +14403,7 @@
   {
     "latin_name": "Boehlkea fredcochui",
     "common_name": "Blue Tetra",
+    "photo": "images/Boehlkea_fredcochui.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 100,
@@ -14422,6 +14438,7 @@
   {
     "latin_name": "Boops boops",
     "common_name": "Bogue",
+    "photo": "images/Boops_boops.jpg",
     "type": "marine",
     "size_cm": 35,
     "min_tank": 1000,
@@ -14456,6 +14473,7 @@
   {
     "latin_name": "Boraras brigittae",
     "common_name": "Chili Rasbora",
+    "photo": "images/Boraras_brigittae.jpg",
     "type": "freshwater",
     "size_cm": 2,
     "min_tank": 40,
@@ -14490,6 +14508,7 @@
   {
     "latin_name": "Boraras maculatus",
     "common_name": "Dwarf Rasbora",
+    "photo": "images/Boraras_maculatus.jpg",
     "type": "freshwater",
     "size_cm": 2.5,
     "min_tank": 40,
@@ -14524,6 +14543,7 @@
   {
     "latin_name": "Boraras merah",
     "common_name": "Phoenix Rasbora",
+    "photo": "images/Boraras_merah.jpg",
     "type": "freshwater",
     "size_cm": 2.0,
     "min_tank": 30,
@@ -14559,6 +14579,7 @@
   {
     "latin_name": "Boraras naevus",
     "common_name": "Strawberry Rasbora",
+    "photo": "images/Boraras_naevus.jpg",
     "type": "freshwater",
     "size_cm": 2,
     "min_tank": 40,
@@ -14593,6 +14614,7 @@
   {
     "latin_name": "Boraras urophthalmoides",
     "common_name": "Exclamation Point Rasbora",
+    "photo": "images/Boraras_urophthalmoides.jpg",
     "type": "freshwater",
     "size_cm": 1.5,
     "min_tank": 30,
@@ -14627,6 +14649,7 @@
   {
     "latin_name": "Bothus lunatus",
     "common_name": "Peacock Flounder",
+    "photo": "images/Bothus_lunatus.jpg",
     "type": "marine",
     "size_cm": 45,
     "min_tank": 800,
@@ -14661,6 +14684,7 @@
   {
     "latin_name": "Bothus mancus",
     "common_name": "Flowery Flounder",
+    "photo": "images/Bothus_mancus.jpg",
     "type": "marine",
     "size_cm": 50,
     "min_tank": 1000,
@@ -14695,6 +14719,7 @@
   {
     "latin_name": "Bothus ocellatus",
     "common_name": "Eyed Flounder",
+    "photo": "images/Bothus_ocellatus.jpg",
     "type": "marine",
     "size_cm": 18,
     "min_tank": 300,
@@ -14729,6 +14754,7 @@
   {
     "latin_name": "Bothus pantherinus",
     "common_name": "Leopard Flounder",
+    "photo": "images/Bothus_pantherinus.jpg",
     "type": "marine",
     "size_cm": 40,
     "min_tank": 800,
@@ -14763,6 +14789,7 @@
   {
     "latin_name": "Bothus podas",
     "common_name": "Wide-eyed Flounder",
+    "photo": "images/Bothus_podas.jpg",
     "type": "marine",
     "size_cm": 45,
     "min_tank": 800,
@@ -14797,6 +14824,7 @@
   {
     "latin_name": "Botia dario",
     "common_name": "Bengal Loach",
+    "photo": "images/Botia_dario.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 250,
@@ -14831,6 +14859,7 @@
   {
     "latin_name": "Botia histrionica",
     "common_name": "Burmese Loach",
+    "photo": "images/Botia_histrionica.jpg",
     "type": "freshwater",
     "size_cm": 13,
     "min_tank": 200,
@@ -14865,6 +14894,7 @@
   {
     "latin_name": "Botia kubotai",
     "common_name": "Angelicus Loach",
+    "photo": "images/Botia_kubotai.jpg",
     "type": "freshwater",
     "size_cm": 13,
     "min_tank": 200,
@@ -14899,6 +14929,7 @@
   {
     "latin_name": "Botia lohachata",
     "common_name": "Yo-yo Loach",
+    "photo": "images/Botia_lohachata.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 250,
@@ -14933,6 +14964,7 @@
   {
     "latin_name": "Botia striata",
     "common_name": "Zebra Loach",
+    "photo": "images/Botia_striata.jpg",
     "type": "freshwater",
     "size_cm": 9,
     "min_tank": 100,
@@ -14967,6 +14999,7 @@
   {
     "latin_name": "Botia udomritthiruji",
     "common_name": "Emperor Loach",
+    "photo": "images/Botia_udomritthiruji.jpg",
     "type": "freshwater",
     "size_cm": 13,
     "min_tank": 200,
@@ -15001,6 +15034,7 @@
   {
     "latin_name": "Boulengerella maculata",
     "common_name": "Spotted Pike-Characin",
+    "photo": "images/Boulengerella_maculata.jpg",
     "type": "freshwater",
     "size_cm": 30,
     "min_tank": 450,
