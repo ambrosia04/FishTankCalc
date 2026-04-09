@@ -64,35 +64,61 @@ function populate() {
     });
     // Enter to select the first option
     input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        e.preventDefault(); // prevent form submission if inside a form
+        if (e.key === "Enter") {
+            e.preventDefault(); // prevent form submission if inside a form
 
-        const select = document.getElementById("fishSelect");
+            const select = document.getElementById("fishSelect");
 
-        // Get the first visible option
-        const firstOption = Array.from(select.options).find(opt => opt.style.display !== "none");
+            // Get the first visible option
+            const firstOption = Array.from(select.options).find(opt => opt.style.display !== "none");
 
-        if(firstOption){
-            select.value = firstOption.value; // select the first matching fish
-            addFish(); // add it
-            input.value = ""; // clear input
-            filterFish("");
+            if(firstOption){
+                select.value = firstOption.value; // select the first matching fish
+                addFish(); // add it
+                input.value = ""; // clear input
+                filterFish("");
+            }
         }
-    }
-    // Auto-recalculate warnings when tank is planted
-    document.getElementById("planted").addEventListener("change", () => {
-        calculate();
+        // Auto-recalculate warnings when tank is planted
+        document.getElementById("planted").addEventListener("change", () => {
+            calculate();
+        });
     });
-});
 
-// Auto-calculate when user types a new tank size
-document.getElementById("tankSize").addEventListener("input", calculate);
+    // Auto-calculate when user types a new tank size
+    document.getElementById("tankSize").addEventListener("input", calculate);
 
-// Auto-calculate when user changes between Gallons/Liters
-document.getElementById("unit").addEventListener("change", calculate);
+    // Auto-calculate when user changes between Gallons/Liters
+    document.getElementById("unit").addEventListener("change", calculate);
 
-// Auto-calculate when tank type (Marine/Freshwater) changes
-document.getElementById("tankType").addEventListener("change", reloadTankType);
+    // Auto-calculate when tank type (Marine/Freshwater) changes
+    document.getElementById("tankType").addEventListener("change", reloadTankType);
+
+    // Inputs that allow 0+
+    [
+        "tankSize",
+        "convertValue",
+        "tankVolumeInput",
+        "substrate",
+        "rocks"
+    ].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) preventNegativeInput(el, 0);
+    });
+
+    // Inputs that must be ≥ 1
+    [
+        "length",
+        "width",
+        "height",
+        "dimLength",
+        "dimWidth",
+        "dimHeight"
+    ].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) preventNegativeInput(el, 1);
+    });
+    
 }
 
 function toggleCategory(category) {
@@ -502,12 +528,12 @@ function getSpeciesRule(fish) {
     const hugeSpecies = ["huso","acipenser"];
     if (hugeSpecies.some(h => latin.startsWith(h)) || common.includes("sturgeon") || common.includes("ray") || common.includes("shark") || common.includes("guitarfish")) {
         rule.factor = 0;
-        rule.warnings.push("Huge species: tank must meet minimum volume; ignore formula.");
+        rule.isHuge = true; // flag for special handling
         rule.territoryLiters = fish.min_tank || 200;
     }
 
     // Predatory behavior
-    if (fish.predatory) {
+    if (fish.predatory && selectedFish.length > 1) {
         rule.warnings.push("Predatory: may eat smaller tank mates.");
     }
 
@@ -654,14 +680,16 @@ function calculate() {
         } 
         else if (fish.category === "snail") {
             totalBioloadLiters += fish.amount * rule.litersPerFish;
-        } 
-        else if (rule.factor > 0) {
-            if (fish.bioload === "low" && size < 5) {
-                totalBioloadLiters += size * fish.amount;
+        } else {
+            let waste = fish.waste_factor || 1;
+
+            if (rule.isHuge) {
+                // For huge species, use minimum tank as bioload baseline
+                totalBioloadLiters += fish.min_tank * fish.amount;
             } else {
-                let waste = fish.waste_factor || 1;
                 totalBioloadLiters += size * fish.amount * rule.factor * waste;
             }
+
         }
 
         // --- Behavior tracking ---
@@ -684,6 +712,11 @@ function calculate() {
         rule.warnings.forEach(msg => {
             warningSet.add(`<div class="warning">${fish.latin_name}: ${msg}</div>`);
         });
+
+        // Show HUGE warning ONLY if tank too small
+        if (rule.isHuge && tank < fish.min_tank) {
+            warningSet.add(`<div class="warning">${fish.latin_name}: Tank too small for this species</div>`);
+        }
 
         // Min tank warning
         if (fish.min_tank && tank < fish.min_tank) {
@@ -903,9 +936,11 @@ function calculate() {
     let effectiveTank = tank * tankMultiplier;
     let percent = (totalBioloadLiters / effectiveTank) * 100;
 
-    let requiredLiters = hardMinTankOnly
+    /*let requiredLiters = hardMinTankOnly
         ? maxMinTankRequirement
         : Math.max(totalBioloadLiters, maxMinTankRequirement);
+    */
+    let requiredLiters = Math.max(totalBioloadLiters, maxMinTankRequirement);
 
     let capacityEl = document.getElementById("capacity");
     console.log("capacityEl:", capacityEl);
@@ -1217,4 +1252,55 @@ function loadState() {
     updateList();
     calculate();
     updateCategoryButtons();
+}
+
+function preventNegativeInput(input, minValue = 0) {
+
+    // Block invalid key presses
+    input.addEventListener("keydown", (e) => {
+        const blockedKeys = ["-", "+", "e", "E"];
+
+        if (blockedKeys.includes(e.key)) {
+            e.preventDefault();
+        }
+    });
+
+    // Clean input (handles paste, drag, etc.)
+    input.addEventListener("input", () => {
+        let value = input.value;
+
+        // Remove anything that is not a number or dot
+        value = value.replace(/[^0-9.]/g, "");
+
+        // Prevent multiple dots
+        const parts = value.split(".");
+        if (parts.length > 2) {
+            value = parts[0] + "." + parts.slice(1).join("");
+        }
+
+        // Convert to number and enforce minimum
+        let num = parseFloat(value);
+
+        if (!isNaN(num)) {
+            if (num < minValue) num = minValue;
+            input.value = num;
+        } else {
+            input.value = "";
+        }
+    });
+}
+
+function toggleVolumeMode() {
+    const mode = document.getElementById("volumeMode").value;
+
+    const litersDiv = document.getElementById("volumeLiters");
+    const dimensionsDiv = document.getElementById("volumeDimensions");
+
+    if (mode === "liters") {
+        litersDiv.style.display = "block";
+        dimensionsDiv.style.display = "none";
+    } else {
+        litersDiv.style.display = "none";
+        dimensionsDiv.style.display = "block";
+    }
 }

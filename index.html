@@ -43,9 +43,9 @@
 
     <!-- Mini dimension calculator -->
     <div class="dimension-calculator">
-        <input type="number" id="dimLength" placeholder="L">
-        <input type="number" id="dimWidth" placeholder="W">
-        <input type="number" id="dimHeight" placeholder="H">
+        <input type="number" id="dimLength" placeholder="L" min="1">
+        <input type="number" id="dimWidth" placeholder="W" min="1">
+        <input type="number" id="dimHeight" placeholder="H" min="1">
         <select id="dimUnit">
             <option value="cm">cm</option>
             <option value="inch">inch</option>
@@ -107,9 +107,9 @@
 </div>
 <div class="right">
     <button onclick="generatePDF()" class="btn-nav" style="background: #27ae60;">Download Stocking Report</button>
-    <h3>Converter</h3>
+    <h3>Converter (Liters/Gallons)</h3>
     <div class="inline-row">
-        <input type="number" id="convertValue">
+        <input type="number" id="convertValue" min="1">
         <select id="convertFrom">
             <option value="liters">Liters</option>
             <option value="gallons">Gallons</option>
@@ -133,7 +133,7 @@
         <div id="volumeLiters" class="input-group">
             <label>Tank Size</label>
             <div class="inline-row">
-                <input type="number" id="tankVolumeInput" placeholder="Tank Size">
+                <input type="number" id="tankVolumeInput" placeholder="Tank Size"  min="1">
                 <select id="tankVolumeUnit">
                     <option value="liters">Liters</option>
                     <option value="gallons">Gallons</option>
@@ -144,9 +144,9 @@
         <div id="volumeDimensions" class="input-group" style="display:none">
             <label>Dimensions</label>
             <div class="dimension-grid">
-                <input type="number" id="length" placeholder="Length">
-                <input type="number" id="width" placeholder="Width">
-                <input type="number" id="height" placeholder="Height">
+                <input type="number" id="length" placeholder="Length" min="1">
+                <input type="number" id="width" placeholder="Width" min="1">
+                <input type="number" id="height" placeholder="Height" min="1">
                 <select id="dimensionUnit">
                     <option value="cm">cm</option>
                     <option value="inch">inch</option>
@@ -156,12 +156,12 @@
 
         <div class="input-group">
             <label>Substrate (kg)</label>
-            <input type="number" id="substrate" placeholder="0">
+            <input type="number" id="substrate" placeholder="0"  min="0">
         </div>
 
         <div class="input-group">
             <label>Big Rocks (10cm cubes)</label>
-            <input type="number" id="rocks" placeholder="0">
+            <input type="number" id="rocks" placeholder="0" min="0">
         </div>
 
         <button onclick="calculateRealVolume()">Calculate Real Volume</button>
