@@ -15664,6 +15664,7 @@
   {
     "latin_name": "Caesio cuning",
     "common_name": "Redbelly Yellowtail Fusilier",
+    "photo": "images/Caesio_cuning.jpg",
     "type": "marine",
     "size_cm": 60,
     "min_tank": 1500,
@@ -15698,6 +15699,7 @@
   {
     "latin_name": "Caesio teres",
     "common_name": "Yellow and Blueback Fusilier",
+    "photo": "images/Caesio_teres.jpg",
     "type": "marine",
     "size_cm": 40,
     "min_tank": 1000,
@@ -15732,6 +15734,7 @@
   {
     "latin_name": "Caesio xanthonota",
     "common_name": "Yellowback Fusilier",
+    "photo": "images/Caesio_xanthonota.jpg",
     "type": "marine",
     "size_cm": 40,
     "min_tank": 1000,
@@ -15766,6 +15769,7 @@
   {
     "latin_name": "Callionymus pusillus",
     "common_name": "Small Dragonet",
+    "photo": "images/Callionymus_pusillus.jpg",
     "type": "marine",
     "size_cm": 14,
     "min_tank": 200,
@@ -15800,6 +15804,7 @@
   {
     "latin_name": "Callochromis macrops 'Mtosi'",
     "common_name": "Mtosi Cichlid",
+    "photo": "images/Callionymus_macrops_Mtosi.jpg",
     "type": "freshwater",
     "size_cm": 13,
     "min_tank": 250,
@@ -15834,6 +15839,7 @@
   {
     "latin_name": "Callochromis melanostigma",
     "common_name": "Blackstigma Cichlid",
+    "photo": "images/Callochromis_melanostigma.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 300,
@@ -15868,6 +15874,7 @@
   {
     "latin_name": "Callochromis pleurospilus",
     "common_name": "Pleurospilus Cichlid",
+    "photo": "images/Callochromis_pleurospilus.jpg",
     "type": "freshwater",
     "size_cm": 11,
     "min_tank": 200,
@@ -15902,6 +15909,7 @@
   {
     "latin_name": "Calloplesiops altivelis",
     "common_name": "Marine Betta",
+    "photo": "images/Calloplesiops_altivelis.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 300,
@@ -15936,6 +15944,7 @@
   {
     "latin_name": "Cantherhines pardalis",
     "common_name": "Honeycomb Filefish",
+    "photo": "images/Cantherhines_pardalis.jpg",
     "type": "marine",
     "size_cm": 25,
     "min_tank": 500,
@@ -15970,6 +15979,7 @@
   {
     "latin_name": "Canthigaster amboinensis",
     "common_name": "Ambon Puffer",
+    "photo": "images/Canthigaster_amboinensis.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 200,
@@ -16004,6 +16014,7 @@
   {
     "latin_name": "Canthigaster axiologus",
     "common_name": "Pacific Crown Puffer",
+    "photo": "images/Canthigaster_axiologus.jpg",
     "type": "marine",
     "size_cm": 10,
     "min_tank": 100,
@@ -16038,6 +16049,7 @@
   {
     "latin_name": "Canthigaster bennetti",
     "common_name": "Bennett's Sharpnose Puffer",
+    "photo": "images/Canthigaster_bennetti.jpg",
     "type": "marine",
     "size_cm": 10,
     "min_tank": 100,
@@ -16072,6 +16084,7 @@
   {
     "latin_name": "Canthigaster capistrata",
     "common_name": "Macaronesian Sharpnose Puffer",
+    "photo": "images/Canthigaster_capistrata.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 200,
@@ -16106,6 +16119,7 @@
   {
     "latin_name": "Canthigaster compressa",
     "common_name": "Compressed Puffer",
+    "photo": "images/Canthigaster_compressa.jpg",
     "type": "marine",
     "size_cm": 12,
     "min_tank": 150,
@@ -16140,6 +16154,7 @@
   {
     "latin_name": "Canthigaster natalensis",
     "common_name": "Natal Sharpnose Puffer",
+    "photo": "images/Canthigaster_natalensis.jpg",
     "type": "marine",
     "size_cm": 10,
     "min_tank": 100,
@@ -16174,6 +16189,7 @@
   {
     "latin_name": "Canthigaster solandri",
     "common_name": "Spotted Sharpnose Puffer",
+    "photo": "images/Canthigaster_solandri.jpg",
     "type": "marine",
     "size_cm": 11,
     "min_tank": 150,
@@ -16208,6 +16224,7 @@
   {
     "latin_name": "Canthigaster valentini",
     "common_name": "Saddled Puffer",
+    "photo": "images/Canthigaster_valentini.jpg",
     "type": "marine",
     "size_cm": 11,
     "min_tank": 150,
@@ -16242,6 +16259,7 @@
   {
     "latin_name": "Caprichromis orthognathus",
     "common_name": "Orthognathus Cichlid",
+    "photo": "images/Caprichromis_orthognathus.jpg",
     "type": "freshwater",
     "size_cm": 20,
     "min_tank": 400,
@@ -16276,6 +16294,7 @@
   {
     "latin_name": "Capros aper",
     "common_name": "Boarfish",
+    "photo": "images/Capros_aper.jpg",
     "type": "marine",
     "size_cm": 16,
     "min_tank": 300,
@@ -16310,6 +16329,7 @@
   {
     "latin_name": "Caranx crysos",
     "common_name": "Blue Runner",
+    "photo": "images/Carana_crysos.jpg",
     "type": "marine",
     "size_cm": 70,
     "min_tank": 3000,
@@ -16344,6 +16364,7 @@
   {
     "latin_name": "Caranx hippos",
     "common_name": "Crevalle Jack",
+    "photo": "images/Caranx_hippos.jpg",
     "type": "marine",
     "size_cm": 120,
     "min_tank": 10000,
@@ -16378,6 +16399,7 @@
   {
     "latin_name": "Caranx ignobilis",
     "common_name": "Giant Trevally",
+    "photo": "images/Caranx_ignobilis.jpg",
     "type": "marine",
     "size_cm": 170,
     "min_tank": 20000,
@@ -16412,6 +16434,7 @@
   {
     "latin_name": "Caranx latus",
     "common_name": "Horse-eye Jack",
+    "photo": "images/Caranx_latus.jpg",
     "type": "marine",
     "size_cm": 100,
     "min_tank": 8000,
@@ -16446,6 +16469,7 @@
   {
     "latin_name": "Caranx sexfasciatus",
     "common_name": "Bigeye Trevally",
+    "photo": "images/Caranx_sexfasciatus.jpg",
     "type": "marine",
     "size_cm": 120,
     "min_tank": 10000,
@@ -16480,6 +16504,7 @@
   {
     "latin_name": "Carassius auratus",
     "common_name": "Goldfish",
+    "photo": "images/Carassius_auratus.jpg",
     "type": "freshwater",
     "size_cm": 30,
     "min_tank": 100,
@@ -16514,6 +16539,7 @@
   {
     "latin_name": "Carassius carassius",
     "common_name": "Crucian Carp",
+    "photo": "images/Carassius_carassius.jpg",
     "type": "freshwater",
     "size_cm": 40,
     "min_tank": 600,
@@ -16548,6 +16574,7 @@
   {
     "latin_name": "Carcharhinus amblyrhynchos",
     "common_name": "Grey Reef Shark",
+    "photo": "images/Carcharhinus_amblyrhynchos.jpg",
     "type": "marine",
     "size_cm": 250,
     "min_tank": 50000,
@@ -16582,6 +16609,7 @@
   {
     "latin_name": "Carcharhinus falciformis",
     "common_name": "Silky Shark",
+    "photo": "images/Carcharhinus_falciformis.jpg",
     "type": "marine",
     "size_cm": 350,
     "min_tank": 100000,
@@ -16616,6 +16644,7 @@
   {
     "latin_name": "Carcharhinus melanopterus",
     "common_name": "Blacktip Reef Shark",
+    "photo": "images/Carcharhinus_melanopterus.jpg",
     "type": "marine",
     "size_cm": 200,
     "min_tank": 50000,
@@ -16650,6 +16679,7 @@
   {
     "latin_name": "Carcharhinus plumbeus",
     "common_name": "Sandbar Shark",
+    "photo": "images/Carcharhinus_plumbeus.jpg",
     "type": "marine",
     "size_cm": 250,
     "min_tank": 80000,
@@ -16684,6 +16714,7 @@
   {
     "latin_name": "Carcharias taurus",
     "common_name": "Sand Tiger Shark",
+    "photo": "images/Carcharias_taurus.jpg",
     "type": "marine",
     "size_cm": 320,
     "min_tank": 100000,
@@ -16718,6 +16749,7 @@
   {
     "latin_name": "Carcharodon carcharias",
     "common_name": "Great White Shark",
+    "photo": "images/Carcharodon_carcharias.jpg",
     "type": "marine",
     "size_cm": 600,
     "min_tank": 1000000,
@@ -16751,6 +16783,7 @@
   {
     "latin_name": "Carinotetraodon irrubesco",
     "common_name": "Red-tailed Redeye Puffer",
+    "photo": "images/Carinotetraodon_irrubesco.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 80,
@@ -16785,6 +16818,7 @@
   {
     "latin_name": "Carinotetraodon travancoricus",
     "common_name": "Dwarf Pea Puffer",
+    "photo": "images/Carinotetraodon_travancoricus.jpg",
     "type": "freshwater",
     "size_cm": 3,
     "min_tank": 40,
@@ -16819,6 +16853,7 @@
   {
     "latin_name": "Carnegiella strigata",
     "common_name": "Marbled Hatchetfish",
+    "photo": "images/Carnegiella_strigata.jpg",
     "type": "freshwater",
     "size_cm": 4,
     "min_tank": 60,
@@ -16853,6 +16888,7 @@
   {
     "latin_name": "Celestichthys erythromicron",
     "common_name": "Emerald Dwarf Rasbora",
+    "photo": "images/Celestichthys_erythromicron.jpg",
     "type": "freshwater",
     "size_cm": 2.5,
     "min_tank": 40,
@@ -16887,6 +16923,7 @@
   {
     "latin_name": "Centrolabrus exoletus",
     "common_name": "Rock Cook",
+    "photo": "images/Centrolabrus_exoletus.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 250,
@@ -16921,6 +16958,7 @@
   {
     "latin_name": "Centrolabrus melanocercus",
     "common_name": "Black-tailed Wrasse",
+    "photo": "images/Centrolabrus_melanocercus.jpg",
     "type": "marine",
     "size_cm": 14,
     "min_tank": 200,
@@ -16955,6 +16993,7 @@
   {
     "latin_name": "Centromochlus perugiae",
     "common_name": "Oil Catfish",
+    "photo": "images/Centromochlus_perugiae.jpg",
     "type": "freshwater",
     "size_cm": 6,
     "min_tank": 80,
@@ -16989,6 +17028,7 @@
   {
     "latin_name": "Centropomus undecimalis",
     "common_name": "Common Snook",
+    "photo": "images/Centropomus_undecimalis.jpg",
     "type": "brackish",
     "size_cm": 140,
     "min_tank": 5000,
@@ -17023,6 +17063,7 @@
   {
     "latin_name": "Centropyge acanthops",
     "common_name": "Orangeback Angelfish",
+    "photo": "images/Centropyge_acanthops.jpg",
     "type": "marine",
     "size_cm": 8,
     "min_tank": 150,
@@ -17057,6 +17098,7 @@
   {
     "latin_name": "Centropyge argi",
     "common_name": "Cherub Angelfish",
+    "photo": "images/Centropyge_argi.jpg",
     "type": "marine",
     "size_cm": 8,
     "min_tank": 150,
@@ -17091,6 +17133,7 @@
   {
     "latin_name": "Centropyge bicolor",
     "common_name": "Bicolor Angelfish",
+    "photo": "images/Centropyge_bicolor.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 250,
@@ -17125,6 +17168,7 @@
   {
     "latin_name": "Centropyge bispinosa",
     "common_name": "Coral Beauty Angelfish",
+    "photo": "images/Centropyge_bispinosa.jpg",
     "type": "marine",
     "size_cm": 10,
     "min_tank": 200,
@@ -17159,6 +17203,7 @@
   {
     "latin_name": "Centropyge eibli",
     "common_name": "Eibl's Angelfish",
+    "photo": "images/Centropyge_eibli.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 250,
@@ -17193,6 +17238,7 @@
   {
     "latin_name": "Centropyge flavissima",
     "common_name": "Lemonpeel Angelfish",
+    "photo": "images/Centropyge_flavissima.jpg",
     "type": "marine",
     "size_cm": 14,
     "min_tank": 250,
@@ -17227,6 +17273,7 @@
   {
     "latin_name": "Centropyge heraldi",
     "common_name": "Herald's Angelfish",
+    "photo": "images/Centropyge_heraldi.jpg",
     "type": "marine",
     "size_cm": 12,
     "min_tank": 250,
@@ -17261,6 +17308,7 @@
   {
     "latin_name": "Centropyge loriculus",
     "common_name": "Flame Angelfish",
+    "photo": "images/Centropyge_loriculus.jpg",
     "type": "marine",
     "size_cm": 10,
     "min_tank": 200,
@@ -17295,6 +17343,7 @@
   {
     "latin_name": "Centropyge multicolor",
     "common_name": "Multicolor Angelfish",
+    "photo": "images/Centropyge_multicolor.jpg",
     "type": "marine",
     "size_cm": 9,
     "min_tank": 200,
@@ -17329,6 +17378,7 @@
   {
     "latin_name": "Centropyge multispinis",
     "common_name": "Dusky Angelfish",
+    "photo": "images/Centropyge_multispinis.jpg",
     "type": "marine",
     "size_cm": 14,
     "min_tank": 250,
@@ -17363,6 +17413,7 @@
   {
     "latin_name": "Centropyge tibicen",
     "common_name": "Tibicen Angelfish",
+    "photo": "images/Centropyge_tibicen.jpg",
     "type": "marine",
     "size_cm": 18,
     "min_tank": 300,
@@ -17397,6 +17448,7 @@
   {
     "latin_name": "Centropyge venusta",
     "common_name": "Purplemask Angelfish",
+    "photo": "images/Centropyge_venusta.jpg",
     "type": "marine",
     "size_cm": 12,
     "min_tank": 250,
@@ -17431,6 +17483,7 @@
   {
     "latin_name": "Centropyge vrolikii",
     "common_name": "Pearlscale Angelfish",
+    "photo": "images/Centropyge_vrolikii.jpg",
     "type": "marine",
     "size_cm": 12,
     "min_tank": 250,
@@ -17465,6 +17518,7 @@
   {
     "latin_name": "Cephalopholis argus",
     "common_name": "Bluespotted Grouper",
+    "photo": "images/Cephalopholis_argus.jpg",
     "type": "marine",
     "size_cm": 60,
     "min_tank": 1500,
@@ -17499,6 +17553,7 @@
   {
     "latin_name": "Cephalopholis colonus",
     "common_name": "Pacific Graysby",
+    "photo": "images/Cephalopholis_colonus.jpg",
     "type": "marine",
     "size_cm": 30,
     "min_tank": 600,
@@ -17533,6 +17588,7 @@
   {
     "latin_name": "Cephalopholis miniata",
     "common_name": "Coral Grouper",
+    "photo": "images/Cephalopholis_miniata.jpg",
     "type": "marine",
     "size_cm": 45,
     "min_tank": 1000,
@@ -17567,6 +17623,7 @@
   {
     "latin_name": "Cephalopholis nigripinnis",
     "common_name": "Blackfin Grouper",
+    "photo": "images/Cephalopholis_nigripinnis.jpg",
     "type": "marine",
     "size_cm": 25,
     "min_tank": 500,
@@ -17601,6 +17658,7 @@
   {
     "latin_name": "Cephalopholis spiloparaea",
     "common_name": "Strawberry Grouper",
+    "photo": "images/Cephalopholis_spiloparaea.jpg",
     "type": "marine",
     "size_cm": 30,
     "min_tank": 600,
@@ -17635,6 +17693,7 @@
   {
     "latin_name": "Cetorhinus maximus",
     "common_name": "Basking Shark",
+    "photo": "images/Cetorhinus_maximus.jpg",
     "type": "marine",
     "size_cm": 1000,
     "min_tank": 1000000,

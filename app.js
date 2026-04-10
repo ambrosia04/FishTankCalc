@@ -30,6 +30,13 @@ const genusLinks = {
     "aspidoras": "corydoras"
 };
 
+const commonSynonyms = {
+    "rockcod": "grouper",
+    "grouper": "rockcod",
+    "siamese algae eater": "sae",
+    "cherry shrimp": "neocaridina"
+};
+
 function populate() {
     const input = document.getElementById("fishInput");
     const select = document.getElementById("fishSelect");
@@ -183,6 +190,17 @@ function updateCategoryButtons() {
 function filterFish(query) {
     query = query.toLowerCase().trim();
 
+    // 1. Find potential synonyms based on partial typing
+    let activeSynonyms = [];
+    if (query.length > 0) {
+        Object.entries(commonSynonyms).forEach(([key, value]) => {
+            // If user types "rockc", and "rockcod" starts with "rockc"
+            // we add "grouper" to the search terms.
+            if (key.startsWith(query)) activeSynonyms.push(value);
+            if (value.startsWith(query)) activeSynonyms.push(key);
+        });
+    }
+
     const filtered = fishDB.filter(fish => {
         const latin = fish.latin_name.toLowerCase();
         const common = (fish.common_name || "").toLowerCase();
@@ -190,17 +208,19 @@ function filterFish(query) {
 
         if (!activeCategories[category]) return false;
 
-        // Split query into words
+        // Logic A: Normal text match (Does name contain "rockc"?)
         const words = query.split(/\s+/);
-
-        // Original text match
         let match = words.every(w => latin.includes(w) || common.includes(w));
 
-        // 🧠 Check genus-links
-        if (!match && words.length > 1) {
-            let genus = words[0];   // first word in the query
-            let species = words.slice(1).join(" "); // rest of the name
+        // Logic B: Partial Synonym match (If typing "rockc", find fish containing "grouper")
+        if (!match && activeSynonyms.length > 0) {
+            match = activeSynonyms.some(syn => latin.includes(syn) || common.includes(syn));
+        }
 
+        // Logic C: Genus-links (e.g., Corydoras / Hoplisoma)
+        if (!match && words.length > 1) {
+            let genus = words[0]; 
+            let species = words.slice(1).join(" "); 
             if (genusLinks[genus]) {
                 const linkedLatin = genusLinks[genus] + " " + species;
                 match = latin.includes(linkedLatin);
