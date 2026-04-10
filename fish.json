@@ -15069,6 +15069,7 @@
   {
     "latin_name": "Boulengerochromis microlepis",
     "common_name": "Giant Cichlid",
+    "photo": "images/Boulengerochromis_microlepis.jpg",
     "type": "freshwater",
     "size_cm": 80,
     "min_tank": 2000,
@@ -15103,6 +15104,7 @@
   {
     "latin_name": "Brachygobius xanthozonus",
     "common_name": "Bumblebee Goby",
+    "photo": "images/Brachygobius_xanthozonus.jpg",
     "type": "brackish",
     "size_cm": 4,
     "min_tank": 40,
@@ -15137,6 +15139,7 @@
   {
     "latin_name": "Brachyplatystoma platynemum",
     "common_name": "Slobbering Catfish",
+    "photo": "images/Brachyplatystoma_platynemum.jpg",
     "type": "freshwater",
     "size_cm": 100,
     "min_tank": 3000,
@@ -15171,6 +15174,7 @@
   {
     "latin_name": "Brachyplatystoma tigrinum",
     "common_name": "Zebra Shovelnose Catfish",
+    "photo": "images/Brachyplatystoma_tigrinum.jpg",
     "type": "freshwater",
     "size_cm": 60,
     "min_tank": 1000,
@@ -15205,6 +15209,7 @@
   {
     "latin_name": "Brevibora dorsiocellata",
     "common_name": "Eyespot Rasbora",
+    "photo": "images/Brevibora_dorsiocellata.jpg",
     "type": "freshwater",
     "size_cm": 4,
     "min_tank": 60,
@@ -15239,6 +15244,7 @@
   {
     "latin_name": "Brittanichthys axelrodi",
     "common_name": "Red-winged Tetra",
+    "photo": "images/Brittanichthys_axelrodi.jpg",
     "type": "freshwater",
     "size_cm": 3,
     "min_tank": 40,
@@ -15273,6 +15279,7 @@
   {
     "latin_name": "Brochis splendens",
     "common_name": "Emerald Brochis",
+    "photo": "images/Brochis_splendens.jpg",
     "type": "freshwater",
     "size_cm": 8,
     "min_tank": 100,
@@ -15307,6 +15314,7 @@
   {
     "latin_name": "Brycinus affinis",
     "common_name": "Redfin Robber",
+    "photo": "images/Brycinus_affinis.jpg",
     "type": "freshwater",
     "size_cm": 15,
     "min_tank": 300,
@@ -15341,6 +15349,7 @@
   {
     "latin_name": "Brycon hilarii",
     "common_name": "Piraputanga",
+    "photo": "images/Brycon_hilarii.jpg",
     "type": "freshwater",
     "size_cm": 50,
     "min_tank": 1000,
@@ -15375,6 +15384,7 @@
   {
     "latin_name": "Bryconalestes longipinnis",
     "common_name": "Longfin Tetra",
+    "photo": "images/Bryconalestes_longipinnis.jpg",
     "type": "freshwater",
     "size_cm": 13,
     "min_tank": 200,
@@ -15409,6 +15419,7 @@
   {
     "latin_name": "Bryconella pallidifrons",
     "common_name": "Disappearing Tetra",
+    "photo": "images/Bryconella_pallidifrons.jpg",
     "type": "freshwater",
     "size_cm": 4,
     "min_tank": 60,
@@ -15443,6 +15454,7 @@
   {
     "latin_name": "Buccochromis lepturus",
     "common_name": "Slender Tail Cichlid",
+    "photo": "images/Buccochromis_lepturus.jpg",
     "type": "freshwater",
     "size_cm": 40,
     "min_tank": 800,
@@ -15477,6 +15489,7 @@
   {
     "latin_name": "Buccochromis rhoadesii",
     "common_name": "Yellow Lepturus",
+    "photo": "images/Buccochromis_rhoadesii.jpg",
     "type": "freshwater",
     "size_cm": 40,
     "min_tank": 800,
@@ -15511,6 +15524,7 @@
   {
     "latin_name": "Buccochromis spectabilis",
     "common_name": "Spectacular Cichlid",
+    "photo": "images/Buccochromis_spectabilis.jpg",
     "type": "freshwater",
     "size_cm": 30,
     "min_tank": 600,
@@ -15545,6 +15559,7 @@
   {
     "latin_name": "Buglossidium luteum",
     "common_name": "Solenette",
+    "photo": "images/Buglossidium_luteum.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 200,
@@ -15579,6 +15594,7 @@
   {
     "latin_name": "Bujurquina moriorum",
     "common_name": "Morioro Cichlid",
+    "photo": "images/Bujurquina_moriorum.jpg",
     "type": "freshwater",
     "size_cm": 10,
     "min_tank": 120,
@@ -15613,6 +15629,7 @@
   {
     "latin_name": "Caesio caerulaurea",
     "common_name": "Blue and Gold Fusilier",
+    "photo": "images/Caesio_caerulaurea.jpg",
     "type": "marine",
     "size_cm": 35,
     "min_tank": 1000,
