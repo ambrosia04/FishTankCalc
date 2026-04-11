@@ -17693,7 +17693,7 @@
   {
     "latin_name": "Cetorhinus maximus",
     "common_name": "Basking Shark",
-    "photo": "images/Cetorhinus_maximus.jpg",
+    "photo": "images/Cetorhinus_maximus.jpg", 
     "type": "marine",
     "size_cm": 1000,
     "min_tank": 1000000,
@@ -17727,6 +17727,7 @@
   {
     "latin_name": "Cetoscarus bicolor",
     "common_name": "Bicolor Parrotfish",
+    "photo": "images/Cetoscarus_bicolor.jpg", 
     "type": "marine",
     "size_cm": 90,
     "min_tank": 3000,
@@ -17761,6 +17762,7 @@
   {
     "latin_name": "Chaetodon adiergastos",
     "common_name": "Panda Butterflyfish",
+    "photo": "images/Chaetodon_adiergastos.jpg", 
     "type": "marine",
     "size_cm": 20,
     "min_tank": 500,
@@ -17795,6 +17797,7 @@
   {
     "latin_name": "Chaetodon auriga",
     "common_name": "Threadfin Butterflyfish",
+    "photo": "images/Chaetodon_auriga.jpg", 
     "type": "marine",
     "size_cm": 23,
     "min_tank": 500,
@@ -17829,6 +17832,7 @@
   {
     "latin_name": "Chaetodon bennetti",
     "common_name": "Bennett's Butterflyfish",
+    "photo": "images/Chaetodon_bennetti.jpg", 
     "type": "marine",
     "size_cm": 20,
     "min_tank": 500,
@@ -17863,6 +17867,7 @@
   {
     "latin_name": "Chaetodon blackburnii",
     "common_name": "Blackburn's Butterflyfish",
+    "photo": "images/Chaetodon_blackburnii.jpg", 
     "type": "marine",
     "size_cm": 12,
     "min_tank": 300,
@@ -17897,6 +17902,7 @@
   {
     "latin_name": "Chaetodon capistratus",
     "common_name": "Foureye Butterflyfish",
+    "photo": "images/Chaetodon_capistratus.jpg", 
     "type": "marine",
     "size_cm": 15,
     "min_tank": 300,
@@ -17931,6 +17937,7 @@
   {
     "latin_name": "Chaetodon citrinellus",
     "common_name": "Citron Butterflyfish",
+    "photo": "images/Chaetodon_citrinellus.jpg", 
     "type": "marine",
     "size_cm": 13,
     "min_tank": 300,
@@ -17965,6 +17972,7 @@
   {
     "latin_name": "Chaetodon ephippium",
     "common_name": "Saddled Butterflyfish",
+    "photo": "images/Chaetodon_ephippium.jpg", 
     "type": "marine",
     "size_cm": 30,
     "min_tank": 800,
@@ -17999,6 +18007,7 @@
   {
     "latin_name": "Chaetodon fasciatus",
     "common_name": "Diagonal Butterflyfish",
+    "photo": "images/Chaetodon_fasciatus.jpg", 
     "type": "marine",
     "size_cm": 22,
     "min_tank": 500,
@@ -18033,6 +18042,7 @@
   {
     "latin_name": "Chaetodon flavirostris",
     "common_name": "Black Butterflyfish",
+    "photo": "images/Chaetodon_flavirostris.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 500,
@@ -18067,6 +18077,7 @@
   {
     "latin_name": "Chaetodon guentheri",
     "common_name": "Gunther's Butterflyfish",
+    "photo": "images/Chaetodon_guentheri.jpg",
     "type": "marine",
     "size_cm": 18,
     "min_tank": 450,
@@ -18101,6 +18112,7 @@
   {
     "latin_name": "Chaetodon interruptus",
     "common_name": "Yellow Teardrop Butterflyfish",
+    "photo": "images/Chaetodon_interruptus.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 500,
@@ -18135,6 +18147,7 @@
   {
     "latin_name": "Chaetodon kleinii",
     "common_name": "Klein's Butterflyfish",
+    "photo": "images/Chaetodon_kleinii.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 300,
@@ -18169,6 +18182,7 @@
   {
     "latin_name": "Chaetodon lineolatus",
     "common_name": "Lined Butterflyfish",
+    "photo": "images/Chaetodon_lineolatus.jpg",
     "type": "marine",
     "size_cm": 30,
     "min_tank": 1000,
@@ -18203,6 +18217,7 @@
   {
     "latin_name": "Chaetodon lunula",
     "common_name": "Raccoon Butterflyfish",
+    "photo": "images/Chaetodon_lunula.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 500,
@@ -18237,6 +18252,7 @@
   {
     "latin_name": "Chaetodon lunulatus",
     "common_name": "Red-finned Butterflyfish",
+    "photo": "images/Chaetodon_lunulatus.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 300,
@@ -18271,6 +18287,7 @@
   {
     "latin_name": "Chaetodon madagaskariensis",
     "common_name": "Madagascar Butterflyfish",
+    "photo": "images/Chaetodon_madagaskariensis.jpg",
     "type": "marine",
     "size_cm": 13,
     "min_tank": 300,
@@ -18305,6 +18322,7 @@
   {
     "latin_name": "Chaetodon melannotus",
     "common_name": "Black-backed Butterflyfish",
+    "photo": "images/Chaetodon_melannotus.jpg",
     "type": "marine",
     "size_cm": 18,
     "min_tank": 500,
@@ -18339,6 +18357,7 @@
   {
     "latin_name": "Chaetodon mertensii",
     "common_name": "Atoll Butterflyfish",
+    "photo": "images/Chaetodon_mertensii.jpg",
     "type": "marine",
     "size_cm": 12,
     "min_tank": 300,
@@ -18373,6 +18392,7 @@
   {
     "latin_name": "Chaetodon ornatissimus",
     "common_name": "Ornate Butterflyfish",
+    "photo": "images/Chaetodon_ornatissimus.jpg",
     "type": "marine",
     "size_cm": 20,
     "min_tank": 500,
@@ -18407,6 +18427,7 @@
   {
     "latin_name": "Chaetodon pelewensis",
     "common_name": "Sunset Butterflyfish",
+    "photo": "images/Chaetodon_pelewensis.jpg",
     "type": "marine",
     "size_cm": 12,
     "min_tank": 300,
@@ -18441,6 +18462,7 @@
   {
     "latin_name": "Chaetodon plebeius",
     "common_name": "Blue-blotch Butterflyfish",
+    "photo": "images/Chaetodon_plebeius.jpg",
     "type": "marine",
     "size_cm": 15,
     "min_tank": 350,
@@ -18475,6 +18497,7 @@
   {
     "latin_name": "Chaetodon rafflesii",
     "common_name": "Latticed Butterflyfish",
+    "photo": "images/Chaetodon_rafflesii.jpg",
     "type": "marine",
     "size_cm": 18,
     "min_tank": 450,
@@ -18509,6 +18532,7 @@
   {
     "latin_name": "Chaetodon reticulatus",
     "common_name": "Reticulated Butterflyfish",
+    "photo": "images/Chaetodon_reticulatus.jpg",
     "type": "marine",
     "size_cm": 18,
     "min_tank": 450,
@@ -18543,6 +18567,7 @@
   {
     "latin_name": "Chaetodon semeion",
     "common_name": "Dotted Butterflyfish",
+    "photo": "images/Chaetodon_semeion.jpg",
     "type": "marine",
     "size_cm": 25,
     "min_tank": 600,
@@ -18577,6 +18602,7 @@
   {
     "latin_name": "Chaetodon semilarvatus",
     "common_name": "Golden Butterflyfish",
+    "photo": "images/Chaetodon_semilarvatus.jpg",
     "type": "marine",
     "size_cm": 23,
     "min_tank": 500,
@@ -18611,6 +18637,7 @@
   {
     "latin_name": "Chaetodon speculum",
     "common_name": "Mirror Butterflyfish",
+    "photo": "images/Chaetodon_speculum.jpg",
     "type": "marine",
     "size_cm": 18,
     "min_tank": 450,
@@ -18645,6 +18672,7 @@
   {
     "latin_name": "Chaetodon trifascialis",
     "common_name": "Chevron Butterflyfish",
+    "photo": "images/Chaetodon_trifascialis.jpg",
     "type": "marine",
     "size_cm": 18,
     "min_tank": 500,
@@ -18679,6 +18707,7 @@
   {
 "latin_name": "Chaetodon trifasciatus",
 "common_name": "Melon Butterflyfish",
+"photo": "images/Chaetodon_trifasciatus.jpg",
 "type": "marine",
 "size_cm": 15,
 "min_tank": 400,
@@ -18713,6 +18742,7 @@
 {
 "latin_name": "Chaetodon ulietensis",
 "common_name": "Double-saddle Butterflyfish",
+"photo": "images/Chaetodon_ulietensis.jpg",
 "type": "marine",
 "size_cm": 15,
 "min_tank": 400,
@@ -18747,6 +18777,7 @@
 {
 "latin_name": "Chaetodon unimaculatus",
 "common_name": "Teardrop Butterflyfish",
+"photo": "images/Chaetodon_unimaculatus.jpg",
 "type": "marine",
 "size_cm": 20,
 "min_tank": 500,
@@ -18781,6 +18812,7 @@
 {
 "latin_name": "Chaetodon vagabundus",
 "common_name": "Vagabond Butterflyfish",
+"photo": "images/Chaetodon_vagabundus.jpg",
 "type": "marine",
 "size_cm": 23,
 "min_tank": 500,
@@ -18815,6 +18847,7 @@
 {
 "latin_name": "Chaetodon xanthocephalus",
 "common_name": "Yellowhead Butterflyfish",
+"photo": "images/Chaetodon_xanthocephalus.jpg",
 "type": "marine",
 "size_cm": 20,
 "min_tank": 500,
@@ -18849,6 +18882,7 @@
 {
 "latin_name": "Chaetodon xanthurus",
 "common_name": "Pearlscale Butterflyfish",
+"photo": "images/Chaetodon_xanthurus.jpg",
 "type": "marine",
 "size_cm": 14,
 "min_tank": 300,
@@ -18883,6 +18917,7 @@
 {
 "latin_name": "Chaetodontoplus conspicillatus",
 "common_name": "Conspicuous Angelfish",
+"photo": "images/Chaetodontoplus_conspicillatus.jpg",
 "type": "marine",
 "size_cm": 25,
 "min_tank": 600,
