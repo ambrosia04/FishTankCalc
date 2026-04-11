@@ -101,6 +101,8 @@ function populate() {
     // Auto-calculate when tank type (Marine/Freshwater) changes
     document.getElementById("tankType").addEventListener("change", reloadTankType);
 
+    document.getElementById("hasSand").addEventListener("change", calculate);
+
     // Inputs that allow 0+
     [
         "tankSize",
@@ -439,13 +441,28 @@ function updateList() {
         let invalid = "";
         const tankType = document.getElementById("tankType").value;
 
-        if (fish.type !== tankType) invalid = "invalid";
+        // Compatibility rules
+        const isSoftCompatible =
+            (fish.type === "freshwater" && tankType === "brackish") ||
+            (fish.type === "brackish" && tankType === "freshwater");
+
+        const isHardIncompatible =
+            (fish.type === "marine" && tankType !== "marine") ||
+            (tankType === "marine" && fish.type !== "marine");
+
+        if (isHardIncompatible) {
+            invalid = "invalid"; // RED
+        } else if (isSoftCompatible) {
+            invalid = "warning-yellow"; // YELLOW
+        }
 
         const li = document.createElement("li");
         li.style.marginBottom = "10px"; // Spacing between fish rows
 
         li.innerHTML = `
-            <span class="${invalid}">${fish.latin_name}</span>
+            <span class="${invalid}" title="${invalid === 'warning-yellow' ? 'Can adapt but not ideal' : ''}">
+                ${fish.latin_name}
+            </span>
             <span style="margin-left:10px; font-weight:bold; font-size: 1.1em;">${fish.amount}</span>
 
             <!-- Remove Controls -->
@@ -537,10 +554,24 @@ function getSpeciesRule(fish) {
         rule.territoryLiters = fish.territory_volume_liters || 50;
     }
 
-    // Bottom-dwellers: plecos, catfish
-    if (latin.startsWith("acanthicus") || latin.startsWith("acestridium") || common.includes("pleco") || common.includes("catfish")) {
+    // Bottom-dwellers
+    if (fish.category === "fish" && fish.tank_position === "bottom") {
         rule.factor = fish.bioload === "low" ? 1.25 : 2.0;
-        rule.warnings.push("Bottom-dweller: needs hides and floor space.");
+
+        const planted = document.getElementById("planted").checked;
+        const sand = document.getElementById("hasSand").checked;
+
+        if (planted && !sand) {
+            rule.warnings.push("Bottom-dweller: needs sand to sift.");
+        } 
+        else if (!planted && sand) {
+            rule.warnings.push("Bottom-dweller: needs hiding spaces.");
+        } 
+        else if (!planted && !sand) {
+            rule.warnings.push("Bottom-dweller: needs hides and floor space.");
+        }
+        // if both are checked → no warning (ideal setup)
+
         rule.territoryLiters = fish.territory_volume_liters || 20;
     }
 
@@ -569,12 +600,12 @@ function getSpeciesRule(fish) {
 
     // Plant-safe warning
     if (!fish.plant_safe) {
-    if (!document.getElementById("planted").checked) {
-        // no warning
-    } else {
-        warningSet.add(`<div class="warning-yellow">${fish.latin_name} may damage plants (depends on setup)</div>`);
+        if (!document.getElementById("planted").checked) {
+            // no warning
+        } else {
+            rule.warnings.push(`<div class="warning-yellow">${fish.latin_name} may damage plants (depends on setup)</div>`);
+        }
     }
-}
 
     // Algae / mature tank warning
     if (fish.needs_algae) {
@@ -674,10 +705,15 @@ function calculate() {
 
         let size = Math.min(projectedSize, fish.max_size_cm || fish.size_cm);
 
-                if (fish.type !== tankType) {
-                    wrongType = true;
-                    return;
-                }
+        const compatible =
+            fish.type === tankType ||
+            (fish.type === "freshwater" && tankType === "brackish") ||
+            (fish.type === "brackish" && tankType === "freshwater");
+
+        if (!compatible) {
+            wrongType = true;
+            return;
+        }
 
         // Only valid fish tracked
         activityLevels.push(fish.activity);
@@ -885,8 +921,10 @@ function calculate() {
         }
     });
 
-    if(positions.bottom > 5 && positions.bottom > (positions.middle + positions.top)){
-        warningSet.add(`<div class="warning">Too many bottom-dwelling fish — space conflict likely</div>`);
+    let bottomLimit = Math.max(8, tank / 10); 
+
+    if(positions.bottom > bottomLimit){
+        warningSet.add(`<div class="warning">High density of bottom-dwellers (${positions.bottom}) — ensure enough floor space/hides.</div>`);
     }
 
     // --- FISH DIETS ---
