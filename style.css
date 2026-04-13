@@ -97,9 +97,20 @@ button {
     font-weight: bold;
 }
 
+/* Make the main Tank Size input a normal, smaller width */
+#tankSize {
+    width: 80px;
+    flex-shrink: 0;
+}
+
+/* Ensure the container doesn't stretch to 100% unless needed */
 .tank-input {
     display: flex;
+    flex-wrap: nowrap; /* Keeps everything on one line */
+    align-items: center;
+    gap: 10px;
     padding-bottom: 1%;
+    width: max-content; /* Prevents it from being full-width */
 }
 
 .btn-nav {
@@ -237,16 +248,33 @@ button {
     }
 }
 
+/* Specific class for the Microfauna button when inside a row */
+.row-btn {
+    margin-top: 0 !important; /* Overrides the default 20px margin */
+    padding: 6px 12px !important;
+    font-size: 14px;
+    white-space: nowrap; /* Forces text to stay on one line */
+    height: auto;
+    display: inline-block;
+    margin-left: 100%;
+    background-color: #3ca721;
+    box-shadow: 0 4px 15px #3ca721;
+}
+.row-btn:hover {
+    background-color: #205e11;
+    box-shadow: 0 4px 15px rgba(60, 167, 33, 0.5);
+}
+
+
+/* Adjust the Dimension Calculator spacing */
 .dimension-calculator {
     display: flex;
     gap: 5px;
     align-items: center;
-    margin-left: 10px;
 }
 
 .dimension-calculator input {
-    width: 50px;
-    padding: 4px;
+    width: 45px !important;
 }
 
 .dimension-calculator select {

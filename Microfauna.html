@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microfauna Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .micro-container { padding: 40px; max-width: 1200px; margin: auto; }
+        .header-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 15px;
+        }
+
+        /* Ensures the back button stays left while the rest is centered */
+        .back-row {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .header-nav h1 {
+            margin: 10px 0;
+            font-size: 2.5rem;
+        }
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .micro-card {
+            background: #132938;
+            border: 2px solid #1e90ff;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .border-good { border: 2px solid #27ae60 !important; }
+        .border-bad { border: 2px solid #e74c3c !important; }
+        .border-neutral { border: 2px solid #f1c40f !important; }
+
+        .micro-card:hover { transform: scale(1.05); }
+        .micro-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; }
+        .micro-card h3 { margin-top: 10px; color: #a0c4ff; }
+
+        /* Modals */
+        #modalOverlay, #diffOverlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: #0e1a24;
+            margin: 5% auto;
+            padding: 30px;
+            width: 85%;
+            max-width: 900px;
+            border-radius: 15px;
+            border: 2px solid #1e90ff;
+            position: relative;
+        }
+
+        .back-arrow {
+            position: absolute;
+            top: 20px; left: 20px;
+            font-size: 35px;
+            color: #1e90ff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .modal-body { text-align: center; }
+        .modal-main-img { width: 100%; max-height: 400px; object-fit: contain; border-radius: 10px; margin-top: 20px; }
+        
+        .info-section { text-align: left; margin-top: 25px; line-height: 1.6; }
+        .status-good { color: #27ae60; font-weight: bold; }
+        .status-bad { color: #e74c3c; font-weight: bold; }
+        .status-neutral { color: #f1c40f; font-weight: bold; }
+
+        /* Grid for Differences and More Images */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .image-grid img { 
+            width: 100%; height: 120px; object-fit: cover; 
+            border-radius: 8px; border: 2px solid #1e90ff;
+            cursor: crosshair;
+        }
+
+        .load-more-link {
+            color: #1e90ff;
+            cursor: pointer;
+            text-decoration: underline;
+            display: block;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        /* ZOOM VIEW */
+        #zoomView {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20000; 
+            pointer-events: none; 
+            border: 5px solid #1e90ff;
+            background: #000;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+            max-width: 85vw;
+            max-height: 85vh;
+        }
+        #zoomView img { display: block; width: 100%; max-height: 85vh; object-fit: contain; }
+
+        /* Style for the Diff Button */
+        .btn-diff { background: #f1c40f !important; color: black !important; border: none; }
+    </style>
+</head>
+<body>
+
+<div class="micro-container">
+    <div class="header-nav">
+        <div class="back-row">
+            <a href="index.html" class="btn-nav" style="margin-top:0;">← Back to Calculator</a>
+        </div>
+        
+        <h1 style="margin-top:-1%; color: #27ae60;">Microfauna Guide</h1>
+        
+        <button class="btn-nav btn-diff" style="margin-top:0;" onclick="openDifferences()">Key Differences</button>
+    </div>
+
+    <div class="grid-gallery" id="gallery"></div>
+</div>
+
+<!-- Main Detail Modal -->
+<div id="modalOverlay">
+    <div class="modal-content">
+        <span class="back-arrow" onclick="closeModal()">←</span>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
+</div>
+
+<!-- Key Differences Modal -->
+<div id="diffOverlay">
+    <div class="modal-content">
+        <span class="back-arrow" onclick="closeDiff()">←</span>
+        <div class="modal-body">
+            <h1>Key Differences & Identification</h1>
+            <p style="color: #a0c4ff;">Hover over a chart to see it full-screen.</p>
+            <div id="diffGrid" class="image-grid">
+                <!-- Difference images will go here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Center Screen Zoom View -->
+<div id="zoomView"><img id="zoomImg" src=""></div>
+
+<script>
+    const microData = [
+        {
+            id: "copepod",
+            name: "Copepods",
+            status: "Good",
+            description: "Tiny, fast-moving crustaceans often seen 'zipping' across the glass or swimming in jerky dashes.",
+            role: "They are a natural part of a healthy ecosystem. They eat algae and detritus, and serve as excellent free live food for small fish.",
+            removal: "No removal needed! If they are 'taking over,' it usually means you are overfeeding the tank. Siphon the substrate to reduce their numbers.",
+            folder: "Copepods"
+        },
+        {
+            id: "limpets",
+            name: "Limpets",
+            status: "Good",
+            description: "Small, snail-like mollusks with a flat, cap-shaped shell. They anchor to one spot and glide very slowly.",
+            role: "Excellent algae grazers. They are famous for being one of the few things that efficiently eat 'Green Spot Algae' from plants and glass.",
+            removal: "Harmless. If you dislike the look, you can scrape them off manually and siphon them out, or reduce the light to limit their algae food source.",
+            folder: "Limpets"
+        },
+        {
+            id: "ostracods",
+            name: "Ostracods (Seed Shrimp)",
+            status: "Good",
+            description: "Tiny 'seeds' with a shell that swim erratically or crawl through the substrate.",
+            role: "They are incredible scavengers. They eat uneaten food and fish waste, acting as a secondary clean-up crew for tiny gaps in the gravel.",
+            removal: "They are very hard to remove once established, but natural predators like Tetras or Guppies will eat them as a protein-rich snack.",
+            folder: "Ostracods"
+        },
+        {
+            id: "hydra",
+            name: "Hydra",
+            status: "Bad",
+            description: "Tiny, stinging polyps that look like miniature green or white umbrellas or trees with long tentacles.",
+            role: "They are ambush predators. They use stinging cells to catch small prey. They are dangerous to baby shrimp (fry) and very tiny fish.",
+            removal: "Use specialized medications like 'No Planaria' or Panacur. Do NOT crush them; each piece can regenerate into a whole new Hydra.",
+            folder: "Hydra"
+        },
+        {
+            id: "planaria",
+            name: "Planaria",
+            status: "Bad",
+            description: "Flatworms with a distinctive triangular (arrow-shaped) head and two visible eyespots. They glide smoothly like slugs.",
+            role: "Predatory pests. They produce a paralyzing slime and will hunt baby shrimp, snails, and even eggs. They thrive on excess organic waste.",
+            removal: "Use planaria traps with meat bait or treat the tank with 'No Planaria'. Avoid overfeeding to prevent their population from exploding.",
+            folder: "Planaria"
+        },
+        {
+            id: "scuds",
+            name: "Scuds (Amphipods)",
+            status: "Neutral",
+            description: "Small, shrimp-like creatures that swim on their sides and run extremely fast across the substrate.",
+            role: "Great fish food and clean-up crew. However, in shrimp-only tanks, they can overpopulate and compete for food, or occasionally nip at delicate plants.",
+            removal: "Most fish will hunt them to extinction. In shrimp tanks, manual removal via traps or 'nuking' with specific chemicals is sometimes required.",
+            folder: "Scuds"
+        },
+        {
+            id: "leeches",
+            name: "Leeches",
+            status: "Bad",
+            description: "Worm-like creatures that move with an inchworm-style 'looping' motion. They are usually thicker and darker than common worms.",
+            role: "Predatory or parasitic. Some species specifically target and kill snails or shrimp, draining them of fluids over several hours.",
+            removal: "Manual removal with tweezers is best. You can also bait them with a mesh bag of raw liver overnight and remove it before lights come on.",
+            folder: "Leeches"
+        },
+        {
+            id: "nematodes",
+            name: "Nematodes (Roundworms)",
+            status: "Neutral",
+            description: "Very thin, hair-like white worms that slither through the substrate or along the glass.",
+            role: "Most are harmless detritivores that break down waste. However, 'red' worms hanging from fish (Camallanus) are dangerous parasites.",
+            removal: "For harmless detritus types: simply vacuum the gravel and feed less. For red parasitic types: you must use deworming medication like Levamisole.",
+            folder: "Nematodes"
+        },
+        {
+            id: "rhabdocoela",
+            name: "Rhabdocoela",
+            status: "Good",
+            description: "Small, harmless flatworms with rounded heads. They are often mistaken for Planaria but lack the arrow-shaped head.",
+            role: "They are decomposers that eat poop and leftover food. They are a sign of a healthy, biologically active tank.",
+            removal: "No action needed. If they bother you, reduce your feeding frequency and they will naturally die back.",
+            folder: "Rhabdocoela"
+        },
+        {
+            id: "protozoa",
+            name: "Protozoa / Vorticella",
+            status: "Neutral",
+            description: "Microscopic organisms. Vorticella looks like 'white fuzz' or 'mold' growing on the shells of shrimp or on plants.",
+            role: "Free-swimming protozoa are harmless. However, Vorticella can stress shrimp and interfere with their breathing if it covers their gills.",
+            removal: "Improve water quality and increase water changes. Salt dips (1 tbsp/gallon for 60 seconds) can help clear Vorticella off shrimp.",
+            folder: "Protozoa"
+        },
+        {
+            id: "daphnia",
+            name: "Daphnia (Water Fleas)",
+            status: "Good",
+            description: "Small, jumping organisms that swim freely in the water column. Usually white or pinkish.",
+            role: "Excellent water filters and the 'gold standard' for live fish food. They help clarify green water by eating suspended algae.",
+            removal: "Fish will eat them instantly. They are rarely a pest and usually have to be added to a tank on purpose.",
+            folder: "Daphnia"
+        },
+        {
+            id: "naidinae",
+            name: "Naidinae (Detritus Worms)",
+            status: "Good",
+            description: "Thin white worms that wriggle vigorously when swimming and slither through the substrate.",
+            role: "Foundational part of the ecosystem. They aerate the substrate and break down waste. They are high-protein snacks for fish.",
+            removal: "They only appear in large numbers if the tank is 'dirty' or overfed. Siphon your gravel and increase water changes to lower their population.",
+            folder: "Naidinae"
+        },
+        {
+            id: "bryozoans",
+            name: "Bryozoans",
+            status: "Good",
+            description: "Colonial organisms that form translucent, brain-like or jelly-like clusters on wood, plants, or glass.",
+            role: "Stationary filter feeders. They clean the water by consuming microscopic bacteria. Their presence is a sign of very high water quality.",
+            removal: "Completely harmless. If unsightly, they can be gently scraped off, but they are beneficial and fascinating to watch.",
+            folder: "Bryozoans"
+        },
+        {
+            id: "bothromesostoma",
+            name: "Bothromesostoma",
+            status: "Neutral",
+            description: "A dark brown or black, leaf-shaped flatworm. It is often mistaken for 'Black Planaria,' but it has a rounded head instead of a triangular one.",
+            role: "They are active predators that hunt other microfauna like Ostracods and Daphnia using mucus 'webs.' While mostly harmless to fish, they can be a threat to newborn baby shrimp in specialized breeding tanks.",
+            removal: "Manual removal or the use of Planaria traps. Reducing the population of their prey (like Ostracods) will naturally cause their numbers to drop.",
+            folder: "Bothromesostoma"
+        }
+    ];
+
+    const gallery = document.getElementById('gallery');
+    const modal = document.getElementById('modalOverlay');
+    const diffModal = document.getElementById('diffOverlay');
+    const zoomView = document.getElementById('zoomView');
+    const zoomImg = document.getElementById('zoomImg');
+
+    // Create main gallery
+    microData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'micro-card';
+        if (item.status === "Good") card.classList.add('border-good');
+        else if (item.status === "Bad") card.classList.add('border-bad');
+        else if (item.status === "Neutral") card.classList.add('border-neutral');
+
+        card.innerHTML = `<img src="Microfauna/${item.folder}/1.jpg" onerror="this.src='Icon.png'"><h3>${item.name}</h3>`;
+        card.onclick = () => openModal(item);
+        gallery.appendChild(card);
+    });
+
+    // OPEN Key Differences
+    function openDifferences() {
+        const grid = document.getElementById('diffGrid');
+        grid.innerHTML = '';
+        // Let's assume you have up to 5 comparison charts
+        for(let i = 1; i <= 5; i++) {
+            const img = document.createElement('img');
+            img.src = `Microfauna/Differences/${i}.jpg`;
+            img.onmouseenter = () => showZoom(img.src);
+            img.onmouseleave = () => hideZoom();
+            img.onerror = function() { this.remove(); }; 
+            grid.appendChild(img);
+        }
+        diffModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDiff() {
+        diffModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        hideZoom();
+    }
+
+    function openModal(item) {
+        const statusClass = 'status-' + item.status.toLowerCase();
+        modalBody.innerHTML = `
+            <h1>${item.name}</h1>
+            <img src="Microfauna/${item.folder}/1.jpg" class="modal-main-img" onerror="this.style.display='none'">
+            <div class="info-section">
+                <p><strong>What is it?</strong><br>${item.description}</p>
+                <p><strong>Is it good or bad?</strong><br> <span class="${statusClass}">${item.status === 'Neutral' ? 'Both Good and Bad' : item.status}</span> - ${item.role}</p>
+                <p><strong>How to get rid of it?</strong><br>${item.removal}</p>
+            </div>
+            <span class="load-more-link" onclick="showMoreImages('${item.folder}')">Click here for more images</span>
+            <div id="extraImages" class="image-grid"></div>
+        `;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        hideZoom();
+    }
+
+    function showMoreImages(folder) {
+        const grid = document.getElementById('extraImages');
+        grid.innerHTML = ''; 
+        for(let i = 1; i <= 10; i++) {
+            const img = document.createElement('img');
+            img.src = `Microfauna/${folder}/${i}.jpg`;
+            img.onmouseenter = () => showZoom(img.src);
+            img.onmouseleave = () => hideZoom();
+            img.onerror = function() { this.remove(); }; 
+            grid.appendChild(img);
+        }
+        grid.style.display = 'grid';
+        document.querySelector('.load-more-link').style.display = 'none';
+    }
+
+    function showZoom(src) {
+        zoomImg.src = src;
+        zoomView.style.display = 'block';
+    }
+
+    function hideZoom() { zoomView.style.display = 'none'; }
+
+    window.onclick = (e) => { 
+        if (e.target == modal) closeModal(); 
+        if (e.target == diffModal) closeDiff();
+    }
+</script>
+
+</body>
+</html>

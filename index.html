@@ -34,14 +34,14 @@
 <label>TANK SIZE</label>
 
 <div class="tank-input">
-    <input type="number" id="tankSize" value="100" placeholder="Tank Size">
-
+    <!-- Main Tank Input -->
+    <input type="number" id="tankSize" value="100" placeholder="Size">
     <select id="unit" onchange="convertTank()">
         <option value="liters">Liters</option>
         <option value="gallons">Gallons</option>
     </select>
 
-    <!-- Mini dimension calculator -->
+    <!-- Dimension Calculator and Button -->
     <div class="dimension-calculator">
         <input type="number" id="dimLength" placeholder="L" min="1">
         <input type="number" id="dimWidth" placeholder="W" min="1">
@@ -51,9 +51,10 @@
             <option value="inch">inch</option>
         </select>
         <button onclick="calculateTankFromDimensions()">Calc</button>
+        
+        <!-- Microfauna Button aligned in the same row -->
+        <a href="Microfauna.html" class="btn-nav row-btn">Microfauna Guide</a>
     </div>
-
-    <div id="dimResult" style="margin-left:10px; color:#a0c4ff;"></div>
 </div>
 
 <label>Tank Type</label>
