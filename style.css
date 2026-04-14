@@ -124,14 +124,14 @@ button {
     font-weight: bold;
     margin-top: 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(90, 30, 255, 0.3);
     border: none;
 }
 
 .btn-nav:hover {
     background: #46a3ff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(90, 30, 255, 0.3);
     color: white;
 }
 
@@ -256,13 +256,28 @@ button {
     white-space: nowrap; /* Forces text to stay on one line */
     height: auto;
     display: inline-block;
-    margin-left: 100%;
+    margin-left: 30%;
     background-color: #3ca721;
     box-shadow: 0 4px 15px #3ca721;
 }
 .row-btn:hover {
     background-color: #205e11;
     box-shadow: 0 4px 15px rgba(60, 167, 33, 0.5);
+}
+
+.row-btn2 {
+    margin-top: 0 !important; /* Overrides the default 20px margin */
+    padding: 6px 12px !important;
+    font-size: 14px;
+    white-space: nowrap; /* Forces text to stay on one line */
+    height: auto;
+    display: inline-block;
+    background-color: #8e44ad;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
+}
+.row-btn2:hover {
+    background-color: #6c3483;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.5);
 }
 
 
