@@ -19,15 +19,17 @@ fetch("fish.json")
 });
 
 const linkedSpecies = {
-    "corydoras": ["corydoras", "hoplisoma", "aspidoras"],
-    "hoplisoma": ["corydoras", "hoplisoma", "aspidoras"],
-    "aspidoras": ["corydoras", "hoplisoma", "aspidoras"]
+    "corydoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"],
+    "hoplisoma": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"],
+    "aspidoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"],
+    "gastrodermus": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"]
 };
 
 const genusLinks = {
     "corydoras": "hoplisoma",
     "hoplisoma": "corydoras",
-    "aspidoras": "corydoras"
+    "aspidoras": "corydoras",
+    "gastrodermus": "corydoras"
 };
 
 const commonSynonyms = {
