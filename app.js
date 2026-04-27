@@ -40,7 +40,9 @@ const commonSynonyms = {
     "rockcod": "grouper",
     "grouper": "rockcod",
     "siamese algae eater": "sae",
-    "cherry shrimp": "neocaridina"
+    "cherry shrimp": "neocaridina",
+    "nassarius": "tritia",
+    "tritia": "nassarius"
 };
 
 function populate() {
