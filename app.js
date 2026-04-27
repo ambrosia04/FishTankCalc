@@ -22,14 +22,18 @@ const linkedSpecies = {
     "corydoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"],
     "hoplisoma": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"],
     "aspidoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"],
-    "gastrodermus": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"]
+    "gastrodermus": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"],
+    "nassarius": ["nassarius", "tritia"],
+    "tritia": ["nassarius", "tritia"]
 };
 
 const genusLinks = {
     "corydoras": "hoplisoma",
     "hoplisoma": "corydoras",
     "aspidoras": "corydoras",
-    "gastrodermus": "corydoras"
+    "gastrodermus": "corydoras",
+    "nassarius": "tritia",
+    "tritia": "nassarius"
 };
 
 const commonSynonyms = {
