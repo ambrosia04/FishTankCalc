@@ -72,12 +72,15 @@
             overflow: hidden;
             border: 1px solid #444;
             transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
         }
         .plant-card:hover { transform: scale(1.02); }
         .plant-card img { width: 100%; height: 180px; object-fit: cover; }
-        .plant-card .name-tag { padding: 12px; text-align: center; }
+        .plant-card .name-tag { padding: 12px; text-align: center; flex-grow: 1; }
         .plant-card h4 { margin: 0; color: #fff; font-size: 0.95rem; }
         .plant-card span { display: block; color: #a0c4ff; font-size: 0.8rem; margin-top: 5px; font-style: italic; }
+        .plant-card p { font-size: 0.75rem; color: #ccc; margin-top: 8px; line-height: 1.3; }
     </style>
 </head>
 <body>
@@ -91,7 +94,7 @@
 
     <div class="intro-box">
         <h3>What are Epiphytes?</h3>
-        <p>Epiphytes are "air plants" of the water world. Unlike traditional plants, they <strong>do not</strong> grow in soil or substrate. If you bury their thick horizontal stem (called a <strong>Rhizome</strong>), the plant will rot and die.</p>
+        <p>Epiphytes are "air plants" of the water world. Unlike traditional plants, they <strong>do not</strong> grow in soil or substrate. In nature, they attach themselves to rocks, fallen branches, or tree trunks. If you bury their thick horizontal stem (called a <strong>Rhizome</strong>), the plant will rot and die.</p>
     </div>
 
     <h2 style="color: #1e90ff;">How to Attach Them</h2>
@@ -119,7 +122,6 @@
         <p>Place a tiny piece of <strong>tissue paper or cotton fiber</strong> between the plant and the surface. Apply liquid superglue to the cotton. It creates an <strong>instant, rock-hard bond</strong> that fills the gaps perfectly!</p>
     </div>
 
-    <!-- NEW RIPARIAN ATTACHMENT SECTION -->
     <h2 style="color: #1e90ff;">Growing Above the Waterline (Riparian)</h2>
     
     <div class="intro-box" style="border-left-color: #f1c40f; background: #1b2e3b;">
@@ -146,28 +148,28 @@
     </div>
     <div class="plant-grid" id="submergedGrid">
         <div class="plant-card">
-            <img src="Plants/Epiphytes/anubiasnana.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/anubiasnana.jpg" alt="Anubias Nana plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Anubias barteri var. nana</h4>
                 <span>(Anubias Nana)</span>
             </div>
         </div>
         <div class="plant-card">
-            <img src="Plants/Epiphytes/javafern.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/javafern.jpg" alt="Java Fern plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Microsorum pteropus</h4>
                 <span>(Java Fern)</span>
             </div>
         </div>
         <div class="plant-card">
-            <img src="Plants/Epiphytes/buce.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/buce.jpg" alt="Bucephalandra plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Bucephalandra spp.</h4>
                 <span>(Bucephalandra)</span>
             </div>
         </div>
         <div class="plant-card">
-            <img src="Plants/Epiphytes/bolbitis.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/bolbitis.jpg" alt="Bolbitis heudelotii plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Bolbitis heudelotii</h4>
                 <span>(African Water Fern)</span>
@@ -177,106 +179,278 @@
 
     <!-- RIPARIAN SECTION -->
     <div class="collapsible-header" onclick="toggleSection('riparianGrid', this)" style="margin-top: 20px;">
-        <h2 class="category-title">Riparian Plants (Roots in Water, Leaves Out)</h2>
+        <h2 class="category-title">Riparian Staples & Houseplants</h2>
         <span class="toggle-icon">▼</span>
     </div>
     <div class="plant-grid" id="riparianGrid">
         <div class="plant-card">
-            <img src="Plants/Epiphytes/monstera.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/monstera.jpg" alt="Monstera deliciosa plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Monstera deliciosa</h4>
                 <span>(Swiss Cheese Plant)</span>
             </div>
         </div>
         <div class="plant-card">
-            <img src="Plants/Epiphytes/peacelily.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/peacelily.jpg" alt="Peace Lily plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Spathiphyllum wallisii</h4>
                 <span>(Peace Lily)</span>
             </div>
         </div>
         <div class="plant-card">
-            <img src="Plants/Epiphytes/pothos.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/pothos.jpg" alt="Pothos plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Epipremnum aureum</h4>
                 <span>(Pothos / Devil's Ivy)</span>
             </div>
         </div>
         <div class="plant-card">
-            <img src="Plants/Epiphytes/spider.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/spider.jpg" alt="Spider Plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Chlorophytum comosum</h4>
                 <span>(Spider Plant)</span>
             </div>
         </div>
         <div class="plant-card">
-            <img src="Plants/Epiphytes/philodendron.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/philodendron.jpg" alt="Philodendron plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Philodendron hederaceum</h4>
                 <span>(Heartleaf Philodendron)</span>
             </div>
         </div>
-
         <div class="plant-card">
-            <img src="Plants/Epiphytes/luckybamboo.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/luckybamboo.jpg" alt="Lucky Bamboo plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Dracaena sanderiana</h4>
                 <span>(Lucky Bamboo)</span>
             </div>
         </div>
-
-        <!-- Parlor Palm -->
         <div class="plant-card">
-            <img src="Plants/Epiphytes/parlorpalm.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/parlorpalm.jpg" alt="Parlor Palm plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Chamaedorea elegans</h4>
                 <span>(Parlor Palm / Bella Palm)</span>
             </div>
         </div>
-
-        <!-- Tradescantia -->
         <div class="plant-card">
-            <img src="Plants/Epiphytes/tradescantia.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/tradescantia.jpg" alt="Tradescantia plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Tradescantia zebrina</h4>
                 <span>(Inch Plant / Tradescantia)</span>
             </div>
         </div>
-
-        <!-- Aluminum Plant -->
         <div class="plant-card">
-            <img src="Plants/Epiphytes/pilea.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/pilea.jpg" alt="Pilea plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Pilea cadierei</h4>
                 <span>(Aluminum Plant)</span>
             </div>
         </div>
-
-        <!-- Hoyas -->
         <div class="plant-card">
-            <img src="Plants/Epiphytes/hoya.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/hoya.jpg" alt="Hoya plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Hoya carnosa</h4>
                 <span>(Hoya / Wax Plant)</span>
             </div>
         </div>
-
-        <!-- Chinese Evergreen -->
         <div class="plant-card">
-            <img src="Plants/Epiphytes/aglaonema.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/aglaonema.jpg" alt="Aglaonema plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Aglaonema spp.</h4>
                 <span>(Chinese Evergreen)</span>
             </div>
         </div>
-
-        <!-- Thai Basil -->
         <div class="plant-card">
-            <img src="Plants/Epiphytes/thaibasil.jpg" onerror="this.src='Icon.png'">
+            <img src="Plants/Epiphytes/purple_heart.jpg" alt="Purple Heart Plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Tradescantia pallida</h4>
+                <span>(Purple Heart Plant)</span>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/pink_aglao.jpg" alt="Aglaonema plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Aglaonema spp. pink</h4>
+                <span>(Pink/Red Chinese Evergreen)</span>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/coleus.jpg" alt="Coleus plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Coleus scutellarioides</h4>
+                <span>(Coleus)</span>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/polka.jpg" alt="Polka Dot Plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Hypoestes phyllostachya</h4>
+                <span>(Polka Dot Plant)</span>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/episcia.jpg" alt="Episcia cupreata plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Episcia cupreata</h4>
+                <span>(Flame Violet)</span>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/waffle.jpg" alt="Purple Waffle Plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Hemigraphis alternata</h4>
+                <span>(Purple Waffle Plant)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRANSFORMERS SECTION -->
+    <div class="collapsible-header" onclick="toggleSection('transformerGrid', this)" style="margin-top: 20px;">
+        <h2 class="category-title">The Transformers (Heterophylly)</h2>
+        <span class="toggle-icon">▼</span>
+    </div>
+    <div class="plant-grid" id="transformerGrid">
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/limnophila_aq.jpg" alt="Limnophila aquatica plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Limnophila aquatica</h4>
+                <span>(Giant Ambulia)</span>
+                <p>Submersed: Fine, soft needles like Hornwort. Emersed: Sturdy mint-like leaves.</p>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/willow_hygro.jpg" alt="Hygrophila corymbosa 'Willow' plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Hygrophila corymbosa 'Willow'</h4>
+                <span>(Willow Leaf Hygro)</span>
+                <p>Submersed leaves are long and narrow; emersed leaves grow short and bushy.</p>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/creeping_jenny.jpg" alt="Golden Creeping Jenny plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Lysimachia nummularia 'Aurea'</h4>
+                <span>(Golden Creeping Jenny)</span>
+            </div>
+        </div>
+         <div class="plant-card">
+        <img src="Plants/Epiphytes/rotala_round.jpg" alt="Rotala rotundifolia plant" onerror="this.src='Icon.png'">
+        <div class="name-tag">
+            <h4>Rotala rotundifolia</h4>
+            <span>(Roundleaf Rotala)</span>
+            <p><strong>Transition:</strong> Submersed leaves are long, thin, and red. Emersed leaves are perfectly round and bright green.</p>
+        </div>
+    </div>
+
+    <div class="plant-card">
+        <img src="Plants/Epiphytes/mermaid_weed.jpg" alt="Proserpinaca palustris plant" onerror="this.src='Icon.png'">
+        <div class="name-tag">
+            <h4>Proserpinaca palustris</h4>
+            <span>(Mermaid Weed)</span>
+            <p><strong>Transition:</strong> Submersed leaves look like fine, copper-colored combs. Emersed leaves are broad with saw-tooth edges.</p>
+        </div>
+    </div>
+
+    <div class="plant-card">
+        <img src="Plants/Epiphytes/parrots_feather.jpg" alt="Myriophyllum aquaticum plant" onerror="this.src='Icon.png'">
+        <div class="name-tag">
+            <h4>Myriophyllum aquaticum</h4>
+            <span>(Parrot's Feather)</span>
+            <p><strong>Transition:</strong> Submersed is a delicate feathery cloud. Emersed becomes a stiff, water-repellent blue-green "miniature pine tree."</p>
+        </div>
+    </div>
+
+    <div class="plant-card">
+        <img src="Plants/Epiphytes/water_sprite.jpg" alt="Ceratopteris thalictroides plant" onerror="this.src='Icon.png'">
+        <div class="name-tag">
+            <h4>Ceratopteris thalictroides</h4>
+            <span>(Water Sprite)</span>
+            <p><strong>Transition:</strong> Submersed leaves are lacy and thin. Emersed leaves are thick, fleshy, and much broader.</p>
+        </div>
+    </div>
+
+    <div class="plant-card">
+        <img src="Plants/Epiphytes/ranunculus.jpg" alt="Ranunculus inundatus plant" onerror="this.src='Icon.png'">
+        <div class="name-tag">
+            <h4>Ranunculus inundatus</h4>
+            <span>(River Buttercup)</span>
+            <p><strong>Transition:</strong> Submersed leaves are beautiful multi-split umbrellas. Emersed leaves simplify into more solid, rounded clover shapes.</p>
+        </div>
+    </div>
+    </div>
+
+    <!-- EDIBLES SECTION -->
+    <div class="collapsible-header" onclick="toggleSection('edibleGrid', this)" style="margin-top: 20px;">
+        <h2 class="category-title">The Edible Garden</h2>
+        <span class="toggle-icon">▼</span>
+    </div>
+    <div class="plant-grid" id="edibleGrid">
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/thaibasil.jpg" alt="Thai Basil plant" onerror="this.src='Icon.png'">
             <div class="name-tag">
                 <h4>Ocimum basilicum 'Thai'</h4>
                 <span>(Thai Basil)</span>
             </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/cuban_oregano.jpg" alt="Cuban Oregano plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Plectranthus amboinicus</h4>
+                <span>(Cuban Oregano)</span>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/bacopa.jpg" alt="Bacopa monnieri plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Bacopa monnieri</h4>
+                <span>(Brahmi / Moneywort)</span>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/limnophila_ar.jpg" alt="Limnophila aromatica plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Limnophila aromatica</h4>
+                <span>(Rice Paddy Herb)</span>
+            </div>
+        </div>
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/pennywort.jpg" alt="Hydrocotyle leucocephala plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Hydrocotyle leucocephala</h4>
+                <span>(Brazilian Pennywort)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRIDGES SECTION -->
+    <div class="collapsible-header" onclick="toggleSection('bridgeGrid', this)" style="margin-top: 20px;">
+        <h2 class="category-title">Optical Bridges</h2>
+        <span class="toggle-icon">▼</span>
+    </div>
+    <div class="plant-grid" id="bridgeGrid">
+        <div class="plant-card">
+            <img src="Plants/Epiphytes/tripartita.jpg" alt="Hydrocotyle tripartita plant" onerror="this.src='Icon.png'">
+            <div class="name-tag">
+                <h4>Hydrocotyle tripartita</h4>
+                <span>(Pennywort 'Japan')</span>
+                <p>Remarkable for having submersed and emersed forms that are nearly identical.</p>
+            </div>
+        </div>
+        <div class="plant-card">
+        <img src="Plants/Epiphytes/anubias_nana.jpg" alt="Anubias barteri var. nana plant" onerror="this.src='Icon.png'">
+        <div class="name-tag">
+            <h4>Anubias barteri var. nana</h4>
+            <span>(Anubias Nana)</span>
+            <p><strong>Consistency:</strong> High. The thick, dark green waxy leaves look exactly the same in both forms. The primary bridge for hardscape.</p>
+        </div>
+    </div>
+
+    <div class="plant-card">
+        <img src="Plants/Epiphytes/moss_bridge.jpg" alt="Taxiphyllum barbieri plant" onerror="this.src='Icon.png'">
+        <div class="name-tag">
+            <h4>Taxiphyllum barbieri</h4>
+            <span>(Java Moss)</span>
+            <p><strong>Consistency:</strong> Medium-High. While it gets "fluffier" underwater, it creates a green carpet over damp wood that mimics its underwater growth perfectly.</p>
         </div>
     </div>
 
