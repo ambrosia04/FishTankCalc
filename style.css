@@ -280,6 +280,21 @@ button {
     box-shadow: 0 4px 15px rgba(142, 68, 173, 0.5);
 }
 
+.row-btn3 {
+    margin-top: 0 !important; /* Overrides the default 20px margin */
+    padding: 6px 12px !important;
+    font-size: 14px;
+    white-space: nowrap; /* Forces text to stay on one line */
+    height: auto;
+    display: inline-block;
+    background-color: #abb154;
+    box-shadow: 0 4px 15px rgba(171, 177, 84, 0.4);
+}
+.row-btn3:hover {
+    background-color: #6c7032;
+    box-shadow: 0 4px 15px rgba(171, 177, 84, 0.5);
+}
+
 
 /* Adjust the Dimension Calculator spacing */
 .dimension-calculator {

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquarium Tips & Tricks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Icon.png">
+    <style>
+        .tips-container { padding: 40px; max-width: 1200px; margin: auto; }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .tip-card {
+            background: #132938;
+            border: 2px solid #1e90ff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+        .tip-card:hover { transform: translateY(-5px); border-color: #27ae60; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .tip-card h2 { color: #a0c4ff; margin-bottom: 10px; }
+        .tip-card p { color: white; font-size: 0.9rem; }
+        .tip-icon { font-size: 50px; margin-bottom: 15px; display: block; }
+    </style>
+</head>
+<body>
+
+<div class="tips-container">
+    <div class="back-row">
+        <a href="index.html" class="btn-nav">← Back to Calculator</a>
+    </div>
+    
+    <h1 style="text-align: center; color: #1e90ff; font-size: 2.5rem;">Aquarium Tips & Guides</h1>
+    <p style="text-align: center; color: #a0c4ff;">Expert advice for a flourishing aquarium ecosystem.</p>
+
+    <div class="tips-grid">
+        <!-- Epiphyte Link -->
+        <a href="Epiphytes.html" class="tip-card">
+            <span class="tip-icon">🌿</span>
+            <h2>Epiphyte Plants</h2>
+            <p>Learn how to grow plants on rocks and wood, including the superglue "cotton trick".</p>
+        </a>
+
+        <!-- Placeholder for future tips -->
+        <div class="tip-card" style="opacity: 0.6; cursor: default;">
+            <span class="tip-icon">🧪</span>
+            <h2>Water Chemistry</h2>
+            <p>Coming soon: Understanding GH, KH, and TDS for shrimp and fish.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
