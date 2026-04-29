@@ -99,7 +99,7 @@
         .image-grid img { 
             width: 100%; height: 120px; object-fit: cover; 
             border-radius: 8px; border: 2px solid #1e90ff;
-            cursor: crosshair;
+            cursor: zoom-in;
         }
 
         .load-more-link {
@@ -110,24 +110,28 @@
             margin-top: 30px;
             font-weight: bold;
         }
-
         /* ZOOM VIEW */
         #zoomView {
-            display: none;
+            display: none; /* It stays hidden until showZoom is called */
             position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
             z-index: 20000; 
-            pointer-events: none; 
-            border: 5px solid #1e90ff;
-            background: #000;
+            cursor: zoom-out;
+            align-items: center;     /* Centering */
+            justify-content: center;  /* Centering */
+        }
+        #zoomView img { 
+            display: block; 
+            max-width: 90vw; 
+            max-height: 90vh; 
+            object-fit: contain; 
+            border: 3px solid #1e90ff;
             border-radius: 10px;
             box-shadow: 0 0 50px rgba(0,0,0,1);
-            max-width: 85vw;
-            max-height: 85vh;
         }
-        #zoomView img { display: block; width: 100%; max-height: 85vh; object-fit: contain; }
-
+       
         /* Style for the Diff Button */
         .btn-diff { background: #f1c40f !important; color: black !important; border: none; }
     </style>
@@ -162,7 +166,7 @@
         <span class="back-arrow" onclick="closeDiff()">←</span>
         <div class="modal-body">
             <h1>Key Differences & Identification</h1>
-            <p style="color: #a0c4ff;">Hover over a chart to see it full-screen.</p>
+            <p style="color: #a0c4ff;">Click a chart to see it full-screen.</p>
             <div id="diffGrid" class="image-grid">
                 <!-- Difference images will go here -->
             </div>
@@ -344,12 +348,11 @@
     function openDifferences() {
         const grid = document.getElementById('diffGrid');
         grid.innerHTML = '';
-        // Let's assume you have up to 5 comparison charts
         for(let i = 1; i <= 5; i++) {
             const img = document.createElement('img');
             img.src = `Microfauna/Differences/${i}.jpg`;
-            img.onmouseenter = () => showZoom(img.src);
-            img.onmouseleave = () => hideZoom();
+            // CLICK TO ZOOM
+            img.onclick = (e) => { e.stopPropagation(); showZoom(img.src); };
             img.onerror = function() { this.remove(); }; 
             grid.appendChild(img);
         }
@@ -360,7 +363,6 @@
     function closeDiff() {
         diffModal.style.display = 'none';
         document.body.style.overflow = 'auto';
-        hideZoom();
     }
 
     function openModal(item) {
@@ -383,7 +385,6 @@
     function closeModal() {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
-        hideZoom();
     }
 
     function showMoreImages(folder) {
@@ -392,8 +393,8 @@
         for(let i = 1; i <= 10; i++) {
             const img = document.createElement('img');
             img.src = `Microfauna/${folder}/${i}.jpg`;
-            img.onmouseenter = () => showZoom(img.src);
-            img.onmouseleave = () => hideZoom();
+            // UPDATED: CHANGED FROM HOVER TO CLICK
+            img.onclick = (e) => { e.stopPropagation(); showZoom(img.src); };
             img.onerror = function() { this.remove(); }; 
             grid.appendChild(img);
         }
@@ -403,14 +404,19 @@
 
     function showZoom(src) {
         zoomImg.src = src;
-        zoomView.style.display = 'block';
+        zoomView.style.display = 'flex'; // Uses flex to center the image
     }
 
-    function hideZoom() { zoomView.style.display = 'none'; }
+    function hideZoom() {
+        zoomView.style.display = 'none';
+        zoomImg.src = '';
+    }
 
+    // This handles clicking OUTSIDE the modals to close them
     window.onclick = (e) => { 
         if (e.target == modal) closeModal(); 
         if (e.target == diffModal) closeDiff();
+        if (e.target == zoomView) hideZoom(); 
     }
 </script>
 
