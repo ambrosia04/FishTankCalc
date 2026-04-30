@@ -20069,6 +20069,7 @@
 {
 "latin_name": "Chaetodontoplus duboulayi",
 "common_name": "Scribbled Angelfish",
+"photo": "images/Chaetodontoplus_duboulayi.jpg",
 "type": "marine",
 "size_cm": 28,
 "min_tank": 600,
@@ -20103,6 +20104,7 @@
 {
 "latin_name": "Chaetodontoplus mesoleucus",
 "common_name": "Singapore Angelfish",
+"photo": "images/Chaetodontoplus_mesoleucus.jpg",
 "type": "marine",
 "size_cm": 18,
 "min_tank": 400,
@@ -20137,6 +20139,7 @@
 {
 "latin_name": "Chaetostoma joropo",
 "common_name": "Joropo Rubbernose Pleco",
+"photo": "images/Chaetostoma_joropo.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 100,
@@ -20171,6 +20174,7 @@
 {
 "latin_name": "Chaetostoma microps",
 "common_name": "Rubbernose Pleco",
+"photo": "images/Chaetostoma_microps.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 100,
@@ -20205,6 +20209,7 @@
 {
 "latin_name": "Chalceus macrolepidotus",
 "common_name": "Pinktail Chalceus",
+"photo": "images/Chalceus_macrolepidotus.jpg",
 "type": "freshwater",
 "size_cm": 25,
 "min_tank": 450,
@@ -20239,6 +20244,7 @@
 {
 "latin_name": "Chalinochromis brichardi",
 "common_name": "Brichardi Cichlid",
+"photo": "images/Chalinochromis_brichardi.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 200,
@@ -20273,6 +20279,7 @@
 {
 "latin_name": "Chalinochromis sp. bifrenatus",
 "common_name": "Bifrenatus Cichlid",
+"photo": "images/Chalinochromis_sp._bifrenatus.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 200,
@@ -20307,6 +20314,7 @@
 {
 "latin_name": "Chalinochromis sp. Ndobhoi Karilani",
 "common_name": "Ndobhoi Cichlid",
+"photo": "images/Chalinochromis_sp._Ndobhoi_Karilani.jpg",
 "type": "freshwater",
 "size_cm": 10,
 "min_tank": 150,
@@ -20341,6 +20349,7 @@
 {
 "latin_name": "Champsochromis caeruleus",
 "common_name": "Malawi Trout",
+"photo": "images/Champsochromis_caeruleus.jpg",
 "type": "freshwater",
 "size_cm": 35,
 "min_tank": 800,
@@ -20375,6 +20384,7 @@
 {
 "latin_name": "Champsochromis spilorhynchus",
 "common_name": "Spilorhynchus Cichlid",
+"photo": "images/Champsochromis_spilorhynchus.jpg",
 "type": "freshwater",
 "size_cm": 30,
 "min_tank": 600,
@@ -20409,6 +20419,7 @@
 {
 "latin_name": "Channa asiatica",
 "common_name": "Smallwood Snakehead",
+"photo": "images/Channa_asiatica.jpg",
 "type": "freshwater",
 "size_cm": 35,
 "min_tank": 400,
@@ -20442,6 +20453,7 @@
 {
 "latin_name": "Channa aurantimaculata",
 "common_name": "Orange-spotted Snakehead",
+"photo": "images/Channa_aurantimaculata.jpg",
 "type": "freshwater",
 "size_cm": 40,
 "min_tank": 500,
@@ -20475,6 +20487,7 @@
 {
 "latin_name": "Channa bleheri",
 "common_name": "Rainbow Snakehead",
+"photo": "images/Channa_bleheri.jpg",
 "type": "freshwater",
 "size_cm": 17,
 "min_tank": 200,
@@ -20508,6 +20521,7 @@
 {
 "latin_name": "Channa diplogramma",
 "common_name": "Malabar Snakehead",
+"photo": "images/Channa_diplogramma.jpg",
 "type": "freshwater",
 "size_cm": 45,
 "min_tank": 600,
@@ -20541,6 +20555,7 @@
 {
 "latin_name": "Channa lucius",
 "common_name": "Forest Snakehead",
+"photo": "images/Channa_lucius.jpg",
 "type": "freshwater",
 "size_cm": 40,
 "min_tank": 500,
@@ -20574,6 +20589,7 @@
 {
 "latin_name": "Channa marulioides",
 "common_name": "Emperor Snakehead",
+"photo": "images/Channa_marulioides.jpg",
 "type": "freshwater",
 "size_cm": 65,
 "min_tank": 1000,
@@ -20607,6 +20623,7 @@
 {
 "latin_name": "Channa ornatipinnis",
 "common_name": "Ornate Snakehead",
+"photo": "images/Channa_ornatipinnis.jpg",
 "type": "freshwater",
 "size_cm": 25,
 "min_tank": 350,
@@ -20640,6 +20657,7 @@
 {
 "latin_name": "Channa pleurophthalma",
 "common_name": "Ocellated Snakehead",
+"photo": "images/Channa_pleurophthalma.jpg",
 "type": "freshwater",
 "size_cm": 40,
 "min_tank": 500,
@@ -20673,6 +20691,7 @@
 {
 "latin_name": "Channa pulchra",
 "common_name": "Peacock Snakehead",
+"photo": "images/Channa_pulchra.jpg",
 "type": "freshwater",
 "size_cm": 25,
 "min_tank": 300,
@@ -20706,6 +20725,7 @@
 {
 "latin_name": "Channa stewartii",
 "common_name": "Assamese Snakehead",
+"photo": "images/Channa_stewartii.jpg",
 "type": "freshwater",
 "size_cm": 25,
 "min_tank": 300,
@@ -20739,6 +20759,7 @@
 {
 "latin_name": "Chanos chanos",
 "common_name": "Milkfish",
+"photo": "images/Chanos_chanos.jpg",
 "type": "marine",
 "size_cm": 180,
 "min_tank": 10000,
@@ -20773,6 +20794,7 @@
 {
 "latin_name": "Characidium fasciatum",
 "common_name": "Darter Characin",
+"photo": "images/Characidium_fasciatum.jpg",
 "type": "freshwater",
 "size_cm": 7,
 "min_tank": 80,
@@ -20807,6 +20829,7 @@
 {
 "latin_name": "Characidium lanei",
 "common_name": "Lane's Darter Characin",
+"photo": "images/Characidium_lanei.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -20841,6 +20864,7 @@
 {
 "latin_name": "Characidium rachovii",
 "common_name": "Rachow's Darter Characin",
+"photo": "images/Characidium_rachovii.jpg",
 "type": "freshwater",
 "size_cm": 5,
 "min_tank": 60,
@@ -20875,6 +20899,7 @@
 {
 "latin_name": "Charax tectifer",
 "common_name": "Glass Headstander",
+"photo": "images/Charax_tectifer.jpg",
 "type": "freshwater",
 "size_cm": 12,
 "min_tank": 150,
@@ -20909,6 +20934,7 @@
 {
 "latin_name": "Cheilinus chlorourus",
 "common_name": "Floral Wrasse",
+"photo": "images/Cheilinus_chlorourus.jpg",
 "type": "marine",
 "size_cm": 45,
 "min_tank": 1000,
@@ -20943,6 +20969,7 @@
 {
 "latin_name": "Cheilinus fasciatus",
 "common_name": "Red-breasted Wrasse",
+"photo": "images/Cheilinus_fasciatus.jpg",
 "type": "marine",
 "size_cm": 40,
 "min_tank": 800,
@@ -20977,6 +21004,7 @@
 {
 "latin_name": "Cheilinus lunulatus",
 "common_name": "Broomtail Wrasse",
+"photo": "images/Cheilinus_lunulatus.jpg",
 "type": "marine",
 "size_cm": 50,
 "min_tank": 1000,
@@ -21011,6 +21039,7 @@
 {
 "latin_name": "Cheilinus quinquecinctus",
 "common_name": "Red-breasted Splendor Wrasse",
+"photo": "images/Cheilinus_quinquecinctus.jpg",
 "type": "marine",
 "size_cm": 25,
 "min_tank": 500,
@@ -21045,6 +21074,7 @@
 {
 "latin_name": "Cheilinus undulatus",
 "common_name": "Humphead Wrasse",
+"photo": "images/Cheilinus_undulatus.jpg",
 "type": "marine",
 "size_cm": 230,
 "min_tank": 50000,
@@ -21078,6 +21108,7 @@
 {
 "latin_name": "Cheilio inermis",
 "common_name": "Cigar Wrasse",
+"photo": "images/Cheilio_inermis.jpg",
 "type": "marine",
 "size_cm": 50,
 "min_tank": 1000,
@@ -21112,6 +21143,7 @@
 {
 "latin_name": "Cheilodipterus quinquelineatus",
 "common_name": "Five-lined Cardinalfish",
+"photo": "images/Cheilodipterus_quinquelineatus.jpg",
 "type": "marine",
 "size_cm": 12,
 "min_tank": 200,
@@ -21146,6 +21178,7 @@
 {
 "latin_name": "Chelidonichthys lastoviza",
 "common_name": "Streaked Gurnard",
+"photo": "images/Chelidonichthys_lastoviza.jpg",
 "type": "marine",
 "size_cm": 40,
 "min_tank": 1000,
@@ -21180,6 +21213,7 @@
 {
 "latin_name": "Chelidonichthys lucerna",
 "common_name": "Tub Gurnard",
+"photo": "images/Chelidonichthys_lucerna.jpg",
 "type": "marine",
 "size_cm": 75,
 "min_tank": 2000,
@@ -21214,6 +21248,7 @@
 {
 "latin_name": "Chelidonichthys obscurus",
 "common_name": "Longfin Gurnard",
+"photo": "images/Chelidonichthys_obscurus.jpg",
 "type": "marine",
 "size_cm": 35,
 "min_tank": 800,
@@ -21248,6 +21283,7 @@
 {
 "latin_name": "Chelmon marginalis",
 "common_name": "Margined Butterflyfish",
+"photo": "images/Chelmon_marginalis.jpg",
 "type": "marine",
 "size_cm": 18,
 "min_tank": 400,
