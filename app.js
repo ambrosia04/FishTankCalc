@@ -24,7 +24,8 @@ const linkedSpecies = {
     "aspidoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"],
     "gastrodermus": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus"],
     "nassarius": ["nassarius", "tritia"],
-    "tritia": ["nassarius", "tritia"]
+    "tritia": ["nassarius", "tritia"],
+    "nanochromis": ["nanochromis", "distichodus"],
 };
 
 const genusLinks = {
@@ -33,7 +34,8 @@ const genusLinks = {
     "aspidoras": "corydoras",
     "gastrodermus": "corydoras",
     "nassarius": "tritia",
-    "tritia": "nassarius"
+    "tritia": "nassarius",
+    "nanochromis": "distichodus"
 };
 
 const commonSynonyms = {
@@ -42,7 +44,8 @@ const commonSynonyms = {
     "siamese algae eater": "sae",
     "cherry shrimp": "neocaridina",
     "nassarius": "tritia",
-    "tritia": "nassarius"
+    "tritia": "nassarius",
+    "nanochromis": "distichodus"
 };
 
 function populate() {
