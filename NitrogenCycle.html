@@ -79,41 +79,43 @@
             border-radius: 10px;
         }
 
-        .product-item {
-            text-align: center;
-            font-size: 0.85rem;
-            color: white;
-        }
+        .product-item { text-align: center; font-size: 0.85rem; color: white; }
 
-        /* Update this to style your product images */
         .product-img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin-bottom: 8px;
-            background: #0e1a24;
-            border-radius: 8px;
-            border: 1px solid #8e44ad;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+            width: 80px; height: 80px;
+            object-fit: contain; margin-bottom: 8px;
+            background: #0e1a24; border-radius: 8px;
+            border: 1px solid #8e44ad; display: block;
+            margin-left: auto; margin-right: auto;
         }
 
         .fun-fact {
-            background: #2c3e50;
+            background: #132938;
             border-left: 5px solid #f1c40f;
             padding: 15px;
             margin: 20px 0;
             font-style: italic;
+            color: #eee;
         }
 
         .back-arrow {
             position: absolute;
             top: 20px; left: 20px;
-            font-size: 35px;
-            color: #8e44ad;
-            cursor: pointer;
+            font-size: 35px; color: #8e44ad; cursor: pointer;
         }
+
+        /* Scientific Info Section */
+        .more-info-box {
+            background: #0e1a24;
+            border: 1px solid #27ae60;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        .more-info-box h2 { color: #27ae60; margin-top: 0; }
+        .more-info-box a { color: #1e90ff; text-decoration: underline; }
+        .source-list { list-style: none; padding: 0; font-size: 0.85rem; color: #ccc; }
+        .source-list li { margin-bottom: 10px; line-height: 1.4; border-bottom: 1px solid #132938; padding-bottom: 5px; }
     </style>
 </head>
 <body>
@@ -125,10 +127,22 @@
         </div>
         <img src="Nitrogen/NitrogenCycle.jpg" alt="Nitrogen Cycle Diagram" class="hero-img" onerror="this.alt='Nitrogen Cycle Diagram (Image Missing)'">
         <h1 style="color: #8e44ad; margin-top: 0;">The Nitrogen Cycle Guide</h1>
-        <p style="text-align: center; color: #a0c4ff;">The process of establishing beneficial bacteria to make your water safe for inhabitants.</p>
+        <p style="text-align: center; color: #a0c4ff;">Establishing the biological foundation of your aquarium using scientific research.</p>
     </div>
 
     <div class="grid-gallery" id="cycleGrid"></div>
+
+    <!-- GLOBAL MORE INFO SECTION -->
+    <div class="more-info-box">
+        <h2>More Info & Scientific Resources</h2>
+        <p>The following resources and peer-reviewed studies by <strong>Dr. Timothy Hovanec</strong> and colleagues form the scientific basis for modern nitrifying bacteria understanding:</p>
+        <ul class="source-list">
+            <li><strong>Primary Resource:</strong> <a href="https://www.drtimsaquatics.com/resources/fishless-cycling/" target="_blank">Dr. Tim's Aquatics - Fishless Cycling Guide</a></li>
+            <li>Hovanec, T. A. and E. F. DeLong. 1996. <em>Comparative Analysis of Nitrifying Bacteria Associated with Freshwater and Marine Aquaria.</em> Applied and Environmental Microbiology Vol. 62, No. 8: 2888-2896.</li>
+            <li>Hovanec, T. A., L. T. Taylor, A. Blakis and E. F. DeLong. 1998. <em>Nitrospira-Like Bacteria Associated with Nitrite Oxidation in Freshwater Aquaria.</em> Applied and Environmental Microbiology Vol. 64, No. 1: 258-264.</li>
+            <li>Burrell, P. C., C. M. Phalen, and Timothy A. Hovanec. 2001. <em>Identification of Bacteria Responsible for Ammonia Oxidation in Freshwater Aquaria.</em> Applied and Environmental Microbiology, Dec. 2001, p. 5791-5800.</li>
+        </ul>
+    </div>
 </div>
 
 <div id="modalOverlay">
@@ -139,105 +153,118 @@
 </div>
 
 <script>
+    const hovanecSources = `
+        <div style="margin-top:20px; border-top:1px solid #444; padding-top:15px;">
+            <p style="color:#27ae60; font-weight:bold; margin-bottom:5px;">More Info & Scientific Sources:</p>
+            <ul style="font-size:0.75rem; color:#aaa; padding-left:20px;">
+                <li><a href="https://www.drtimsaquatics.com/resources/fishless-cycling/" target="_blank" style="color:#1e90ff;">Dr. Tim's Fishless Cycling Resource</a></li>
+                <li><a href="https://www.drtimsaquatics.com/scientific-papers/comparative-analysis-of-nitrifying-bacteria-associated-with-freshwater-and-marine-aquaria-applied-and-environmental-microbiology-vol-62-no-8-2888-2896/" target="_blank" style="color:#1e90ff;">Comparative Analysis of Nitrifying Bacteria Associated with Freshwater and Marine Aquaria</a></li>
+                <li><a href="https://www.drtimsaquatics.com/scientific-papers/nitrospira-like-bacteria-associated-with-nitrite-oxidation-in-freshwater-aquaria-applied-and-environmental-microbiology-vol-64-no-1-258-264/" target="_blank" style="color:#1e90ff;">Nitrospira-Like Bacteria Associated with Nitrite Oxidation in Freshwater Aquaria</a></li>
+                <li><a href="https://www.drtimsaquatics.com/scientific-papers/identification-of-bacteria-responsible-for-ammonia-oxidation-in-freshwater-aquaria-applied-and-environmental-microbiology-dec-2001-p-5791-5800/" target="_blank" style="color:#1e90ff;">Identification of Bacteria Responsible for Ammonia Oxidation in Freshwater Aquaria</a></li>
+            </ul>
+        </div>
+    `;
+
     const cycleData = [
         {
             title: "Fishless Cycling",
             img: "Nitrogen/fishless.jpg",
-            description: "The most humane method. You provide an ammonia source without any fish in the tank. You wait for bacteria to grow until the tank can process 2ppm of ammonia into Nitrates in 24 hours.",
-            steps: "1. Fill tank. 2. Add ammonia. 3. Add bottled bacteria. 4. Wait and test daily.",
+            description: "The most humane method. You provide an ammonia source without fish. Scientific research shows you should not exceed 2ppm of ammonia, as high concentrations inhibit the growth of Nitrospira (the nitrite-oxidizers), stalling your cycle.",
+            steps: "1. Fill tank. 2. Dose ammonia to 2ppm. 3. Add bottled bacteria. 4. Wait for Ammonia/Nitrite to hit 0 before re-dosing.",
             products: [
                 { name: "Pure Ammonia", img: "Nitrogen/Products/ammonia.jpg" },
-                { name: "Bottled Bacteria", img: "Nitrogen/Products/bacteria.jpg" },
-                { name: "API Master Test Kit", img: "Nitrogen/Products/testkit.jpg" },
-                { name: "Test Strips", img: "Nitrogen/Products/teststrips.jpg" }
+                { name: "One & Only Bacteria", img: "Nitrogen/Products/bacteria.jpg" },
+                { name: "API Master Test Kit", img: "Nitrogen/Products/testkit.jpg" }
             ],
-            fact: "This is the safest way to start because you don't risk the lives of any fish during the dangerous ammonia spikes."
+            fact: "Dr. Hovanec's research proved that 'Nitrobacter' is rarely the primary nitrite-oxidizer in aquaria; instead, 'Nitrospira' does the heavy lifting.",
+            scientificInfo: hovanecSources
         },
         {
             title: "Snail Cycling",
             img: "Nitrogen/snails.jpg",
-            description: "A middle-ground approach. Hardy snails (like Ramshorn, Bladder, or Mystery snails) are introduced to provide a bioload. Snails are generally more tolerant of rising ammonia levels than fish, but still require monitoring.",
-            steps: "1. Introduce 1-2 hardy snails. 2. Feed them very lightly. 3. Monitor Ammonia/Nitrite levels. 4. Use water conditioners and/or do a water change if levels rise too high.",
+            description: "A middle-ground approach. Hardy snails provide a small, steady ammonia source. Note: Excessive ammonia (above 2ppm) is just as toxic to snails and beneficial bacteria as it is to fish.",
+            steps: "1. Introduce 1-2 hardy snails. 2. Feed sparingly. 3. Monitor Ammonia/Nitrite levels. 4. Perform water changes if Ammonia exceeds 1ppm.",
             products: [
                 { name: "Hardy Snails", img: "Nitrogen/snails.jpg" },
                 { name: "Algae Wafers", img: "Nitrogen/Products/wafers.jpg" },
                 { name: "Seachem Prime", img: "Nitrogen/Products/prime.jpg" }
             ],
-            fact: "Snails are often called 'biological indicators.' If you see them all rushing to the very top of the waterline at once, it's often a sign that your ammonia or nitrite levels have spiked!"
+            fact: "Snails are biological indicators. If they all rush to the top of the waterline, check your water quality immediately.",
+            scientificInfo: ""
         },
         {
             title: "Fish-In Cycling",
             img: "Nitrogen/fishin.jpg",
-            description: "An emergency method or for experienced keepers. A small number of hardy fish are used to provide ammonia. This requires daily water testing and frequent water changes.",
-            steps: "1. Add very few hardy fish. 2. Test water every 12 hours. 3. Perform water changes if Ammonia > 0.25ppm. 4. Use detoxifiers like Seachem Prime.",
+            description: "An emergency method. A very small number of fish provide ammonia. Requires daily testing and 50% water changes to keep toxins below 0.25ppm, which keeps the fish alive but significantly slows bacterial growth.",
+            steps: "1. Add very few fish. 2. Test every 12 hours. 3. Perform water changes if Ammonia > 0.25ppm. 4. Use Prime to temporarily detoxify remaining ammonia.",
             products: [
                 { name: "Seachem Prime", img: "Nitrogen/Products/prime.jpg" },
                 { name: "FritzZyme 7", img: "Nitrogen/Products/fritz7.jpg" },
                 { name: "Water Siphon", img: "Nitrogen/Products/siphon.jpg" }
             ],
-            fact: "Many keepers use Seachem Prime every 24-48 hours during this process because it temporarily detoxifies ammonia and nitrite without stopping the cycle."
+            fact: "Many conditioners only detoxify ammonia for 24-48 hours. If the bacteria haven't processed it by then, the toxicity returns.",
+            scientificInfo: ""
         },
         {
             title: "Ghost Feeding",
             img: "Nitrogen/ghost.jpg",
-            description: "A version of fishless cycling where you 'feed' an empty tank with fish food if you don't have ammonia available. As the food rots, it releases ammonia to feed the bacteria.",
-            steps: "1. Drop a small pinch of flakes daily. 2. Wait for it to decay. 3. Monitor levels. 4. Clean out 'sludge' once the cycle is complete.",
+            description: "Using fish food as an ammonia source. This is imprecise as rotting food releases ammonia at an inconsistent rate and creates high levels of organic sludge (DOCs), which can fuel bad bacteria over good nitrifying ones.",
+            steps: "1. Drop a small pinch of food daily. 2. Monitor ammonia rise as it rots. 3. Siphon out uneaten sludge regularly.",
             products: [
                 { name: "Fish Flakes", img: "Nitrogen/Products/flakes.jpg" },
-                { name: "Shrimp Pellets", img: "Nitrogen/Products/pellets.jpg" },
-                { name: "Mesh Bag", img: "Nitrogen/Products/meshbag.jpg" }
+                { name: "Shrimp Pellets", img: "Nitrogen/Products/pellets.jpg" }
             ],
-            fact: "This method is harder to control than pure ammonia because you don't know exactly how much ammonia the rotting food will release."
+            fact: "This method often creates 'fungal blooms' (white fuzz) in the tank as the food breaks down.",
+            scientificInfo: ""
         },
         {
             title: "Pure Ammonia Dosing",
             img: "Nitrogen/pure.jpg",
-            description: "Using laboratory-grade Ammonium Chloride to reach a specific concentration (usually 2-4ppm). It is very precise and clean. You can use ammonia with water but never use ammonia with surfactants or fragrances. To make sure you have the right ammonia, look for 'pure ammonia' or 'ammonium chloride' with no additives and shake it to see if it bubbles and it stays, if it does, it's NOT pure.",
-            steps: "1. Calculate volume. 2. Dose to 1-2ppm. 3. Re-dose when ammonia hits 0 AND Nitrite also hits 0.",
+            description: "Using laboratory-grade Ammonium Chloride. This is the gold standard for precision. It allows you to maintain the scientifically recommended 2ppm threshold without the waste produced by other methods.",
+            steps: "1. Dose to 2ppm. 2. Monitor until ammonia drops to 0. 3. Re-dose to 2ppm only once Nitrite also reaches 0.",
             products: [
                 { name: "Dr. Tim's Ammonia", img: "Nitrogen/Products/drtims.jpg" },
-                { name: "Pure Ammonia", img: "Nitrogen/Products/ammonia.jpg" },
                 { name: "Precision Pipette", img: "Nitrogen/Products/pipette.jpg" },
-                { name: "Liquid Test Kit", img: "Nitrogen/Products/testkit.jpg" },
-                { name: "Test Strips", img: "Nitrogen/Products/teststrips.jpg" }
+                { name: "Liquid Test Kit", img: "Nitrogen/Products/testkit.jpg" }
             ],
-            fact: "Fun Fact: In the early days of the hobby, some people used their own urine as an ammonia source! While it technically works, it is NOT recommended as it can introduce unwanted hormones or medications into the water."
+            fact: "Nitrifying bacteria need Carbonate Hardness (KH) as fuel. If your KH hits zero, your pH will crash and your cycle will stop immediately.",
+            scientificInfo: hovanecSources
         },
         {
             title: "Established Media (Seeding)",
             img: "Nitrogen/seeding.jpg",
-            description: "The 'cheat code' of fishkeeping. By taking a sponge or ceramic rings from a healthy, established tank, you 'seed' your new filter with millions of live bacteria.",
-            steps: "1. Take 20-30% of media from an old filter. 2. Place it directly into the new filter. 3. Add a small ammonia source immediately to keep them alive.",
+            description: "Moving live bacteria from a healthy tank to a new one. This moves the actual biofilm containing the Nitrospira colonies, effectively 'skipping' the weeks of initial growth.",
+            steps: "1. Take 20% of media from an old filter. 2. Move it to the new filter within minutes. 3. Add ammonia (2ppm) immediately to keep the bacteria alive.",
             products: [
                 { name: "Filter Sponge", img: "Nitrogen/Products/sponge.jpg" },
-                { name: "Ceramic Rings", img: "Nitrogen/Products/rings.jpg" },
-                { name: "Mesh Filter Bag", img: "Nitrogen/Products/meshbag.jpg" }
+                { name: "Ceramic Rings", img: "Nitrogen/Products/rings.jpg" }
             ],
-            fact: "Using established media can cut your cycling time from 4-6 weeks down to just a few days or even instantly!"
+            fact: "Nitrifying bacteria are not in the water; they are sticky and attached to surfaces. This is why using 'old water' does not help cycle a tank.",
+            scientificInfo: hovanecSources
         },
         {
             title: "Cycling With Plants",
             img: "Nitrogen/plants.jpg",
-            description: "Also known as a 'Silent Cycle.' Live plants naturally consume ammonia and nitrates. If you heavily plant a tank from day one, you may never see an ammonia spike. Floaters are known to be especially good at this.",
-            steps: "1. Plant heavily. 2. Use 'In-Vitro' plants for a pest-free start. 3. If using standard plants, perform a dip to kill snails/pests.",
+            description: "Also known as a 'Silent Cycle.' Live plants prefer ammonia over nitrate. If you plant heavily enough, the plants consume ammonia before it can ever reach toxic levels, bypassing the standard nitrogen cycle stages.",
+            steps: "1. Plant at least 50% of the substrate. 2. Use fast-growing floaters. 3. Monitor ammonia; it should stay near zero if the plant load is high enough.",
             products: [
-                { name: "Plant Fertilizer", img: "Nitrogen/Products/ferts.jpg" },
-                { name: "Rich aquarium soil (like Aquasoil)", img: "Nitrogen/Products/aquasoil.jpg" },
-                { name: "Alum (for dips)", img: "Nitrogen/Products/alum.jpg" }
+                { name: "Floating Plants", img: "Nitrogen/Products/floaters.jpg" },
+                { name: "Aquasoil", img: "Nitrogen/Products/aquasoil.jpg" }
             ],
-            fact: "To clean plants: Use a 1:20 bleach-to-water dip for hardy plants (Anubias) for 2 minutes. For delicate plants, use a Hydrogen Peroxide dip or Alum to avoid melting them. In-Vitro plants (cups) are grown in labs and are 100% clean!"
+            fact: "Floaters are the kings of cycling because they have access to atmospheric CO2, allowing them to grow—and eat ammonia—much faster than submerged plants.",
+            scientificInfo: ""
         },
         {
-            title: "Cycling Without Plants",
+            title: "Dark Start (Cycling Without Plants)",
             img: "Nitrogen/noplants.jpg",
-            description: "Traditional cycling focusing only on the filter and substrate. Common for African Cichlid tanks or 'Hardscape only' designs. A Darkstart is a 4-6 week period where the aquarium runs without lighting, CO2 addition, liquid fertilizer, or plants, and without livestock. This allows the beneficial bacteria to establish without any competition from algae or plants, and is especially useful for tanks that will eventually be low-light or have few plants.",
-            steps: "1. Focus on high-surface-area media. 2. Increase oxygen (aeration) as bacteria need it to grow. 3. Keep the lights off to prevent algae during the cycle.",
+            description: "Running the aquarium without lights or plants for 4-6 weeks. This allows the nitrifying bacteria to establish in the filter and substrate without competition from algae, which often blooms in new, nutrient-rich setups.",
+            steps: "1. Setup filter/substrate. 2. Keep lights off. 3. Dose ammonia (2ppm). 4. Perform a large water change after 6 weeks before adding plants/fish.",
             products: [
                 { name: "Bio-Media", img: "Nitrogen/Products/biomedia.jpg" },
-                { name: "Air Pump", img: "Nitrogen/Products/airpump.jpg" },
-                { name: "Dark Start", img: "Nitrogen/Products/darkstart.jpg" }
+                { name: "Blackout Cover", img: "Nitrogen/Products/cover.jpg" }
             ],
-            fact: "Without plants to help, you are 100% dependent on your filter's biological capacity. Never wash your filter media fully in tap water, or the chlorine will kill all your hard-earned bacteria!"
+            fact: "Dark starting is common with high-nutrient soils like ADA Amazonia to prevent 'new tank syndrome' algae outbreaks.",
+            scientificInfo: ""
         }
     ];
 
@@ -273,10 +300,12 @@
                 <p><strong>Basic Steps:</strong> ${item.steps}</p>
             </div>
 
-            <div class="fun-fact"><strong>Did you know?</strong><br>${item.fact}</div>
+            <div class="fun-fact"><strong>Scientific Insight:</strong><br>${item.fact}</div>
 
             <h3 style="color:#a0c4ff;">Recommended Tools/Products:</h3>
             <div class="product-grid">${productsHTML}</div>
+            
+            ${item.scientificInfo}
         `;
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
