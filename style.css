@@ -236,6 +236,28 @@ button {
     filter: grayscale(100%);
 }
 
+/* WATER TYPE BUTTONS */
+.water-type-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.water-type-row button {
+    background: #316283;
+    border: 2px solid #66b1e4;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.water-type-row button:hover {
+    background: #3d7aa3;
+}
+
 /* RESPONSIVE MEDIA QUERY */
 @media (max-width: 768px) {
     .container {

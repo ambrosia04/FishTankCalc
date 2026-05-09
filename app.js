@@ -9,6 +9,12 @@ let activeCategories = {
     coral: true
 };
 
+let activeWaterTypes = {
+    freshwater: true,
+    brackish: true,
+    marine: true
+};
+
 fetch("fish.json")
 .then(res => res.json())
 .then(data => {
@@ -161,6 +167,21 @@ function toggleCategory(category) {
     filterFish(query);
 }
 
+function toggleWaterType(type) {
+    activeWaterTypes[type] = !activeWaterTypes[type];
+
+    const btn = document.querySelector(`[onclick="toggleWaterType('${type}')"]`);
+
+    if (btn) {
+        btn.classList.toggle("inactive", !activeWaterTypes[type]);
+    }
+
+    const query = document.getElementById("fishInput").value.toLowerCase();
+
+    saveState();
+    filterFish(query);
+}
+
 function updateCategoryButtons() {
     const tankType = document.getElementById("tankType").value;
 
@@ -223,8 +244,13 @@ function filterFish(query) {
         const latin = fish.latin_name.toLowerCase();
         const common = (fish.common_name || "").toLowerCase();
         const category = fish.category || "fish";
+        const waterType = fish.type || "freshwater";
 
+        // Category filter
         if (!activeCategories[category]) return false;
+
+        // Water type filter
+        if (!activeWaterTypes[waterType]) return false;
 
         // Logic A: Normal text match (Does name contain "rockc"?)
         const words = query.split(/\s+/);
@@ -290,7 +316,34 @@ function renderSelectOptions(fishArray) {
         select.appendChild(option);
     });
 
-    select.style.display = sorted.length ? "block" : "none";
+    const noWaterTypesSelected = Object.values(activeWaterTypes).every(v => !v);
+    const noCategoriesSelected = Object.values(activeCategories).every(v => !v);
+
+    if (noWaterTypesSelected || noCategoriesSelected) {
+
+        select.innerHTML = `
+            <option disabled selected>
+                Please select an aquarium type and animal category
+            </option>
+        `;
+
+        select.style.display = "block";
+        return;
+    }
+
+    if (sorted.length === 0) {
+
+        select.innerHTML = `
+            <option disabled selected>
+                No animals found
+            </option>
+        `;
+
+        select.style.display = "block";
+        return;
+    }
+
+    select.style.display = "block";
 }
 
 // Hover logic - Place this inside or after your populate() function
@@ -1297,6 +1350,7 @@ function saveState() {
         tankSize: document.getElementById("tankSize").value,
         unit: document.getElementById("unit").value,
         tankType: document.getElementById("tankType").value,
+        activeWaterTypes: activeWaterTypes,
         planted: document.getElementById("planted").checked
     };
     localStorage.setItem("aquariumCalcState", JSON.stringify(state));
@@ -1312,6 +1366,7 @@ function loadState() {
     // Restore variables
     selectedFish = state.selectedFish || [];
     activeCategories = state.activeCategories || activeCategories;
+    activeWaterTypes = state.activeWaterTypes || activeWaterTypes;
 
     // Restore UI elements
     document.getElementById("userLevel").value = state.userLevel || "beginner";
@@ -1325,6 +1380,16 @@ function loadState() {
         const btn = document.querySelector(`[onclick="toggleCategory('${cat}')"]`);
         if (btn) {
             btn.classList.toggle("inactive", !activeCategories[cat]);
+        }
+    });
+
+    Object.keys(activeWaterTypes).forEach(type => {
+        const btn = document.querySelector(
+            `[onclick="toggleWaterType('${type}')"]`
+        );
+
+        if (btn) {
+            btn.classList.toggle("inactive", !activeWaterTypes[type]);
         }
     });
 
