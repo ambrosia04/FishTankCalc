@@ -208,6 +208,16 @@ button {
     accent-color: #92a748; /* ✅ earthy green when checked */
 }
 
+#matureTankLabel {
+    margin-left: 2%;
+    color: #76b154;
+}
+#matureTank {
+    transform: scale(1.5);
+    margin-left: 5px;
+    accent-color: #76b154; /* ✅ olive green when checked */
+}
+
 /* CATEGORY BUTTONS */
 #btn-fish, #btn-shrimp, #btn-snail, #btn-crab, #btn-stars, #btn-corals {
     background-color: #316283;

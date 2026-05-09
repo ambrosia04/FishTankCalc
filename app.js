@@ -125,6 +125,8 @@ function populate() {
 
     document.getElementById("planted").addEventListener("change", calculate);
 
+    document.getElementById("matureTank").addEventListener("change", calculate);
+
     // Inputs that allow 0+
     [
         "tankSize",
@@ -677,7 +679,10 @@ function getSpeciesRule(fish) {
     }
 
     // Algae / mature tank warning
-    if (fish.needs_algae) {
+    if (
+        fish.needs_algae &&
+        !document.getElementById("matureTank").checked
+    ) {
         rule.warnings.push("Needs algae or mature tank.");
     }
 
@@ -890,9 +895,13 @@ function calculate() {
             warningSet.add(`<div class="warning">${fish.latin_name} may eat snails!</div>`);
         }
 
-        // Algae requirement
-        if (fish.needs_algae && !document.getElementById("planted").checked) {
-            warningSet.add(`<div class="warning">${fish.latin_name} needs algae / mature tank</div>`);
+        // Algae / mature tank requirement
+        if (fish.needs_algae && !document.getElementById("matureTank").checked) {
+            warningSet.add(
+                `<div class="warning">
+                    ${fish.latin_name} needs algae or a mature established tank
+                </div>`
+            );
         }
 
     });
@@ -1351,7 +1360,8 @@ function saveState() {
         unit: document.getElementById("unit").value,
         tankType: document.getElementById("tankType").value,
         activeWaterTypes: activeWaterTypes,
-        planted: document.getElementById("planted").checked
+        planted: document.getElementById("planted").checked,
+        matureTank: document.getElementById("matureTank").checked
     };
     localStorage.setItem("aquariumCalcState", JSON.stringify(state));
 }
@@ -1374,6 +1384,7 @@ function loadState() {
     document.getElementById("unit").value = state.unit || "liters";
     document.getElementById("tankType").value = state.tankType || "freshwater";
     document.getElementById("planted").checked = state.planted || false;
+    document.getElementById("matureTank").checked = state.matureTank || false;
 
     // Refresh the category button visuals (active vs inactive)
     Object.keys(activeCategories).forEach(cat => {
