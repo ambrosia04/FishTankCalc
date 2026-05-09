@@ -98,9 +98,10 @@ function populate() {
             }
         }
         // Auto-recalculate warnings when tank is planted
-        document.getElementById("planted").addEventListener("change", () => {
+        /*document.getElementById("planted").addEventListener("change", () => {
             calculate();
         });
+        */
     });
 
     // Auto-calculate when user types a new tank size
@@ -113,6 +114,10 @@ function populate() {
     document.getElementById("tankType").addEventListener("change", reloadTankType);
 
     document.getElementById("hasSand").addEventListener("change", calculate);
+
+    document.getElementById("userLevel").addEventListener("change", calculate);
+
+    document.getElementById("planted").addEventListener("change", calculate);
 
     // Inputs that allow 0+
     [
@@ -677,11 +682,6 @@ function calculate() {
     
     let userLevel = document.getElementById("userLevel").value;
 
-    
-    console.log("Tank:", tank);
-    console.log("Bioload:", totalBioloadLiters);
-    console.log("Multiplier:", tankMultiplier);
-
     if (userLevel === "expert") {
         tankMultiplier *= 1.3;
         territoryFactor *= 0.7;
@@ -704,6 +704,7 @@ function calculate() {
     // Hardscape bonus (NEW idea)
     let hardscapeLevel = "high"; // later UI
     if (hardscapeLevel === "high") tankMultiplier *= 1.15;
+    if (hardscapeLevel === "low") tankMultiplier *= 1.0;
 
     selectedFish.forEach(fish => {
 
@@ -723,7 +724,12 @@ function calculate() {
 
         if (!compatible) {
             wrongType = true;
-            return;
+
+            warningSet.add(`
+                <div class="warning">
+                    ${fish.latin_name} is incompatible with this tank type
+                </div>
+            `);
         }
 
         // Only valid fish tracked
@@ -1001,6 +1007,11 @@ function calculate() {
             : `<div class="warning">No PH overlap</div>`;
     }
 
+    console.log("Tank:", tank);
+    console.log("Bioload:", totalBioloadLiters);
+    console.log("Multiplier:", tankMultiplier);
+    console.log("Fish Count:", selectedFish.length);
+
     // --- FINAL CAPACITY ---
     let effectiveTank = tank * tankMultiplier;
     let percent = (totalBioloadLiters / effectiveTank) * 100;
@@ -1038,10 +1049,10 @@ function calculate() {
     document.getElementById("warnings").innerHTML = Array.from(warningSet).join("");
 
     // Auto-save when user level changes
-    document.getElementById("userLevel").addEventListener("change", calculate);
+    //document.getElementById("userLevel").addEventListener("change", calculate);
 
     // Auto-save when planted status changes
-    document.getElementById("planted").addEventListener("change", calculate);
+    //document.getElementById("planted").addEventListener("change", calculate);
 
     saveState();
 }
