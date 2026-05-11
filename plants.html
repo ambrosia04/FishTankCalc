@@ -90,6 +90,17 @@
             line-height: 1.2;
             padding: 0 5px;
         }
+
+        .collapsible-content {
+            display: block; /* Starts displayed */
+            margin-top: 20px; /* Gap between title bar and the cards */
+            background: transparent; /* Removes the big green background */
+        }
+
+        /* This allows the grid sections inside to work when the parent is visible */
+        .collapsible-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -103,40 +114,110 @@
     <p style="text-align: center; color: #a0c4ff; margin-bottom: 40px;">Mastering the art of submerged growth and aquascaping.</p>
 
     <!-- FOUNDATION & TECHNIQUES -->
-    <h2 style="color: #1e90ff; border-bottom: 1px solid #1e90ff; padding-bottom: 10px;">Foundation & Setup</h2>
-    
-    <div class="setup-section">
-        <div class="info-card">
-            <h3>Substrate Choice</h3>
-            <p><strong>Aquasoil:</strong> Nutrient-rich, lowers pH. Best for heavy root feeders.</p>
-            <p>
-            <strong>Inert Sand/Gravel:</strong> No nutrients; requires root tabs but is easier to clean and "cap" other layers with.
-            <br>
-            <span style="color: #777; font-size: 0.95em;">
-                Be careful with colorful gravel as it may contain toxic dyes.
-            </span>
-            </p>
+    <div class="collapsible-header" onclick="toggleSection('foundationContent', this)">
+        <h2 class="category-title" style="color: #1e90ff;">Foundation & Setup</h2>
+        <span class="toggle-icon">▼</span>
+    </div>
+
+    <div id="foundationContent" class="collapsible-content">
+        <!-- FIRST ROW: SUBSTRATE & DEPTH -->
+        <div class="setup-section">
+            <div class="info-card">
+                <h3>Substrate Choice & Depth</h3>
+                <p><strong>The Layered Method:</strong> Use ~6–7 cm of aquasoil as your main nutrient layer. Add ~1 cm of fine sand on top to "cap" it. This keeps the soil from floating and looks much cleaner.</p>
+                <p><strong>Depth Warning:</strong> Avoid making substrate excessively deep (10+ cm). Compacted deep layers can create <strong>anaerobic zones</strong>, producing toxic hydrogen sulfide gas.</p>
+            </div>
+            <div class="info-card">
+                <h3>Aquasoil Leaching</h3>
+                <p>New Aquasoil often "leaches" high amounts of Ammonia for the first 4–6 weeks. While this is excellent for fishless cycling, it is lethal for livestock. Perform frequent water changes during this initial phase until levels stabilize.</p>
+            </div>
+            <div class="info-card">
+                <h3>The Sand "Cap"</h3>
+                <p>A 1–2 inch (3–6 cm) sand cap over soil (or 1cm over aquasoil) traps nutrients in the substrate and out of the water column. This reduces algae growth and creates a natural aesthetic. Sand can also be used alone if you add root tabs for nutrition.</p>
+            </div>
         </div>
-        <div class="info-card">
-            <h3>Aquasoil Leaching</h3>
-            <p>New Aquasoil often "leaches" high amounts of Ammonia for the first 4-6 weeks. This is great for cycling a tank but dangerous for livestock. Perform frequent water changes during this phase.</p>
+
+        <!-- SECOND ROW: MAINTENANCE & HARDSCAPE -->
+        <div class="setup-section">
+            <div class="info-card">
+                <h3>Preventing Gas Buildup</h3>
+                <p>• Don't overly compact the substrate when placing it.<br>
+                   • Use plants with strong roots to oxygenate the soil.<br>
+                   • Add burrowing snails (like MTS) to turn the top layer.<br>
+                   • Occasionally moving stems or replanting releases trapped gas safely.</p>
+            </div>
+            <div class="info-card">
+                <h3>Rock Placement Tip</h3>
+                <p>Always place rocks heavier than 200g <strong>directly on top of the aquasoil</strong> before adding the sand. Then, surround the rocks with sand. This prevents the hardscape from shifting or collapsing as the sand settles over time.</p>
+            </div>
+            <div class="info-card" style="border-top-color: #e74c3c;">
+                <h3>Substrate Safety</h3>
+                <p>Be extremely cautious with "colorful" or "painted" gravel found in big-box stores; these often contain toxic dyes that can leach into the water over time. Natural pond substrates can be a viable, budget-friendly alternative.</p>
+            </div>
         </div>
-        <div class="info-card">
-            <h3>The Sand "Cap"</h3>
-            <p>You can either use a 1–2 inch (3–6 cm) layer of sand over nutrient-rich soil to help keep nutrients trapped in the substrate and out of the water column, reducing the chance of algae growth, or use sand alone with root tabs added for plant nutrition. Both methods also create a clean, natural aesthetic.</p>
+
+        <!-- THIRD ROW: PLANTING & FEEDING -->
+        <div class="setup-section">
+            <div class="info-card">
+                <h3>Planting Technique</h3>
+                <p><strong>Tweezers:</strong> Use long aquascaping tweezers to grab stems at the base and push them into the soil at a slight angle for better grip.</p>
+                <p><strong>Weights:</strong> Use lead-free weights to keep "bouncy" plants like Hornwort anchored until they establish roots.</p>
+            </div>
+            <div class="info-card">
+                <h3>The Water Column</h3>
+                <p>Mosses and Ferns have no traditional roots; they eat directly from the water via liquid fertilizers. Conversely, "Rosette" plants (Swords/Crypts) are heavy root feeders and require root tabs or nutrient-rich aquasoil.</p>
+            </div>
+            <div class="info-card">
+                <h3>Long-Term Nutrition</h3>
+                <p>Aquasoil typically provides enough nutrients for 6 to 12 months. Once the soil is "exhausted," you must begin supplementing with root tabs near the base of your heavy feeders to maintain growth.</p>
+            </div>
         </div>
     </div>
 
-    <div class="setup-section">
-        <div class="info-card">
-            <h3>Planting Technique</h3>
-            <p><strong>Tweezers:</strong> Use long aquascaping tweezers to grab stems at the base and push them deep into the soil at a slight angle.</p>
-            <p><strong>Weights:</strong> Lead-free plant weights can help keep "bouncy" plants like Hornwort down until they root.</p>
+    <!-- PLANT QUARANTINE & DIPS -->
+    <div class="collapsible-header" onclick="toggleSection('quarantineContent', this)">
+        <h2 class="category-title" style="color: #f1c40f;">Plant Quarantine & Dips</h2>
+        <span class="toggle-icon">▼</span>
+    </div>
+
+    <div id="quarantineContent" class="collapsible-content">
+        <div class="intro-box" style="border-left-color: #f1c40f; background: rgba(241, 196, 15, 0.05);">
+            <p><strong>🛡️ Prevent Pests:</strong> For plants that are not <strong>In-Vitro</strong> (tissue culture), it is vital to perform a dip to kill leeches, snails, and eggs before they enter your ecosystem.</p>
         </div>
-        <div class="info-card">
-            <h3>The Water Column</h3>
-            <p>Plants like Moss and Ferns don't have traditional roots; they eat directly from the water. For these, use liquid fertilizers. For "Rosette" plants (Swords/Crypts), use root tabs in the substrate or aquasoil (this will give nutrients for up to 6 months or even a year, then start adding root tabs).</p>
-            <p>Some people also use pond substrates as an alternative to traditional aquarium substrates.</p>
+
+        <div class="setup-section">
+            <!-- Method 1: Salt -->
+            <div class="info-card" style="border-top-color: #f1c40f;">
+                <h3>The Salt Bath (Best for Hardy Plants)</h3>
+                <p><strong>Recipe:</strong> Mix 30g of pure salt per 1 liter of water. Soak plants for exactly <strong>10 minutes</strong>.</p>
+                <p><strong>Salt Choice:</strong> Use Aquarium Salt or Kosher Salt. Avoid salts with anti-caking agents like <strong>E-535 or E-536</strong>.</p>
+                <p style="color: #27ae60; font-size: 0.85rem;"><strong>Safe for:</strong> Anubias, Java Fern, Windelov, and Crypts.</p>
+            </div>
+
+            <!-- Method 2: Alum -->
+            <div class="info-card" style="border-top-color: #27ae60;">
+                <h3>The Alum Soak (Best for Moss/Sensitive)</h3>
+                <p><strong>Recipe:</strong> 1 tablespoon of Potassium Alum per 1 liter of water. Soak for <strong>24 hours</strong>.</p>
+                <p>Alum is found in pharmacies or craft stores. It is much gentler on delicate tissues than salt or bleach but highly effective against snails and eggs.</p>
+            </div>
+
+            <!-- Method 3: Bleach -->
+            <div class="info-card" style="border-top-color: #e74c3c;">
+                <h3>The Bleach Dip (High Risk)</h3>
+                <p><strong>Recipe:</strong> 1 part bleach to 20 parts water. Soak for only <strong>90 seconds</strong>.</p>
+                <p><strong>Crucial:</strong> Follow with a massive rinse in water treated with 4x the normal dose of dechlorinator. Use only for very tough plants; bleach can easily "melt" live plants.</p>
+            </div>
+        </div>
+
+        <!-- SENSITIVE PLANTS WARNING -->
+        <div class="warning-box" style="margin-top: 0;">
+            <h3 style="color: #e74c3c; margin-top: 0; font-size: 1rem; text-transform: uppercase;">⚠️ Sensitive Plants: DO NOT SALT DIP</h3>
+            <p>The following plants will likely die or be severely damaged by salt baths:</p>
+            <ul style="font-size: 0.9rem; line-height: 1.6; color: #ff9999;">
+                <li><strong>Hornwort:</strong> Salt causes it to "shatter"—all needles will fall off, creating a massive mess.</li>
+                <li><strong>Mosses (Spiky/Java/etc):</strong> Salt can kill the cells of the moss instantly. Use Alum instead.</li>
+                <li><strong>Floating Plants:</strong> Frogbit and Red Root Floaters hate getting their leaves wet and are highly intolerant of salt.</li>
+            </ul>
         </div>
     </div>
 
