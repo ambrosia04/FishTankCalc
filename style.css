@@ -280,67 +280,76 @@ button {
     }
 }
 
-/* Specific class for the Microfauna button when inside a row */
+/* Individual colors */
 .row-btn {
-    margin-top: 0 !important; /* Overrides the default 20px margin */
-    padding: 6px 12px !important;
-    font-size: 14px;
-    white-space: nowrap; /* Forces text to stay on one line */
-    height: auto;
-    display: inline-block;
-    margin-left: 30%;
     background-color: #3ca721;
-    box-shadow: 0 4px 15px #3ca721;
+    box-shadow: 0 4px 15px rgba(60, 167, 33, 0.4);
 }
+
 .row-btn:hover {
     background-color: #205e11;
-    box-shadow: 0 4px 15px rgba(60, 167, 33, 0.5);
 }
 
 .row-btn2 {
-    margin-top: 0 !important; /* Overrides the default 20px margin */
-    padding: 6px 12px !important;
-    font-size: 14px;
-    white-space: nowrap; /* Forces text to stay on one line */
-    height: auto;
-    display: inline-block;
     background-color: #8e44ad;
     box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
 }
+
 .row-btn2:hover {
     background-color: #6c3483;
-    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.5);
 }
 
 .row-btn3 {
-    margin-top: 0 !important; /* Overrides the default 20px margin */
-    padding: 6px 12px !important;
-    font-size: 14px;
-    white-space: nowrap; /* Forces text to stay on one line */
-    height: auto;
-    display: inline-block;
     background-color: #abb154;
     box-shadow: 0 4px 15px rgba(171, 177, 84, 0.4);
 }
+
 .row-btn3:hover {
     background-color: #6c7032;
-    box-shadow: 0 4px 15px rgba(171, 177, 84, 0.5);
 }
 
 
 /* Adjust the Dimension Calculator spacing */
+/* DIMENSION CALCULATOR */
 .dimension-calculator {
     display: flex;
-    gap: 5px;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 8px;
+    margin-top: 6px;
 }
 
+/* Small calculator inputs */
 .dimension-calculator input {
-    width: 45px !important;
+    width: 55px;
 }
 
 .dimension-calculator select {
-    padding: 4px;
+    padding: 6px;
+}
+
+/* Make buttons wrap nicely */
+.dimension-calculator .btn-nav {
+    margin-top: 0;
+    padding: 6px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MOBILE / ZOOM RESPONSIVE */
+@media (max-width: 1100px) {
+    .dimension-calculator {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dimension-calculator .btn-nav {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
 #convertResult {
