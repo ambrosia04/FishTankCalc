@@ -32,6 +32,8 @@ const linkedSpecies = {
     "nassarius": ["nassarius", "tritia"],
     "tritia": ["nassarius", "tritia"],
     "nanochromis": ["nanochromis", "distichodus"],
+    "erethistes jerdoni": ["erethistes jerdoni", "hara jerdoni"],
+    "hara jerdoni": ["erethistes jerdoni", "hara jerdoni"]
 };
 
 const genusLinks = {
@@ -41,7 +43,8 @@ const genusLinks = {
     "gastrodermus": "corydoras",
     "nassarius": "tritia",
     "tritia": "nassarius",
-    "nanochromis": "distichodus"
+    "nanochromis": "distichodus",
+    "erethistes": "hara"
 };
 
 const commonSynonyms = {
@@ -51,7 +54,8 @@ const commonSynonyms = {
     "cherry shrimp": "neocaridina",
     "nassarius": "tritia",
     "tritia": "nassarius",
-    "nanochromis": "distichodus"
+    "nanochromis": "distichodus",
+    "erethistes": "hara"
 };
 
 function populate() {
