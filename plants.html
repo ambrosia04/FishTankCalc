@@ -101,6 +101,34 @@
         .collapsible-content.active {
             display: block;
         }
+
+        /* Lightbox Zoom Styling */
+        .plant-card img {
+            cursor: zoom-in;
+            transition: opacity 0.2s;
+        }
+        .plant-card img:hover {
+            opacity: 0.9;
+        }
+
+        #zoomView {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            cursor: zoom-out;
+            align-items: center;
+            justify-content: center;
+        }
+        #zoomView img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border: 3px solid #1e90ff;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+        }
     </style>
 </head>
 <body>
@@ -928,13 +956,35 @@
         }
     }
 
-    // Default: Open all
+    // Function to handle the image zooming
+    function initZoom() {
+        const zoomView = document.getElementById('zoomView');
+        const zoomImg = document.getElementById('zoomImg');
+        const images = document.querySelectorAll('.plant-card img');
+
+        images.forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevents conflict with other clicks
+                zoomImg.src = img.src;
+                zoomView.style.display = 'flex';
+            });
+        });
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
+        // 1. Default: Open all sections
         document.querySelectorAll('.collapsible-header').forEach(header => {
             header.classList.add('active');
         });
+
+        // 2. Initialize the zoom feature
+        initZoom();
     });
 </script>
 
+<!-- Zoom View Overlay -->
+<div id="zoomView" onclick="this.style.display='none'">
+    <img id="zoomImg" alt="zoom" src="">
+</div>
 </body>
 </html>
