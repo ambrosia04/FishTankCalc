@@ -106,11 +106,11 @@ button {
 /* Ensure the container doesn't stretch to 100% unless needed */
 .tank-input {
     display: flex;
-    flex-wrap: nowrap; /* Keeps everything on one line */
-    align-items: center;
-    gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
     padding-bottom: 1%;
-    width: max-content; /* Prevents it from being full-width */
+    width: 100%;
 }
 
 .btn-nav {
@@ -268,13 +268,102 @@ button {
     background: #3d7aa3;
 }
 
+/* Converter layout */
+.converter-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.converter-row input {
+    flex: 2;
+}
+
+.converter-row select {
+    flex: 1;
+}
+
 /* RESPONSIVE MEDIA QUERY */
 @media (max-width: 768px) {
+    .tank-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #tankSize,
+    #unit {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .dimension-calculator {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+    }
+
+    .dimension-calculator input,
+    .dimension-calculator select,
+    .dimension-calculator button {
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 42px;
+    }
+
+    /* Guide buttons full width */
+    .dimension-calculator .btn-nav {
+        grid-column: 1 / -1;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .water-type-row,
+    .category-row,
+    .fish-input-row {
+        flex-wrap: wrap;
+    }
+
+    .fish-input-row input,
+    .fish-input-row button {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
     .container {
         flex-direction: column;
         align-items: stretch; /* Reset for mobile so it fills width */
     }
     .left, .right {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Converter responsive layout */
+    .inline-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .inline-row button {
+        width: 100%;
+    }
+    .converter-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .converter-row input,
+    .converter-row select,
+    .converter-row button {
         width: 100%;
         box-sizing: border-box;
     }
