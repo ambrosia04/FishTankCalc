@@ -17,7 +17,6 @@
             margin-bottom: 40px;
         }
 
-        /* Parameter Grid */
         .param-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -33,7 +32,6 @@
             position: relative;
             transition: 0.3s;
         }
-        .param-card:hover { border-color: #1e90ff; transform: translateY(-5px); }
         
         .param-name { color: #a0c4ff; font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; display: block; }
         .param-aim { color: #27ae60; font-weight: bold; font-size: 0.9rem; margin-bottom: 15px; display: block; }
@@ -48,25 +46,60 @@
         }
         .param-desc { font-size: 0.9rem; line-height: 1.5; color: #ccc; }
 
+        /* Collapsible Section Styling */
+        .collapsible-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            border-bottom: 2px solid #8e44ad;
+            margin-top: 40px;
+            padding: 15px 10px;
+            background: rgba(142, 68, 173, 0.05);
+            transition: 0.2s;
+        }
+        .collapsible-header:hover { background: rgba(142, 68, 173, 0.15); }
+        .category-title { color: #a0c4ff; margin: 0; font-size: 1.3rem; }
+        .toggle-icon { color: #8e44ad; font-size: 1.2rem; transition: transform 0.3s; }
+        .active .toggle-icon { transform: rotate(180deg); }
+
+        .setup-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .info-card {
+            background: #132938;
+            padding: 20px;
+            border-radius: 12px;
+            border-top: 3px solid #1e90ff;
+        }
+        .info-card h3 { color: #1e90ff; margin-top: 0; font-size: 1.1rem; text-transform: uppercase; }
+        .info-card p { font-size: 0.9rem; line-height: 1.5; color: #ccc; }
+
+        .warning-box {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 5px solid #e74c3c;
+            padding: 15px;
+            margin: 10px 0;
+            color: #ff9999;
+            font-size: 0.9rem;
+        }
+
         .status-badge {
-            position: absolute;
-            top: 15px; right: 15px;
-            font-size: 0.7rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-weight: bold;
+            position: absolute; top: 15px; right: 15px;
+            font-size: 0.7rem; padding: 4px 8px; border-radius: 4px;
+            text-transform: uppercase; font-weight: bold;
         }
         .essential { background: #2980b9; color: white; }
         .danger { background: #c0392b; color: white; }
         .safe { background: #27ae60; color: white; }
 
         .expert-tip {
-            background: #2c3e50;
-            border-left: 5px solid #f1c40f;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 40px;
+            background: #2c3e50; border-left: 5px solid #f1c40f;
+            padding: 20px; border-radius: 10px; margin-top: 40px;
         }
     </style>
 </head>
@@ -82,9 +115,10 @@
 
     <div class="intro-box">
         <h3>The Golden Rule</h3>
-        <p>In fishkeeping, <strong>Stability is more important than "Perfect" numbers.</strong> Most fish can adapt to a wide range of pH or Hardness, but they will get sick if those numbers swing wildly every day. Don't chase the numbers; chase the stability.</p>
+        <p>In fishkeeping, <strong>Stability is more important than "Perfect" numbers.</strong> Most fish can adapt to a wide range of pH or Hardness, but they will get sick if those numbers swing wildly every day.</p>
     </div>
 
+    <!-- MAIN PARAMETERS -->
     <div class="param-grid">
         <!-- AMMONIA -->
         <div class="param-card">
@@ -92,76 +126,118 @@
             <span class="param-name">Ammonia (NH₃)</span>
             <span class="param-aim">Aim for: 0 ppm</span>
             <span class="param-analogy">Analogy: The Poison</span>
-            <p class="param-desc">Produced by fish waste and rotting food. Any detectable amount burns fish gills and causes stress. In a "Cycled" tank, bacteria should eat this instantly.</p>
+            <p class="param-desc">Produced by waste. Even detectable amounts burn fish gills. Bacteria must eat this instantly in a cycled tank.</p>
         </div>
-
         <!-- NITRITE -->
         <div class="param-card">
             <span class="status-badge danger">Toxic</span>
             <span class="param-name">Nitrite (NO₂⁻)</span>
             <span class="param-aim">Aim for: 0 ppm</span>
             <span class="param-analogy">Analogy: The Suffocator</span>
-            <p class="param-desc">The middle step of the Nitrogen cycle. Nitrite prevents fish blood from carrying oxygen. Even a small amount can be fatal very quickly.</p>
+            <p class="param-desc">Prevents fish blood from carrying oxygen. Small amounts are fatal very quickly.</p>
         </div>
-
         <!-- NITRATE -->
         <div class="param-card">
             <span class="status-badge safe">Safe-ish</span>
             <span class="param-name">Nitrate (NO₃⁻)</span>
             <span class="param-aim">Aim for: 5–40 ppm</span>
             <span class="param-analogy">Analogy: The Leftovers</span>
-            <p class="param-desc">The final stage of the cycle. It is much less toxic. Plants love it as food! If it goes above 40 ppm, do a water change to bring it down.</p>
+            <p class="param-desc">Final stage. Less toxic. Plants love it! Keep under 40ppm via water changes.</p>
         </div>
-
         <!-- KH -->
         <div class="param-card">
             <span class="status-badge essential">Essential</span>
-            <span class="param-name">Carbonate Hardness (KH)</span>
+            <span class="param-name">KH (Carbonate Hardness)</span>
             <span class="param-aim">Aim for: ~5 dKH</span>
             <span class="param-analogy">Analogy: The Shock Absorber</span>
-            <p class="param-desc">This is the "Buffer." It prevents your pH from crashing. Think of it as a shield that protects your water from becoming acidic suddenly.</p>
+            <p class="param-desc">Prevents pH crashes. Think of it as a shield that protects your water from becoming acidic suddenly.</p>
         </div>
-
         <!-- GH -->
         <div class="param-card">
             <span class="status-badge essential">Essential</span>
-            <span class="param-name">General Hardness (GH)</span>
+            <span class="param-name">GH (General Hardness)</span>
             <span class="param-aim">Aim for: ~10 dGH</span>
             <span class="param-analogy">Analogy: The Vitamins</span>
-            <p class="param-desc">Measures the dissolved Calcium and Magnesium. Essential for fish bone growth and shrimp shell health. Most tap water is perfectly fine here.</p>
+            <p class="param-desc">Measures Calcium/Magnesium. Essential for fish bones and shrimp shells.</p>
         </div>
-
         <!-- PH -->
         <div class="param-card">
             <span class="status-badge essential">Essential</span>
             <span class="param-name">pH Level</span>
             <span class="param-aim">Aim for: 6.5 – 7.5</span>
             <span class="param-analogy">Analogy: The Acid Balance</span>
-            <p class="param-desc">Measures how acidic or alkaline the water is. 7.0 is neutral. As long as it stays steady, your fish will likely be happy.</p>
-        </div>
-
-        <!-- TEMPERATURE -->
-        <div class="param-card">
-            <span class="status-badge safe">Standard</span>
-            <span class="param-name">Temperature</span>
-            <span class="param-aim">Aim for: 25°C (77°F)</span>
-            <span class="param-analogy">Analogy: Metabolic Speed</span>
-            <p class="param-desc">For tropical fish, 23–26°C is the sweet spot. Higher temps speed up metabolism (and waste), while lower temps slow them down.</p>
+            <p class="param-desc">Stability is key here. As long as it stays steady, most fish will thrive.</p>
         </div>
     </div>
 
-    <!-- Parameters range image-->
-    <div style="text-align: center; margin-bottom: 40px;">
-        <img src="Chemistry/parameter_ranges.jpg" alt="Parameter Ranges" style="max-width: 100%; border: 1px solid #34495e; border-radius: 10px;" onerror="this.src='Icon.png'">
-        <p style="color: #ccc; font-size: 0.8rem; margin-top: 5px;">A visual summary of the ideal ranges for each parameter and what to do.</p>
+    <!-- ADJUSTMENT SECTION -->
+    <div class="collapsible-header" onclick="toggleSection('adjustGrid', this)">
+        <h2 class="category-title">How to Adjust Your Parameters</h2>
+        <span class="toggle-icon">▼</span>
+    </div>
+    <div id="adjustGrid" class="setup-section" style="display: none;">
+        <div class="info-card" style="border-top-color: #27ae60;">
+            <h3>Increasing pH / KH / GH</h3>
+            <p><strong>KH & pH:</strong> Add <strong>Crushed Coral</strong> or Aragonite to your filter bag. It dissolves slowly, providing a natural, stable buffer. Baking Soda increases KH immediately but can cause dangerous swings.</p>
+            <p><strong>GH:</strong> Use specialized mineral additives (like Seachem Equilibrium) or decorative limestone rocks.</p>
+        </div>
+        <div class="info-card" style="border-top-color: #e67e22;">
+            <h3>Decreasing pH / KH / GH</h3>
+            <p><strong>The Best Way:</strong> Mix your tap water with <strong>RO/DI</strong> (Reverse Osmosis) or Distilled water. This dilutes the minerals perfectly.</p>
+            <p><strong>Natural Methods:</strong> Peat Moss in the filter or active Aquasoils will naturally "pull" minerals out of the water, softening it and lowering pH over time.</p>
+        </div>
+        <div class="info-card" style="border-top-color: #e74c3c;">
+            <h3>⚠️ A Note on Chemicals</h3>
+            <p>Products like "pH Down" or "pH Up" are often temporary. They fight against your water's natural KH. Once the chemical wears off, the pH will "bounce" back, which stresses or kills fish. Always use natural buffers or RO water instead.</p>
+        </div>
+    </div>
+
+    <!-- TANNINS SECTION -->
+    <div class="collapsible-header" onclick="toggleSection('tanninGrid', this)">
+        <h2 class="category-title">Tannins & The Blackwater Effect</h2>
+        <span class="toggle-icon">▼</span>
+    </div>
+    <div id="tanninGrid" class="setup-section" style="display: none;">
+        <div class="info-card" style="border-top-color: #f1c40f;">
+            <h3>What are Tannins?</h3>
+            <p>Tannins are organic compounds released by decaying plant matter. They turn the water a "tea" or "amber" color. This is highly beneficial for fish from the Amazon or Southeast Asia (Betas, Tetras, Rasboras).</p>
+            <p><strong>Benefits:</strong> Natural anti-fungal/anti-bacterial properties, lowers stress, and slightly lowers pH.</p>
+        </div>
+        <div class="info-card">
+            <h3>Sources of Tannins</h3>
+            <p>• <strong>Catappa Leaves</strong> (Indian Almond Leaves)<br>
+               • <strong>Driftwood</strong> (Mopani and Malaysian Wood leach the most)<br>
+               • <strong>Alder Cones</strong><br>
+               • <strong>Rooibos Tea</strong> (Must be pure, organic, caffeine-free)</p>
+        </div>
+        <div class="info-card" style="border-top-color: #1e90ff;">
+            <h3>How to Remove Tannins</h3>
+            <p>Don't like the "dirty" water look? It's easy to fix:</p>
+            <p>• <strong>Chemical Filtration:</strong> Activated Carbon or <strong>Seachem Purigen</strong> (The best for crystal clear water).<br>
+               • <strong>Water Changes:</strong> Regular changes will slowly dilute the color.<br>
+               • <strong>Boiling:</strong> Boil new wood for 1-2 hours before adding to the tank to release the "first wave" of tannins.</p>
+        </div>
     </div>
 
     <div class="expert-tip">
         <h3 style="color: #f1c40f; margin-top: 0;">✨ The "Invisible" Danger: TDS</h3>
-        <p style="margin-bottom: 0;"><strong>Total Dissolved Solids (TDS)</strong> measures *everything* in the water (minerals, salts, waste). While not a specific toxin, a high TDS usually means the water is getting "old" or "dirty." If your nitrates are low but your TDS is climbing, it's still time for a water change!</p>
+        <p style="margin-bottom: 0;"><strong>Total Dissolved Solids (TDS)</strong> measures *everything* in the water. While not a specific toxin, a high TDS usually means the water is getting "old." If your nitrates are low but your TDS is climbing, it's still time for a water change!</p>
     </div>
 
 </div>
+
+<script>
+    function toggleSection(id, header) {
+        const grid = document.getElementById(id);
+        if (grid.style.display === "none" || grid.style.display === "") {
+            grid.style.display = "grid";
+            header.classList.add('active');
+        } else {
+            grid.style.display = "none";
+            header.classList.remove('active');
+        }
+    }
+</script>
 
 </body>
 </html>
