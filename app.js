@@ -33,7 +33,9 @@ const linkedSpecies = {
     "tritia": ["nassarius", "tritia"],
     "nanochromis": ["nanochromis", "distichodus"],
     "erethistes jerdoni": ["erethistes jerdoni", "hara jerdoni"],
-    "hara jerdoni": ["erethistes jerdoni", "hara jerdoni"]
+    "hara jerdoni": ["erethistes jerdoni", "hara jerdoni"],
+    "celestichthys": ["danio", "celestichthys"],
+    "danio": ["danio", "celestichthys"]
 };
 
 const genusLinks = {
@@ -44,7 +46,8 @@ const genusLinks = {
     "nassarius": "tritia",
     "tritia": "nassarius",
     "nanochromis": "distichodus",
-    "erethistes": "hara"
+    "erethistes": "hara",
+    "celestichthys": "danio"
 };
 
 const commonSynonyms = {
@@ -55,7 +58,8 @@ const commonSynonyms = {
     "nassarius": "tritia",
     "tritia": "nassarius",
     "nanochromis": "distichodus",
-    "erethistes": "hara"
+    "erethistes": "hara",
+    "celestichthys": "danio"
 };
 
 function populate() {
