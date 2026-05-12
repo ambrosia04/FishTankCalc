@@ -600,8 +600,14 @@ function getSpeciesRule(fish) {
         return rule;
     }
 
+    if (fish.category === "smallshrimp") {
+        rule.litersPerFish = 0.02; // 50 shrimp per liter
+        rule.factor = 0;
+        return rule;
+    }
+
     if (fish.category === "snail") {
-        rule.litersPerFish = 1.0;
+        rule.litersPerFish = 0.2; // 5 snails per liter
         rule.factor = 0;
         return rule;
     }
