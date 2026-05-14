@@ -1,0 +1,2560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquarium Diseases Guide</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Icon.png">
+
+    <style>
+        body {
+            background: #0e1a24;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .disease-container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .back-row {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e90ff;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #a0c4ff;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #a0c4ff;
+            border-bottom: 2px solid #1e90ff;
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        .disease-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .disease-card {
+            background: #132938;
+            border: 2px solid #1e90ff;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .disease-card:hover {
+            transform: translateY(-5px);
+            border-color: #27ae60;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .disease-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .disease-card-content {
+            padding: 15px;
+        }
+
+        .disease-card h3 {
+            color: #a0c4ff;
+            margin-top: 0;
+        }
+
+        .disease-card p {
+            color: white;
+        }
+
+        /* MODAL */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            overflow-y: auto;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            background: #132938;
+            border: 2px solid #1e90ff;
+            border-radius: 15px;
+            max-width: 900px;
+            margin: auto;
+            padding: 25px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        .modal h2 {
+            color: #1e90ff;
+        }
+
+        .modal h3 {
+            color: #27ae60;
+            margin-top: 25px;
+        }
+
+        .info-box {
+            background: #0e1a24;
+            border-left: 4px solid #1e90ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #1e90ff;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        /* IMAGE VIEWER */
+
+        .image-viewer {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-viewer img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 15px;
+            border: 3px solid #1e90ff;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .disease-container {
+                padding: 20px;
+            }
+
+            .modal {
+                padding: 10px;
+            }
+
+            .modal-content {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .useful-links {
+            background: #132938;
+            border: 2px solid #1e90ff;
+            border-radius: 12px;
+            padding: 12px 18px;
+            margin-bottom: 25px;
+        }
+
+        .useful-links summary {
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #a0c4ff;
+            list-style: none;
+        }
+
+        .useful-links summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .useful-links summary::after {
+            content: " ▼";
+            font-size: 0.9rem;
+        }
+
+        .useful-links[open] summary::after {
+            content: " ▲";
+        }
+
+        .useful-links ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .useful-links li {
+            margin-bottom: 10px;
+        }
+
+        .useful-links a {
+            color: #7cc4ff;
+            text-decoration: none;
+        }
+
+        .useful-links a:hover {
+            text-decoration: underline;
+            color: #b5deff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="disease-container">
+
+        <div class="back-row">
+            <a href="Tips.html" class="btn-nav">← Back to Tips</a>
+        </div>
+
+        <h1>Fish & Shrimp Diseases</h1>
+
+        <p class="subtitle">
+            Common illnesses, symptoms, quarantine procedures, mortality rates, and treatments.
+        </p>
+
+        <!-- FISH -->
+
+        <h2 class="section-title">🐟 Fish Diseases</h2>
+
+        <details class="useful-links">
+
+            <summary>🔗 Useful Links</summary>
+
+            <ul>
+
+                <li>
+                    <a href="https://www.apexaquaco.com/post/how-to-effectively-identify-and-treat-common-diseases-in-your-aquarium-fish"
+                        target="_blank">
+                        How to Effectively Identify and Treat Common Diseases in Your Aquarium Fish
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://tropicflow.com/blogs/guide-knowledge/common-betta-fish-diseases?srsltid=AfmBOoo_IxE7fJFx9nrt7Hc8Uq2YrtFKpDIwB7gMdl2_0lj0uXVStkO5"
+                        target="_blank">
+                        Common Betta Fish Diseases
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://aquariumscience.org/10-diseases/" target="_blank">
+                        Fish Diseases - Aquarium Science
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://aquariumscience.org/11-fish-disease-symptoms/" target="_blank">
+                        Fish Diseases Symptoms - Aquarium Science
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://aquariumscience.org/12-treatment/" target="_blank">
+                        Fish Diseases Treatment - Aquarium Science
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://fishlab.com/category/care/disease/" target="_blank">
+                        Fish Diseases - FishLab
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.aquariumcoop.com/blogs/aquarium/tagged/disease" target="_blank">
+                        Fish Diseases - Aquarium Coop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.aquariumindustries.com.au/fish-care/" target="_blank">
+                        Fish Care - Aquarium Industries
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://reefs.com/advanced-aquarist/?_search=disease" target="_blank">
+                        Fish Diseases - Advanced Aquarist
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.theshrimpfarm.com/posts/search/disease/" target="_blank">
+                        Diseases - The Shrimp Farm
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.theshrimpfarm.com/posts/diagnosing-shrimp-disease/" target="_blank">
+                        🦐 Shrimp Diseases - The Shrimp Farm
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://aquariumbreeder.com/understanding-dwarf-shrimp-diseases-and-parasites/"
+                        target="_blank">
+                        🦐 Shrimp Diseases and Parasites - Aquarium Breeder
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://shrimpybusiness.com/blogs/shrimpy-business-blog/freshwater-shrimp-diseases?srsltid=AfmBOoqsl2xBG48ALZH21qdeLi8QuSh3GzaLbY88eLiqq8l64_BsIlKK"
+                        target="_blank">
+                        🦐 7 Common Diseases & Health Issues in Freshwater Shrimp - Shrimpy Business
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://aquariumbreeder.com/ellobiopsidae-or-cladogonium-ogishimae-green-fungus-in-shrimp-tank/"
+                        target="_blank">
+                        🦐 Ellobiopsidae or Cladogonium - Aquarium Breeder
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://skfaquatics.com/forum/topic/5052-shrimp-diseases-and-diagnosis/" target="_blank">
+                        🦐 Shrimp Diseases and Diagnosis - SKFAquatics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.superiorshrimpaquatics.com/es/blogs/news/understanding-scutariella-japonica-a-common-shrimp-parasite?srsltid=AfmBOoppvYVgw_KfqhkcPuPkfyMkAT-zcvWyy8N-BfftVKBDNN3GjZ1Q"
+                        target="_blank">
+                        🦐 Understanding Scutariella Japonica in shrimp - Superior Shrimp Aquatics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.theshrimpfarm.com/posts/scutariella-japonica-shrimp/" target="_blank">
+                        🦐 Scutariella Japonica (Nose Worms) in Shrimp - The Shrimp Farm
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.shrimpcorner.co.uk/faq-wikipedia/comon-shrimp-problems.html" target="_blank">
+                        🦐 Common Shrimp Problems - Shrimp Corner
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Comparison Gallery -->
+            <h3 style="color: #a0c4ff; margin-top: 20px; font-size: 1.1rem;">Comparison: Ich vs. Epistylis</h3>
+            <div class="gallery">
+                <img src="Diseases/ichvsEpistylis.jpg" alt="Ich vs Epistylis" onclick="openImage(this.src)">
+                <img src="Diseases/ichvsEpistylis2.jpg" alt="Ich vs Epistylis" onclick="openImage(this.src)">
+                <img src="Diseases/ichvsEpistylis3.jpg" alt="Ich vs Epistylis" onclick="openImage(this.src)">
+            </div>
+
+            <h3 style="color: #a0c4ff; margin-top: 20px; font-size: 1.1rem;">Comparison: Fin rot vs Fin nipping</h3>
+            <div class="gallery">
+                <img src="Diseases/TailFinBiting/tailfinbiting2.jpg" alt="Tail & Fin Biting"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/finrot.jpg" alt="Fin Rot" onclick="openImage(this.src)">
+            </div>
+
+        </details>
+
+        <div class="disease-grid">
+
+            <!-- ICH -->
+
+            <div class="disease-card" onclick="openModal('ichModal')">
+
+                <img src="Diseases/Ich/ich1.jpg" alt="Ich Disease">
+
+                <div class="disease-card-content">
+                    <h3>Ich / White Spot</h3>
+                    <p>White parasite spots on body and fins.</p>
+                </div>
+
+            </div>
+
+            <!-- FIN ROT -->
+
+            <div class="disease-card" onclick="openModal('finrotModal')">
+
+                <img src="Diseases/FinRot/finrot1.jpg" alt="Fin Rot Disease">
+
+                <div class="disease-card-content">
+                    <h3>Fin Rot</h3>
+                    <p>Bacterial infection causing damaged fins.</p>
+                </div>
+
+            </div>
+
+            <!-- IRIDOVIRUS -->
+
+            <div class="disease-card" onclick="openModal('iridoModal')">
+
+                <img src="Diseases/FishIrido/irido1.jpg" alt="Iridovirus Disease">
+
+                <div class="disease-card-content">
+                    <h3>Iridovirus</h3>
+                    <p>Highly contagious viral disease affecting fish and shrimp. Mostly caused by poor genetics with
+                        Dwarf Gouramis.</p>
+                </div>
+
+            </div>
+
+            <!-- VELVET -->
+
+            <div class="disease-card" onclick="openModal('velvetModal')">
+
+                <img src="Diseases/Velvet/velvet1.jpg" alt="Velvet Disease">
+
+                <div class="disease-card-content">
+                    <h3>Velvet Disease / Rust Disease / Gold Disease</h3>
+                    <p>Gold dust-like parasitic infection affecting fish skin and gills.</p>
+                </div>
+
+            </div>
+
+            <!-- SWIM BLADDER -->
+            <div class="disease-card" onclick="openModal('swimBladderModal')">
+                <img src="Diseases/SwimBladder/swimbladder1.jpg" alt="Swim Bladder Disease">
+                <div class="disease-card-content">
+                    <h3>Swim Bladder Disease</h3>
+                    <p>Buoyancy disorder causing floating, sinking, or upside-down swimming. Mostly affects fancy
+                        goldfish and other cyprinids.</p>
+                </div>
+            </div>
+
+            <!-- DROPSY -->
+            <div class="disease-card" onclick="openModal('dropsyModal')">
+                <img src="Diseases/Dropsy/dropsy1.jpg" alt="Dropsy Disease">
+                <div class="disease-card-content">
+                    <h3>Dropsy</h3>
+                    <p>Severe internal swelling causing pinecone-like scales.</p>
+                </div>
+            </div>
+
+            <!-- POPEYE -->
+            <div class="disease-card" onclick="openModal('popeyeModal')">
+                <img src="Diseases/Popeye/popeye1.jpg" alt="Popeye Disease">
+                <div class="disease-card-content">
+                    <h3>Popeye</h3>
+                    <p>Bulging eyes caused by infection or injury.</p>
+                </div>
+            </div>
+
+            <!-- COLUMNARIS -->
+            <div class="disease-card" onclick="openModal('columnarisModal')">
+                <img src="Diseases/Columnaris/columnaris1.jpg" alt="Columnaris Disease">
+                <div class="disease-card-content">
+                    <h3>Columnaris</h3>
+                    <p>Fast-spreading bacterial infection also called cotton mouth.</p>
+                </div>
+            </div>
+
+            <!-- GILL FLUKES -->
+            <div class="disease-card" onclick="openModal('gillFlukesModal')">
+                <img src="Diseases/GillFlukes/gillflukes1.jpg" alt="Gill Flukes Disease">
+                <div class="disease-card-content">
+                    <h3>Gill Flukes</h3>
+                    <p>Microscopic parasites damaging fish gills.</p>
+                </div>
+            </div>
+
+            <!-- ANCHOR WORMS -->
+            <div class="disease-card" onclick="openModal('anchorWormsModal')">
+                <img src="Diseases/AnchorWorms/anchorworms1.jpg" alt="Anchor Worms Disease">
+                <div class="disease-card-content">
+                    <h3>Anchor Worms</h3>
+                    <p>Visible parasitic crustaceans embedded in fish skin.</p>
+                </div>
+            </div>
+
+            <!-- HOLE IN THE HEAD (HLLE) -->
+            <div class="disease-card" onclick="openModal('hlleModal')">
+                <img src="Diseases/HLLE/hlle1.jpg" alt="Hole in the Head Disease">
+                <div class="disease-card-content">
+                    <h3>Hole in the Head (HLLE)</h3>
+                    <p>Erosive disease affecting head and lateral line tissue.</p>
+                </div>
+            </div>
+
+            <!-- HEMORRHAGIC SEPTICEMIA -->
+            <div class="disease-card" onclick="openModal('hemorrhagicModal')">
+                <img src="Diseases/HemorrhagicSepticemia/hemorrhagicsepticemia1.jpg" alt="Hemorrhagic Septicemia">
+                <div class="disease-card-content">
+                    <h3>Hemorrhagic Septicemia</h3>
+                    <p>Serious bacterial or viral infection causing bleeding.</p>
+                </div>
+            </div>
+
+            <!-- SADDLEBACK DISEASE -->
+            <div class="disease-card" onclick="openModal('saddlebackModal')">
+
+                <img src="Diseases/Saddleback/saddleback1.jpg" alt="Saddleback Disease">
+
+                <div class="disease-card-content">
+                    <h3>Saddleback Disease</h3>
+                    <p>Bacterial infection creating pale saddle-shaped lesions on the back.</p>
+                </div>
+
+            </div>
+
+            <!-- FISH TUBERCULOSIS -->
+            <div class="disease-card" onclick="openModal('fishTBModal')">
+                <img src="Diseases/FishTB/fishtb1.jpg" alt="Fish Tuberculosis">
+                <div class="disease-card-content">
+                    <h3>Fish Tuberculosis (TB)</h3>
+                    <p>A chronic, wasting disease that can also infect humans.</p>
+                </div>
+            </div>
+
+            <!-- GILL ROT -->
+            <div class="disease-card" onclick="openModal('gillRotModal')">
+
+                <img src="Diseases/GillRot/gillrot1.jpg" alt="Gill Rot Disease">
+
+                <div class="disease-card-content">
+                    <h3>Gill Rot</h3>
+                    <p>Aggressive fungal infection damaging fish gills and respiration.</p>
+                </div>
+
+            </div>
+
+            <!-- COTTON WOOL DISEASE -->
+            <div class="disease-card" onclick="openModal('cottonWoolModal')">
+
+                <img src="Diseases/CottonWool/cottonwool1.jpg" alt="Cotton Wool Disease">
+
+                <div class="disease-card-content">
+                    <h3>Cotton Wool Disease</h3>
+                    <p>White fluffy fungal-like growths caused mainly by Saprolegnia.</p>
+                </div>
+
+            </div>
+
+            <!-- EGG FUNGUS -->
+            <div class="disease-card" onclick="openModal('eggFungusModal')">
+
+                <img src="Diseases/EggFungus/eggfungus1.jpg" alt="Egg Fungus">
+
+                <div class="disease-card-content">
+                    <h3>Egg Fungus</h3>
+                    <p>Fungal infection commonly affecting infertile or damaged eggs.</p>
+                </div>
+
+            </div>
+
+            <!-- SAPROLEGNIA -->
+            <div class="disease-card" onclick="openModal('saprolegniaModal')">
+
+                <img src="Diseases/Saprolegnia/saprolegnia1.jpg" alt="Fish Saprolegnia">
+
+                <div class="disease-card-content">
+                    <h3>Fish Saprolegnia</h3>
+                    <p>Classic water mold infection forming fuzzy white growths.</p>
+                </div>
+
+            </div>
+
+            <!-- EPISTYLIS -->
+            <div class="disease-card" onclick="openModal('epistylisModal')">
+
+                <img src="Diseases/Epistylis/epistylis1.jpg" alt="Epistylis">
+
+                <div class="disease-card-content">
+                    <h3>Epistylis</h3>
+                    <p>Protozoan infection often mistaken for Ich due to white raised lesions.</p>
+                </div>
+
+            </div>
+
+            <!-- TAIL & FIN BITING -->
+            <div class="disease-card" onclick="openModal('tailFinBitingModal')">
+
+                <img src="Diseases/TailFinBiting/tailfinbiting1.jpg" alt="Tail & Fin Biting">
+
+                <div class="disease-card-content">
+                    <h3>Tail & Fin Biting</h3>
+                    <p>Damage caused by aggression, stress, boredom, or self-mutilation.</p>
+                </div>
+
+            </div>
+
+            <!-- FISH LICE -->
+            <div class="disease-card" onclick="openModal('fishLiceModal')">
+
+                <img src="Diseases/FishLice/fishlice1.jpg" alt="Fish Lice">
+
+                <div class="disease-card-content">
+                    <h3>Fish Lice</h3>
+                    <p>External crustacean parasites attaching to fish skin and fins.</p>
+                </div>
+
+            </div>
+
+            <!-- CLOUDY EYE -->
+            <div class="disease-card" onclick="openModal('cloudyEyeModal')">
+
+                <img src="Diseases/CloudyEye/cloudyeye1.jpg" alt="Cloudy Eye">
+
+                <div class="disease-card-content">
+                    <h3>Cloudy Eye</h3>
+                    <p>Eye opacity caused by injury, bacteria, poor water quality, or parasites.</p>
+                </div>
+
+            </div>
+
+        </div> <!-- END FISH DISEASES -->
+
+
+        <!-- SHRIMP -->
+
+        <h2 class="section-title">🦐 Shrimp Diseases</h2>
+
+        <div class="disease-grid">
+
+            <!-- CLADOGONIUM -->
+
+            <div class="disease-card" onclick="openModal('cladoModal')">
+
+                <img src="ShrimpDiseases/Cladogonium/cladogonium1.jpg" alt="Cladogonium Disease">
+
+                <div class="disease-card-content">
+                    <h3>Cladogonium</h3>
+                    <p>Green fungal/algae-like infection.</p>
+                </div>
+
+            </div>
+
+            <!-- ELLOBIOSIDAE -->
+            <div class="disease-card" onclick="openModal('shrimpEllobiopsisModal')">
+
+                <img src="ShrimpDiseases/Ellobiopsidae/ellobiopsis1.jpg" alt="Shrimp Ellobiopsidae">
+
+                <div class="disease-card-content">
+                    <h3>Ellobiopsidae</h3>
+                    <p>Parasitic protist infection causing reduced growth, weakened shrimp, and visible external
+                        attachments.</p>
+                </div>
+
+            </div>
+
+            <!-- WSSV -->
+            <div class="disease-card" onclick="openModal('wssvModal')">
+                <img src="ShrimpDiseases/WSSV/wssv1.jpg" alt="White Spot Syndrome Virus">
+                <div class="disease-card-content">
+                    <h3>White Spot Syndrome Virus (WSSV)</h3>
+                    <p>A highly lethal virus causing distinct white calcium spots under the shell.</p>
+                </div>
+            </div>
+
+
+            <!-- AHPND -->
+            <div class="disease-card" onclick="openModal('ahpndModal')">
+                <img src="ShrimpDiseases/AHPND/ahpnd1.jpg" alt="AHPND">
+                <div class="disease-card-content">
+                    <h3>Early Mortality (AHPND, Acute Hepatopancreatic Necrosis Disease)</h3>
+                    <p>Attacks the digestive gland, causing it to turn pale and shrink.</p>
+                </div>
+            </div>
+
+            <!-- VORTICELLA -->
+
+            <div class="disease-card" onclick="openModal('vorticellaModal')">
+
+                <img src="ShrimpDiseases/Vorticella/vorticella1.jpg" alt="Vorticella">
+
+                <div class="disease-card-content">
+                    <h3>Vorticella</h3>
+                    <p>White fuzzy protozoan growth.</p>
+                </div>
+
+            </div>
+
+            <!-- FAILED MOLT / WHITE RING OF DEATH -->
+            <div class="disease-card" onclick="openModal('failedMoltModal')">
+                <img src="ShrimpDiseases/FailedMolt/failedmolt1.jpg" alt="White Ring of Death">
+                <div class="disease-card-content">
+                    <h3>White Ring of Death</h3>
+                    <p>A fatal molting failure characterized by a clear white band around the mid-section.</p>
+                </div>
+            </div>
+
+            <!-- MUSCULAR NECROSIS -->
+            <div class="disease-card" onclick="openModal('necrosisModal')">
+                <img src="ShrimpDiseases/Necrosis/necrosis1.jpg" alt="Muscular Necrosis">
+                <div class="disease-card-content">
+                    <h3>Muscular Necrosis</h3>
+                    <p>White, "cooked-looking" muscle tissue starting from the tail.</p>
+                </div>
+            </div>
+
+            <!-- RUST DISEASE (SHELL DISEASE) -->
+            <div class="disease-card" onclick="openModal('rustModal')">
+                <img src="ShrimpDiseases/Rust/rust1.jpg" alt="Rust Disease">
+                <div class="disease-card-content">
+                    <h3>Rust Disease / Shell Disease</h3>
+                    <p>Bacterial infection causing brown, rusty-looking pits and holes in the shell.</p>
+                </div>
+            </div>
+
+            <!-- ZOOTHAMNIUM -->
+            <div class="disease-card" onclick="openModal('zooModal')">
+                <img src="ShrimpDiseases/Zoothamnium/zoothamnium1.jpg" alt="Zoothamnium Disease">
+                <div class="disease-card-content">
+                    <h3>Zoothamnium</h3>
+                    <p>Large colonies of white/gray ciliates that can block respiration.</p>
+                </div>
+            </div>
+
+            <!-- SCUTARIELLA JAPONICA -->
+            <div class="disease-card" onclick="openModal('scutariellaModal')">
+                <img src="ShrimpDiseases/ScutariellaJaponica/scutariella1.jpg" alt="Scutariella Japonica">
+                <div class="disease-card-content">
+                    <h3>Scutariella Japonica (Nose Worms)</h3>
+                    <p>Small white parasitic worms found on the rostrum and gills.</p>
+                </div>
+            </div>
+
+            <!-- PLANARIA -->
+            <div class="disease-card" onclick="openModal('planariaModal')">
+                <img src="Microfauna/Planaria/4.jpg" alt="Planaria">
+                <div class="disease-card-content">
+                    <h3>Planaria</h3>
+                    <p>Arrow-headed flatworms that can hunt shrimp and snails.</p>
+                </div>
+            </div>
+        </div> <!-- END SHRIMP DISEASES -->
+
+    </div>
+
+
+    <!-- ICH MODAL -->
+
+    <div id="ichModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('ichModal')">&times;</span>
+
+            <h2>Ich / White Spot Disease</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate to High if untreated.
+            </div>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>White dots on fins and body</li>
+                <li>Flashing against surfaces</li>
+                <li>Rapid breathing</li>
+                <li>Lethargy</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine the entire tank because Ich spreads rapidly.</li>
+                <li>Remove sensitive species if medication is dangerous for them.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Increase temperature gradually</li>
+                <li>Use Ich medication</li>
+                <li>Add aquarium salt in hospital tank (2 tablespoons per gallon of water)</li>
+                <li>Improve water quality</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/Ich/ich2.jpg" alt="Ich / White Spot Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Ich/ich3.jpg" alt="Ich / White Spot Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Ich/ich4.jpg" alt="Ich / White Spot Disease" onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FIN ROT -->
+
+    <div id="finrotModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('finrotModal')">&times;</span>
+
+            <h2>Fin Rot</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Low to Moderate.
+            </div>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Frayed fins</li>
+                <li>Black or white fin edges</li>
+                <li>Fins melting away</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine affected individuals if only one fish is sick.</li>
+                <li>Whole tank treatment may be needed if multiple fish show symptoms.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Improve water quality</li>
+                <li>Antibacterial medication</li>
+                <li>Reduce stress and aggression</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/FinRot/finrot2.jpg" alt="Fin Rot Disease" onclick="openImage(this.src)">
+                <img src="Diseases/FinRot/finrot3.jpg" alt="Fin Rot Disease" onclick="openImage(this.src)">
+                <img src="Diseases/FinRot/finrot4.jpg" alt="Fin Rot Disease" onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- IRIDOVIRUS -->
+
+    <div id="iridoModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('iridoModal')">&times;</span>
+
+            <h2>Iridovirus</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> 100%, not known cure.
+            </div>
+
+            <h3>Species Affected</h3>
+
+            <ul>
+                <li>Dwarf Gouramis</li>
+                <li>Shrimp</li>
+                <li>Other tropical fish</li>
+            </ul>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Milky coloration</li>
+                <li>Lethargy</li>
+                <li>Sudden deaths</li>
+                <li>Loss of appetite</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine the entire tank immediately.</li>
+                <li>Do NOT move equipment between tanks.</li>
+                <li>Disinfect nets, siphons, and tools.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>No known cure</li>
+                <li>Supportive care only, this includes feeding: <br> <img src="Diseases/FishIrido/iridotreat.jpg"
+                        alt="Iridovirus Disease"></li>
+                <li>Prevent spread to other aquariums</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/FishIrido/irido2.jpg" alt="Iridovirus Disease" onclick="openImage(this.src)">
+                <img src="Diseases/FishIrido/irido3.jpg" alt="Iridovirus Disease" onclick="openImage(this.src)">
+                <img src="Diseases/FishIrido/irido4.jpg" alt="Iridovirus Disease" onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- VELVET -->
+
+    <div id="velvetModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('velvetModal')">&times;</span>
+
+            <h2>Velvet Disease</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> High if untreated.
+            </div>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Gold or rust-colored dust appearance</li>
+                <li>Rapid breathing</li>
+                <li>Clamped fins</li>
+                <li>Loss of appetite</li>
+                <li>Scratching against objects</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine the entire tank because Velvet spreads rapidly.</li>
+                <li><strong>Remove invertebrates </strong> if using copper medication.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Darken the aquarium completely.</li>
+                <li>Use copper-based medication.</li>
+                <li>Increase temperature gradually.</li>
+                <li>Increase aeration.</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/Velvet/velvet2.jpg" alt="Velvet Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Velvet/velvet3.jpg" alt="Velvet Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Velvet/velvet4.jpg" alt="Velvet Disease" onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- SWIM BLADDER -->
+    <!-- ========================= -->
+
+    <div id="swimBladderModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('swimBladderModal')">&times;</span>
+
+            <h2>Swim Bladder Disease</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Low to Moderate.
+            </div>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Floating upside down</li>
+                <li>Sinking to bottom</li>
+                <li>Difficulty balancing</li>
+                <li>Bloated abdomen</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Quarantine individual fish if symptoms are isolated.</li>
+                <li>Whole tank quarantine usually unnecessary.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li>Feed some freshly minced garlic and then fast for a couple days</li>
+                <li>Feed cooked peas</li>
+                <li>Improve water quality</li>
+                <li>Swimbladder Treatment products</li>
+                <li>Put it in a shallow hospital tank with clean dechlorinated water with aquarium salt (2 tablespoons
+                    per gallon of water); replace 100% of the hospital tank water every 12 hours making sure to re-add
+                    the salt and dechlorinator</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/SwimBladder/swimbladder2.jpg" alt="Swim Bladder Disease"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/SwimBladder/swimbladder3.jpg" alt="Swim Bladder Disease"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/SwimBladder/swimbladder4.jpg" alt="Swim Bladder Disease"
+                    onclick="openImage(this.src)">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- DROPSY -->
+    <!-- ========================= -->
+
+    <div id="dropsyModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('dropsyModal')">&times;</span>
+
+            <h2>Dropsy</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> High.
+            </div>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Pinecone scales</li>
+                <li>Swollen belly</li>
+                <li>Lethargy</li>
+                <li>Loss of appetite</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Quarantine infected fish immediately.</li>
+                <li>Whole tank treatment recommended if multiple fish affected.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li>Epsom salt baths</li>
+                <li>Broad-spectrum antibiotics</li>
+                <li>Improve water quality</li>
+                <li>Reduce stress</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/Dropsy/dropsy2.jpg" alt="Dropsy Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Dropsy/dropsy3.jpg" alt="Dropsy Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Dropsy/dropsy4.jpg" alt="Dropsy Disease" onclick="openImage(this.src)">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- POPEYE -->
+    <!-- ========================= -->
+
+    <div id="popeyeModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('popeyeModal')">&times;</span>
+
+            <h2>Popeye</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate.
+            </div>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Bulging eyes</li>
+                <li>Cloudy eyes</li>
+                <li>Redness around eyes</li>
+                <li>Vision issues</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Quarantine affected fish if bacterial.</li>
+                <li>Whole tank quarantine if several fish affected.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li>Antibiotics</li>
+                <li>Aquarium salt</li>
+                <li>Pristine water quality</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/Popeye/popeye2.jpg" alt="Popeye Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Popeye/popeye3.jpg" alt="Popeye Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Popeye/popeye4.jpg" alt="Popeye Disease" onclick="openImage(this.src)">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- COLUMNARIS -->
+    <!-- ========================= -->
+
+    <div id="columnarisModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('columnarisModal')">&times;</span>
+
+            <h2>Columnaris</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Very High.
+            </div>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Cotton-like mouth growths</li>
+                <li>White patches</li>
+                <li>Rapid breathing</li>
+                <li>Fin erosion</li>
+                <li>Sudden deaths</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Quarantine the entire tank immediately.</li>
+                <li>Highly contagious.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li>Antibiotics</li>
+                <li>Lower water temperature slightly</li>
+                <li>Heavy aeration</li>
+                <li>Frequent water changes</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/Columnaris/columnaris2.jpg" alt="Columnaris Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Columnaris/columnaris3.jpg" alt="Columnaris Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Columnaris/columnaris4.jpg" alt="Columnaris Disease" onclick="openImage(this.src)">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- GILL FLUKES -->
+    <!-- ========================= -->
+
+    <div id="gillFlukesModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('gillFlukesModal')">&times;</span>
+
+            <h2>Gill Flukes</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate to High.
+            </div>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Rapid breathing</li>
+                <li>Flashing against surfaces</li>
+                <li>Clamped fins</li>
+                <li>Red or inflamed gills</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Treat the entire aquarium.</li>
+                <li>Parasites spread easily between fish.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li>Praziquantel medications</li>
+                <li>Improve water quality</li>
+                <li>Increase oxygenation</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/GillFlukes/gillflukes2.jpg" alt="Gill Flukes Disease" onclick="openImage(this.src)">
+                <img src="Diseases/GillFlukes/gillflukes3.jpg" alt="Gill Flukes Disease" onclick="openImage(this.src)">
+                <img src="Diseases/GillFlukes/gillflukes4.jpg" alt="Gill Flukes Disease" onclick="openImage(this.src)">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- ANCHOR WORMS -->
+    <!-- ========================= -->
+
+    <div id="anchorWormsModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('anchorWormsModal')">&times;</span>
+
+            <h2>Anchor Worms</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate.
+            </div>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Visible thread-like worms</li>
+                <li>Red inflamed wounds</li>
+                <li>Scratching behavior</li>
+                <li>Lethargy</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Quarantine whole tank.</li>
+                <li>Parasites reproduce rapidly.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li>Manual removal</li>
+                <li>Antiparasitic medication</li>
+                <li>Clean substrate thoroughly</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/AnchorWorms/anchorworms2.jpg" alt="Anchor Worms Disease"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/AnchorWorms/anchorworms3.jpg" alt="Anchor Worms Disease"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/AnchorWorms/anchorworms4.jpg" alt="Anchor Worms Disease"
+                    onclick="openImage(this.src)">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- HLLE -->
+    <!-- ========================= -->
+
+    <div id="hlleModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('hlleModal')">&times;</span>
+
+            <h2>Hole in the Head Disease (HLLE)</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate.
+            </div>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Pits around face</li>
+                <li>Eroded lateral line</li>
+                <li>Weight loss</li>
+                <li>Pale coloration</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Usually isolate affected fish.</li>
+                <li>Whole tank quarantine unnecessary unless widespread.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li>Improve diet</li>
+                <li>Add vitamins</li>
+                <li>Improve water quality</li>
+                <li>Reduce activated carbon use</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/HLLE/hlle2.jpg" alt="Hole in the Head Disease" onclick="openImage(this.src)">
+                <img src="Diseases/HLLE/hlle3.jpg" alt="Hole in the Head Disease" onclick="openImage(this.src)">
+                <img src="Diseases/HLLE/hlle4.jpg" alt="Hole in the Head Disease" onclick="openImage(this.src)">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- HEMORRHAGIC SEPTICEMIA -->
+    <!-- ========================= -->
+
+    <div id="hemorrhagicModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('hemorrhagicModal')">&times;</span>
+
+            <h2>Hemorrhagic Septicemia</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Extremely High.
+            </div>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Red bleeding patches</li>
+                <li>Internal bleeding</li>
+                <li>Ulcers</li>
+                <li>Sudden deaths</li>
+                <li>Bulging eyes</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Quarantine the entire aquarium immediately.</li>
+                <li>Disinfect equipment after use.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li>Strong antibiotics</li>
+                <li>Massive water quality improvement</li>
+                <li>Hospital tank if possible</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/HemorrhagicSepticemia/hemorrhagicsepticemia2.jpg"
+                    alt="Hemorrhagic Septicemia Disease" onclick="openImage(this.src)">
+                <img src="Diseases/HemorrhagicSepticemia/hemorrhagicsepticemia3.jpg"
+                    alt="Hemorrhagic Septicemia Disease" onclick="openImage(this.src)">
+                <img src="Diseases/HemorrhagicSepticemia/hemorrhagicsepticemia4.jpg"
+                    alt="Hemorrhagic Septicemia Disease" onclick="openImage(this.src)">
+            </div>
+
+        </div>
+    </div>
+    <!-- ========================= -->
+    <!-- SADDLEBACK DISEASE -->
+    <!-- ========================= -->
+
+    <div id="saddlebackModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('saddlebackModal')">&times;</span>
+
+            <h2>Saddleback Disease</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> High if untreated.
+            </div>
+
+            <h3>What Is It?</h3>
+
+            <p>
+                Saddleback Disease is usually a form of advanced
+                <strong>Columnaris bacterial infection</strong>.
+                It creates a pale or gray “saddle” patch across the fish’s back,
+                often near the dorsal fin.
+            </p>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>White, gray, or pale patch across the back</li>
+                <li>Cotton-like lesions</li>
+                <li>Rapid breathing</li>
+                <li>Fin deterioration</li>
+                <li>Lethargy</li>
+                <li>Loss of appetite</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine the infected fish immediately.</li>
+                <li>If multiple fish show symptoms, treat the entire aquarium.</li>
+                <li>Disinfect nets and equipment after contact.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Broad-spectrum antibiotics</li>
+                <li>Lower temperature slightly (Columnaris worsens in heat)</li>
+                <li>Increase oxygenation</li>
+                <li>Daily water changes</li>
+                <li>Remove decaying organic waste</li>
+            </ul>
+
+            <h3>Prevention</h3>
+
+            <ul>
+                <li>Maintain stable water parameters</li>
+                <li>Avoid overcrowding</li>
+                <li>Reduce stress during transport/acclimation</li>
+                <li>Quarantine new fish before introduction</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/Saddleback/saddleback2.jpg" alt="Saddleback Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Saddleback/saddleback3.jpg" alt="Saddleback Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Saddleback/saddleback4.jpg" alt="Saddleback Disease" onclick="openImage(this.src)">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FISH TUBERCULOSIS MODAL -->
+    <div id="fishTBModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('fishTBModal')">&times;</span>
+
+            <h2>Fish Tuberculosis (Mycobacteriosis)</h2>
+
+            <div class="info-box" style="border-left-color: #e74c3c;">
+                <strong>Mortality Rate:</strong> Extremely High / Terminal. <br>
+                <strong style="color: #e74c3c;">⚠️ HUMAN RISK:</strong> This can cause "Fish Tank Granuloma" in humans.
+                Always wear gloves if you have open cuts on your hands.
+            </div>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li><strong>Wasting Away:</strong> The fish looks thin or has a sunken belly despite eating.</li>
+                <li><strong>Spinal Deformities:</strong> Sudden bending or "humpback" appearance (Scoliosis).</li>
+                <li><strong>Skin Ulcers:</strong> Open sores or loss of scales that do not heal with standard
+                    treatments.</li>
+                <li><strong>Lethargy:</strong> Fish stays at the bottom or hides constantly.</li>
+                <li><strong>Popeye:</strong> One or both eyes bulging out.</li>
+            </ul>
+
+            <h3>Quarantine & Prevention</h3>
+            <ul>
+                <li><strong>Immediate Isolation:</strong> Remove the fish at the first sign of wasting.</li>
+                <li><strong>Sterilization:</strong> Do NOT share nets, siphons, or tools between a suspected TB tank and
+                    other tanks.</li>
+                <li><strong>Do Not Feed Cull Fish:</strong> Never feed dead fish to other tank mates.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>No Reliable Cure:</strong> Most medications only mask symptoms. The bacteria (Mycobacterium)
+                    are incredibly resistant.</li>
+                <li><strong>Euthanasia:</strong> Generally considered the most humane option to prevent the slow
+                    suffering of the fish and the spread of the colony.</li>
+                <li><strong>UV Sterilizers:</strong> Can help reduce the number of free-floating bacteria in the water
+                    column.</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/FishTB/fishtb2.jpg" alt="Sunken belly in Fish TB" onclick="openImage(this.src)">
+                <img src="Diseases/FishTB/fishtb3.jpg" alt="Spinal deformity" onclick="openImage(this.src)">
+                <img src="Diseases/FishTB/fishtb4.jpg" alt="Skin ulcers in Fish TB" onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================== -->
+    <!-- GILL ROT -->
+    <!-- ====================================== -->
+
+    <div id="gillRotModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('gillRotModal')">&times;</span>
+
+            <h2>Gill Rot</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Very High.
+            </div>
+
+            <h3>What Is It?</h3>
+
+            <p>
+                Gill Rot (Branchiomycosis) is a severe fungal disease
+                that attacks the gills and rapidly damages breathing tissue.
+            </p>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Rapid breathing</li>
+                <li>Pale or brown gills</li>
+                <li>Gasps at surface</li>
+                <li>Lethargy</li>
+                <li>Sudden death</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine the entire aquarium immediately.</li>
+                <li>Increase aeration heavily.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Improve water quality immediately</li>
+                <li>Strong antifungal medication</li>
+                <li>Lower organic waste</li>
+                <li>Massive oxygenation</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/GillRot/gillrot2.jpg" alt="Gill Rot Disease" onclick="openImage(this.src)">
+                <img src="Diseases/GillRot/gillrot3.jpg" alt="Gill Rot Disease" onclick="openImage(this.src)">
+                <img src="Diseases/GillRot/gillrot4.jpg" alt="Gill Rot Disease" onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ====================================== -->
+    <!-- COTTON WOOL DISEASE -->
+    <!-- ====================================== -->
+
+    <div id="cottonWoolModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('cottonWoolModal')">&times;</span>
+
+            <h2>Cotton Wool Disease</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate to High.
+            </div>
+
+            <h3>What Is It?</h3>
+
+            <p>
+                Cotton Wool Disease usually refers to fuzzy white
+                fungal-like growths caused by <strong>Saprolegnia</strong>.
+                However, some cases may actually be bacterial Columnaris.
+            </p>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>White fluffy patches</li>
+                <li>Cotton-like growths</li>
+                <li>Fin damage</li>
+                <li>Skin irritation</li>
+                <li>Lethargy</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine infected fish immediately.</li>
+                <li>If several fish are infected, treat the whole tank.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Antifungal medication</li>
+                <li>Aquarium salt</li>
+                <li>Improve water quality</li>
+                <li>Hospital tank recommended with UV lamp</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/CottonWool/cottonwool2.jpg" alt="Cotton Wool Disease" onclick="openImage(this.src)">
+                <img src="Diseases/CottonWool/cottonwool3.jpg" alt="Cotton Wool Disease" onclick="openImage(this.src)">
+                <img src="Diseases/CottonWool/cottonwool4.jpg" alt="Cotton Wool Disease" onclick="openImage(this.src)">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================== -->
+    <!-- EGG FUNGUS -->
+    <!-- ====================================== -->
+
+    <div id="eggFungusModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('eggFungusModal')">&times;</span>
+
+            <h2>Egg Fungus</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> High for infected eggs.
+            </div>
+
+            <h3>What Is It?</h3>
+
+            <p>
+                Egg Fungus commonly infects infertile or damaged eggs
+                and may spread to healthy eggs if untreated.
+            </p>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>White fuzzy egg growth</li>
+                <li>Opaque eggs</li>
+                <li>Egg death</li>
+                <li>Spreading cotton-like fungus</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Remove infected eggs immediately.</li>
+                <li>Separate breeding tanks if possible.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Methylene blue</li>
+                <li>Improve water circulation</li>
+                <li>Remove dead eggs quickly</li>
+                <li>Maintain clean breeding conditions</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/EggFungus/eggfungus2.jpg" alt="Egg Fungus Disease" onclick="openImage(this.src)">
+                <img src="Diseases/EggFungus/eggfungus3.jpg" alt="Egg Fungus Disease" onclick="openImage(this.src)">
+                <img src="Diseases/EggFungus/eggfungus4.jpg" alt="Egg Fungus Disease" onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ====================================== -->
+    <!-- SAPROLEGNIA -->
+    <!-- ====================================== -->
+
+    <div id="saprolegniaModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('saprolegniaModal')">&times;</span>
+
+            <h2>Fish Saprolegnia</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate to High.
+            </div>
+
+            <h3>What Is It?</h3>
+
+            <p>
+                Saprolegnia is a common water mold infection often called
+                "cotton mold" or "water fungus".
+                It mainly attacks injured or weakened fish.
+            </p>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Fuzzy white or gray patches</li>
+                <li>Cotton-like growths</li>
+                <li>Skin damage</li>
+                <li>Gill infections</li>
+                <li>Lethargy</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine infected fish when possible.</li>
+                <li>Treat whole tank if outbreak spreads.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Antifungal medication</li>
+                <li>Aquarium salt</li>
+                <li>Improve water quality</li>
+                <li>Hospital tank preferred</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/Saprolegnia/saprolegnia2.jpg" alt="Saprolegnia Disease"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/Saprolegnia/saprolegnia3.jpg" alt="Saprolegnia Disease"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/Saprolegnia/saprolegnia4.jpg" alt="Saprolegnia Disease"
+                    onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ====================================== -->
+    <!-- EPISTYLIS -->
+    <!-- ====================================== -->
+
+    <div id="epistylisModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('epistylisModal')">&times;</span>
+
+            <h2>Epistylis</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate to Very High.
+            </div>
+
+            <h3>What Is It?</h3>
+
+            <p>
+                Epistylis is a protozoan infection commonly mistaken for Ich.
+                Unlike Ich, the white spots are usually raised and may appear fuzzy.
+                It often appears secondary to poor water quality or bacterial infections.
+            </p>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Raised white lesions</li>
+                <li>Fuzzy white patches</li>
+                <li>Red irritated skin</li>
+                <li>Rapid breathing</li>
+                <li>Lethargy</li>
+                <li>Loss of appetite</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine infected fish immediately.</li>
+                <li>If several fish show symptoms, treat the whole aquarium.</li>
+                <li>Improve water quality urgently.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Broad-spectrum antibiotics</li>
+                <li>Improve water quality</li>
+                <li>Increase aeration</li>
+                <li>Reduce organic waste</li>
+                <li>Hospital tank recommended</li>
+            </ul>
+
+            <h3>Important Note</h3>
+
+            <p>
+                Unlike Ich, increasing temperature can worsen Epistylis.
+                Correct identification is extremely important.
+                Check the Useful Links for a comparison of Epistylis vs Ich.
+            </p>
+
+            <div class="gallery">
+
+                <img src="Diseases/Epistylis/epistylis2.jpg" alt="Epistylis Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Epistylis/epistylis3.jpg" alt="Epistylis Disease" onclick="openImage(this.src)">
+                <img src="Diseases/Epistylis/epistylis4.jpg" alt="Epistylis Disease" onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ====================================== -->
+    <!-- TAIL & FIN BITING -->
+    <!-- ====================================== -->
+
+    <div id="tailFinBitingModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('tailFinBitingModal')">&times;</span>
+
+            <h2>Tail & Fin Biting</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Low directly, but secondary infections can become serious.
+            </div>
+
+            <h3>What Is It?</h3>
+
+            <p>
+                Tail and fin biting may occur due to aggressive tankmates,
+                stress, boredom, poor water quality,
+                or fish attacking their own fins.
+                Common in Bettas and stressed community fish.
+            </p>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Torn fins</li>
+                <li>Missing tail sections</li>
+                <li>Uneven fin edges</li>
+                <li>Stress behavior</li>
+                <li>Hiding</li>
+                <li>Possible secondary infections</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Separate aggressive fish immediately.</li>
+                <li>Quarantine injured fish if infection develops.</li>
+                <li>Monitor entire tank for bullying.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Remove aggressive tankmates</li>
+                <li>Improve enrichment and hiding spots</li>
+                <li>Maintain pristine water quality</li>
+                <li>Use antibacterial medication if infection appears</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/TailFinBiting/tailfinbiting2.jpg" alt="Tail & Fin Biting Disease"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/TailFinBiting/tailfinbiting3.jpg" alt="Tail & Fin Biting Disease"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/TailFinBiting/tailfinbiting4.jpg" alt="Tail & Fin Biting Disease"
+                    onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ====================================== -->
+    <!-- FISH LICE -->
+    <!-- ====================================== -->
+
+    <div id="fishLiceModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('fishLiceModal')">&times;</span>
+
+            <h2>Fish Lice (Argulus)</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate.
+            </div>
+
+            <h3>What Is It?</h3>
+
+            <p>
+                Fish Lice are parasitic crustaceans that attach to fish skin,
+                feeding on blood and tissue while creating wounds
+                that can lead to bacterial infections.
+            </p>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Visible disk-like parasites</li>
+                <li>Flashing or rubbing</li>
+                <li>Red sores</li>
+                <li>Fin damage</li>
+                <li>Stress and lethargy</li>
+                <li>Rapid breathing</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine infected fish immediately.</li>
+                <li>Treat the entire tank because parasites reproduce in the aquarium.</li>
+                <li>Disinfect equipment after use.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Manual parasite removal</li>
+                <li>Anti-parasitic medication</li>
+                <li>Vacuum substrate thoroughly</li>
+                <li>Repeat treatment for newly hatched parasites</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/FishLice/fishlice2.jpg" alt="Fish Lice Disease" onclick="openImage(this.src)">
+                <img src="Diseases/FishLice/fishlice3.jpg" alt="Fish Lice Disease" onclick="openImage(this.src)">
+                <img src="Diseases/FishLice/fishlice4.jpg" alt="Fish Lice Disease" onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ====================================== -->
+    <!-- CLOUDY EYE -->
+    <!-- ====================================== -->
+
+    <div id="cloudyEyeModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('cloudyEyeModal')">&times;</span>
+
+            <h2>Cloudy Eye</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Low to Moderate depending on cause.
+            </div>
+
+            <h3>What Is It?</h3>
+
+            <p>
+                Cloudy Eye is a symptom rather than a single disease.
+                It may be caused by injury, bacterial infection,
+                parasites, poor water quality, or nutritional deficiencies.
+            </p>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Cloudy or milky eyes</li>
+                <li>Swollen eye tissue</li>
+                <li>Vision problems</li>
+                <li>Lethargy</li>
+                <li>Possible redness or inflammation</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine if bacterial infection is suspected.</li>
+                <li>If caused by poor water quality, improve conditions for the whole tank.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Improve water quality</li>
+                <li>Antibacterial medication if infection exists</li>
+                <li>Aquarium salt</li>
+                <li>Vitamin-rich foods</li>
+                <li>Remove sharp decorations causing injury</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Diseases/CloudyEye/cloudyeye2.jpg" alt="Cloudy Eye Disease" onclick="openImage(this.src)">
+                <img src="Diseases/CloudyEye/cloudyeye3.jpg" alt="Cloudy Eye Disease" onclick="openImage(this.src)">
+                <img src="Diseases/CloudyEye/cloudyeye4.jpg" alt="Cloudy Eye Disease" onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SHRIMPS -->
+
+    <!-- CLADOGONIUM -->
+
+    <div id="cladoModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('cladoModal')">&times;</span>
+
+            <h2>Cladogonium</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate to High.
+            </div>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Green fuzzy growth</li>
+                <li>Failed molts</li>
+                <li>Egg infections</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine infected shrimp immediately.</li>
+                <li>If multiple shrimp are infected, quarantine the whole colony.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Hydrogen peroxide dips</li>
+                <li>Remove heavily infected shrimp</li>
+                <li>Improve tank cleanliness</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="ShrimpDiseases/Cladogonium/cladogonium2.jpg" alt="Cladogonium Disease"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Cladogonium/cladogonium3.jpg" alt="Cladogonium Disease"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Cladogonium/cladogonium4.jpg" alt="Cladogonium Disease"
+                    onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SCUTARIELLA JAPONICA MODAL -->
+    <div id="scutariellaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('scutariellaModal')">&times;</span>
+            <h2>Scutariella Japonica</h2>
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Low, but highly annoying and can stress the host.
+            </div>
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Small white "finger-like" parasites on the head (rostrum) or gills.</li>
+                <li>Visible white dots in the gill chamber (these are eggs).</li>
+                <li>Shrimp may pick at their face or act irritated.</li>
+            </ul>
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Isolate infected shrimp for treatment.</li>
+                <li><strong>Critical:</strong> Remove molts from the tank immediately for 3 weeks, as the eggs stay in
+                    the old shell to hatch.</li>
+            </ul>
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>Salt Dips:</strong> Extremely effective. Use 1 tablespoon of aquarium salt in 1 cup of tank
+                    water; dip the shrimp for 30-60 seconds. The worms usually fall off instantly.</li>
+                <li><strong>Praziquantel (API General Cure):</strong> Effective for whole-tank treatment if many shrimp
+                    are affected.</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="ShrimpDiseases/ScutariellaJaponica/scutariella2.jpg" alt="Scutariella Japonica on shrimp"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/ScutariellaJaponica/scutariella3.jpg" alt="Scutariella Japonica on shrimp"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/ScutariellaJaponica/scutariella4.jpg" alt="Scutariella Japonica on shrimp"
+                    onclick="openImage(this.src)">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- PLANARIA MODAL -->
+    <div id="planariaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('planariaModal')">&times;</span>
+            <h2>Planaria (Flatworms)</h2>
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> High for shrimplets and snails; Moderate for adults.
+            </div>
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Flat, gliding worms on the glass or substrate.</li>
+                <li><strong>Identification:</strong> Look for a distinct arrow-shaped head and two eyespots.</li>
+                <li>Shrimp deaths with no visible external disease (Planaria hunt by paralyzing shrimp).</li>
+            </ul>
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Planaria live in the substrate; if you see one, the entire tank is likely infested.</li>
+                <li>Reduce feeding immediately; Planaria thrive on leftover organic waste.</li>
+            </ul>
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>Planaria Traps:</strong> Good for reducing numbers without chemicals.</li>
+                <li><strong>Genchem "No Planaria" (Betel Nut Extract):</strong> Shrimp safe, but will kill most snails.
+                </li>
+                <li><strong>Panacur-C (Fenbendazole):</strong> Very effective at small doses (0.1g per 10 gallons), but
+                    kills Nerite and Mystery snails.</li>
+                <li><strong>Note:</strong> Never crush a Planaria; they can regenerate a full body from a single tiny
+                    piece.</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="Microfauna/Planaria/1.jpg" alt="Planaria in the tank" onclick="openImage(this.src)">
+                <img src="Microfauna/Planaria/2.jpg" alt="Planaria in the tank" onclick="openImage(this.src)">
+                <img src="Microfauna/Planaria/3.jpg" alt="Planaria in the tank" onclick="openImage(this.src)">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SHRIMP ELLOBIOSIDAE -->
+
+    <div id="shrimpEllobiopsisModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('shrimpEllobiopsisModal')">&times;</span>
+
+            <h2>Ellobiopsidae</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate (can increase if untreated or in stressed colonies).
+            </div>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>Visible yellowish or greenish external parasite growth</li>
+                <li>Attached “fungus-like” structures on body or appendages</li>
+                <li>Reduced growth rate</li>
+                <li>Lethargy and weakened movement</li>
+                <li>Loss of appetite</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Isolate infected shrimp immediately from the main colony.</li>
+                <li>Avoid sharing water, plants, or equipment between tanks.</li>
+                <li>Disinfect nets, tools, and hands after handling.</li>
+                <li>Monitor all tank mates for early signs of infection.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>No reliably proven cure exists.</li>
+                <li>Manually remove heavily infected individuals if possible.</li>
+                <li>Improve water quality and reduce stress factors.</li>
+                <li>Maintain stable temperature and low organic waste.</li>
+                <li>Remove affected shrimp to prevent spread.</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="ShrimpDiseases/Ellobiopsidae/ellobiopsis2.jpg" alt="Ellobiopsidae infection on shrimp"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Ellobiopsidae/ellobiopsis3.jpg" alt="Ellobiopsidae infection on shrimp"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Ellobiopsidae/ellobiopsis4.jpg" alt="Ellobiopsidae infection on shrimp"
+                    onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- WSSV MODAL -->
+    <div id="wssvModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('wssvModal')">&times;</span>
+            <h2>White Spot Syndrome Virus (WSSV)</h2>
+            <div class="info-box" style="border-left-color: #e74c3c;">
+                <strong>Mortality Rate:</strong> 100% within 3-10 days.
+            </div>
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Small white spots (0.5 to 2.0 mm) inside the surface of the shell.</li>
+                <li>Pinkish to reddish-brown body discoloration.</li>
+                <li>Shrimp gathering at the surface or edges of the tank.</li>
+                <li>Sudden, massive colony collapse.</li>
+            </ul>
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>No Known Cure:</strong> This is a viral pathogen.</li>
+                <li><strong>Immediate Action:</strong> Euthanize the affected tank to prevent spread. Do not pour water
+                    into the drain without bleaching it first.</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="ShrimpDiseases/WSSV/wssv2.jpg" alt="WSSV infection on shrimp" onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/WSSV/wssv3.jpg" alt="WSSV infection on shrimp" onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/WSSV/wssv4.jpg" alt="WSSV infection on shrimp" onclick="openImage(this.src)">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- AHPND MODAL -->
+    <div id="ahpndModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('ahpndModal')">&times;</span>
+            <h2>Acute Hepatopancreatic Necrosis Disease (AHPND)</h2>
+            <div class="info-box" style="border-left-color: #e74c3c;">
+                <strong>Mortality Rate:</strong> Extremely High (often called "Early Mortality Syndrome").
+            </div>
+            <h3>Symptoms</h3>
+            <ul>
+                <li><strong>Pale Hepatopancreas:</strong> The organs in the "head" area turn white, pale, or
+                    transparent.</li>
+                <li><strong>Empty Gut:</strong> The dark line (vein) in the tail is completely empty/clear.</li>
+                <li>Shrimp become lethargic and sink to the bottom.</li>
+                <li>The shell may become very soft.</li>
+            </ul>
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>Prevention:</strong> Usually introduced via contaminated live food.</li>
+                <li><strong>Probiotics:</strong> Adding beneficial bacteria to the water can sometimes outcompete the
+                    toxins produced by the bacteria.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- MUSCULAR NECROSIS MODAL -->
+    <div id="necrosisModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('necrosisModal')">&times;</span>
+
+            <h2>Muscular Necrosis</h2>
+
+            <div class="info-box" style="border-left-color: #e74c3c;">
+                <strong>Mortality Rate:</strong> High (Once the white area reaches the head, it is terminal).
+            </div>
+
+            <h3>What Is It?</h3>
+            <p>
+                Muscular Necrosis is the degeneration of muscle fibers. The tissue dies and turns opaque, starting
+                at the tail and moving toward the head. It is often caused by <strong>extreme stress</strong>, such
+                as sudden temperature swings, low oxygen levels, or very poor water quality, but it can also be a
+                secondary symptom of a bacterial infection.
+            </p>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li><strong>Milky White Tail:</strong> The tail muscle becomes opaque and white (looking like a
+                    cooked shrimp).</li>
+                <li><strong>Progressive Whitening:</strong> The white area grows larger over several days.</li>
+                <li><strong>Lethargy:</strong> Shrimp stops swimming and remains stationary.</li>
+                <li><strong>Loss of Appetite:</strong> The shrimp stops scavenging.</li>
+            </ul>
+
+            <h3>Quarantine & Prevention</h3>
+            <ul>
+                <li><strong>Isolate Immediately:</strong> While not always contagious, other shrimp will eat a dying
+                    necrotic shrimp and potentially contract the bacteria that caused the stress.</li>
+                <li><strong>Check Parameters:</strong> Immediately test for Ammonia/Nitrite and check your
+                    heater/thermometer for malfunctions.</li>
+                <li><strong>Increase Aeration:</strong> Ensure there is plenty of surface agitation; low oxygen is a
+                    leading cause of necrosis.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>No Direct Cure:</strong> Once muscle tissue is necrotic (dead), it cannot be "healed."
+                </li>
+                <li><strong>Fix the Environment:</strong> If the necrosis is caught very early (a tiny white tip on
+                    the tail), a large water change and reducing stress can sometimes stop the progression.</li>
+                <li><strong>Tannins:</strong> Add Indian Almond Leaves or Alder Cones to help fight potential
+                    bacterial causes.</li>
+                <li><strong>Euthanasia:</strong> If the white area covers more than half the body, the shrimp will
+                    likely die; euthanasia is recommended to prevent them from being eaten by tank mates.</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="ShrimpDiseases/Necrosis/necrosis2.jpg" alt="Milky white necrosis"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Necrosis/necrosis3.jpg" alt="Necrosis moving toward head"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Necrosis/necrosis4.jpg" alt="Advanced necrosis on shrimp"
+                    onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- FAILED MOLT MODAL -->
+    <div id="failedMoltModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('failedMoltModal')">&times;</span>
+
+            <h2>White Ring of Death (Failed Molt)</h2>
+
+            <div class="info-box" style="border-left-color: #e74c3c;">
+                <strong>Mortality Rate:</strong> Very High (Usually fatal within 24 hours).
+            </div>
+
+            <h3>What Is It?</h3>
+            <p>
+                The "White Ring of Death" occurs when a shrimp's exoskeleton splits in preparation for molting, but the
+                shrimp is unable to pull its body out of the old shell. The white band you see is actually the gap where
+                the old shell has separated, exposing the soft new shell underneath.
+            </p>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li><strong>The White Ring:</strong> A clear, thick white band appearing around the "neck" area (the
+                    junction between the carapace and the abdomen).</li>
+                <li><strong>Lethargy:</strong> The shrimp stops moving or scavenging.</li>
+                <li><strong>Attempted "Flicking":</strong> The shrimp may sporadically jump or flick its tail violently
+                    trying to escape the shell.</li>
+            </ul>
+
+            <h3>Common Causes</h3>
+            <ul>
+                <li><strong>Improper Hardness:</strong> General Hardness (GH) or Carbonate Hardness (KH) being too high
+                    (shell is too hard to break) or too low (shell is too soft to provide leverage).</li>
+                <li><strong>Osmotic Shock:</strong> Doing a large water change with water that has a vastly different
+                    TDS (Total Dissolved Solids) can trigger a "premature molt" before the shrimp is ready.</li>
+                <li><strong>Dietary Deficiency:</strong> Lack of essential minerals like Calcium and Magnesium.</li>
+                <li><strong>Overfeeding:</strong> High-protein diets can cause the shrimp's body to grow faster than its
+                    shell can keep up with.</li>
+            </ul>
+
+            <h3>Prevention & Treatment</h3>
+            <ul>
+                <li><strong>Stability is Key:</strong> Use a TDS meter and ensure your water changes are done slowly
+                    (drip method is best).</li>
+                <li><strong>Check Parameters:</strong> Aim for GH 6-8 and KH 2-5 for Neocaridina; GH 4-6 and KH 0-1 for
+                    Caridina.</li>
+                <li><strong>Mineral Supplements:</strong> Provide mineral stones or specialized shrimp foods containing
+                    calcium.</li>
+                <li><strong>Note on Treatment:</strong> <strong>Do NOT attempt to manually peel the shell off.</strong>
+                    Shrimp are incredibly delicate; attempting to "help" them will almost always result in crushing them
+                    or causing fatal stress. Stable water is the only chance they have to finish the molt on their own.
+                </li>
+            </ul>
+
+            <div class="gallery">
+                <img src="ShrimpDiseases/FailedMolt/failedmolt2.jpg" alt="White Ring of Death example"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/FailedMolt/failedmolt3.jpg" alt="White Ring of Death example"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/FailedMolt/failedmolt4.jpg" alt="White Ring of Death example"
+                    onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- VORTICELLA -->
+
+    <div id="vorticellaModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal('vorticellaModal')">&times;</span>
+
+            <h2>Vorticella</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Low to Moderate.
+            </div>
+
+            <h3>Symptoms</h3>
+
+            <ul>
+                <li>White fuzz around head</li>
+                <li>Molting issues</li>
+                <li>Weakness</li>
+            </ul>
+
+            <h3>Quarantine</h3>
+
+            <ul>
+                <li>Quarantine infected shrimp.</li>
+                <li>Whole tank treatment may be required if widespread.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+
+            <ul>
+                <li>Salt dips</li>
+                <li>Improve water quality</li>
+                <li>Indian almond leaves</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="ShrimpDiseases/Vorticella/vorticella2.jpg" alt="Vorticella on shrimp"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Vorticella/vorticella3.jpg" alt="Vorticella on shrimp"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Vorticella/vorticella4.jpg" alt="Vorticella on shrimp"
+                    onclick="openImage(this.src)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RUST DISEASE MODAL -->
+    <div id="rustModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('rustModal')">&times;</span>
+
+            <h2>Rust Disease (Bacterial Shell Disease)</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Moderate (Fatal if it penetrates the body).
+            </div>
+
+            <h3>What Is It?</h3>
+            <p>
+                Caused by "chitinolytic" bacteria that produce an enzyme to break down the shrimp’s exoskeleton. It
+                usually starts at injury sites or during periods of poor water quality. It is often called Rust
+                Disease because the shrimp's immune response creates a brown, "rusty" pigment at the site of the
+                infection.
+            </p>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Rusty-brown, orange, or black pitted spots on the shell.</li>
+                <li>Visible erosion or "holes" in the carapace or tail.</li>
+                <li>Loss of appendages or antennae.</li>
+                <li>Failed molts (the new shell becomes fused to the old one at the infection site).</li>
+            </ul>
+
+            <h3>Quarantine & Prevention</h3>
+            <ul>
+                <li><strong>Isolate Infected Shrimp:</strong> While not as fast-spreading as a virus, it is
+                    contagious.</li>
+                <li><strong>Remove Molts:</strong> Pull any molts from the tank immediately, as they harbor the
+                    bacteria.</li>
+                <li><strong>Improve Water Quality:</strong> High organic waste (nitrates) significantly speeds up
+                    the bacteria's growth.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>Salt Dips:</strong> 1 tablespoon of aquarium salt in 1 cup of tank water for 60 seconds
+                    once a day.</li>
+                <li><strong>Hydrogen Peroxide (H2O2):</strong> 1.5ml of 3% H2O2 per gallon of tank water for 3-5
+                    days.</li>
+                <li><strong>Indian Almond Leaves:</strong> The natural tannins have antibacterial properties that
+                    help the shrimp fight the infection.</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="ShrimpDiseases/Rust/rust2.jpg" alt="Rust Disease pitting" onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Rust/rust3.jpg" alt="Rust Disease on tail" onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Rust/rust4.jpg" alt="Rust Disease on shrimp" onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- ZOOTHAMNIUM MODAL -->
+    <div id="zooModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('zooModal')">&times;</span>
+            <h2>Zoothamnium</h2>
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Low to Moderate (High if gills are covered).
+            </div>
+            <h3>Symptoms</h3>
+            <ul>
+                <li>Visible white or gray "fuzz" on the rostrum, head, or gills.</li>
+                <li>Shrimp gasping at the surface (hypoxia).</li>
+                <li>Fouling of the exoskeleton, making it look "dirty."</li>
+            </ul>
+            <h3>Quarantine</h3>
+            <ul>
+                <li>Usually indicates poor water quality; treat the whole tank if widespread.</li>
+                <li>Isolate heavily affected shrimp for targeted dips.</li>
+            </ul>
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>Improve Water Quality:</strong> Perform 20-30% water changes and increase aeration.</li>
+                <li><strong>Salt Dips:</strong> Effective at killing the ciliate colonies quickly.</li>
+                <li><strong>Indian Almond Leaves:</strong> Tannins help prevent further attachment.</li>
+            </ul>
+
+            <div class="gallery">
+
+                <img src="ShrimpDiseases/Zoothamnium/zoothamnium2.jpg" alt="Zoothamnium on shrimp"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Zoothamnium/zoothamnium3.jpg" alt="Zoothamnium on shrimp"
+                    onclick="openImage(this.src)">
+                <img src="ShrimpDiseases/Zoothamnium/zoothamnium4.jpg" alt="Zoothamnium on shrimp"
+                    onclick="openImage(this.src)">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- IMAGE VIEWER -->
+
+    <div id="imageViewer" class="image-viewer" onclick="closeImage()">
+
+        <img id="viewerImg" src="" alt="Disease Image">
+
+    </div>
+
+    <script>
+
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        function openImage(src) {
+            document.getElementById('viewerImg').src = src;
+            document.getElementById('imageViewer').style.display = 'flex';
+        }
+
+        function closeImage() {
+            document.getElementById('imageViewer').style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+
+            document.querySelectorAll('.modal').forEach(modal => {
+
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
