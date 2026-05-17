@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquarium Maintenance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Icon.png">
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .guide-container {
+            padding: 40px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .intro-box {
+            background: #132938;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #1e90ff;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .extra-image {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .extra-image img {
+            border-top: 1px solid #2a3d4f;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .section-card {
+            background: #0e1a24;
+            border: 1px solid #1e90ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .section-card img.banner {
+            width: 30%;
+            height: 30%;
+            object-fit: cover;
+            object-position: center;
+            margin: 0 auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: block;
+            cursor: zoom-in;
+        }
+
+        .tip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            align-items: stretch;
+        }
+
+        .tip-card {
+            background: #132938;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #444;
+            transition: transform 0.2s;
+            text-align: center;
+        }
+
+
+
+        .tip-card:hover {
+            transform: scale(1.02);
+        }
+
+        .tip-card img {
+            width: 100%;
+            height: auto;
+            max-height: 260px;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            background: #0b1620;
+        }
+
+        .tip-card-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tip-card h4 {
+            color: #8be9fd;
+            margin-bottom: 10px;
+        }
+
+        .tip-card p,
+        .tip-card li,
+        .section-card p,
+        .section-card li,
+        .intro-box p {
+            color: #ddd;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .tip-card ul,
+        .section-card ul,
+        .highlight-box ul {
+            list-style-position: inside;
+            padding-left: 0;
+            margin-left: 0;
+            text-align: center;
+        }
+
+        .highlight-box {
+            background: #2c3e50;
+            border: 2px dashed #27ae60;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .highlight-box div {
+            justify-content: center;
+        }
+
+        .category-title {
+            color: #a0c4ff;
+            margin: 0;
+        }
+
+        .toggle-icon {
+            color: #27ae60;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .back-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p {
+            text-align: center;
+        }
+
+        /* LIGHTBOX */
+
+        #zoomView {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        #zoomView img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 10px;
+            border: 3px solid #1e90ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back-row">
+        <a href="tips.html" class="btn-nav">← Back to Tips</a>
+    </div>
+
+    <h1 style="color:#1e90ff;">Aquarium Maintenance</h1>
+
+    <div class="intro-box">
+        <h3>Why Maintenance Matters</h3>
+
+        <p>
+            Good maintenance is not about making your aquarium "sterile".
+            It is about creating long-term stability and balance.
+        </p>
+
+        <p>
+            Every aquarium is different, and learning how your specific tank behaves
+            is one of the biggest parts of the hobby.
+        </p>
+    </div>
+
+
+    <!-- WATER CHANGES -->
+
+    <div class="section-card">
+
+        <img src="Maintenance/waterchange.jpg" class="banner" alt="Aquarium Water Change">
+
+        <h2 style="color:#7cc7ff;">💧 Water Changes</h2>
+
+        <p style="color:white;">
+            Water changes remove excess nutrients, waste, and pollutants while replenishing minerals.
+        </p>
+
+        <div class="highlight-box">
+
+            <h3 style="color:#27ae60;">Trial & Error</h3>
+
+            <p style="color:white;">
+                There is no magical water change schedule that works for every tank.
+            </p>
+
+            <ul style="color:white;">
+                <li>Heavily stocked tanks usually need more maintenance.</li>
+                <li>Dense planted aquariums may need fewer water changes.</li>
+                <li>Shrimp tanks often prefer smaller, gentler changes.</li>
+                <li>Overfeeding usually increases maintenance needs.</li>
+            </ul>
+
+        </div>
+
+        <div class="tip-grid">
+
+            <div class="tip-card">
+
+                <img src="Maintenance/gravelvac.jpg" alt="Gravel Vacuum">
+
+                <div class="tip-card-content">
+
+                    <h4>Gravel Vacuuming</h4>
+
+                    <p>
+                        Removes trapped waste from the substrate and prevents excess nutrient buildup.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="tip-card">
+
+                <img src="Maintenance/dechlorinator.jpg" alt="Water Conditioner">
+
+                <div class="tip-card-content">
+
+                    <h4>Always Dechlorinate</h4>
+
+                    <p>
+                        Tap water chlorine and chloramine can wipe out beneficial bacteria and harm livestock.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="tip-card">
+
+                <img src="Maintenance/tempmatch.jpg" alt="Temperature Matching">
+
+                <div class="tip-card-content">
+
+                    <h4>Match Temperatures</h4>
+
+                    <p>
+                        Sudden temperature swings can stress fish and shrimp during maintenance.<br>
+                        Match the new water's temperature to the aquarium water for safer changes, especially in bigger
+                        water changes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MULM -->
+
+    <div class="section-card">
+
+        <img src="Maintenance/mulm.jpg" class="banner" alt="Mulm in Aquarium">
+
+        <h2 style="color:#7cc7ff;">🟤 What is Mulm?</h2>
+
+        <p style="color:white;">
+            Mulm is the soft organic debris that naturally accumulates in aquariums.
+        </p>
+
+        <div class="tip-grid">
+
+            <div class="tip-card">
+
+                <img src="Maintenance/mulmclose.jpg" alt="Mulm Closeup">
+
+                <div class="tip-card-content">
+
+                    <h4>Not Always Bad</h4>
+
+                    <p>
+                        Mulm contains microorganisms and biofilm that shrimp and fry may graze on.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="tip-card">
+
+                <img src="Maintenance/dirtysubstrate.jpg" alt="Dirty Substrate">
+
+                <div class="tip-card-content">
+
+                    <h4>Too Much Mulm</h4>
+
+                    <p>
+                        Excess buildup can reduce water quality and create algae problems.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="tip-card">
+
+                <img src="Maintenance/shrimpmulm.jpg" alt="Shrimp grazing mulm">
+
+                <div class="tip-card-content">
+
+                    <h4>Shrimp Love It</h4>
+
+                    <p>
+                        Healthy mature mulm often supports grazing behavior in shrimp tanks.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ALGAE -->
+
+    <div class="section-card">
+
+        <img src="Maintenance/algae.jpg" class="banner" alt="Aquarium Algae">
+
+        <h2 style="color:#7cc7ff;">🟢 Algae Control</h2>
+
+        <p style="color:white;">
+            Algae is normal. Every aquarium has some algae.
+        </p>
+
+        <div class="highlight-box">
+
+            <h3 style="color:#27ae60;">Main Causes</h3>
+
+            <ul style="color:white;">
+                <li>Too much light</li>
+                <li>Overfeeding</li>
+                <li>Excess nutrients</li>
+                <li>Unstable parameters</li>
+                <li>Poor circulation</li>
+            </ul>
+
+        </div>
+
+        <div class="tip-grid">
+
+            <div class="tip-card">
+
+                <img src="Maintenance/snail.jpg" alt="Nerite Snail">
+
+                <div class="tip-card-content">
+
+                    <h4>Snails</h4>
+
+                    <p>
+                        Nerites and ramshorns help clean soft algae from glass and hardscape.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="tip-card">
+
+                <img src="Maintenance/lighttimer.jpg" alt="Light Timer">
+
+                <div class="tip-card-content">
+
+                    <h4>Reduce Lighting</h4>
+
+                    <p>
+                        Excessive photoperiods often trigger algae blooms.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="tip-card">
+
+                <img src="Maintenance/feeding.jpg" alt="Feeding Fish">
+
+                <div class="tip-card-content">
+
+                    <h4>Feed Less</h4>
+
+                    <p>
+                        Uneaten food quickly becomes algae fuel.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="tip-card">
+
+                <img src="Maintenance/algaescraper.jpg" alt="Algae Scraper">
+
+                <div class="tip-card-content">
+
+                    <h4>Manual Removal</h4>
+
+                    <p>
+                        Physically removing algae weakens future growth and restores appearance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PLANT TRIMMING -->
+
+    <div class="section-card">
+
+        <img src="Maintenance/trimming.jpg" class="banner" alt="Aquarium Plant Trimming">
+
+        <h2 style="color:#7cc7ff;">✂️ Plant Trimming Methods</h2>
+
+        <p style="color:white;">
+            Regular trimming keeps plants healthy, improves circulation,
+            prevents dead zones, and encourages bushier growth.
+        </p>
+
+        <div class="tip-grid">
+
+            <!-- STEM -->
+            <div class="tip-card">
+
+                <img src="Maintenance/stemplants.jpg" alt="Stem Plants">
+
+                <div class="tip-card-content">
+
+                    <h4>Stem Plants</h4>
+
+                    <p>
+                        Cut above a node or leaf pair. Most stem plants can be replanted from cuttings,
+                        allowing easy propagation and thicker growth.
+                    </p>
+
+                </div>
+                <div class="extra-image">
+                    <p>More info</p>
+                    <img src="Maintenance/stemplants2.jpg" alt="Stem Plants">
+                </div>
+
+            </div>
+
+            <!-- CARPET -->
+            <div class="tip-card">
+
+                <img src="Maintenance/carpettrim.jpg" alt="Carpet Plants">
+
+                <div class="tip-card-content">
+
+                    <h4>Carpet Plants</h4>
+
+                    <p>
+                        Trim horizontally like mowing grass. This prevents lower layers
+                        from being shaded and dying underneath.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- RHIZOME -->
+            <div class="tip-card">
+
+                <img src="Maintenance/rhizome.jpg" alt="Rhizome Plants">
+
+                <div class="tip-card-content">
+
+                    <h4>Rhizome Plants</h4>
+
+                    <p>
+                        Remove damaged or algae-covered leaves individually.
+                        Never bury the rhizome or the plant may rot.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- FLOATERS -->
+            <div class="tip-card">
+
+                <img src="Maintenance/floaters.jpg" alt="Floating Plants">
+
+                <div class="tip-card-content">
+
+                    <h4>Floating Plants</h4>
+
+                    <p>
+                        Thin floating plants regularly to maintain oxygen exchange,
+                        healthy surface movement, and light penetration.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MORE INFO BOX -->
+
+        <div class="highlight-box">
+
+            <h3 style="color:#27ae60;">🌿 Want to Learn More About Aquarium Plants?</h3>
+
+            <p style="color:white;">
+                Explore the dedicated plant guides for detailed species information,
+                care requirements, attachment methods, and substrate advice.
+            </p>
+
+            <div style="margin-top:20px; display:flex; gap:15px; flex-wrap:wrap;">
+
+                <a href="Epiphytes.html" class="btn-nav">
+                    Epiphyte Guide
+                </a>
+
+                <a href="plants.html" class="btn-nav">
+                    Underwater Plants Guide
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LIGHTBOX -->
+
+    <div id="zoomView" onclick="this.style.display='none'">
+        <img id="zoomImg" src="" alt="Zoomed Image">
+    </div>
+
+</body>
+
+<script>
+
+    function toggleSection(id, header) {
+
+        const grid = document.getElementById(id);
+
+        if (grid.style.display === "none") {
+
+            grid.style.display = "grid";
+            header.classList.add('active');
+
+        } else {
+
+            grid.style.display = "none";
+            header.classList.remove('active');
+
+        }
+
+    }
+
+    function initZoom() {
+
+        const zoomView = document.getElementById('zoomView');
+        const zoomImg = document.getElementById('zoomImg');
+
+        const images = document.querySelectorAll('.tip-card img, .banner');
+
+        images.forEach(img => {
+
+            img.addEventListener('click', (e) => {
+
+                e.stopPropagation();
+
+                zoomImg.src = img.src;
+
+                zoomView.style.display = 'flex';
+
+            });
+
+        });
+
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        initZoom();
+
+    });
+</script>
+
+</html>
