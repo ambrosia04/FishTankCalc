@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Icon.png">
     <style>
-        .guide-container { padding: 40px; max-width: 1100px; margin: auto; }
-        
+        .guide-container {
+            padding: 40px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
         /* Setup & Technique Styles */
         .setup-section {
             display: grid;
@@ -16,14 +21,26 @@
             gap: 20px;
             margin-bottom: 40px;
         }
+
         .info-card {
             background: #132938;
             padding: 20px;
             border-radius: 12px;
             border-top: 3px solid #1e90ff;
         }
-        .info-card h3 { color: #1e90ff; margin-top: 0; font-size: 1.1rem; text-transform: uppercase; }
-        .info-card p { font-size: 0.9rem; line-height: 1.5; color: #ccc; }
+
+        .info-card h3 {
+            color: #1e90ff;
+            margin-top: 0;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #ccc;
+        }
 
         .warning-box {
             background: rgba(231, 76, 60, 0.1);
@@ -46,10 +63,26 @@
             background: rgba(39, 174, 96, 0.05);
             transition: 0.2s;
         }
-        .collapsible-header:hover { background: rgba(39, 174, 96, 0.15); }
-        .category-title { color: #a0c4ff; margin: 0; font-size: 1.3rem; }
-        .toggle-icon { color: #27ae60; font-size: 1.2rem; transition: transform 0.3s; }
-        .active .toggle-icon { transform: rotate(180deg); }
+
+        .collapsible-header:hover {
+            background: rgba(39, 174, 96, 0.15);
+        }
+
+        .category-title {
+            color: #a0c4ff;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .toggle-icon {
+            color: #27ae60;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .active .toggle-icon {
+            transform: rotate(180deg);
+        }
 
         .plant-grid {
             display: grid;
@@ -65,23 +98,59 @@
             border: 1px solid #34495e;
             transition: 0.2s;
         }
-        .plant-card:hover { transform: translateY(-5px); border-color: #27ae60; }
-        .plant-card img { width: 100%; height: 160px; object-fit: cover; }
-        .plant-card .name-tag { padding: 12px; text-align: center; }
-        .plant-card h4 { margin: 0; color: #fff; font-size: 0.9rem; }
-        .plant-card span { display: block; color: #a0c4ff; font-size: 0.75rem; margin-top: 5px; font-style: italic; }
-    
+
+        .plant-card:hover {
+            transform: translateY(-5px);
+            border-color: #27ae60;
+        }
+
+        .plant-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .plant-card .name-tag {
+            padding: 12px;
+            text-align: center;
+        }
+
+        .plant-card h4 {
+            margin: 0;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .plant-card span {
+            display: block;
+            color: #a0c4ff;
+            font-size: 0.75rem;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
         .difficulty {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-top: 8px;
             font-weight: 600;
-            opacity: 0.8; /* Makes the color less harsh */
+            opacity: 0.8;
+            /* Makes the color less harsh */
         }
-        .easy { color: #2ecc71; }
-        .medium { color: #f1c40f; }
-        .hard { color: #e74c3c; }
+
+        .easy {
+            color: #2ecc71;
+        }
+
+        .medium {
+            color: #f1c40f;
+        }
+
+        .hard {
+            color: #e74c3c;
+        }
+
         .diff-reason {
             font-size: 0.65rem;
             color: #888;
@@ -92,9 +161,12 @@
         }
 
         .collapsible-content {
-            display: block; /* Starts displayed */
-            margin-top: 20px; /* Gap between title bar and the cards */
-            background: transparent; /* Removes the big green background */
+            display: block;
+            /* Starts displayed */
+            margin-top: 20px;
+            /* Gap between title bar and the cards */
+            background: transparent;
+            /* Removes the big green background */
         }
 
         /* This allows the grid sections inside to work when the parent is visible */
@@ -107,1143 +179,1335 @@
             cursor: zoom-in;
             transition: opacity 0.2s;
         }
+
         .plant-card img:hover {
             opacity: 0.9;
         }
 
         #zoomView {
-            display: none; /* Hidden by default */
+            display: none;
+            /* Hidden by default */
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.9);
             z-index: 10000;
             cursor: zoom-out;
             align-items: center;
             justify-content: center;
         }
+
         #zoomView img {
             max-width: 90vw;
             max-height: 90vh;
             border: 3px solid #1e90ff;
             border-radius: 10px;
-            box-shadow: 0 0 50px rgba(0,0,0,1);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 1);
         }
     </style>
 </head>
+
 <body>
 
-<div class="guide-container">
-    <div class="back-row">
-        <a href="Tips.html" class="btn-nav">← Back to Tips</a>
-    </div>
+    <div class="guide-container">
+        <div class="back-row">
+            <a href="Tips.html" class="btn-nav">← Back to Tips</a>
+        </div>
 
-    <h1 style="color: #27ae60; text-align: center; font-size: 2.5rem;">Underwater Plant Guide</h1>
-    <p style="text-align: center; color: #a0c4ff; margin-bottom: 40px;">Mastering the art of submerged growth and aquascaping.</p>
+        <h1 style="color: #27ae60; text-align: center; font-size: 2.5rem;">Underwater Plant Guide</h1>
+        <p style="text-align: center; color: #a0c4ff; margin-bottom: 40px;">Mastering the art of submerged growth and
+            aquascaping.</p>
 
-    <!-- FOUNDATION & TECHNIQUES -->
-    <div class="collapsible-header" onclick="toggleSection('foundationContent', this)">
-        <h2 class="category-title" style="color: #1e90ff;">Foundation & Setup</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
+        <!-- FOUNDATION & TECHNIQUES -->
+        <div class="collapsible-header" onclick="toggleSection('foundationContent', this)">
+            <h2 class="category-title" style="color: #1e90ff;">Foundation & Setup</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
 
-    <div id="foundationContent" class="collapsible-content">
-        <!-- FIRST ROW: SUBSTRATE & DEPTH -->
-        <div class="setup-section">
-            <div class="info-card">
-                <h3>Substrate Choice & Depth</h3>
-                <p><strong>The Layered Method:</strong> Use ~6–7 cm of aquasoil as your main nutrient layer. Add ~1 cm of fine sand on top to "cap" it. This keeps the soil from floating and looks much cleaner.</p>
-                <p><strong>Depth Warning:</strong> Avoid making substrate excessively deep (10+ cm). Compacted deep layers can create <strong>anaerobic zones</strong>, producing toxic hydrogen sulfide gas.</p>
+        <div id="foundationContent" class="collapsible-content">
+            <!-- FIRST ROW: SUBSTRATE & DEPTH -->
+            <div class="setup-section">
+                <div class="info-card">
+                    <h3>Substrate Choice & Depth</h3>
+                    <p><strong>The Layered Method:</strong> Use ~6–7 cm of aquasoil as your main nutrient layer. Add ~1
+                        cm of fine sand on top to "cap" it. This keeps the soil from floating and looks much cleaner.
+                    </p>
+                    <p><strong>Depth Warning:</strong> Avoid making substrate excessively deep (10+ cm). Compacted deep
+                        layers can create <strong>anaerobic zones</strong>, producing toxic hydrogen sulfide gas.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Aquasoil Leaching</h3>
+                    <p>New Aquasoil often "leaches" high amounts of Ammonia for the first 4–6 weeks. While this is
+                        excellent for fishless cycling, it is lethal for livestock. Perform frequent water changes
+                        during this initial phase until levels stabilize.</p>
+                </div>
+                <div class="info-card">
+                    <h3>The Sand "Cap"</h3>
+                    <p>A 1–2 inch (3–6 cm) sand cap over soil (or 1cm over aquasoil) traps nutrients in the substrate
+                        and out of the water column. This reduces algae growth and creates a natural aesthetic. Sand can
+                        also be used alone if you add root tabs for nutrition.</p>
+                </div>
             </div>
-            <div class="info-card">
-                <h3>Aquasoil Leaching</h3>
-                <p>New Aquasoil often "leaches" high amounts of Ammonia for the first 4–6 weeks. While this is excellent for fishless cycling, it is lethal for livestock. Perform frequent water changes during this initial phase until levels stabilize.</p>
+
+            <!-- SECOND ROW: MAINTENANCE & HARDSCAPE -->
+            <div class="setup-section">
+                <div class="info-card">
+                    <h3>Preventing Gas Buildup</h3>
+                    <p>• Don't overly compact the substrate when placing it.<br>
+                        • Use plants with strong roots to oxygenate the soil.<br>
+                        • Add burrowing snails (like MTS) to turn the top layer.<br>
+                        • Occasionally moving stems or replanting releases trapped gas safely.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Rock Placement Tip</h3>
+                    <p>Always place rocks heavier than 200g <strong>directly on top of the aquasoil</strong> before
+                        adding the sand. Then, surround the rocks with sand. This prevents the hardscape from shifting
+                        or collapsing as the sand settles over time.</p>
+                </div>
+                <div class="info-card" style="border-top-color: #e74c3c;">
+                    <h3>Substrate Safety</h3>
+                    <p>Be extremely cautious with "colorful" or "painted" gravel found in big-box stores; these often
+                        contain toxic dyes that can leach into the water over time. Natural pond substrates can be a
+                        viable, budget-friendly alternative.</p>
+                </div>
             </div>
-            <div class="info-card">
-                <h3>The Sand "Cap"</h3>
-                <p>A 1–2 inch (3–6 cm) sand cap over soil (or 1cm over aquasoil) traps nutrients in the substrate and out of the water column. This reduces algae growth and creates a natural aesthetic. Sand can also be used alone if you add root tabs for nutrition.</p>
+
+            <!-- THIRD ROW: PLANTING & FEEDING -->
+            <div class="setup-section">
+                <div class="info-card">
+                    <h3>Planting Technique</h3>
+                    <p><strong>Tweezers:</strong> Use long aquascaping tweezers to grab stems at the base and push them
+                        into the soil at a slight angle for better grip.</p>
+                    <p><strong>Weights:</strong> Use lead-free weights to keep "bouncy" plants like Hornwort anchored
+                        until they establish roots.</p>
+                </div>
+                <div class="info-card">
+                    <h3>The Water Column</h3>
+                    <p>Mosses and Ferns have no traditional roots; they eat directly from the water via liquid
+                        fertilizers. Conversely, "Rosette" plants (Swords/Crypts) are heavy root feeders and require
+                        root tabs or nutrient-rich aquasoil.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Long-Term Nutrition</h3>
+                    <p>Aquasoil typically provides enough nutrients for 6 to 12 months. Once the soil is "exhausted,"
+                        you must begin supplementing with root tabs near the base of your heavy feeders to maintain
+                        growth.</p>
+                </div>
             </div>
         </div>
 
-        <!-- SECOND ROW: MAINTENANCE & HARDSCAPE -->
-        <div class="setup-section">
-            <div class="info-card">
-                <h3>Preventing Gas Buildup</h3>
-                <p>• Don't overly compact the substrate when placing it.<br>
-                   • Use plants with strong roots to oxygenate the soil.<br>
-                   • Add burrowing snails (like MTS) to turn the top layer.<br>
-                   • Occasionally moving stems or replanting releases trapped gas safely.</p>
-            </div>
-            <div class="info-card">
-                <h3>Rock Placement Tip</h3>
-                <p>Always place rocks heavier than 200g <strong>directly on top of the aquasoil</strong> before adding the sand. Then, surround the rocks with sand. This prevents the hardscape from shifting or collapsing as the sand settles over time.</p>
-            </div>
-            <div class="info-card" style="border-top-color: #e74c3c;">
-                <h3>Substrate Safety</h3>
-                <p>Be extremely cautious with "colorful" or "painted" gravel found in big-box stores; these often contain toxic dyes that can leach into the water over time. Natural pond substrates can be a viable, budget-friendly alternative.</p>
-            </div>
+        <!-- PLANT QUARANTINE & DIPS -->
+        <div class="collapsible-header" onclick="toggleSection('quarantineContent', this)">
+            <h2 class="category-title" style="color: #f1c40f;">Plant Quarantine & Dips</h2>
+            <span class="toggle-icon">▼</span>
         </div>
 
-        <!-- THIRD ROW: PLANTING & FEEDING -->
-        <div class="setup-section">
-            <div class="info-card">
-                <h3>Planting Technique</h3>
-                <p><strong>Tweezers:</strong> Use long aquascaping tweezers to grab stems at the base and push them into the soil at a slight angle for better grip.</p>
-                <p><strong>Weights:</strong> Use lead-free weights to keep "bouncy" plants like Hornwort anchored until they establish roots.</p>
-            </div>
-            <div class="info-card">
-                <h3>The Water Column</h3>
-                <p>Mosses and Ferns have no traditional roots; they eat directly from the water via liquid fertilizers. Conversely, "Rosette" plants (Swords/Crypts) are heavy root feeders and require root tabs or nutrient-rich aquasoil.</p>
-            </div>
-            <div class="info-card">
-                <h3>Long-Term Nutrition</h3>
-                <p>Aquasoil typically provides enough nutrients for 6 to 12 months. Once the soil is "exhausted," you must begin supplementing with root tabs near the base of your heavy feeders to maintain growth.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- PLANT QUARANTINE & DIPS -->
-    <div class="collapsible-header" onclick="toggleSection('quarantineContent', this)">
-        <h2 class="category-title" style="color: #f1c40f;">Plant Quarantine & Dips</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-
-    <div id="quarantineContent" class="collapsible-content">
-        <div class="intro-box" style="border-left-color: #f1c40f; background: rgba(241, 196, 15, 0.05);">
-            <p><strong>🛡️ Prevent Pests:</strong> For plants that are not <strong>In-Vitro</strong> (tissue culture), it is vital to perform a dip to kill leeches, snails, and eggs before they enter your ecosystem.</p>
-        </div>
-
-        <div class="setup-section">
-            <!-- Method 1: Salt -->
-            <div class="info-card" style="border-top-color: #f1c40f;">
-                <h3>The Salt Bath (Best for Hardy Plants)</h3>
-                <p><strong>Recipe:</strong> Mix 30g of pure salt per 1 liter of water. Soak plants for exactly <strong>10 minutes</strong>.</p>
-                <p><strong>Salt Choice:</strong> Use Aquarium Salt or Kosher Salt. Avoid salts with anti-caking agents like <strong>E-535 or E-536</strong>.</p>
-                <p style="color: #27ae60; font-size: 0.85rem;"><strong>Safe for:</strong> Anubias, Java Fern, Windelov, and Crypts.</p>
+        <div id="quarantineContent" class="collapsible-content">
+            <div class="intro-box" style="border-left-color: #f1c40f; background: rgba(241, 196, 15, 0.05);">
+                <p><strong>🛡️ Prevent Pests:</strong> For plants that are not <strong>In-Vitro</strong> (tissue
+                    culture), it is vital to perform a dip to kill leeches, snails, and eggs before they enter your
+                    ecosystem.</p>
             </div>
 
-            <!-- Method 2: Alum -->
-            <div class="info-card" style="border-top-color: #27ae60;">
-                <h3>The Alum Soak (Best for Moss/Sensitive)</h3>
-                <p><strong>Recipe:</strong> 1 tablespoon of Potassium Alum per 1 liter of water. Soak for <strong>24 hours</strong>.</p>
-                <p>Alum is found in pharmacies or craft stores. It is much gentler on delicate tissues than salt or bleach but highly effective against snails and eggs.</p>
+            <div class="setup-section">
+                <!-- Method 1: Salt -->
+                <div class="info-card" style="border-top-color: #f1c40f;">
+                    <h3>The Salt Bath (Best for Hardy Plants)</h3>
+                    <p><strong>Recipe:</strong> Mix 30g of pure salt per 1 liter of water. Soak plants for exactly
+                        <strong>10 minutes</strong>.
+                    </p>
+                    <p><strong>Salt Choice:</strong> Use Aquarium Salt or Kosher Salt. Avoid salts with anti-caking
+                        agents like <strong>E-535 or E-536</strong>.</p>
+                    <p style="color: #27ae60; font-size: 0.85rem;"><strong>Safe for:</strong> Anubias, Java Fern,
+                        Windelov, and Crypts.</p>
+                </div>
+
+                <!-- Method 2: Alum -->
+                <div class="info-card" style="border-top-color: #27ae60;">
+                    <h3>The Alum Soak (Best for Moss/Sensitive)</h3>
+                    <p><strong>Recipe:</strong> 1 tablespoon of Potassium Alum per 1 liter of water. Soak for <strong>24
+                            hours</strong>.</p>
+                    <p>Alum is found in pharmacies or craft stores. It is much gentler on delicate tissues than salt or
+                        bleach but highly effective against snails and eggs.</p>
+                </div>
+
+                <!-- Method 3: Bleach -->
+                <div class="info-card" style="border-top-color: #e74c3c;">
+                    <h3>The Bleach Dip (High Risk)</h3>
+                    <p><strong>Recipe:</strong> 1 part bleach to 20 parts water. Soak for only <strong>90
+                            seconds</strong>.</p>
+                    <p><strong>Crucial:</strong> Follow with a massive rinse in water treated with 4x the normal dose of
+                        dechlorinator. Use only for very tough plants; bleach can easily "melt" live plants.</p>
+                </div>
             </div>
 
-            <!-- Method 3: Bleach -->
-            <div class="info-card" style="border-top-color: #e74c3c;">
-                <h3>The Bleach Dip (High Risk)</h3>
-                <p><strong>Recipe:</strong> 1 part bleach to 20 parts water. Soak for only <strong>90 seconds</strong>.</p>
-                <p><strong>Crucial:</strong> Follow with a massive rinse in water treated with 4x the normal dose of dechlorinator. Use only for very tough plants; bleach can easily "melt" live plants.</p>
-            </div>
-        </div>
-
-        <!-- SENSITIVE PLANTS WARNING -->
-        <div class="warning-box" style="margin-top: 0;">
-            <h3 style="color: #e74c3c; margin-top: 0; font-size: 1rem; text-transform: uppercase;">⚠️ Sensitive Plants: DO NOT SALT DIP</h3>
-            <p>The following plants will likely die or be severely damaged by salt baths:</p>
-            <ul style="font-size: 0.9rem; line-height: 1.6; color: #ff9999;">
-                <li><strong>Hornwort:</strong> Salt causes it to "shatter"—all needles will fall off, creating a massive mess.</li>
-                <li><strong>Mosses (Spiky/Java/etc):</strong> Salt can kill the cells of the moss instantly. Use Alum instead.</li>
-                <li><strong>Floating Plants:</strong> Frogbit and Red Root Floaters hate getting their leaves wet and are highly intolerant of salt.</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- COMMON PLANT PROBLEMS -->
-    <div class="collapsible-header" onclick="toggleSection('problemsContent', this)">
-        <h2 class="category-title" style="color: #e74c3c;">Common Plant Problems & Melting</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-
-    <div id="problemsContent" class="collapsible-content">
-        <div class="setup-section">
-            <!-- Problem Melting -->
-            <div class="info-card" style="border-top-color: #e74c3c;">
-                <h3 style="color: #e74c3c;">🚨 Problem Melting (TAKE ACTION)</h3>
-                <p>Act immediately if you see:</p>
-                <ul style="font-size: 0.9rem; line-height: 1.6; color: #ccc;">
-                    <li>Rapid decay of multiple plants at once.</li>
-                    <li>Leaves turning mushy, slimy, or "gooey."</li>
-                    <li>Plants fully disintegrating into the water.</li>
-                    <li>Water getting cloudy or smelling like decay.</li>
+            <!-- SENSITIVE PLANTS WARNING -->
+            <div class="warning-box" style="margin-top: 0;">
+                <h3 style="color: #e74c3c; margin-top: 0; font-size: 1rem; text-transform: uppercase;">⚠️ Sensitive
+                    Plants: DO NOT SALT DIP</h3>
+                <p>The following plants will likely die or be severely damaged by salt baths:</p>
+                <ul style="font-size: 0.9rem; line-height: 1.6; color: #ff9999;">
+                    <li><strong>Hornwort:</strong> Salt causes it to "shatter"—all needles will fall off, creating a
+                        massive mess.</li>
+                    <li><strong>Mosses (Spiky/Java/etc):</strong> Salt can kill the cells of the moss instantly. Use
+                        Alum instead.</li>
+                    <li><strong>Floating Plants:</strong> Frogbit and Red Root Floaters hate getting their leaves wet
+                        and are highly intolerant of salt.</li>
                 </ul>
-                <p><strong>Why:</strong> This pollutes the water with ammonia and can stall your nitrogen cycle. Siphon out the decay and perform a water change.</p>
-            </div>
-
-            <!-- Normal Melting -->
-            <div class="info-card" style="border-top-color: #27ae60;">
-                <h3 style="color: #27ae60;">✅ Normal Melting (DO NOTHING)</h3>
-                <p>Relax if you see:</p>
-                <ul style="font-size: 0.9rem; line-height: 1.6; color: #ccc;">
-                    <li>A few older leaves turning transparent or brown.</li>
-                    <li>Older leaves melting while <strong>new growth</strong> appears.</li>
-                    <li>The plant stays rooted and the stem/rhizome is firm.</li>
-                </ul>
-                <p><strong>Why:</strong> Many plants (especially <em>Cryptocoryne</em>) "reset" when moved. Simply trim the dead leaves and let the plant regrow stronger.</p>
             </div>
         </div>
 
-        <!-- Melting Photo Placeholders -->
-        <h3 style="color: #a0c4ff; font-size: 0.9rem; margin-top: 20px; text-transform: uppercase;">Visual Identification of Melting:</h3>
-        <div class="plant-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));">
-            <div class="plant-card"><img src="Plants/Problems/melt1.jpg" alt="Melt Example" onerror="this.src='Icon.png'"></div>
-            <div class="plant-card"><img src="Plants/Problems/melt2.jpg" alt="Melt Example" onerror="this.src='Icon.png'"></div>
-            <div class="plant-card"><img src="Plants/Problems/melt3.jpg" alt="Melt Example" onerror="this.src='Icon.png'"></div>
-            <div class="plant-card"><img src="Plants/Problems/melt4.jpg" alt="Melt Example" onerror="this.src='Icon.png'"></div>
-            <div class="plant-card"><img src="Plants/Problems/melt5.jpg" alt="Melt Example" onerror="this.src='Icon.png'"></div>
+        <!-- COMMON PLANT PROBLEMS -->
+        <div class="collapsible-header" onclick="toggleSection('problemsContent', this)">
+            <h2 class="category-title" style="color: #e74c3c;">Common Plant Problems & Melting</h2>
+            <span class="toggle-icon">▼</span>
         </div>
-    </div>
 
-    <!-- LIGHTING & NUTRITION -->
-    <div class="collapsible-header" onclick="toggleSection('nutritionContent', this)">
-        <h2 class="category-title" style="color: #8e44ad;">Lighting & Nutrition</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
+        <div id="problemsContent" class="collapsible-content">
+            <div class="setup-section">
+                <!-- Problem Melting -->
+                <div class="info-card" style="border-top-color: #e74c3c;">
+                    <h3 style="color: #e74c3c;">🚨 Problem Melting (TAKE ACTION)</h3>
+                    <p>Act immediately if you see:</p>
+                    <ul style="font-size: 0.9rem; line-height: 1.6; color: #ccc;">
+                        <li>Rapid decay of multiple plants at once.</li>
+                        <li>Leaves turning mushy, slimy, or "gooey."</li>
+                        <li>Plants fully disintegrating into the water.</li>
+                        <li>Water getting cloudy or smelling like decay.</li>
+                    </ul>
+                    <p><strong>Why:</strong> This pollutes the water with ammonia and can stall your nitrogen cycle.
+                        Siphon out the decay and perform a water change.</p>
+                </div>
 
-    <div id="nutritionContent" class="collapsible-content">
-        <div class="setup-section">
-            <!-- Lighting -->
-            <div class="info-card" style="border-top-color: #f1c40f;">
-                <h3 style="color: #f1c40f;">💡 Lighting Guide</h3>
-                <p><strong>Duration:</strong> Aim for 6–8 hours of light per day. Using a timer is highly recommended to maintain consistency.</p>
-                <p><strong>Warning:</strong> Lighting for 10+ hours often leads to massive algae outbreaks. If you have algae, reduce the intensity or the duration.</p>
-                <p><strong>Intensity:</strong> Low-light plants (Moss/Ferns) can sit in corners; high-light plants (Carpets/Red stems) need to be directly under the light.</p>
+                <!-- Normal Melting -->
+                <div class="info-card" style="border-top-color: #27ae60;">
+                    <h3 style="color: #27ae60;">✅ Normal Melting (DO NOTHING)</h3>
+                    <p>Relax if you see:</p>
+                    <ul style="font-size: 0.9rem; line-height: 1.6; color: #ccc;">
+                        <li>A few older leaves turning transparent or brown.</li>
+                        <li>Older leaves melting while <strong>new growth</strong> appears.</li>
+                        <li>The plant stays rooted and the stem/rhizome is firm.</li>
+                    </ul>
+                    <p><strong>Why:</strong> Many plants (especially <em>Cryptocoryne</em>) "reset" when moved. Simply
+                        trim the dead leaves and let the plant regrow stronger.</p>
+                </div>
             </div>
 
-            <!-- Fertilization -->
-            <div class="info-card" style="border-top-color: #8e44ad;">
-                <h3 style="color: #8e44ad;">🧪 Fertilization Tips</h3>
-                <p><strong>When to start:</strong> If using rich Aquasoil, wait 1–2 months before adding liquid ferts. If using sand, start immediately.</p>
-                <p><strong>Methods:</strong> Use <strong>Liquid Fertilizer</strong> for column feeders (Moss, Ferns, Stems) and <strong>Root Tabs</strong> for heavy root feeders (Swords, Crypts).</p>
-                <p><strong>CO2:</strong> Not required for "Easy" plants, but "Hard" plants will die without a pressurized CO2 system.</p>
-            </div>
-
-            <!-- Algae Control -->
-            <div class="info-card" style="border-top-color: #1e90ff;">
-                <h3>🛡️ The Balancing Act</h3>
-                <p>Algae is caused by an imbalance between Light and Nutrients. If you have too much light and not enough plants/nutrients, algae will win. If you have too many nutrients and not enough light, algae will win. Consistency is key!</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- MOSSES -->
-    <div class="collapsible-header" onclick="toggleSection('mossGrid', this)">
-        <h2 class="category-title">Mosses (Low Light & Versatile)</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div class="plant-grid" id="mossGrid">
-        <!-- Java Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/java.jpg" alt="Taxiphyllum barbieri" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Taxiphyllum barbieri</h4>
-                <span>(Java Moss)</span>
-                <p class="difficulty easy">Easy</p>
+            <!-- Melting Photo Placeholders -->
+            <h3 style="color: #a0c4ff; font-size: 0.9rem; margin-top: 20px; text-transform: uppercase;">Visual
+                Identification of Melting:</h3>
+            <div class="plant-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));">
+                <div class="plant-card"><img src="Plants/Problems/melt1.jpg" alt="Melt Example"
+                        onerror="this.src='Icon.png'"></div>
+                <div class="plant-card"><img src="Plants/Problems/melt2.jpg" alt="Melt Example"
+                        onerror="this.src='Icon.png'"></div>
+                <div class="plant-card"><img src="Plants/Problems/melt3.jpg" alt="Melt Example"
+                        onerror="this.src='Icon.png'"></div>
+                <div class="plant-card"><img src="Plants/Problems/melt4.jpg" alt="Melt Example"
+                        onerror="this.src='Icon.png'"></div>
+                <div class="plant-card"><img src="Plants/Problems/melt5.jpg" alt="Melt Example"
+                        onerror="this.src='Icon.png'"></div>
             </div>
         </div>
 
-        <!-- Christmas Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/christmas.jpg" alt="Vesicularia montagnei" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Vesicularia montagnei</h4>
-                <span>(Christmas Moss)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Requires regular pruning to prevent the lower layers from rotting.</p>
+        <!-- LIGHTING & NUTRITION -->
+        <div class="collapsible-header" onclick="toggleSection('nutritionContent', this)">
+            <h2 class="category-title" style="color: #8e44ad;">Lighting & Nutrition</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+
+        <div id="nutritionContent" class="collapsible-content">
+            <div class="setup-section">
+                <!-- Lighting -->
+                <div class="info-card" style="border-top-color: #f1c40f;">
+                    <h3 style="color: #f1c40f;">💡 Lighting Guide</h3>
+                    <p><strong>Duration:</strong> Aim for 6–8 hours of light per day. Using a timer is highly
+                        recommended to maintain consistency.</p>
+                    <p><strong>Warning:</strong> Lighting for 10+ hours often leads to massive algae outbreaks. If you
+                        have algae, reduce the intensity or the duration.</p>
+                    <p><strong>Intensity:</strong> Low-light plants (Moss/Ferns) can sit in corners; high-light plants
+                        (Carpets/Red stems) need to be directly under the light.</p>
+                </div>
+
+                <!-- Fertilization -->
+                <div class="info-card" style="border-top-color: #8e44ad;">
+                    <h3 style="color: #8e44ad;">🧪 Fertilization Tips</h3>
+                    <p><strong>When to start:</strong> If using rich Aquasoil, wait 1–2 months before adding liquid
+                        ferts. If using sand, start immediately.</p>
+                    <p><strong>Methods:</strong> Use <strong>Liquid Fertilizer</strong> for column feeders (Moss, Ferns,
+                        Stems) and <strong>Root Tabs</strong> for heavy root feeders (Swords, Crypts).</p>
+                    <p><strong>CO2:</strong> Not required for "Easy" plants, but "Hard" plants will die without a
+                        pressurized CO2 system.</p>
+                </div>
+
+                <!-- Algae Control -->
+                <div class="info-card" style="border-top-color: #1e90ff;">
+                    <h3>🛡️ The Balancing Act</h3>
+                    <p>Algae is caused by an imbalance between Light and Nutrients. If you have too much light and not
+                        enough plants/nutrients, algae will win. If you have too many nutrients and not enough light,
+                        algae will win. Consistency is key!</p>
+                </div>
             </div>
         </div>
 
-        <!-- Flame Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/flame.jpg" alt="Taxiphyllum 'Flame'" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Taxiphyllum 'Flame'</h4>
-                <span>(Flame Moss)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
+        <!-- MOSSES -->
+        <div class="collapsible-header" onclick="toggleSection('mossGrid', this)">
+            <h2 class="category-title">Mosses (Low Light & Versatile)</h2>
+            <span class="toggle-icon">▼</span>
         </div>
-
-        <!-- Phoenix Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/fissidens.jpg" alt="Fissidens fontanus" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Fissidens fontanus</h4>
-                <span>(Phoenix Moss)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Sensitive to sudden water parameter changes and high temperatures.</p>
-            </div>
-        </div>
-
-        <!-- Pellia -->
-        <div class="plant-card">
-            <img src="Plants/Moss/pellia.jpg" alt="Monosolenium tenerum" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Monosolenium tenerum</h4>
-                <span>(Pellia)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Extremely brittle structure; very difficult to anchor without breaking.</p>
-            </div>
-        </div>
-
-        <!-- Fissidens Miroshaki -->
-        <div class="plant-card">
-            <img src="Plants/Moss/miroshaki.jpg" alt="Fissidens sp. Miroshaki" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Fissidens sp. 'Miroshaki'</h4>
-                <span>(Miroshaki Moss)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Very slow growth rate makes it highly susceptible to algae growth.</p>
-            </div>
-        </div>
-
-        <!-- Fissidens Poland -->
-        <div class="plant-card">
-            <img src="Plants/Moss/poland.jpg" alt="Fissidens sp. Poland" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Fissidens sp. 'Poland'</h4>
-                <span>(Poland Moss)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Demands very stable, cool water and high oxygen levels to thrive.</p>
-            </div>
-        </div>
-
-        <!-- Amblystegium Serpens -->
-        <div class="plant-card">
-            <img src="Plants/Moss/nanomoss.jpg" alt="Amblystegium serpens" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Amblystegium serpens</h4>
-                <span>(Nano Moss)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Marimo Moss Ball -->
-        <div class="plant-card">
-            <img src="Plants/Moss/marimo.jpg" alt="Aegagropila linnaei" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Aegagropila linnaei</h4>
-                <span>(Marimo Moss Ball)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Willow Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/willow.jpg" alt="Fontinalis antipyretica" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Fontinalis antipyretica</h4>
-                <span>(Willow Moss)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Stringy Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/stringy.jpg" alt="Leptodictyum riparium" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Leptodictyum riparium</h4>
-                <span>(Stringy Moss)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Süsswassertang -->
-        <div class="plant-card">
-            <img src="Plants/Moss/susswassertang.jpg" alt="Lomariopsis lineata" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Lomariopsis lineata</h4>
-                <span>(Süsswassertang)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Pearl Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/pearl.jpg" alt="Plagiomnium cf. Affine" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Plagiomnium cf. 'Affine'</h4>
-                <span>(Pearl Moss)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Requires very clean, filtered water and moderate lighting to prevent browning.</p>
-            </div>
-        </div>
-
-        <!-- Coral Moss / Mini Pellia -->
-        <div class="plant-card">
-            <img src="Plants/Moss/coral.jpg" alt="Riccardia chamedryfolia" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Riccardia chamedryfolia</h4>
-                <span>(Coral Moss / Mini Pellia)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Sensitive to liquid CO2 (Glutaraldehyde) and very slow to establish.</p>
-            </div>
-        </div>
-
-        <!-- Taiwan Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/taiwan.jpg" alt="Taxiphyllum alternans" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Taxiphyllum alternans</h4>
-                <span>(Taiwan Moss)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Spiky Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/spiky.jpg" alt="Taxiphyllum sp. Spiky" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Taxiphyllum sp. 'Spiky'</h4>
-                <span>(Spiky Moss)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Weeping Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/weeping.jpg" alt="Vesicularia ferriei" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Vesicularia ferriei</h4>
-                <span>(Weeping Moss)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Traps detritus easily; needs consistent water flow to keep the fronds clean.</p>
-            </div>
-        </div>
-
-        <!-- Erect Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/erect.jpg" alt="Vesicularia reticulata" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Vesicularia reticulata</h4>
-                <span>(Erect Moss)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Requires strong vertical light to maintain its distinctive upright growth habit.</p>
-            </div>
-        </div>
-
-        <!-- Creeping Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/creeping.jpg" alt="Vesicularia species" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Vesicularia sp.</h4>
-                <span>(Creeping Moss)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Mini Christmas Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/mini_christmas.jpg" alt="Vesicularia species" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Vesicularia sp. 'Mini Christmas'</h4>
-                <span>(Mini Christmas Moss)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Triangle Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/triangle.jpg" alt="Vesicularia species" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Vesicularia sp. 'Triangelmoos'</h4>
-                <span>(Triangle Moss)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Riccia Moss -->
-        <div class="plant-card">
-            <img src="Plants/Moss/riccia.jpg" alt="Riccia fluitans" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Riccia fluitans</h4>
-                <span>(Riccia Moss / Crystalwort)</span>
-                <p class="difficulty moderate">Moderate</p>
-                <p class="diff-reason">Has no roots; must be tied down with mesh or line. Requires heavy trimming to prevent the bottom from rotting and floating away.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- STEM PLANTS -->
-<div class="collapsible-header" onclick="toggleSection('stemGrid', this)">
-    <h2 class="category-title">Stem Plants (Fast Growers)</h2>
-    <span class="toggle-icon">▼</span>
-</div>
-<div class="plant-grid" id="stemGrid">
-    <!-- Rotala rotundifolia -->
-    <div class="plant-card">
-        <img src="Plants/Stems/rotala.jpg" alt="Rotala rotundifolia" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Rotala rotundifolia</h4>
-            <span>(Rotala)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Ludwigia repens -->
-    <div class="plant-card">
-        <img src="Plants/Stems/ludwigia.jpg" alt="Ludwigia repens" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Ludwigia repens</h4>
-            <span>(Red Ludwigia)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Bacopa caroliniana -->
-    <div class="plant-card">
-        <img src="Plants/Stems/bacopa.jpg" alt="Bacopa caroliniana" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Bacopa caroliniana</h4>
-            <span>(Giant Bacopa)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Hornwort -->
-    <div class="plant-card">
-        <img src="Plants/Stems/hornwort.jpg" alt="Ceratophyllum demersum" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Ceratophyllum demersum</h4>
-            <span>(Hornwort)</span>
-            <p class="difficulty easy">Easy</p>
-            <p class="diff-reason">It will release its spikes and it can make a mess.</p>
-        </div>
-    </div>
-
-    <!-- Water Wisteria -->
-    <div class="plant-card">
-        <img src="Plants/Stems/wisteria.jpg" alt="Hygrophila difformis" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Hygrophila difformis</h4>
-            <span>(Water Wisteria)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Hygrophila pinnatifida -->
-    <div class="plant-card">
-        <img src="Plants/Stems/pinnatifida.jpg" alt="Hygrophila pinnatifida" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Hygrophila pinnatifida</h4>
-            <span>(Fern Hygrophila)</span>
-            <p class="difficulty medium">Medium</p>
-            <p class="diff-reason">A unique stem plant that can also be attached to wood. Requires high potassium and iron to stay healthy.</p>
-        </div>
-    </div>
-
-    <!-- Hygrophila polysperma -->
-    <div class="plant-card">
-        <img src="Plants/Stems/polysperma.jpg" alt="Hygrophila polysperma" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Hygrophila polysperma</h4>
-            <span>(Dwarf Hygro)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Hygrophila corymbosa -->
-    <div class="plant-card">
-        <img src="Plants/Stems/corymbosa.jpg" alt="Hygrophila corymbosa" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Hygrophila corymbosa</h4>
-            <span>(Giant Hygro / Temple Plant)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Hygrophila siamensis -->
-    <div class="plant-card">
-        <img src="Plants/Stems/siamensis.jpg" alt="Hygrophila siamensis" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Hygrophila corymbosa 'Siamensis'</h4>
-            <span>(Narrow Leaf Hygro)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Alternanthera Reineckii -->
-    <div class="plant-card">
-        <img src="Plants/Stems/ar_pink.jpg" alt="Alternanthera reineckii" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Alternanthera reineckii</h4>
-            <span>(Scarlet Temple)</span>
-            <p class="difficulty medium">Medium</p>
-            <p class="diff-reason">Needs high light and iron to stay red; very prone to melting if moved frequently.</p>
-        </div>
-    </div>
-
-    <!-- Pogostemon Helferi -->
-    <div class="plant-card">
-        <img src="Plants/Stems/pogo_helferi.jpg" alt="Pogostemon helferi" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Pogostemon helferi</h4>
-            <span>(Downoi)</span>
-            <p class="difficulty medium">Medium</p>
-            <p class="diff-reason">Requires stable CO2 levels and is highly sensitive to liquid carbon additives.</p>
-        </div>
-    </div>
-
-    <!-- Pogostemon stellatus 'Octopus' -->
-    <div class="plant-card">
-        <img src="Plants/Stems/octopus.jpg" alt="Pogostemon stellatus Octopus" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Pogostemon stellatus 'Octopus'</h4>
-            <span>(Octopus Plant)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Pogostemon erectus -->
-    <div class="plant-card">
-        <img src="Plants/Stems/erectus.jpg" alt="Pogostemon erectus" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Pogostemon erectus</h4>
-            <span>(Pogostemon Erectus)</span>
-            <p class="difficulty medium">Medium</p>
-            <p class="diff-reason">Requires moderate to high light and consistent nutrition to prevent the lower needles from shedding.</p>
-        </div>
-    </div>
-
-    <!-- Rotala Macrandra -->
-    <div class="plant-card">
-        <img src="Plants/Stems/rotala_macrandra.jpg" alt="Rotala macrandra" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Rotala macrandra</h4>
-            <span>(Giant Red Rotala)</span>
-            <p class="difficulty hard">Hard</p>
-            <p class="diff-reason">Demands very soft water, high CO2, and precise dosing; will die quickly if parameters drift.</p>
-        </div>
-    </div>
-
-    <!-- Rotala indica -->
-    <div class="plant-card">
-        <img src="Plants/Stems/indica.jpg" alt="Rotala indica aquarium plant" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Rotala indica</h4>
-            <span>(Bonsai Rotala / Indian Toothcup)</span>
-            <p class="difficulty medium">Medium</p>
-            <p class="diff-reason">Requires high light and stable CO2 to maintain its unique upright 'bonsai' growth habit.</p>
-        </div>
-    </div>
-
-    <!-- Egeria densa -->
-    <div class="plant-card">
-        <img src="Plants/Stems/egeria_densa.jpg" alt="Egeria densa" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Egeria densa</h4>
-            <span>(Anacharis / Brazilian Elodea)</span>
-            <p class="difficulty easy">Easy</p>
-            <p class="diff-reason">One of the best oxygenators; prefers cooler water and may melt if temperatures stay above 27°C.</p>
-        </div>
-    </div>
-
-    <!-- Egeria najas -->
-    <div class="plant-card">
-        <img src="Plants/Stems/egeria_najas.jpg" alt="Egeria najas" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Egeria najas</h4>
-            <span>(Narrow-leaf Anacharis)</span>
-            <p class="difficulty easy">Easy</p>
-            <p class="diff-reason">A fast-growing nutrient sponge; more tolerant of high temperatures than Egeria densa.</p>
-        </div>
-    </div>
-
-    <!-- Limnophila sessiliflora -->
-    <div class="plant-card">
-        <img src="Plants/Stems/sessiliflora.jpg" alt="Limnophila sessiliflora" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Limnophila sessiliflora</h4>
-            <span>(Asian Ambulia)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Ludwigia Palustris Super Red -->
-    <div class="plant-card">
-        <img src="Plants/Stems/super_red.jpg" alt="Ludwigia palustris Super Red" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Ludwigia palustris 'Super Red'</h4>
-            <span>(Mini Super Red)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Moneywort -->
-    <div class="plant-card">
-        <img src="Plants/Stems/moneywort.jpg" alt="Bacopa monnieri" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Bacopa monnieri</h4>
-            <span>(Moneywort)</span>
-            <p class="difficulty easy">Easy</p>
-        </div>
-    </div>
-
-    <!-- Myriophyllum Mattogrossense -->
-    <div class="plant-card">
-        <img src="Plants/Stems/myrio.jpg" alt="Myriophyllum mattogrossense" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Myriophyllum mattogrossense</h4>
-            <span>(Red Myrio)</span>
-            <p class="difficulty medium">Medium</p>
-            <p class="diff-reason">Extremely fine leaves trap debris easily; requires high light to prevent bottom leaves from shedding.</p>
-        </div>
-    </div>
-</div>
-
-    <!-- CARPETS -->
-    <div class="collapsible-header" onclick="toggleSection('carpetContent', this)">
-        <h2 class="category-title">Carpet Plants (The Foreground)</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-
-    <!-- Wrapper for everything that collapses -->
-    <div id="carpetContent">
-        
-        <!-- Pro Tip inside the collapsible area -->
-        <div class="info-card" style="margin-top: 20px; border-top: none; border-left: 5px solid #f1c40f; background: rgba(241, 196, 15, 0.05);">
-            <h3 style="color: #f1c40f; font-size: 0.9rem;">✨ Pro Tip: The Dry Start Method</h3>
-            <p style="margin-bottom: 0;">For the best results with carpet plants, try planting them in damp soil <strong>without filling the tank</strong> for 4-6 weeks. Keep the tank covered with plastic wrap and mist daily. This allows the tiny roots to anchor and spread across the substrate without competing with algae or floating away.</p>
-        </div>
-
-        <div class="plant-grid" id="carpetGrid">
-            <!-- Pearl Weed -->
+        <div class="plant-grid" id="mossGrid">
+            <!-- Java Moss -->
             <div class="plant-card">
-                <img src="Plants/Carpets/pearl_weed.jpg" alt="Hemianthus micranthemoides" onerror="this.src='Icon.png'">
+                <img src="Plants/Moss/java.jpg" alt="Taxiphyllum barbieri" onerror="this.src='Icon.png'">
                 <div class="name-tag">
-                    <h4>Hemianthus micranthemoides</h4>
-                    <span>(Pearl Weed)</span>
+                    <h4>Taxiphyllum barbieri</h4>
+                    <span>(Java Moss)</span>
                     <p class="difficulty easy">Easy</p>
                 </div>
             </div>
 
-            <!-- Pygmy Chain Sword -->
-        <div class="plant-card">
-            <img src="Plants/Carpets/tenellum.jpg" alt="Helanthium tenellum" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Helanthium tenellum</h4>
-                <span>(Pygmy Chain Sword)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">A "runner" plant that needs a nutrient-rich substrate (or root tabs) to spread; under low light, it will grow taller rather than forming a flat carpet.</p>
-            </div>
-        </div>
-        
-            <!-- Monte Carlo -->
+            <!-- Christmas Moss -->
             <div class="plant-card">
-                <img src="Plants/Carpets/monte_carlo.jpg" alt="Micranthemum Monte Carlo" onerror="this.src='Icon.png'">
+                <img src="Plants/Moss/christmas.jpg" alt="Vesicularia montagnei" onerror="this.src='Icon.png'">
                 <div class="name-tag">
-                    <h4>Micranthemum 'Monte Carlo'</h4>
-                    <span>(Monte Carlo)</span>
+                    <h4>Vesicularia montagnei</h4>
+                    <span>(Christmas Moss)</span>
                     <p class="difficulty medium">Medium</p>
-                    <p class="diff-reason">Requires high light and consistent CO2 to grow 'flat' along the substrate rather than upwards.</p>
+                    <p class="diff-reason">Requires regular pruning to prevent the lower layers from rotting.</p>
                 </div>
             </div>
 
-            <!-- Dwarf Hairgrass -->
+            <!-- Flame Moss -->
             <div class="plant-card">
-                <img src="Plants/Carpets/hairgrass.jpg" alt="Eleocharis acicularis" onerror="this.src='Icon.png'">
+                <img src="Plants/Moss/flame.jpg" alt="Taxiphyllum 'Flame'" onerror="this.src='Icon.png'">
                 <div class="name-tag">
-                    <h4>Eleocharis acicularis</h4>
-                    <span>(Dwarf Hairgrass)</span>
-                    <p class="difficulty medium">Medium</p>
-                    <p class="diff-reason">Needs very fine substrate and frequent 'haircuts' to trigger the growth of horizontal runners.</p>
-                </div>
-            </div>
-
-            <!-- Marsilea Hirsuta -->
-            <div class="plant-card">
-                <img src="Plants/Carpets/marsilea.jpg" alt="Marsilea hirsuta" onerror="this.src='Icon.png'">
-                <div class="name-tag">
-                    <h4>Marsilea hirsuta</h4>
-                    <span>(Dwarf Water Clover)</span>
+                    <h4>Taxiphyllum 'Flame'</h4>
+                    <span>(Flame Moss)</span>
                     <p class="difficulty easy">Easy</p>
                 </div>
             </div>
 
-            <!-- Glossostigma -->
+            <!-- Phoenix Moss -->
             <div class="plant-card">
-                <img src="Plants/Carpets/glosso.jpg" alt="Glossostigma elatinoides" onerror="this.src='Icon.png'">
+                <img src="Plants/Moss/fissidens.jpg" alt="Fissidens fontanus" onerror="this.src='Icon.png'">
                 <div class="name-tag">
-                    <h4>Glossostigma elatinoides</h4>
-                    <span>(Glosso)</span>
+                    <h4>Fissidens fontanus</h4>
+                    <span>(Phoenix Moss)</span>
                     <p class="difficulty medium">Medium</p>
-                    <p class="diff-reason">If light is even slightly insufficient, it will grow tall like a stem plant instead of crawling.</p>
+                    <p class="diff-reason">Sensitive to sudden water parameter changes and high temperatures.</p>
                 </div>
             </div>
 
-            <!-- Dwarf Baby Tears (HC Cuba) -->
+            <!-- Pellia -->
             <div class="plant-card">
-                <img src="Plants/Carpets/hccuba.jpg" alt="Hemianthus callitrichoides Cuba" onerror="this.src='Icon.png'">
+                <img src="Plants/Moss/pellia.jpg" alt="Monosolenium tenerum" onerror="this.src='Icon.png'">
                 <div class="name-tag">
-                    <h4>Hemianthus callitrichoides 'Cuba'</h4>
-                    <span>(HC Cuba / Dwarf Baby Tears)</span>
+                    <h4>Monosolenium tenerum</h4>
+                    <span>(Pellia)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Extremely brittle structure; very difficult to anchor without breaking.</p>
+                </div>
+            </div>
+
+            <!-- Fissidens Miroshaki -->
+            <div class="plant-card">
+                <img src="Plants/Moss/miroshaki.jpg" alt="Fissidens sp. Miroshaki" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Fissidens sp. 'Miroshaki'</h4>
+                    <span>(Miroshaki Moss)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Very slow growth rate makes it highly susceptible to algae growth.</p>
+                </div>
+            </div>
+
+            <!-- Fissidens Poland -->
+            <div class="plant-card">
+                <img src="Plants/Moss/poland.jpg" alt="Fissidens sp. Poland" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Fissidens sp. 'Poland'</h4>
+                    <span>(Poland Moss)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Demands very stable, cool water and high oxygen levels to thrive.</p>
+                </div>
+            </div>
+
+            <!-- Amblystegium Serpens -->
+            <div class="plant-card">
+                <img src="Plants/Moss/nanomoss.jpg" alt="Amblystegium serpens" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Amblystegium serpens</h4>
+                    <span>(Nano Moss)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Marimo Moss Ball -->
+            <div class="plant-card">
+                <img src="Plants/Moss/marimo.jpg" alt="Aegagropila linnaei" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Aegagropila linnaei</h4>
+                    <span>(Marimo Moss Ball)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Willow Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/willow.jpg" alt="Fontinalis antipyretica" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Fontinalis antipyretica</h4>
+                    <span>(Willow Moss)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Stringy Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/stringy.jpg" alt="Leptodictyum riparium" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Leptodictyum riparium</h4>
+                    <span>(Stringy Moss)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Süsswassertang -->
+            <div class="plant-card">
+                <img src="Plants/Moss/susswassertang.jpg" alt="Lomariopsis lineata" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Lomariopsis lineata</h4>
+                    <span>(Süsswassertang)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Pearl Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/pearl.jpg" alt="Plagiomnium cf. Affine" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Plagiomnium cf. 'Affine'</h4>
+                    <span>(Pearl Moss)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Requires very clean, filtered water and moderate lighting to prevent
+                        browning.</p>
+                </div>
+            </div>
+
+            <!-- Coral Moss / Mini Pellia -->
+            <div class="plant-card">
+                <img src="Plants/Moss/coral.jpg" alt="Riccardia chamedryfolia" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Riccardia chamedryfolia</h4>
+                    <span>(Coral Moss / Mini Pellia)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Sensitive to liquid CO2 (Glutaraldehyde) and very slow to establish.</p>
+                </div>
+            </div>
+
+            <!-- Taiwan Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/taiwan.jpg" alt="Taxiphyllum alternans" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Taxiphyllum alternans</h4>
+                    <span>(Taiwan Moss)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Spiky Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/spiky.jpg" alt="Taxiphyllum sp. Spiky" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Taxiphyllum sp. 'Spiky'</h4>
+                    <span>(Spiky Moss)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Weeping Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/weeping.jpg" alt="Vesicularia ferriei" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vesicularia ferriei</h4>
+                    <span>(Weeping Moss)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Traps detritus easily; needs consistent water flow to keep the fronds clean.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Erect Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/erect.jpg" alt="Vesicularia reticulata" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vesicularia reticulata</h4>
+                    <span>(Erect Moss)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Requires strong vertical light to maintain its distinctive upright growth
+                        habit.</p>
+                </div>
+            </div>
+
+            <!-- Creeping Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/creeping.jpg" alt="Vesicularia species" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vesicularia sp.</h4>
+                    <span>(Creeping Moss)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Mini Christmas Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/mini_christmas.jpg" alt="Vesicularia species" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vesicularia sp. 'Mini Christmas'</h4>
+                    <span>(Mini Christmas Moss)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Triangle Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/triangle.jpg" alt="Vesicularia species" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vesicularia sp. 'Triangelmoos'</h4>
+                    <span>(Triangle Moss)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Riccia Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/riccia.jpg" alt="Riccia fluitans" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Riccia fluitans</h4>
+                    <span>(Riccia Moss / Crystalwort)</span>
+                    <p class="difficulty moderate">Moderate</p>
+                    <p class="diff-reason">Has no roots; must be tied down with mesh or line. Requires heavy trimming to
+                        prevent the bottom from rotting and floating away.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEM PLANTS -->
+        <div class="collapsible-header" onclick="toggleSection('stemGrid', this)">
+            <h2 class="category-title">Stem Plants (Fast Growers)</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="plant-grid" id="stemGrid">
+            <!-- Rotala rotundifolia -->
+            <div class="plant-card">
+                <img src="Plants/Stems/rotala.jpg" alt="Rotala rotundifolia" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Rotala rotundifolia</h4>
+                    <span>(Rotala)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Ludwigia repens -->
+            <div class="plant-card">
+                <img src="Plants/Stems/ludwigia.jpg" alt="Ludwigia repens" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Ludwigia repens</h4>
+                    <span>(Red Ludwigia)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Bacopa caroliniana -->
+            <div class="plant-card">
+                <img src="Plants/Stems/bacopa.jpg" alt="Bacopa caroliniana" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Bacopa caroliniana</h4>
+                    <span>(Giant Bacopa)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Hornwort -->
+            <div class="plant-card">
+                <img src="Plants/Stems/hornwort.jpg" alt="Ceratophyllum demersum" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Ceratophyllum demersum</h4>
+                    <span>(Hornwort)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">It will release its spikes and it can make a mess.</p>
+                </div>
+            </div>
+
+            <!-- Water Wisteria -->
+            <div class="plant-card">
+                <img src="Plants/Stems/wisteria.jpg" alt="Hygrophila difformis" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hygrophila difformis</h4>
+                    <span>(Water Wisteria)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Hygrophila pinnatifida -->
+            <div class="plant-card">
+                <img src="Plants/Stems/pinnatifida.jpg" alt="Hygrophila pinnatifida" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hygrophila pinnatifida</h4>
+                    <span>(Fern Hygrophila)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">A unique stem plant that can also be attached to wood. Requires high
+                        potassium and iron to stay healthy.</p>
+                </div>
+            </div>
+
+            <!-- Hygrophila polysperma -->
+            <div class="plant-card">
+                <img src="Plants/Stems/polysperma.jpg" alt="Hygrophila polysperma" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hygrophila polysperma</h4>
+                    <span>(Dwarf Hygro)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Hygrophila corymbosa -->
+            <div class="plant-card">
+                <img src="Plants/Stems/corymbosa.jpg" alt="Hygrophila corymbosa" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hygrophila corymbosa</h4>
+                    <span>(Giant Hygro / Temple Plant)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Hygrophila siamensis -->
+            <div class="plant-card">
+                <img src="Plants/Stems/siamensis.jpg" alt="Hygrophila siamensis" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hygrophila corymbosa 'Siamensis'</h4>
+                    <span>(Narrow Leaf Hygro)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Alternanthera Reineckii -->
+            <div class="plant-card">
+                <img src="Plants/Stems/ar_pink.jpg" alt="Alternanthera reineckii" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Alternanthera reineckii</h4>
+                    <span>(Scarlet Temple)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Needs high light and iron to stay red; very prone to melting if moved
+                        frequently.</p>
+                </div>
+            </div>
+
+            <!-- Pogostemon Helferi -->
+            <div class="plant-card">
+                <img src="Plants/Stems/pogo_helferi.jpg" alt="Pogostemon helferi" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Pogostemon helferi</h4>
+                    <span>(Downoi)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Requires stable CO2 levels and is highly sensitive to liquid carbon
+                        additives.</p>
+                </div>
+            </div>
+
+            <!-- Pogostemon stellatus 'Octopus' -->
+            <div class="plant-card">
+                <img src="Plants/Stems/octopus.jpg" alt="Pogostemon stellatus Octopus" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Pogostemon stellatus 'Octopus'</h4>
+                    <span>(Octopus Plant)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Pogostemon erectus -->
+            <div class="plant-card">
+                <img src="Plants/Stems/erectus.jpg" alt="Pogostemon erectus" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Pogostemon erectus</h4>
+                    <span>(Pogostemon Erectus)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Requires moderate to high light and consistent nutrition to prevent the lower
+                        needles from shedding.</p>
+                </div>
+            </div>
+
+            <!-- Rotala Macrandra -->
+            <div class="plant-card">
+                <img src="Plants/Stems/rotala_macrandra.jpg" alt="Rotala macrandra" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Rotala macrandra</h4>
+                    <span>(Giant Red Rotala)</span>
                     <p class="difficulty hard">Hard</p>
-                    <p class="diff-reason">Tiny roots require specialized 'powder' substrate and very high CO2 levels to avoid floating away or dying.</p>
+                    <p class="diff-reason">Demands very soft water, high CO2, and precise dosing; will die quickly if
+                        parameters drift.</p>
                 </div>
             </div>
 
-            <!-- Micro Sword -->
+            <!-- Rotala indica -->
             <div class="plant-card">
-                <img src="Plants/Carpets/micro_sword.jpg" alt="Lilaeopsis brasiliensis" onerror="this.src='Icon.png'">
+                <img src="Plants/Stems/indica.jpg" alt="Rotala indica aquarium plant" onerror="this.src='Icon.png'">
                 <div class="name-tag">
-                    <h4>Lilaeopsis brasiliensis</h4>
-                    <span>(Micro Sword)</span>
+                    <h4>Rotala indica</h4>
+                    <span>(Bonsai Rotala / Indian Toothcup)</span>
                     <p class="difficulty medium">Medium</p>
-                    <p class="diff-reason">Extremely slow grower; requires patience and very clean water to prevent algae from choking the leaves.</p>
+                    <p class="diff-reason">Requires high light and stable CO2 to maintain its unique upright 'bonsai'
+                        growth habit.</p>
+                </div>
+            </div>
+
+            <!-- Egeria densa -->
+            <div class="plant-card">
+                <img src="Plants/Stems/egeria_densa.jpg" alt="Egeria densa" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Egeria densa</h4>
+                    <span>(Anacharis / Brazilian Elodea)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">One of the best oxygenators; prefers cooler water and may melt if
+                        temperatures stay above 27°C.</p>
+                </div>
+            </div>
+
+            <!-- Egeria najas -->
+            <div class="plant-card">
+                <img src="Plants/Stems/egeria_najas.jpg" alt="Egeria najas" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Egeria najas</h4>
+                    <span>(Narrow-leaf Anacharis)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">A fast-growing nutrient sponge; more tolerant of high temperatures than
+                        Egeria densa.</p>
+                </div>
+            </div>
+
+            <!-- Limnophila sessiliflora -->
+            <div class="plant-card">
+                <img src="Plants/Stems/sessiliflora.jpg" alt="Limnophila sessiliflora" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Limnophila sessiliflora</h4>
+                    <span>(Asian Ambulia)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Ludwigia Palustris Super Red -->
+            <div class="plant-card">
+                <img src="Plants/Stems/super_red.jpg" alt="Ludwigia palustris Super Red" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Ludwigia palustris 'Super Red'</h4>
+                    <span>(Mini Super Red)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Moneywort -->
+            <div class="plant-card">
+                <img src="Plants/Stems/moneywort.jpg" alt="Bacopa monnieri" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Bacopa monnieri</h4>
+                    <span>(Moneywort)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Myriophyllum Mattogrossense -->
+            <div class="plant-card">
+                <img src="Plants/Stems/myrio.jpg" alt="Myriophyllum mattogrossense" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Myriophyllum mattogrossense</h4>
+                    <span>(Red Myrio)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Extremely fine leaves trap debris easily; requires high light to prevent
+                        bottom leaves from shedding.</p>
                 </div>
             </div>
         </div>
+
+        <!-- CARPETS -->
+        <div class="collapsible-header" onclick="toggleSection('carpetContent', this)">
+            <h2 class="category-title">Carpet Plants (The Foreground)</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+
+        <!-- Wrapper for everything that collapses -->
+        <div id="carpetContent">
+
+            <!-- Pro Tip inside the collapsible area -->
+            <div class="info-card"
+                style="margin-top: 20px; border-top: none; border-left: 5px solid #f1c40f; background: rgba(241, 196, 15, 0.05);">
+                <h3 style="color: #f1c40f; font-size: 0.9rem;">✨ Pro Tip: The Dry Start Method</h3>
+                <p style="margin-bottom: 0;">For the best results with carpet plants, try planting them in damp soil
+                    <strong>without filling the tank</strong> for 4-6 weeks. Keep the tank covered with plastic wrap and
+                    mist daily. This allows the tiny roots to anchor and spread across the substrate without competing
+                    with algae or floating away.
+                </p>
+            </div>
+
+            <div class="plant-grid" id="carpetGrid">
+                <!-- Pearl Weed -->
+                <div class="plant-card">
+                    <img src="Plants/Carpets/pearl_weed.jpg" alt="Hemianthus micranthemoides"
+                        onerror="this.src='Icon.png'">
+                    <div class="name-tag">
+                        <h4>Hemianthus micranthemoides</h4>
+                        <span>(Pearl Weed)</span>
+                        <p class="difficulty easy">Easy</p>
+                    </div>
+                </div>
+
+                <!-- Pygmy Chain Sword -->
+                <div class="plant-card">
+                    <img src="Plants/Carpets/tenellum.jpg" alt="Helanthium tenellum" onerror="this.src='Icon.png'">
+                    <div class="name-tag">
+                        <h4>Helanthium tenellum</h4>
+                        <span>(Pygmy Chain Sword)</span>
+                        <p class="difficulty easy">Easy</p>
+                        <p class="diff-reason">A "runner" plant that needs a nutrient-rich substrate (or root tabs) to
+                            spread; under low light, it will grow taller rather than forming a flat carpet.</p>
+                    </div>
+                </div>
+
+                <!-- Monte Carlo -->
+                <div class="plant-card">
+                    <img src="Plants/Carpets/monte_carlo.jpg" alt="Micranthemum Monte Carlo"
+                        onerror="this.src='Icon.png'">
+                    <div class="name-tag">
+                        <h4>Micranthemum 'Monte Carlo'</h4>
+                        <span>(Monte Carlo)</span>
+                        <p class="difficulty medium">Medium</p>
+                        <p class="diff-reason">Requires high light and consistent CO2 to grow 'flat' along the substrate
+                            rather than upwards.</p>
+                    </div>
+                </div>
+
+                <!-- Dwarf Hairgrass -->
+                <div class="plant-card">
+                    <img src="Plants/Carpets/hairgrass.jpg" alt="Eleocharis acicularis" onerror="this.src='Icon.png'">
+                    <div class="name-tag">
+                        <h4>Eleocharis acicularis</h4>
+                        <span>(Dwarf Hairgrass)</span>
+                        <p class="difficulty medium">Medium</p>
+                        <p class="diff-reason">Needs very fine substrate and frequent 'haircuts' to trigger the growth
+                            of horizontal runners.</p>
+                    </div>
+                </div>
+
+                <!-- Marsilea Hirsuta -->
+                <div class="plant-card">
+                    <img src="Plants/Carpets/marsilea.jpg" alt="Marsilea hirsuta" onerror="this.src='Icon.png'">
+                    <div class="name-tag">
+                        <h4>Marsilea hirsuta</h4>
+                        <span>(Dwarf Water Clover)</span>
+                        <p class="difficulty easy">Easy</p>
+                    </div>
+                </div>
+
+                <!-- Glossostigma -->
+                <div class="plant-card">
+                    <img src="Plants/Carpets/glosso.jpg" alt="Glossostigma elatinoides" onerror="this.src='Icon.png'">
+                    <div class="name-tag">
+                        <h4>Glossostigma elatinoides</h4>
+                        <span>(Glosso)</span>
+                        <p class="difficulty medium">Medium</p>
+                        <p class="diff-reason">If light is even slightly insufficient, it will grow tall like a stem
+                            plant instead of crawling.</p>
+                    </div>
+                </div>
+
+                <!-- Dwarf Baby Tears (HC Cuba) -->
+                <div class="plant-card">
+                    <img src="Plants/Carpets/hccuba.jpg" alt="Hemianthus callitrichoides Cuba"
+                        onerror="this.src='Icon.png'">
+                    <div class="name-tag">
+                        <h4>Hemianthus callitrichoides 'Cuba'</h4>
+                        <span>(HC Cuba / Dwarf Baby Tears)</span>
+                        <p class="difficulty hard">Hard</p>
+                        <p class="diff-reason">Tiny roots require specialized 'powder' substrate and very high CO2
+                            levels to avoid floating away or dying.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Sword -->
+                <div class="plant-card">
+                    <img src="Plants/Carpets/micro_sword.jpg" alt="Lilaeopsis brasiliensis"
+                        onerror="this.src='Icon.png'">
+                    <div class="name-tag">
+                        <h4>Lilaeopsis brasiliensis</h4>
+                        <span>(Micro Sword)</span>
+                        <p class="difficulty medium">Medium</p>
+                        <p class="diff-reason">Extremely slow grower; requires patience and very clean water to prevent
+                            algae from choking the leaves.</p>
+                    </div>
+                </div>
+                <!-- Marsilea Hirsuta -->
+                <div class="plant-card">
+                    <img src="Plants/Carpets/clover.jpg" alt="Marsilea hirsuta" onerror="this.src='Icon.png'">
+                    <div class="name-tag">
+                        <h4>Marsilea hirsuta</h4>
+                        <span>(Four Leaf Clover Fern)</span>
+                        <p class="difficulty medium">Medium</p>
+                        <p>Extremely slow grower.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROSETTE PLANTS -->
+        <div class="collapsible-header" onclick="toggleSection('rosetteGrid', this)">
+            <h2 class="category-title">Rosette & Root Feeders</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="plant-grid" id="rosetteGrid">
+            <!-- Amazon Sword -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/amazon.jpg" alt="Amazon Sword aquarium plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Echinodorus grisebachii</h4>
+                    <span>(Amazon Sword)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Brown Crypt -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/cryptbrown.jpg" alt="Brown Crypt aquarium plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne wendtii brown</h4>
+                    <span>(Brown Crypt)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">Prone to 'Crypt Melt' where leaves dissolve if water parameters change too
+                        quickly.</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne wendtii Flamingo -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/flamingo.jpg" alt="Cryptocoryne wendtii Flamingo"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne wendtii 'Flamingo'</h4>
+                    <span>(Pink Crypt Flamingo)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Needs high light to keep its pink color and is extremely prone to melting
+                        when moved.</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne wendtii Mi Oya -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/mioya.jpg" alt="Cryptocoryne wendtii Mi Oya" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne wendtii 'Mi Oya'</h4>
+                    <span>(Crypt Mi Oya)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">One of the largest wendtii varieties; very hardy but requires a settled,
+                        stable environment.</p>
+                </div>
+            </div>
+
+            <!-- Blyxa Japonica -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/blyxa.jpg" alt="Blyxa japonica" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Blyxa japonica</h4>
+                    <span>(Japanese Rush)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Technically a stem plant that grows like a rosette; requires CO2 and
+                        iron-rich substrate to prevent it from turning yellow or melting.</p>
+                </div>
+            </div>
+
+            <!-- Echinodorus Reni -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/reni.jpg" alt="Echinodorus Reni" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Echinodorus 'Reni'</h4>
+                    <span>(Red Dwarf Sword)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">A compact sword plant that needs iron-rich root tabs and decent light to keep
+                        its deep red color.</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne beckettii -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/beckettii.jpg" alt="Cryptocoryne beckettii aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne beckettii</h4>
+                    <span>(Beckett's Water Trumpet)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">Requires a nutrient-rich substrate; sensitive to being moved once
+                        established.</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne parva -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/parva.jpg" alt="Cryptocoryne parva aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne parva</h4>
+                    <span>(Dwarf Crypt)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">The smallest and slowest-growing Crypt; requires high patience and clean
+                        water to avoid algae issues.</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne balansae -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/balansae.jpg" alt="Cryptocoryne balansae aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne crispatula var. balansae</h4>
+                    <span>(Balansae Crypt)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne nevillii -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/nevillii.jpg" alt="Cryptocoryne nevillii aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne nevillii</h4>
+                    <span>(Nevill's Crypt)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne crispatula -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/crispatula.jpg" alt="Cryptocoryne crispatula aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne crispatula</h4>
+                    <span>(Flaccid Crypt)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne Pink Panther -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/pinkpanther.jpg" alt="Cryptocoryne Pink Panther aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne wendtii 'Pink Panther'</h4>
+                    <span>(Pink Panther Crypt)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Requires stable parameters and decent lighting to maintain its vibrant pink
+                        coloration.</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne spiralis 'Red' -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/spiralis_red.jpg" alt="Cryptocoryne spiralis Red aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne spiralis 'Red'</h4>
+                    <span>(Red Spiral Crypt)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Requires iron-rich substrate and stable lighting to maintain its deep
+                        red-bronze coloration.</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne spiralis 'Tiger' -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/spiralis_tiger.jpg" alt="Cryptocoryne spiralis Tiger aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne spiralis 'Tiger'</h4>
+                    <span>(Tiger Spiral Crypt)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">A rare variety known for tiger-like stripes; extremely sensitive to changes
+                        in water chemistry.</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne striolata -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/striolata.jpg" alt="Cryptocoryne striolata aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne striolata</h4>
+                    <span>(Striolata Crypt)</span>
+                    <p class="difficulty hard">Hard</p>
+                    <p class="diff-reason">Demands high water flow, high oxygen levels, and very stable parameters; very
+                        prone to melting.</p>
+                </div>
+            </div>
+
+            <!-- Cryptocoryne willisii -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/willisii.jpg" alt="Cryptocoryne willisii aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cryptocoryne x willisii</h4>
+                    <span>(Willis's Crypt)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">A very slow-growing, compact crypt that is excellent for mid-ground grouping.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Jungle Val -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/val.jpg" alt="Vallisneria spiralis aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vallisneria spiralis</h4>
+                    <span>(Straight Val / Italian Val / Jungle Val)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Water Celery -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/americana.jpg" alt="Vallisneria americana aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vallisneria americana</h4>
+                    <span>(Water Celery)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p><strong>Look:</strong> Long, straight, ribbon-like green leaves.</p>
+                    <p><i>Note: The name refers to its spiraling flower stalk, not its leaves! A perfect, tall
+                            background "curtain."</i></p>
+                </div>
+            </div>
+
+            <!-- Asian Val -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/val_asiatica.jpg" alt="Vallisneria asiatica" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vallisneria asiatica</h4>
+                    <span>(Asian Val)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p><strong>Look:</strong> Straight, narrow, and slightly more delicate than Spiralis.</p>
+                </div>
+            </div>
+
+            <!-- Corkscrew Val -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/val_tortifolia.jpg" alt="Vallisneria tortifolia" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vallisneria tortifolia</h4>
+                    <span>(Corkscrew Val)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p><strong>Look:</strong> Leaves grow in tight, beautiful corkscrew spirals.</p>
+                    <p><i>Note: Stays much shorter (approx. 8-12 inches), making it suitable for the midground or
+                            smaller tanks.</i></p>
+                </div>
+            </div>
+
+            <!-- Leopard Val -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/val_leopard.jpg" alt="Vallisneria spiralis Leopard"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vallisneria spiralis 'Leopard'</h4>
+                    <span>(Leopard Val)</span>
+                    <p class="difficulty easy"> Easy</p>
+                    <p>Features distinct dark spots or "tiger stripes" on the leaves. Despite the name 'spiralis', the
+                        leaves are usually straight; the name refers to the flower stalk!</p>
+                </div>
+            </div>
+
+            <!-- Nymphoides aquatica -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/banana.jpg" alt="Nymphoides aquatica Banana Plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Nymphoides aquatica</h4>
+                    <span>(Banana Plant)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">The "banana" tubers should not be buried deep in the substrate; they are
+                        prone to rotting if they don't have water flow around them.</p>
+                </div>
+            </div>
+
+            <!-- Dwarf Sagittaria -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/dwarf_sag.jpg" alt="Dwarf Sagittaria aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Sagittaria subulata</h4>
+                    <span>(Dwarf Sagittaria)</span>
+                    <p class="difficulty easy">Easy</p>
+                </div>
+            </div>
+
+            <!-- Tiger Lotus -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/tiger_lotus.jpg" alt="Tiger Lotus aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Nymphaea zenkeri</h4>
+                    <span>(Tiger Lotus)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Heavy root feeder; requires frequent pruning of surface leaves to stay
+                        submerged and compact.</p>
+                </div>
+            </div>
+
+            <!-- Nymphaea leibergii -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/leibergii.jpg" alt="Nymphaea leibergii aquarium plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Nymphaea leibergii</h4>
+                    <span>(Dwarf Water Lily)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Heavy root feeder; requires specialized substrate and frequent pruning of
+                        surface leaves to stay compact.</p>
+                </div>
+            </div>
+
+            <!-- Ludwigia Sedioides -->
+            <div class="plant-card">
+                <img src="Plants/Rosette/mosaic_plant.jpg" alt="Ludwigia sedioides" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Ludwigia sedioides</h4>
+                    <span>(Mosaic Plant)</span>
+                    <p><strong>Transition:</strong> Underwater it is a simple stem. On the surface, it forms a stunning
+                        geometric "mosaic" of red and green diamonds.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- FLOATERS -->
+        <div class="collapsible-header" onclick="toggleSection('floaterGrid', this)">
+            <h2 class="category-title">Floating Plants (Nitrate Magnets)</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="plant-grid" id="floaterGrid">
+            <!-- Amazon Frogbit -->
+            <div class="plant-card">
+                <img src="Plants/Floaters/frogbit.jpg" alt="Limnobium laevigatum" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Limnobium laevigatum</h4>
+                    <span>(Amazon Frogbit)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">Highly sensitive to condensation on top of its leaves; requires an open top
+                        or good air circulation.</p>
+                </div>
+            </div>
+
+            <!-- Water Spangles -->
+            <div class="plant-card">
+                <img src="Plants/Floaters/salvinia.jpg" alt="Salvinia minima" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Salvinia minima</h4>
+                    <span>(Water Spangles)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">Hates high surface agitation; leaves can turn brown if constantly pushed
+                        underwater by a filter.</p>
+                </div>
+            </div>
+
+            <!-- Red Root Floater -->
+            <div class="plant-card">
+                <img src="Plants/Floaters/red_root.jpg" alt="Phyllanthus fluitans" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Phyllanthus fluitans</h4>
+                    <span>(Red Root Floater)</span>
+                    <p class="difficulty medium">Medium</p>
+                    <p class="diff-reason">Requires high light and iron dosing to achieve red color; very intolerant of
+                        water movement.</p>
+                </div>
+            </div>
+
+            <!-- Dwarf Water Lettuce -->
+            <div class="plant-card">
+                <img src="Plants/Floaters/water_lettuce.jpg" alt="Pistia stratiotes" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Pistia stratiotes</h4>
+                    <span>(Dwarf Water Lettuce)</span>
+                    <p class="difficulty easy">Easy</p>
+                    <p class="diff-reason">Nutrient hungry; leaves rot quickly if they get wet or if humidity is too
+                        high under a lid.</p>
+                </div>
+            </div>
+
+            <!-- Duckweed -->
+            <div class="plant-card">
+                <img src="Plants/Floaters/duckweed.jpg" alt="Lemna minor" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Lemna minor</h4>
+                    <span>(Duckweed)</span>
+                    <p class="difficulty easy">Very Easy</p>
+                    <p class="diff-reason">The 'Herpes of the aquarium' - nearly impossible to remove once it enters a
+                        tank.</p>
+                </div>
+            </div>
+
+            <!-- Crystalwort -->
+            <div class="plant-card">
+                <img src="Plants/Floaters/riccia.jpg" alt="Riccia fluitans" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Riccia fluitans</h4>
+                    <span>(Crystalwort)</span>
+                    <p class="difficulty moderate">Moderate</p>
+                    <p class="diff-reason">Requires high light and regular thinning; if the floating mat becomes too
+                        thick, the bottom layers will die and rot.</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- ROSETTE PLANTS -->
-    <div class="collapsible-header" onclick="toggleSection('rosetteGrid', this)">
-        <h2 class="category-title">Rosette & Root Feeders</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div class="plant-grid" id="rosetteGrid">
-        <!-- Amazon Sword -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/amazon.jpg" alt="Amazon Sword aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Echinodorus grisebachii</h4>
-                <span>(Amazon Sword)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Brown Crypt -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/cryptbrown.jpg" alt="Brown Crypt aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne wendtii brown</h4>
-                <span>(Brown Crypt)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">Prone to 'Crypt Melt' where leaves dissolve if water parameters change too quickly.</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne wendtii Flamingo -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/flamingo.jpg" alt="Cryptocoryne wendtii Flamingo" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne wendtii 'Flamingo'</h4>
-                <span>(Pink Crypt Flamingo)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Needs high light to keep its pink color and is extremely prone to melting when moved.</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne wendtii Mi Oya -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/mioya.jpg" alt="Cryptocoryne wendtii Mi Oya" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne wendtii 'Mi Oya'</h4>
-                <span>(Crypt Mi Oya)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">One of the largest wendtii varieties; very hardy but requires a settled, stable environment.</p>
-            </div>
-        </div>
-
-        <!-- Blyxa Japonica -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/blyxa.jpg" alt="Blyxa japonica" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Blyxa japonica</h4>
-                <span>(Japanese Rush)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Technically a stem plant that grows like a rosette; requires CO2 and iron-rich substrate to prevent it from turning yellow or melting.</p>
-            </div>
-        </div>
-        
-        <!-- Echinodorus Reni -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/reni.jpg" alt="Echinodorus Reni" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Echinodorus 'Reni'</h4>
-                <span>(Red Dwarf Sword)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">A compact sword plant that needs iron-rich root tabs and decent light to keep its deep red color.</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne beckettii -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/beckettii.jpg" alt="Cryptocoryne beckettii aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne beckettii</h4>
-                <span>(Beckett's Water Trumpet)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">Requires a nutrient-rich substrate; sensitive to being moved once established.</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne parva -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/parva.jpg" alt="Cryptocoryne parva aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne parva</h4>
-                <span>(Dwarf Crypt)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">The smallest and slowest-growing Crypt; requires high patience and clean water to avoid algae issues.</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne balansae -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/balansae.jpg" alt="Cryptocoryne balansae aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne crispatula var. balansae</h4>
-                <span>(Balansae Crypt)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne nevillii -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/nevillii.jpg" alt="Cryptocoryne nevillii aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne nevillii</h4>
-                <span>(Nevill's Crypt)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne crispatula -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/crispatula.jpg" alt="Cryptocoryne crispatula aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne crispatula</h4>
-                <span>(Flaccid Crypt)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne Pink Panther -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/pinkpanther.jpg" alt="Cryptocoryne Pink Panther aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne wendtii 'Pink Panther'</h4>
-                <span>(Pink Panther Crypt)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Requires stable parameters and decent lighting to maintain its vibrant pink coloration.</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne spiralis 'Red' -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/spiralis_red.jpg" alt="Cryptocoryne spiralis Red aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne spiralis 'Red'</h4>
-                <span>(Red Spiral Crypt)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Requires iron-rich substrate and stable lighting to maintain its deep red-bronze coloration.</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne spiralis 'Tiger' -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/spiralis_tiger.jpg" alt="Cryptocoryne spiralis Tiger aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne spiralis 'Tiger'</h4>
-                <span>(Tiger Spiral Crypt)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">A rare variety known for tiger-like stripes; extremely sensitive to changes in water chemistry.</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne striolata -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/striolata.jpg" alt="Cryptocoryne striolata aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne striolata</h4>
-                <span>(Striolata Crypt)</span>
-                <p class="difficulty hard">Hard</p>
-                <p class="diff-reason">Demands high water flow, high oxygen levels, and very stable parameters; very prone to melting.</p>
-            </div>
-        </div>
-
-        <!-- Cryptocoryne willisii -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/willisii.jpg" alt="Cryptocoryne willisii aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Cryptocoryne x willisii</h4>
-                <span>(Willis's Crypt)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">A very slow-growing, compact crypt that is excellent for mid-ground grouping.</p>
-            </div>
-        </div>
-
-        <!-- Jungle Val -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/val.jpg" alt="Vallisneria spiralis aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Vallisneria spiralis</h4>
-                <span>(Jungle Val)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Nymphoides aquatica -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/banana.jpg" alt="Nymphoides aquatica Banana Plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Nymphoides aquatica</h4>
-                <span>(Banana Plant)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">The "banana" tubers should not be buried deep in the substrate; they are prone to rotting if they don't have water flow around them.</p>
-            </div>
-        </div>
-
-        <!-- Dwarf Sagittaria -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/dwarf_sag.jpg" alt="Dwarf Sagittaria aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Sagittaria subulata</h4>
-                <span>(Dwarf Sagittaria)</span>
-                <p class="difficulty easy">Easy</p>
-            </div>
-        </div>
-
-        <!-- Tiger Lotus -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/tiger_lotus.jpg" alt="Tiger Lotus aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Nymphaea zenkeri</h4>
-                <span>(Tiger Lotus)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Heavy root feeder; requires frequent pruning of surface leaves to stay submerged and compact.</p>
-            </div>
-        </div>
-
-        <!-- Nymphaea leibergii -->
-        <div class="plant-card">
-            <img src="Plants/Rosette/leibergii.jpg" alt="Nymphaea leibergii aquarium plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Nymphaea leibergii</h4>
-                <span>(Dwarf Water Lily)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Heavy root feeder; requires specialized substrate and frequent pruning of surface leaves to stay compact.</p>
-            </div>
-        </div>
-    </div>
-
-    
-
-    <!-- FLOATERS -->
-    <div class="collapsible-header" onclick="toggleSection('floaterGrid', this)">
-        <h2 class="category-title">Floating Plants (Nitrate Magnets)</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div class="plant-grid" id="floaterGrid">
-        <!-- Amazon Frogbit -->
-        <div class="plant-card">
-            <img src="Plants/Floaters/frogbit.jpg" alt="Limnobium laevigatum" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Limnobium laevigatum</h4>
-                <span>(Amazon Frogbit)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">Highly sensitive to condensation on top of its leaves; requires an open top or good air circulation.</p>
-            </div>
-        </div>
-
-        <!-- Water Spangles -->
-        <div class="plant-card">
-            <img src="Plants/Floaters/salvinia.jpg" alt="Salvinia minima" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Salvinia minima</h4>
-                <span>(Water Spangles)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">Hates high surface agitation; leaves can turn brown if constantly pushed underwater by a filter.</p>
-            </div>
-        </div>
-
-        <!-- Red Root Floater -->
-        <div class="plant-card">
-            <img src="Plants/Floaters/red_root.jpg" alt="Phyllanthus fluitans" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Phyllanthus fluitans</h4>
-                <span>(Red Root Floater)</span>
-                <p class="difficulty medium">Medium</p>
-                <p class="diff-reason">Requires high light and iron dosing to achieve red color; very intolerant of water movement.</p>
-            </div>
-        </div>
-
-        <!-- Dwarf Water Lettuce -->
-        <div class="plant-card">
-            <img src="Plants/Floaters/water_lettuce.jpg" alt="Pistia stratiotes" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Pistia stratiotes</h4>
-                <span>(Dwarf Water Lettuce)</span>
-                <p class="difficulty easy">Easy</p>
-                <p class="diff-reason">Nutrient hungry; leaves rot quickly if they get wet or if humidity is too high under a lid.</p>
-            </div>
-        </div>
-
-        <!-- Duckweed -->
-        <div class="plant-card">
-            <img src="Plants/Floaters/duckweed.jpg" alt="Lemna minor" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Lemna minor</h4>
-                <span>(Duckweed)</span>
-                <p class="difficulty easy">Very Easy</p>
-                <p class="diff-reason">The 'Herpes of the aquarium' - nearly impossible to remove once it enters a tank.</p>
-            </div>
-        </div>
-
-        <!-- Crystalwort -->
-        <div class="plant-card">
-            <img src="Plants/Floaters/riccia.jpg" alt="Riccia fluitans" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Riccia fluitans</h4>
-                <span>(Crystalwort)</span>
-                <p class="difficulty moderate">Moderate</p>
-                <p class="diff-reason">Requires high light and regular thinning; if the floating mat becomes too thick, the bottom layers will die and rot.</p>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<script>
-    function toggleSection(id, header) {
-        const grid = document.getElementById(id);
-        if (grid.style.display === "none") {
-            grid.style.display = "grid";
-            header.classList.add('active');
-        } else {
-            grid.style.display = "none";
-            header.classList.remove('active');
+    <script>
+        function toggleSection(id, header) {
+            const grid = document.getElementById(id);
+            if (grid.style.display === "none") {
+                grid.style.display = "grid";
+                header.classList.add('active');
+            } else {
+                grid.style.display = "none";
+                header.classList.remove('active');
+            }
         }
-    }
 
-    // Function to handle the image zooming
-    function initZoom() {
-        const zoomView = document.getElementById('zoomView');
-        const zoomImg = document.getElementById('zoomImg');
-        const images = document.querySelectorAll('.plant-card img');
+        // Function to handle the image zooming
+        function initZoom() {
+            const zoomView = document.getElementById('zoomView');
+            const zoomImg = document.getElementById('zoomImg');
+            const images = document.querySelectorAll('.plant-card img');
 
-        images.forEach(img => {
-            img.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevents conflict with other clicks
-                zoomImg.src = img.src;
-                zoomView.style.display = 'flex';
+            images.forEach(img => {
+                img.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevents conflict with other clicks
+                    zoomImg.src = img.src;
+                    zoomView.style.display = 'flex';
+                });
             });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Default: Open all sections
+            document.querySelectorAll('.collapsible-header').forEach(header => {
+                header.classList.add('active');
+            });
+
+            // 2. Initialize the zoom feature
+            initZoom();
         });
-    }
+    </script>
 
-    document.addEventListener("DOMContentLoaded", () => {
-        // 1. Default: Open all sections
-        document.querySelectorAll('.collapsible-header').forEach(header => {
-            header.classList.add('active');
-        });
-
-        // 2. Initialize the zoom feature
-        initZoom();
-    });
-</script>
-
-<!-- Zoom View Overlay -->
-<div id="zoomView" onclick="this.style.display='none'">
-    <img id="zoomImg" alt="zoom" src="">
-</div>
+    <!-- Zoom View Overlay -->
+    <div id="zoomView" onclick="this.style.display='none'">
+        <img id="zoomImg" alt="zoom" src="">
+    </div>
 </body>
+
 </html>

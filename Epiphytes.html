@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Icon.png">
     <style>
-        .guide-container { padding: 40px; max-width: 1000px; margin: auto; }
-        
+        .guide-container {
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
         .intro-box {
             background: #132938;
             padding: 25px;
@@ -32,8 +37,14 @@
             text-align: center;
         }
 
-        .method-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
-        
+        .method-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
         .trick-box {
             background: #2c3e50;
             border: 2px dashed #f1c40f;
@@ -53,10 +64,25 @@
             transition: background 0.2s;
         }
 
-        .collapsible-header:hover { background: rgba(142, 68, 173, 0.1); }
-        .category-title { color: #a0c4ff; margin: 0; user-select: none; }
-        .toggle-icon { color: #8e44ad; font-size: 1.5rem; transition: transform 0.3s; }
-        .active .toggle-icon { transform: rotate(180deg); }
+        .collapsible-header:hover {
+            background: rgba(142, 68, 173, 0.1);
+        }
+
+        .category-title {
+            color: #a0c4ff;
+            margin: 0;
+            user-select: none;
+        }
+
+        .toggle-icon {
+            color: #8e44ad;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .active .toggle-icon {
+            transform: rotate(180deg);
+        }
 
         .plant-grid {
             display: grid;
@@ -75,18 +101,50 @@
             display: flex;
             flex-direction: column;
         }
-        .plant-card:hover { transform: scale(1.02); }
-        .plant-card img { width: 100%; height: 180px; object-fit: cover; }
-        .plant-card .name-tag { padding: 12px; text-align: center; flex-grow: 1; }
-        .plant-card h4 { margin: 0; color: #fff; font-size: 0.95rem; }
-        .plant-card span { display: block; color: #a0c4ff; font-size: 0.8rem; margin-top: 5px; font-style: italic; }
-        .plant-card p { font-size: 0.75rem; color: #ccc; margin-top: 8px; line-height: 1.3; }
+
+        .plant-card:hover {
+            transform: scale(1.02);
+        }
+
+        .plant-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .plant-card .name-tag {
+            padding: 12px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .plant-card h4 {
+            margin: 0;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .plant-card span {
+            display: block;
+            color: #a0c4ff;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .plant-card p {
+            font-size: 0.75rem;
+            color: #ccc;
+            margin-top: 8px;
+            line-height: 1.3;
+        }
 
         /* Lightbox Zoom Styling */
         .plant-card img {
             cursor: zoom-in;
             transition: opacity 0.2s;
         }
+
         .plant-card img:hover {
             opacity: 0.9;
         }
@@ -94,699 +152,981 @@
         #zoomView {
             display: none;
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.9);
             z-index: 10000;
             cursor: zoom-out;
             align-items: center;
             justify-content: center;
         }
+
         #zoomView img {
             max-width: 90vw;
             max-height: 90vh;
             border: 3px solid #1e90ff;
             border-radius: 10px;
-            box-shadow: 0 0 50px rgba(0,0,0,1);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 1);
         }
     </style>
 </head>
+
 <body>
 
-<div class="guide-container">
-    <div class="back-row">
-        <a href="Tips.html" class="btn-nav">← Back to Tips</a>
-    </div>
-
-    <h1 style="color: #27ae60;">The Epiphyte Guide</h1>
-
-    <div class="intro-box">
-        <h3>What are Epiphytes?</h3>
-        <p>Epiphytes are "air plants" of the water world. Unlike traditional plants, they <strong>do not</strong> grow in soil or substrate. In nature, they attach themselves to rocks, fallen branches, or tree trunks. If you bury their thick horizontal stem (called a <strong>Rhizome</strong>), the plant will rot and die.</p>
-    </div>
-
-    <h2 style="color: #1e90ff;">How to Attach Them</h2>
-    <div class="method-section">
-        <div class="method-card">
-            <img src="Plants/Methods/glue.jpg" alt="Glue Method" onerror="this.src='Icon.png'">
-            <h4>Cyanoacrylate Glue</h4>
-            <p>Use "Gel" type superglue. It is 100% reef and fish safe once it hits the water. Make sure it doesn't have any other components.</p>
+    <div class="guide-container">
+        <div class="back-row">
+            <a href="Tips.html" class="btn-nav">← Back to Tips</a>
         </div>
-        <div class="method-card">
-            <img src="Plants/Methods/thread.jpg" alt="Tying Method" onerror="this.src='Icon.png'">
-            <h4>Fishing Line / Thread</h4>
-            <p>Tie the plant gently to a rock or driftwood. Use brown or green thread to hide it. You can also use biodegradable moss cotton thread.</p>
-        </div>
-        <div class="method-card">
-            <img src="Plants/Methods/wedging.jpg" alt="Wedging Method" onerror="this.src='Icon.png'">
-            <h4>The "Wedge"</h4>
-            <p>Simply jam the roots into a crack in a rock or wood. The plant will grip over time.</p>
-        </div>
-    </div>
 
-    <div class="trick-box">
-        <h3 style="color: #f1c40f;">✨ The Cotton / Paper Trick</h3>
-        <p>Struggling to get glue to stick to wet surfaces? Try this:</p>
-        <p>Place a tiny piece of <strong>tissue paper or cotton fiber</strong> between the plant and the surface. Apply liquid superglue to the cotton. It creates a <strong>rock-hard bond</strong> that fills the gaps perfectly!</p>
-        <p>Once in place, you can use Baking Soda or a Super Glue Reactor to bond it faster. Use a bit of vegetable oil to keep your hands from sticking!</p>
-    </div>
+        <h1 style="color: #27ae60;">The Epiphyte Guide</h1>
 
-    <h2 style="color: #1e90ff;">Growing Above the Waterline (Riparian)</h2>
-    
-    <div class="intro-box" style="border-left-color: #f1c40f; background: #1b2e3b;">
-        <p><strong>⚠️ Warning:</strong> When keeping land plants with their roots in the tank, <strong>never let the leaves touch the water.</strong> If leaves remain submerged, they cannot "breathe" properly and will rot, which can cause ammonia spikes in your aquarium.</p>
-    </div>
-
-    <div class="method-section" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-        <div class="method-card">
-            <img src="Plants/Methods/corner.jpg" alt="Corner Placement" onerror="this.src='Icon.png'">
-            <h4>Natural Support</h4>
-            <p>Bigger plants can just be kept in a corner. Their own weight and the tension between the glass and the rim will often hold them steady without any extra tools. They can also be wedged next to the filter when smaller.</p>
+        <div class="intro-box">
+            <h3>What are Epiphytes?</h3>
+            <p>Epiphytes are "air plants" of the water world. Unlike traditional plants, they <strong>do not</strong>
+                grow in soil or substrate. In nature, they attach themselves to rocks, fallen branches, or tree trunks.
+                If you bury their thick horizontal stem (called a <strong>Rhizome</strong>), the plant will rot and die.
+            </p>
         </div>
-        <div class="method-card">
-            <img src="Plants/Methods/holder.jpg" alt="Plant Holder" onerror="this.src='Icon.png'">
-            <h4>Aquarium Plant Holder</h4>
-            <p>Use specialized 3D-printed baskets or acrylic hangers. These keep the roots perfectly submerged while ensuring the stems and leaves stay safe and dry above the rim.</p>
-        </div>
-    </div>
 
-    <!-- SUBMERGED SECTION -->
-    <div class="collapsible-header" onclick="toggleSection('submergedGrid', this)">
-        <h2 class="category-title">Submerged Epiphytes (Fully Underwater)</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div class="plant-grid" id="submergedGrid">
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/anubiasnana.jpg" alt="Anubias Nana plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Anubias barteri var. nana</h4>
-                <span>(Anubias Nana)</span>
-                <p class="difficulty easy">Difficulty: Easy</p>
+        <h2 style="color: #1e90ff;">How to Attach Them</h2>
+        <div class="method-section">
+            <div class="method-card">
+                <img src="Plants/Methods/glue.jpg" alt="Glue Method" onerror="this.src='Icon.png'">
+                <h4>Cyanoacrylate Glue</h4>
+                <p>Use "Gel" type superglue. It is 100% reef and fish safe once it hits the water. Make sure it doesn't
+                    have any other components.</p>
             </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/javafern.jpg" alt="Java Fern plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Microsorum pteropus</h4>
-                <span>(Java Fern)</span>
-                <p class="difficulty easy">Difficulty: Easy</p>
+            <div class="method-card">
+                <img src="Plants/Methods/thread.jpg" alt="Tying Method" onerror="this.src='Icon.png'">
+                <h4>Fishing Line / Thread</h4>
+                <p>Tie the plant gently to a rock or driftwood. Use brown or green thread to hide it. You can also use
+                    biodegradable moss cotton thread.</p>
             </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/buce.jpg" alt="Bucephalandra plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Bucephalandra spp.</h4>
-                <span>(Bucephalandra)</span>
-                <p class="difficulty easy">Difficulty: Easy</p>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/bolbitis.jpg" alt="Bolbitis heudelotii plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Bolbitis heudelotii</h4>
-                <span>(African Water Fern)</span>
-                <p class="difficulty medium">Difficulty: Medium</p>
+            <div class="method-card">
+                <img src="Plants/Methods/wedging.jpg" alt="Wedging Method" onerror="this.src='Icon.png'">
+                <h4>The "Wedge"</h4>
+                <p>Simply jam the roots into a crack in a rock or wood. The plant will grip over time.</p>
             </div>
         </div>
 
-        <div class="plant-card">
-        <img src="Plants/Epiphytes/pinnatifida.jpg" alt="Hygrophila pinnatifida" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Hygrophila pinnatifida</h4>
-            <span>(Fern Hygrophila)</span>
-            <p class="difficulty medium">Difficulty: Medium</p>
+        <div class="trick-box">
+            <h3 style="color: #f1c40f;">✨ The Cotton / Paper Trick</h3>
+            <p>Struggling to get glue to stick to wet surfaces? Try this:</p>
+            <p>Place a tiny piece of <strong>tissue paper or cotton fiber</strong> between the plant and the surface.
+                Apply liquid superglue to the cotton. It creates a <strong>rock-hard bond</strong> that fills the gaps
+                perfectly!</p>
+            <p>Once in place, you can use Baking Soda or a Super Glue Reactor to bond it faster. Use a bit of vegetable
+                oil to keep your hands from sticking!</p>
         </div>
-    </div>
 
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/christmasmoss.jpg" alt="Christmas Moss" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Vesicularia montagnei</h4>
-            <span>(Christmas Moss)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
+        <h2 style="color: #1e90ff;">Growing Above the Waterline (Riparian)</h2>
+
+        <div class="intro-box" style="border-left-color: #f1c40f; background: #1b2e3b;">
+            <p><strong>⚠️ Warning:</strong> When keeping land plants with their roots in the tank, <strong>never let the
+                    leaves touch the water.</strong> If leaves remain submerged, they cannot "breathe" properly and will
+                rot, which can cause ammonia spikes in your aquarium.</p>
         </div>
-    </div>
 
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/schismatoglottis.jpg" alt="Schismatoglottis prietoi" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Schismatoglottis prietoi</h4>
-            <span>(Schismatoglottis)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-        </div>
-    </div>
-
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/minipellia.jpg" alt="Riccardia chamedryfolia" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Riccardia chamedryfolia</h4>
-            <span>(Mini Pellia / Coral Moss)</span>
-            <p class="difficulty hard">Difficulty: Hard</p>
-        </div>
-    </div>
-
-    <!--Phoenix moss-->
-    <div class="plant-card">
-        <img src="Plants/Moss/fissidens.jpg" alt="Fissidens fontanus" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Fissidens fontanus</h4>
-            <span>(Phoenix Moss)</span>
-            <p class="difficulty medium">Difficulty: Medium</p>
-        </div>
-    </div>
-    <!-- Java Fern Windelov -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/windelov.jpg" alt="Java Fern Windelov" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Microsorum pteropus 'Windelov'</h4>
-            <span>(Windelov Java Fern)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-        </div>
-    </div>
-
-    <!-- Anubias Barteri (Standard/Large) -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/barteri.jpg" alt="Anubias Barteri" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias barteri var. barteri</h4>
-            <span>(Standard Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-        </div>
-    </div>
-
-    <!-- Anubias Barteri Coffeefolia -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/coffeefolia.jpg" alt="Anubias Coffeefolia" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias barteri var. 'Coffeefolia'</h4>
-            <span>(Coffee Leaf Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-        </div>
-    </div>
-
-    <!-- Anubias Nana Petite -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/nanapetite.jpg" alt="Anubias Nana Petite" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias barteri var. nana 'Petite'</h4>
-            <span>(Nana Petite)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-        </div>
-    </div>
-
-    <!-- Anubias Nana Stardust -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/nanastardust.jpg" alt="Anubias Nana Stardust" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias barteri var. nana 'Stardust'</h4>
-            <span>(Nana Stardust)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-        </div>
-    </div>
-
-    <!-- Anubias Barteri Caladiifolia -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/caladiifolia.jpg" alt="Anubias Caladiifolia" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias barteri var. caladiifolia</h4>
-            <span>(Heart-shaped Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-        </div>
-    </div>
-
-    <!-- Anubias hastafolia -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/hastafolia.jpg" alt="Anubias hastifolia" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias hastifolia</h4>
-            <span>(Arrowhead Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-            <p>Named for its distinct arrowhead-shaped leaves. One of the larger species, great for big tanks.</p>
-        </div>
-    </div>
-
-    <!-- Anubias heterophylla -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/heterophylla.jpg" alt="Anubias heterophylla" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias heterophylla</h4>
-            <span>(Lance-leaf Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-            <p>Features long, slender leaves with slightly wavy margins. Very leather-like and tough.</p>
-        </div>
-    </div>
-
-    <!-- Anubias gracilis -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/gracilis.jpg" alt="Anubias gracilis" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias gracilis</h4>
-            <span>(Slender Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-            <p>Recognized by its triangular, tri-lobed leaves. Looks very elegant when attached to tall driftwood.</p>
-        </div>
-    </div>
-
-    <!-- Anubias barteri var. angustifolia -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/angustifolia.jpg" alt="Anubias barteri var. angustifolia" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias barteri var. angustifolia</h4>
-            <span>(Narrow Leaf Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-            <p>A narrow-leafed variety that stays relatively slim; perfect for filling tight vertical gaps.</p>
-        </div>
-    </div>
-
-    <!-- Anubias afzelii -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/afzelii.jpg" alt="Anubias afzelii" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias afzelii</h4>
-            <span>(Sword-leaf Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-            <p>A slow grower with upright, sword-shaped leaves. Can reach impressive heights over time.</p>
-        </div>
-    </div>
-
-    <!-- Anubias gigantea -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/gigantea.jpg" alt="Anubias gigantea" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias gigantea</h4>
-            <span>(Giant Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-            <p>The largest species in the genus. Requires a massive amount of space to reach its full potential.</p>
-        </div>
-    </div>
-
-    <!-- Anubias gilletii -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/gilletii.jpg" alt="Anubias gilletii" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias gilletii</h4>
-            <span>(Gillet's Anubias)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-            <p>Features "ear-like" lobes at the base of the leaves; very hardy and tolerates extremely low light.</p>
-        </div>
-    </div>
-
-    <!-- Java Fern Narrow Leaf -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/narrowleaf.jpg" alt="Narrow Leaf Java Fern" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Microsorum pteropus 'Narrow'</h4>
-            <span>(Narrow Leaf Java Fern)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-        </div>
-    </div>
-
-    <!-- Java Fern Trident -->
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/trident.jpg" alt="Trident Java Fern" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Microsorum pteropus 'Trident'</h4>
-            <span>(Trident Java Fern)</span>
-            <p class="difficulty easy">Difficulty: Easy</p>
-        </div>
-    </div>
-
-    </div>
-
-    <!-- RIPARIAN SECTION -->
-    <div class="collapsible-header" onclick="toggleSection('riparianGrid', this)" style="margin-top: 20px;">
-        <h2 class="category-title">Riparian Staples & Houseplants</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div class="plant-grid" id="riparianGrid">
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/monstera.jpg" alt="Monstera deliciosa plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Monstera deliciosa</h4>
-                <span>(Swiss Cheese Plant)</span>
+        <div class="method-section" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <div class="method-card">
+                <img src="Plants/Methods/corner.jpg" alt="Corner Placement" onerror="this.src='Icon.png'">
+                <h4>Natural Support</h4>
+                <p>Bigger plants can just be kept in a corner. Their own weight and the tension between the glass and
+                    the rim will often hold them steady without any extra tools. They can also be wedged next to the
+                    filter when smaller.</p>
             </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/peacelily.jpg" alt="Peace Lily plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Spathiphyllum wallisii</h4>
-                <span>(Peace Lily)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/pothos.jpg" alt="Pothos plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Epipremnum aureum</h4>
-                <span>(Pothos / Devil's Ivy)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/spider.jpg" alt="Spider Plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Chlorophytum comosum</h4>
-                <span>(Spider Plant)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/philodendron.jpg" alt="Philodendron plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Philodendron hederaceum</h4>
-                <span>(Heartleaf Philodendron)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/luckybamboo.jpg" alt="Lucky Bamboo plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Dracaena sanderiana</h4>
-                <span>(Lucky Bamboo)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/parlorpalm.jpg" alt="Parlor Palm plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Chamaedorea elegans</h4>
-                <span>(Parlor Palm / Bella Palm)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/tradescantia.jpg" alt="Tradescantia plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Tradescantia zebrina</h4>
-                <span>(Inch Plant / Tradescantia)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/pilea.jpg" alt="Pilea plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Pilea cadierei</h4>
-                <span>(Aluminum Plant)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/hoya.jpg" alt="Hoya plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Hoya carnosa</h4>
-                <span>(Hoya / Wax Plant)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/aglaonema.jpg" alt="Aglaonema plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Aglaonema spp.</h4>
-                <span>(Chinese Evergreen)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/purple_heart.jpg" alt="Purple Heart Plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Tradescantia pallida</h4>
-                <span>(Purple Heart Plant)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/pink_aglao.jpg" alt="Aglaonema plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Aglaonema spp. pink</h4>
-                <span>(Pink/Red Chinese Evergreen)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/coleus.jpg" alt="Coleus plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Coleus scutellarioides</h4>
-                <span>(Coleus)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/polka.jpg" alt="Polka Dot Plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Hypoestes phyllostachya</h4>
-                <span>(Polka Dot Plant)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/episcia.jpg" alt="Episcia cupreata plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Episcia cupreata</h4>
-                <span>(Flame Violet)</span>
-            </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/waffle.jpg" alt="Purple Waffle Plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Hemigraphis alternata</h4>
-                <span>(Purple Waffle Plant)</span>
-            </div>
-        </div>
-        <!-- Syngonium Wendlandii -->
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/syngonium_wend.jpg" alt="Syngonium wendlandii" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Syngonium wendlandii</h4>
-                <span>(Silver Goosefoot Plant)</span>
+            <div class="method-card">
+                <img src="Plants/Methods/holder.jpg" alt="Plant Holder" onerror="this.src='Icon.png'">
+                <h4>Aquarium Plant Holder</h4>
+                <p>Use specialized 3D-printed baskets or acrylic hangers. These keep the roots perfectly submerged while
+                    ensuring the stems and leaves stay safe and dry above the rim.</p>
             </div>
         </div>
 
-        <!-- Fittonia Red -->
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/fittonia_red.jpg" alt="Fittonia albivenis" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Fittonia albivenis</h4>
-                <span>(Nerve Plant - Red/Pink)</span>
+        <!-- SUBMERGED SECTION -->
+        <div class="collapsible-header" onclick="toggleSection('submergedGrid', this)">
+            <h2 class="category-title">Submerged Epiphytes (Fully Underwater)</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="plant-grid" id="submergedGrid">
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/anubiasnana.jpg" alt="Anubias Nana plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias barteri var. nana</h4>
+                    <span>(Anubias Nana)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/javafern.jpg" alt="Java Fern plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Microsorum pteropus</h4>
+                    <span>(Java Fern)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/buce.jpg" alt="Bucephalandra plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Bucephalandra spp.</h4>
+                    <span>(Bucephalandra)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/bolbitis.jpg" alt="Bolbitis heudelotii plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Bolbitis heudelotii</h4>
+                    <span>(African Water Fern)</span>
+                    <p class="difficulty medium">Difficulty: Medium</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/pinnatifida.jpg" alt="Hygrophila pinnatifida" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hygrophila pinnatifida</h4>
+                    <span>(Fern Hygrophila)</span>
+                    <p class="difficulty medium">Difficulty: Medium</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/christmasmoss.jpg" alt="Christmas Moss" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Vesicularia montagnei</h4>
+                    <span>(Christmas Moss)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/schismatoglottis.jpg" alt="Schismatoglottis prietoi"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Schismatoglottis prietoi</h4>
+                    <span>(Schismatoglottis)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/minipellia.jpg" alt="Riccardia chamedryfolia" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Riccardia chamedryfolia</h4>
+                    <span>(Mini Pellia / Coral Moss)</span>
+                    <p class="difficulty hard">Difficulty: Hard</p>
+                </div>
+            </div>
+
+            <!--Phoenix moss-->
+            <div class="plant-card">
+                <img src="Plants/Moss/fissidens.jpg" alt="Fissidens fontanus" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Fissidens fontanus</h4>
+                    <span>(Phoenix Moss)</span>
+                    <p class="difficulty medium">Difficulty: Medium</p>
+                </div>
+            </div>
+
+            <!-- Flame Moss -->
+            <div class="plant-card">
+                <img src="Plants/Moss/flame.jpg" alt="Taxiphyllum 'Flame'" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Taxiphyllum 'Flame'</h4>
+                    <span>(Flame Moss)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                    <p>Unlike most mosses, this grows spirally upward, creating a look reminiscent of green flames.
+                        Great for vertical wood pieces.</p>
+                </div>
+            </div>
+
+            <!-- Java Fern Windelov -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/windelov.jpg" alt="Java Fern Windelov" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Microsorum pteropus 'Windelov'</h4>
+                    <span>(Windelov Java Fern)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <!-- Crepidomanes auriculatum -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/crepidomanes.jpg" alt="Crepidomanes auriculatum"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Crepidomanes auriculatum</h4>
+                    <span>(Asian Filmy Fern)</span>
+                    <p class="difficulty medium">Difficulty: Medium</p>
+                    <p>A stunning, translucent fern that stays very small. It loves high flow and very clean water.</p>
+                </div>
+            </div>
+
+            <!-- Anubias Barteri (Standard/Large) -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/barteri.jpg" alt="Anubias Barteri" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias barteri var. barteri</h4>
+                    <span>(Standard Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <!-- Anubias Barteri Coffeefolia -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/coffeefolia.jpg" alt="Anubias Coffeefolia" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias barteri var. 'Coffeefolia'</h4>
+                    <span>(Coffee Leaf Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <!-- Anubias Nana Petite -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/nanapetite.jpg" alt="Anubias Nana Petite" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias barteri var. nana 'Petite'</h4>
+                    <span>(Nana Petite)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <!-- Anubias Nana Stardust -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/nanastardust.jpg" alt="Anubias Nana Stardust" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias barteri var. nana 'Stardust'</h4>
+                    <span>(Nana Stardust)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <!-- Anubias Nana 'Pangolino' -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/pangolino.jpg" alt="Anubias Pangolino" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias barteri var. nana 'Pangolino'</h4>
+                    <span>(Pangolino Anubias)</span>
+                    <p class="difficulty hard">Difficulty: Harder</p>
+                    <p>The smallest Anubias in the world. Leaves are tiny and scale-like, resembling a Pangolin's back.
+                        Extremely slow grower.</p>
+                </div>
+            </div>
+
+            <!-- Anubias Barteri Caladiifolia -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/caladiifolia.jpg" alt="Anubias Caladiifolia" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias barteri var. caladiifolia</h4>
+                    <span>(Heart-shaped Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <!-- Anubias hastafolia -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/hastafolia.jpg" alt="Anubias hastifolia" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias hastifolia</h4>
+                    <span>(Arrowhead Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                    <p>Named for its distinct arrowhead-shaped leaves. One of the larger species, great for big tanks.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Anubias heterophylla -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/heterophylla.jpg" alt="Anubias heterophylla" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias heterophylla</h4>
+                    <span>(Lance-leaf Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                    <p>Features long, slender leaves with slightly wavy margins. Very leather-like and tough.</p>
+                </div>
+            </div>
+
+            <!-- Anubias gracilis -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/gracilis.jpg" alt="Anubias gracilis" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias gracilis</h4>
+                    <span>(Slender Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                    <p>Recognized by its triangular, tri-lobed leaves. Looks very elegant when attached to tall
+                        driftwood.</p>
+                </div>
+            </div>
+
+            <!-- Anubias barteri var. angustifolia -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/angustifolia.jpg" alt="Anubias barteri var. angustifolia"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias barteri var. angustifolia</h4>
+                    <span>(Narrow Leaf Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                    <p>A narrow-leafed variety that stays relatively slim; perfect for filling tight vertical gaps.</p>
+                </div>
+            </div>
+
+            <!-- Anubias afzelii -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/afzelii.jpg" alt="Anubias afzelii" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias afzelii</h4>
+                    <span>(Sword-leaf Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                    <p>A slow grower with upright, sword-shaped leaves. Can reach impressive heights over time.</p>
+                </div>
+            </div>
+
+            <!-- Anubias gigantea -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/gigantea.jpg" alt="Anubias gigantea" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias gigantea</h4>
+                    <span>(Giant Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                    <p>The largest species in the genus. Requires a massive amount of space to reach its full potential.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Anubias gilletii -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/gilletii.jpg" alt="Anubias gilletii" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias gilletii</h4>
+                    <span>(Gillet's Anubias)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                    <p>Features "ear-like" lobes at the base of the leaves; very hardy and tolerates extremely low
+                        light.</p>
+                </div>
+            </div>
+
+            <!-- Java Fern Narrow Leaf -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/narrowleaf.jpg" alt="Narrow Leaf Java Fern" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Microsorum pteropus 'Narrow'</h4>
+                    <span>(Narrow Leaf Java Fern)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <!-- Java Fern Trident -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/trident.jpg" alt="Trident Java Fern" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Microsorum pteropus 'Trident'</h4>
+                    <span>(Trident Java Fern)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                </div>
+            </div>
+
+            <!-- Java Fern 'Orange Narrow' -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/orange_narrow.jpg" alt="Java Fern Orange Narrow"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Microsorum pteropus 'Orange Narrow'</h4>
+                    <span>(Orange Narrow Java Fern)</span>
+                    <p class="difficulty easy">Difficulty: Easy</p>
+                    <p>A unique variant where new leaf growth often displays a distinct bronze or orange hue before
+                        turning green.</p>
+                </div>
+            </div>
+
+        </div> <!-- End of Submerged Grid -->
+
+        <!-- RIPARIAN SECTION -->
+        <div class="collapsible-header" onclick="toggleSection('riparianGrid', this)" style="margin-top: 20px;">
+            <h2 class="category-title">Riparian Staples & Houseplants</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="plant-grid" id="riparianGrid">
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/monstera.jpg" alt="Monstera deliciosa plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Monstera deliciosa</h4>
+                    <span>(Swiss Cheese Plant)</span>
+                </div>
+            </div>
+            <!-- Monstera Adansonii -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/adansonii.jpg" alt="Monstera adansonii" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Monstera adansonii</h4>
+                    <span>(Swiss Cheese Vine)</span>
+                    <p>Faster growing and lighter than the Deliciosa. Its trailing vines look incredible hanging over
+                        the sides of a tank.</p>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/peacelily.jpg" alt="Peace Lily plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Spathiphyllum wallisii</h4>
+                    <span>(Peace Lily)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/pothos.jpg" alt="Pothos plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Epipremnum aureum</h4>
+                    <span>(Pothos / Devil's Ivy)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/spider.jpg" alt="Spider Plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Chlorophytum comosum</h4>
+                    <span>(Spider Plant)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/philodendron.jpg" alt="Philodendron plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Philodendron hederaceum</h4>
+                    <span>(Heartleaf Philodendron)</span>
+                </div>
+            </div>
+            <!-- Arrowhead Vine -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/arrowhead.jpg" alt="Syngonium podophyllum" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Syngonium podophyllum</h4>
+                    <span>(Arrowhead Vine)</span>
+                    <p>Extremely hardy. It transitions to water growth very quickly and develops a massive, white root
+                        system that fish love to hide in.</p>
+                </div>
+            </div>
+            <!-- Umbrella Papyrus -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/umbrella_papyrus.jpg" alt="Cyperus alternifolius"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cyperus alternifolius</h4>
+                    <span>(Umbrella Papyrus)</span>
+                    <p>A classic "bog plant." It grows tall and provides a prehistoric look. Excellent at removing
+                        nitrates from the water.</p>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/luckybamboo.jpg" alt="Lucky Bamboo plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Dracaena sanderiana</h4>
+                    <span>(Lucky Bamboo)</span>
+                </div>
+            </div>
+            <!-- Red Mangrove -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/mangrove.jpg" alt="Rhizophora mangle" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Rhizophora mangle</h4>
+                    <span>(Red Mangrove)</span>
+                    <p>Can be grown in fresh or saltwater. Its "prop roots" create a naturalistic coastal look. Slow
+                        growing but very rewarding.</p>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/parlorpalm.jpg" alt="Parlor Palm plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Chamaedorea elegans</h4>
+                    <span>(Parlor Palm / Bella Palm)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/tradescantia.jpg" alt="Tradescantia plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Tradescantia zebrina</h4>
+                    <span>(Inch Plant / Tradescantia)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/pilea.jpg" alt="Pilea plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Pilea cadierei</h4>
+                    <span>(Aluminum Plant)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/hoya.jpg" alt="Hoya plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hoya carnosa</h4>
+                    <span>(Hoya / Wax Plant)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/aglaonema.jpg" alt="Aglaonema plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Aglaonema spp.</h4>
+                    <span>(Chinese Evergreen)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/purple_heart.jpg" alt="Purple Heart Plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Tradescantia pallida</h4>
+                    <span>(Purple Heart Plant)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/pink_aglao.jpg" alt="Aglaonema plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Aglaonema spp. pink</h4>
+                    <span>(Pink/Red Chinese Evergreen)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/coleus.jpg" alt="Coleus plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Coleus scutellarioides</h4>
+                    <span>(Coleus)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/polka.jpg" alt="Polka Dot Plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hypoestes phyllostachya</h4>
+                    <span>(Polka Dot Plant)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/episcia.jpg" alt="Episcia cupreata plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Episcia cupreata</h4>
+                    <span>(Flame Violet)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/waffle.jpg" alt="Purple Waffle Plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hemigraphis alternata</h4>
+                    <span>(Purple Waffle Plant)</span>
+                </div>
+            </div>
+            <!-- Syngonium Wendlandii -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/syngonium_wend.jpg" alt="Syngonium wendlandii" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Syngonium wendlandii</h4>
+                    <span>(Silver Goosefoot Plant)</span>
+                </div>
+            </div>
+
+            <!-- Fittonia Red -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/fittonia_red.jpg" alt="Fittonia albivenis" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Fittonia albivenis</h4>
+                    <span>(Nerve Plant - Red/Pink)</span>
+                </div>
+            </div>
+
+            <!-- Fittonia White -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/fittonia_white.jpg" alt="Fittonia albivenis white"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Fittonia albivenis 'White'</h4>
+                    <span>(White Nerve Plant)</span>
+                </div>
+            </div>
+
+            <!-- Cotton Candy Fern -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/cotton_candy_fern.jpg" alt="Nephrolepis exaltata smithii"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Nephrolepis exaltata 'Smithii'</h4>
+                    <span>(Cotton Candy Fern)</span>
+                </div>
+            </div>
+
+            <!-- Dragon's Tongue -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/dragons_tongue.jpg" alt="Hemigraphis repanda" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hemigraphis repanda</h4>
+                    <span>(Dragon's Tongue)</span>
+                </div>
+            </div>
+
+            <!-- Rabbit's Foot Fern -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/rabbits_foot_fern.jpg" alt="Davallia fejeensis"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Davallia fejeensis</h4>
+                    <span>(Rabbit's Foot Fern)</span>
+                </div>
             </div>
         </div>
 
-        <!-- Fittonia White -->
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/fittonia_white.jpg" alt="Fittonia albivenis white" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Fittonia albivenis 'White'</h4>
-                <span>(White Nerve Plant)</span>
+
+        <!-- TRANSFORMERS SECTION -->
+        <div class="collapsible-header" onclick="toggleSection('transformerGrid', this)" style="margin-top: 20px;">
+            <h2 class="category-title">The Transformers (Heterophylly)</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="plant-grid" id="transformerGrid">
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/limnophila_aq.jpg" alt="Limnophila aquatica plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Limnophila aquatica</h4>
+                    <span>(Giant Ambulia)</span>
+                    <p>Submersed: Fine, soft needles like Hornwort. Emersed: Sturdy mint-like leaves.</p>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/willow_hygro.jpg" alt="Hygrophila corymbosa 'Willow' plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hygrophila corymbosa 'Willow'</h4>
+                    <span>(Willow Leaf Hygro)</span>
+                    <p>Submersed leaves are long and narrow; emersed leaves grow short and bushy.</p>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/creeping_jenny.jpg" alt="Golden Creeping Jenny plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Lysimachia nummularia 'Aurea'</h4>
+                    <span>(Golden Creeping Jenny)</span>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/rotala_round.jpg" alt="Rotala rotundifolia plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Rotala rotundifolia</h4>
+                    <span>(Roundleaf Rotala)</span>
+                    <p><strong>Transition:</strong> Submersed leaves are long, thin, and red. Emersed leaves are
+                        perfectly round and bright green.</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/mermaid_weed.jpg" alt="Proserpinaca palustris plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Proserpinaca palustris</h4>
+                    <span>(Mermaid Weed)</span>
+                    <p><strong>Transition:</strong> Submersed leaves look like fine, copper-colored combs. Emersed
+                        leaves are broad with saw-tooth edges.</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/parrots_feather.jpg" alt="Myriophyllum aquaticum plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Myriophyllum aquaticum</h4>
+                    <span>(Parrot's Feather)</span>
+                    <p><strong>Transition:</strong> Submersed is a delicate feathery cloud. Emersed becomes a stiff,
+                        water-repellent blue-green "miniature pine tree."</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/water_sprite.jpg" alt="Ceratopteris thalictroides plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Ceratopteris thalictroides</h4>
+                    <span>(Water Sprite)</span>
+                    <p><strong>Transition:</strong> Submersed leaves are lacy and thin. Emersed leaves are thick,
+                        fleshy, and much broader.</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/ranunculus.jpg" alt="Ranunculus inundatus plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Ranunculus inundatus</h4>
+                    <span>(River Buttercup)</span>
+                    <p><strong>Transition:</strong> Submersed leaves are beautiful multi-split umbrellas. Emersed leaves
+                        simplify into more solid, rounded clover shapes.</p>
+                </div>
             </div>
         </div>
 
-        <!-- Cotton Candy Fern -->
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/cotton_candy_fern.jpg" alt="Nephrolepis exaltata smithii" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Nephrolepis exaltata 'Smithii'</h4>
-                <span>(Cotton Candy Fern)</span>
+        <!-- EDIBLES SECTION -->
+
+        <div class="collapsible-header" onclick="toggleSection('edibleGrid', this)" style="margin-top: 20px;">
+            <h2 class="category-title">The Edible Garden</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="plant-grid" id="edibleGrid">
+            <!-- Thai Basil -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/thaibasil.jpg" alt="Thai Basil plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Ocimum basilicum 'Thai'</h4>
+                    <span>(Thai Basil)</span>
+                    <p><i>Edible: Aromatic leaves used in cooking and teas for a sweet, anise-like flavor.</i></p>
+                </div>
             </div>
-        </div>
 
-        <!-- Dragon's Tongue -->
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/dragons_tongue.jpg" alt="Hemigraphis repanda" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Hemigraphis repanda</h4>
-                <span>(Dragon's Tongue)</span>
+            <!-- Cuban Oregano -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/cuban_oregano.jpg" alt="Cuban Oregano plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Plectranthus amboinicus</h4>
+                    <span>(Cuban Oregano)</span>
+                    <p><i>Edible: Thick, fuzzy leaves used as a potent seasoning for meats, stews, or herbal teas.</i>
+                    </p>
+                </div>
             </div>
-        </div>
-
-        <!-- Rabbit's Foot Fern -->
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/rabbits_foot_fern.jpg" alt="Davallia fejeensis" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Davallia fejeensis</h4>
-                <span>(Rabbit's Foot Fern)</span>
+            <!-- Bacopa -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/bacopa.jpg" alt="Bacopa monnieri plant" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Bacopa monnieri</h4>
+                    <span>(Brahmi / Moneywort)</span>
+                    <p><i>Edible: Bitter leaves often used in traditional medicine or brewed into "memory-boosting"
+                            teas.</i></p>
+                </div>
             </div>
-        </div>
-    </div>
-    
-
-    <!-- TRANSFORMERS SECTION -->
-    <div class="collapsible-header" onclick="toggleSection('transformerGrid', this)" style="margin-top: 20px;">
-        <h2 class="category-title">The Transformers (Heterophylly)</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div class="plant-grid" id="transformerGrid">
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/limnophila_aq.jpg" alt="Limnophila aquatica plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Limnophila aquatica</h4>
-                <span>(Giant Ambulia)</span>
-                <p>Submersed: Fine, soft needles like Hornwort. Emersed: Sturdy mint-like leaves.</p>
+            <!-- Water Mint -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/water_mint.jpg" alt="Mentha aquatica" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Mentha aquatica</h4>
+                    <span>(Water Mint)</span>
+                    <p>A true aquatic mint. It smells amazing and produces purple flowers. It will quickly "carpet" the
+                        top of your aquarium filter or rim.</p>
+                    <p><i>Edible: Fragrant leaves used to make refreshing peppermint-style teas or salads.</i></p>
+                </div>
             </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/willow_hygro.jpg" alt="Hygrophila corymbosa 'Willow' plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Hygrophila corymbosa 'Willow'</h4>
-                <span>(Willow Leaf Hygro)</span>
-                <p>Submersed leaves are long and narrow; emersed leaves grow short and bushy.</p>
+
+            <!-- Watercress -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/watercress.jpg" alt="Nasturtium officinale" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Nasturtium officinale</h4>
+                    <span>(Watercress)</span>
+                    <p>One of the fastest-growing edibles. It thrives in the high-nitrate environment of an aquarium and
+                        is great for shrimp to graze on.</p>
+                    <p><i>Edible: Peppery leaves and stems packed with vitamins; perfect for salads and sandwiches.</i>
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/creeping_jenny.jpg" alt="Golden Creeping Jenny plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Lysimachia nummularia 'Aurea'</h4>
-                <span>(Golden Creeping Jenny)</span>
+
+            <!-- Limnophila Aromatica -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/limnophila_ar.jpg" alt="Limnophila aromatica plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Limnophila aromatica</h4>
+                    <span>(Rice Paddy Herb)</span>
+                    <p><i>Edible: A staple in Vietnamese sour soups; has a unique flavor profile of citrus and
+                            cumin.</i>
+                    </p>
+                </div>
             </div>
-        </div>
-         <div class="plant-card">
-        <img src="Plants/Epiphytes/rotala_round.jpg" alt="Rotala rotundifolia plant" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Rotala rotundifolia</h4>
-            <span>(Roundleaf Rotala)</span>
-            <p><strong>Transition:</strong> Submersed leaves are long, thin, and red. Emersed leaves are perfectly round and bright green.</p>
-        </div>
-    </div>
-
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/mermaid_weed.jpg" alt="Proserpinaca palustris plant" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Proserpinaca palustris</h4>
-            <span>(Mermaid Weed)</span>
-            <p><strong>Transition:</strong> Submersed leaves look like fine, copper-colored combs. Emersed leaves are broad with saw-tooth edges.</p>
-        </div>
-    </div>
-
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/parrots_feather.jpg" alt="Myriophyllum aquaticum plant" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Myriophyllum aquaticum</h4>
-            <span>(Parrot's Feather)</span>
-            <p><strong>Transition:</strong> Submersed is a delicate feathery cloud. Emersed becomes a stiff, water-repellent blue-green "miniature pine tree."</p>
-        </div>
-    </div>
-
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/water_sprite.jpg" alt="Ceratopteris thalictroides plant" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Ceratopteris thalictroides</h4>
-            <span>(Water Sprite)</span>
-            <p><strong>Transition:</strong> Submersed leaves are lacy and thin. Emersed leaves are thick, fleshy, and much broader.</p>
-        </div>
-    </div>
-
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/ranunculus.jpg" alt="Ranunculus inundatus plant" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Ranunculus inundatus</h4>
-            <span>(River Buttercup)</span>
-            <p><strong>Transition:</strong> Submersed leaves are beautiful multi-split umbrellas. Emersed leaves simplify into more solid, rounded clover shapes.</p>
-        </div>
-    </div>
-    </div>
-
-    <!-- EDIBLES SECTION -->
-    <div class="collapsible-header" onclick="toggleSection('edibleGrid', this)" style="margin-top: 20px;">
-        <h2 class="category-title">The Edible Garden</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div class="plant-grid" id="edibleGrid">
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/thaibasil.jpg" alt="Thai Basil plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Ocimum basilicum 'Thai'</h4>
-                <span>(Thai Basil)</span>
+            <!-- Pennywort -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/pennywort.jpg" alt="Hydrocotyle leucocephala plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hydrocotyle leucocephala</h4>
+                    <span>(Brazilian Pennywort)</span>
+                    <p><i>Edible: The entire plant is edible and often used in South American and Asian cooling drinks
+                            or
+                            garnishes.</i></p>
+                </div>
             </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/cuban_oregano.jpg" alt="Cuban Oregano plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Plectranthus amboinicus</h4>
-                <span>(Cuban Oregano)</span>
+
+            <!-- Water Spinach -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/water_spinach.jpg" alt="Ipomoea aquatica" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Ipomoea aquatica</h4>
+                    <span>(Water Spinach / Kang Kong)</span>
+                    <p>An incredible nitrate sponge. It grows hollow, floating stems that can quickly cover the surface
+                        or
+                        trail down the sides of the tank.</p>
+                    <p><i>Edible: Highly nutritious leaves and crunchy hollow stems; a staple for stir-fries and
+                            Southeast
+                            Asian cuisine.</i></p>
+                </div>
             </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/bacopa.jpg" alt="Bacopa monnieri plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Bacopa monnieri</h4>
-                <span>(Brahmi / Moneywort)</span>
+
+            <!-- Vietnamese Coriander -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/viet_coriander.jpg" alt="Persicaria odorata" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Persicaria odorata</h4>
+                    <span>(Vietnamese Coriander / Hot Mint)</span>
+                    <p>Unlike regular cilantro, this loves "wet feet." It produces beautiful pointed leaves with dark
+                        markings.</p>
+                    <p><i>Edible: Features a spicy, peppery, and citrusy flavor; essential for many Southeast Asian
+                            soups
+                            and salads.</i></p>
+                </div>
             </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/limnophila_ar.jpg" alt="Limnophila aromatica plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Limnophila aromatica</h4>
-                <span>(Rice Paddy Herb)</span>
+
+            <!-- Green Onions -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/green_onions.jpg" alt="Allium fistulosum" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Allium fistulosum</h4>
+                    <span>(Green Onions / Scallions)</span>
+                    <p>One of the easiest to grow. You can even use the bottom white parts of grocery store scraps to
+                        start
+                        them.</p>
+                    <p><i>Edible: The hollow green stalks provide a mild onion flavor; perfect for garnishing almost any
+                            dish.</i></p>
+                </div>
             </div>
-        </div>
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/pennywort.jpg" alt="Hydrocotyle leucocephala plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Hydrocotyle leucocephala</h4>
-                <span>(Brazilian Pennywort)</span>
+
+            <!-- Gotu Kola -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/gotu_kola.jpg" alt="Centella asiatica" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Centella asiatica</h4>
+                    <span>(Gotu Kola)</span>
+                    <p>Often called the "Herb of Longevity." It looks very similar to Pennywort with its round,
+                        fan-shaped
+                        leaves.</p>
+                    <p><i>Edible: Used in cooling summer drinks, salads, and as a medicinal herb in many cultures.</i>
+                    </p>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- BRIDGES SECTION -->
-    <div class="collapsible-header" onclick="toggleSection('bridgeGrid', this)" style="margin-top: 20px;">
-        <h2 class="category-title">Optical Bridges</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div class="plant-grid" id="bridgeGrid">
-        <div class="plant-card">
-            <img src="Plants/Epiphytes/tripartita.jpg" alt="Hydrocotyle tripartita plant" onerror="this.src='Icon.png'">
-            <div class="name-tag">
-                <h4>Hydrocotyle tripartita</h4>
-                <span>(Pennywort 'Japan')</span>
-                <p>Remarkable for having submersed and emersed forms that are nearly identical.</p>
+            <!-- Fish Mint -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/fish_mint.jpg" alt="Houttuynia cordata" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Houttuynia cordata</h4>
+                    <span>(Fish Mint / Chameleon Plant)</span>
+                    <p>A very hardy plant that can develop stunning red, yellow, and green variegated leaves in high
+                        light.
+                    </p>
+                    <p><i>Edible: Named for its unique fish-like aroma; the leaves are used in salads and chutneys
+                            across
+                            Asia.</i></p>
+                </div>
             </div>
+
+            <!-- Lemongrass -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/lemongrass.jpg" alt="Cymbopogon" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Cymbopogon citratus</h4>
+                    <span>(Lemongrass)</span>
+                    <p>Acts as a tall, grassy background. Its massive root system is one of the best for cleaning
+                        aquarium
+                        water.</p>
+                    <p><i>Edible: The woody stalks are crushed and used to infuse citrusy flavors into teas, curries,
+                            and
+                            soups.</i></p>
+                </div>
+            </div>
+
+            <!-- Celery -->
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/celery.jpg" alt="Apium graveolens" onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Apium graveolens</h4>
+                    <span>(Celery)</span>
+                    <p>Celery grows surprisingly well in water. It produces thinner, more aromatic stalks than the ones
+                        found in stores.</p>
+                    <p><i>Edible: Both the crunchy stalks and the leaves are edible, providing a strong, savory
+                            flavor.</i>
+                    </p>
+                </div>
+            </div>
+        </div> <!-- End of Edibles Grid -->
+
+        <!-- BRIDGES SECTION -->
+        <div class="collapsible-header" onclick="toggleSection('bridgeGrid', this)" style="margin-top: 20px;">
+            <h2 class="category-title">Optical Bridges</h2>
+            <span class="toggle-icon">▼</span>
         </div>
-        <div class="plant-card">
-        <img src="Plants/Epiphytes/anubias_nana.jpg" alt="Anubias barteri var. nana plant" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Anubias barteri var. nana</h4>
-            <span>(Anubias Nana)</span>
-            <p><strong>Consistency:</strong> High. The thick, dark green waxy leaves look exactly the same in both forms. The primary bridge for hardscape.</p>
+        <div class="plant-grid" id="bridgeGrid">
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/tripartita.jpg" alt="Hydrocotyle tripartita plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Hydrocotyle tripartita</h4>
+                    <span>(Pennywort 'Japan')</span>
+                    <p>Remarkable for having submersed and emersed forms that are nearly identical.</p>
+                </div>
+            </div>
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/anubias_nana.jpg" alt="Anubias barteri var. nana plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Anubias barteri var. nana</h4>
+                    <span>(Anubias Nana)</span>
+                    <p><strong>Consistency:</strong> High. The thick, dark green waxy leaves look exactly the same in
+                        both forms. The primary bridge for hardscape.</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <img src="Plants/Epiphytes/moss_bridge.jpg" alt="Taxiphyllum barbieri plant"
+                    onerror="this.src='Icon.png'">
+                <div class="name-tag">
+                    <h4>Taxiphyllum barbieri</h4>
+                    <span>(Java Moss)</span>
+                    <p><strong>Consistency:</strong> Medium-High. While it gets "fluffier" underwater, it creates a
+                        green carpet over damp wood that mimics its underwater growth perfectly.</p>
+                </div>
+            </div>
+
         </div>
-    </div>
 
-    <div class="plant-card">
-        <img src="Plants/Epiphytes/moss_bridge.jpg" alt="Taxiphyllum barbieri plant" onerror="this.src='Icon.png'">
-        <div class="name-tag">
-            <h4>Taxiphyllum barbieri</h4>
-            <span>(Java Moss)</span>
-            <p><strong>Consistency:</strong> Medium-High. While it gets "fluffier" underwater, it creates a green carpet over damp wood that mimics its underwater growth perfectly.</p>
-        </div>
-    </div>
+        <script>
+            function toggleSection(id, header) {
+                const grid = document.getElementById(id);
+                if (grid.style.display === "none") {
+                    grid.style.display = "grid";
+                    header.classList.add('active');
+                } else {
+                    grid.style.display = "none";
+                    header.classList.remove('active');
+                }
+            }
 
-</div>
+            // New function to handle the image zooming
+            function initZoom() {
+                const zoomView = document.getElementById('zoomView');
+                const zoomImg = document.getElementById('zoomImg');
+                const images = document.querySelectorAll('.plant-card img');
 
-<script>
-    function toggleSection(id, header) {
-        const grid = document.getElementById(id);
-        if (grid.style.display === "none") {
-            grid.style.display = "grid";
-            header.classList.add('active');
-        } else {
-            grid.style.display = "none";
-            header.classList.remove('active');
-        }
-    }
+                images.forEach(img => {
+                    img.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        zoomImg.src = img.src;
+                        zoomView.style.display = 'flex';
+                    });
+                });
+            }
 
-    // New function to handle the image zooming
-    function initZoom() {
-        const zoomView = document.getElementById('zoomView');
-        const zoomImg = document.getElementById('zoomImg');
-        const images = document.querySelectorAll('.plant-card img');
+            document.addEventListener("DOMContentLoaded", () => {
+                // 1. Default: Open all sections (Optional: you can remove this if you want them closed)
+                document.querySelectorAll('.collapsible-header').forEach(header => {
+                    header.classList.add('active');
+                });
 
-        images.forEach(img => {
-            img.addEventListener('click', (e) => {
-                e.stopPropagation();
-                zoomImg.src = img.src;
-                zoomView.style.display = 'flex';
+                // 2. Initialize the zoom feature
+                initZoom();
             });
-        });
-    }
+        </script>
 
-    document.addEventListener("DOMContentLoaded", () => {
-        // 1. Default: Open all sections (Optional: you can remove this if you want them closed)
-        document.querySelectorAll('.collapsible-header').forEach(header => {
-            header.classList.add('active');
-        });
-
-        // 2. Initialize the zoom feature
-        initZoom();
-    });
-</script>
-
-<!-- Zoom View Overlay -->
-<div id="zoomView" onclick="this.style.display='none'">
-    <img id="zoomImg" alt="zoom" src="">
-</div>
+        <!-- Zoom View Overlay -->
+        <div id="zoomView" onclick="this.style.display='none'">
+            <img id="zoomImg" alt="zoom" src="">
+        </div>
 </body>
+
 </html>
