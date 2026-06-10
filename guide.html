@@ -22,7 +22,7 @@
 
         .fish-title {
             color: #27ae60;
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             margin-bottom: 25px;
             border-bottom: 3px solid #8e44ad;
             display: block;
@@ -47,19 +47,21 @@
         }
 
         .guide-card {
-            background: #132938;
+            background: transparent;
+            /* Removes the dark background behind horizontal images */
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #333;
             transition: all 0.3s ease;
             cursor: zoom-in;
-            height: 100%;
-            /* Ensures cards stay aligned */
+            display: inline-block;
+            /* Helps the card wrap tightly */
+            width: 100%;
         }
 
         .guide-card:hover {
             transform: scale(1.05);
-            border-color: #1e90ff;
+            border-color: #27ae60;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
 
@@ -67,6 +69,36 @@
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        .fish-section h2 {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .fish-section h2:hover {
+            color: #8e44ad !important;
+        }
+
+        /* The arrow icon */
+        .fish-section h2::after {
+            content: '▼';
+            font-size: 1.2rem;
+            color: #8e44ad;
+            transition: transform 0.3s;
+        }
+
+        /* Rotate arrow when closed */
+        .fish-section.closed h2::after {
+            transform: rotate(-90deg);
+        }
+
+        /* Hide the grid when the section is closed */
+        .fish-section.closed .photo-grid {
+            display: none;
         }
 
         /* Lightbox/Zoom View */
@@ -115,7 +147,7 @@
 
         <!-- SECTION: BETTA -->
         <section class="fish-section">
-            <h2 class="fish-title">Betta Fish</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Betta Fish</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/bettaGuide.png" alt="Betta Care" onerror="this.src='Icon.png'">
@@ -134,7 +166,7 @@
 
         <!-- SECTION: GOLDFISH -->
         <section class="fish-section">
-            <h2 class="fish-title">Goldfish</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Goldfish</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/goldfishCare.png" alt="Goldfish Care" onerror="this.src='Icon.png'">
@@ -147,7 +179,7 @@
 
         <!-- SECTION: RASBORAS -->
         <section class="fish-section">
-            <h2 class="fish-title">Rasboras</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Rasboras</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/rasboChili.png" alt="Chili Rasbora" onerror="this.src='Icon.png'">
@@ -175,7 +207,7 @@
 
         <!-- SECTION: GOURAMIS -->
         <section class="fish-section">
-            <h2 class="fish-title">Gouramis</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Gouramis</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/honeyGourami.png" alt="Gourami Care" onerror="this.src='Icon.png'">
@@ -194,7 +226,7 @@
 
         <!-- SECTION: TETRAS -->
         <section class="fish-section">
-            <h2 class="fish-title">Tetras</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Tetras</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/neon.png" alt="Tetra Care" onerror="this.src='Icon.png'">
@@ -249,7 +281,7 @@
 
         <!-- SECTION: CORYDORAS -->
         <section class="fish-section">
-            <h2 class="fish-title">Corydoras</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Corydoras</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/commonCory.png" alt="Corydora Care" onerror="this.src='Icon.png'">
@@ -271,7 +303,7 @@
 
         <!-- SECTION: LOACHES -->
         <section class="fish-section">
-            <h2 class="fish-title">Loaches</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Loaches</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/kuhliloach.png" alt="Loach Care" onerror="this.src='Icon.png'">
@@ -293,7 +325,7 @@
 
         <!-- SECTION: CATFISH AND OTOCINCLUS -->
         <section class="fish-section">
-            <h2 class="fish-title">Catfish and Otocinclus</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Catfish and Otocinclus</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/siamesealgae.png" alt="Catfish Care" onerror="this.src='Icon.png'">
@@ -342,7 +374,7 @@
 
         <!-- SECTION: LIVEBEARERS -->
         <section class="fish-section">
-            <h2 class="fish-title">Livebearers</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Livebearers</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/guppy.png" alt="Guppy Care" onerror="this.src='Icon.png'">
@@ -373,7 +405,7 @@
 
         <!-- SECTION: DANIOS -->
         <section class="fish-section">
-            <h2 class="fish-title">Danios</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Danios</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/zebradanio.png" alt="Danio Care" onerror="this.src='Icon.png'">
@@ -392,7 +424,7 @@
 
         <!-- SECTION: PLECOS -->
         <section class="fish-section">
-            <h2 class="fish-title">Plecos</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Plecos</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/bristlenose.png" alt="Pleco Care" onerror="this.src='Icon.png'">
@@ -432,7 +464,7 @@
 
         <!-- SECTION: BARBS -->
         <section class="fish-section">
-            <h2 class="fish-title">Barbs</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Barbs</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/tiger.png" alt="Barb Care" onerror="this.src='Icon.png'">
@@ -487,7 +519,7 @@
 
         <!-- SECTION: KILLIFISH -->
         <section class="fish-section">
-            <h2 class="fish-title">Killifish</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Killifish</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/egger.png" alt="Killifish Care" onerror="this.src='Icon.png'">
@@ -509,7 +541,7 @@
 
         <!-- SECTION: OTHER FISH -->
         <section class="fish-section">
-            <h2 class="fish-title">Other Fish</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Other Fish</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/hatchet.png" alt="Hatchet Fish Care" onerror="this.src='Icon.png'">
@@ -520,13 +552,13 @@
                 <div class="guide-card">
                     <img src="Guides/dwarfneonrainbowfish.png" alt="Discus Fish Care" onerror="this.src='Icon.png'">
                 </div>
-                
+
             </div>
         </section>
 
         <!-- SECTION: SHRIMP -->
         <section class="fish-section">
-            <h2 class="fish-title">Shrimp</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Shrimp</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/sexing.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
@@ -581,7 +613,7 @@
 
         <!-- SECTION: SNAILS -->
         <section class="fish-section">
-            <h2 class="fish-title">Snails</h2>
+            <h2 class="fish-title" onclick="toggleFish(this.parentElement)">Snails</h2>
             <div class="photo-grid">
                 <div class="guide-card">
                     <img src="Guides/malasyantrumpet.png" alt="Snail Care" onerror="this.src='Icon.png'">
@@ -621,6 +653,11 @@
     </div>
 
     <script>
+        // Function to toggle fish sections
+        function toggleFish(sectionElement) {
+            sectionElement.classList.toggle('closed');
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             const zoomView = document.getElementById('zoomView');
             const zoomImg = document.getElementById('zoomImg');
