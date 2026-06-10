@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,42 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Icon.png">
     <style>
-        .guide-container { padding: 40px; max-width: 1100px; margin: auto; }
-        
+        .guide-container {
+            padding: 40px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* Widened for 5-column layout */
+
         .fish-section {
-            margin-bottom: 80px; /* Spacing between different fish types */
+            margin-bottom: 80px;
         }
 
         .fish-title {
             color: #27ae60;
-            font-size: 2.8rem; /* Much bigger title */
+            font-size: 2.8rem;
             margin-bottom: 25px;
-            border-bottom: 3px solid #8e44ad; /* Purple line */
-            display: block; /* Makes the line span the width */
+            border-bottom: 3px solid #8e44ad;
+            display: block;
             padding-bottom: 10px;
-            width: 100%; /* Long line */
+            width: 100%;
         }
 
-        /* The Flexible Grid */
+        /* The Flexible Grid with 5-column limit */
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            /* On mobile/tablet, it fits as many as possible (min 200px) */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
             align-items: start;
+        }
+
+        /* On desktop screens, force a maximum of 5 columns */
+        @media (min-width: 1100px) {
+            .photo-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
         }
 
         .guide-card {
@@ -38,12 +53,14 @@
             border: 1px solid #333;
             transition: all 0.3s ease;
             cursor: zoom-in;
+            height: 100%;
+            /* Ensures cards stay aligned */
         }
 
         .guide-card:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
             border-color: #1e90ff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
 
         .guide-card img {
@@ -56,14 +73,17 @@
         #zoomView {
             display: none;
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.95);
             z-index: 10000;
             cursor: zoom-out;
             align-items: center;
             justify-content: center;
         }
+
         #zoomView img {
             max-width: 95vw;
             max-height: 95vh;
@@ -71,71 +91,550 @@
             border-radius: 8px;
         }
 
-        .back-row { margin-bottom: 30px; }
-        
-        /* Main Page Title */
+        .back-row {
+            margin-bottom: 30px;
+        }
+
         .main-page-title {
-            color: #1e90ff; /* Blue like other pages */
+            color: #1e90ff;
             text-align: center;
             margin-bottom: 60px;
             font-size: 3rem;
         }
     </style>
 </head>
+
 <body>
 
-<div class="guide-container">
-    <div class="back-row">
-        <a href="Tips.html" class="btn-nav">← Back to Tips</a>
+    <div class="guide-container">
+        <div class="back-row">
+            <a href="Tips.html" class="btn-nav">← Back to Tips</a>
+        </div>
+
+        <h1 class="main-page-title">Fish Care Visual Guides</h1>
+
+        <!-- SECTION: BETTA -->
+        <section class="fish-section">
+            <h2 class="fish-title">Betta Fish</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/bettaGuide.png" alt="Betta Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/betta.png" alt="Betta Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/bettaGuide2.png" alt="Betta Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/bettasafe.png" alt="Betta Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: GOLDFISH -->
+        <section class="fish-section">
+            <h2 class="fish-title">Goldfish</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/goldfishCare.png" alt="Goldfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/goldfish.png" alt="Goldfish Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: RASBORAS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Rasboras</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/rasboChili.png" alt="Chili Rasbora" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/rasboChili2.png" alt="Chili Rasbora" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/rasboExclam.png" alt="Exclamation Point Rasbora" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/rasboHarle.png" alt="Harlequin Rasbora" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/rasboLamb.png" alt="Lambchop Rasbora" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/rasboStraw.png" alt="Strawberry Rasbora" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/rasboGalaxy.png" alt="Strawberry Rasbora" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: GOURAMIS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Gouramis</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/honeyGourami.png" alt="Gourami Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/sparklingGourami.png" alt="Gourami Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/dwarfGourami.png" alt="Gourami Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/pearlGourami.png" alt="Gourami Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: TETRAS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Tetras</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/neon.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/ember.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/Cardinal.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/emperor.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/blackskirt.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/blackneon.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/greenneon.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/congo.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/buenosAires.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/rummynose.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/ruby.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/crystal.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/serpae.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/lemon.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/kitty.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/glofishtetra.png" alt="Tetra Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CORYDORAS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Corydoras</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/commonCory.png" alt="Corydora Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/pandaCory.png" alt="Corydora Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/skunkCory.png" alt="Corydora Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/pepperedCory.png" alt="Corydora Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/sterbaCory.png" alt="Corydora Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: LOACHES -->
+        <section class="fish-section">
+            <h2 class="fish-title">Loaches</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/kuhliloach.png" alt="Loach Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/clownloach.png" alt="Loach Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/zebraloach.png" alt="Loach Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/yunnanilus.png" alt="Loach Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/dwarfchain.png" alt="Loach Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CATFISH AND OTOCINCLUS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Catfish and Otocinclus</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/siamesealgae.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/chinesealgae.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/otocinclus.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/strippedraphaelcatfish.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/bumblebee.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/eeltailed.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/decorus.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/twig.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/upsidedown.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/pyjama.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/pygmyleopard.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/angelicus.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/glass.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/pictus.png" alt="Catfish Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: LIVEBEARERS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Livebearers</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/guppy.png" alt="Guppy Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/guppyguide.png" alt="Guppy Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/cobraguppy.png" alt="Guppy Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/swordtail.png" alt="Swordtail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/pygmyswordtail.png" alt="Swordtail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/platies.png" alt="Platy Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/mollies.png" alt="Molly Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/endlers.png" alt="Endler's Livebearer Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: DANIOS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Danios</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/zebradanio.png" alt="Danio Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/celestialpearldanio.png" alt="Danio Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/glowlightdanio.png" alt="Danio Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/giantdanio.png" alt="Danio Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PLECOS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Plecos</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/bristlenose.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/albinobristlenose.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/clownpleco.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/candystripe.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/sailfin.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/mango.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/snowball.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/zebra.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/goldennugget.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/leopardfrog.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/greenphantom.png" alt="Pleco Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: BARBS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Barbs</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/tiger.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/cherrybarb.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/rosy.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/tinfoil.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/jae.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/spanner.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/blackruby.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/panda-melon.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/filament.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/ticto.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/redside-twospot.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/goldendwarfs.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/goldenbarb.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/snakeskin.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/checker.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/pentazona.png" alt="Barb Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: KILLIFISH -->
+        <section class="fish-section">
+            <h2 class="fish-title">Killifish</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/egger.png" alt="Killifish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/bluefin.png" alt="Killifish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/least.png" alt="Killifish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/goldenwonder.png" alt="Killifish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/lyretail.png" alt="Killifish Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: OTHER FISH -->
+        <section class="fish-section">
+            <h2 class="fish-title">Other Fish</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/hatchet.png" alt="Hatchet Fish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/discus.png" alt="Discus Fish Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/dwarfneonrainbowfish.png" alt="Discus Fish Care" onerror="this.src='Icon.png'">
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- SECTION: SHRIMP -->
+        <section class="fish-section">
+            <h2 class="fish-title">Shrimp</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/sexing.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/neocaridina.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/cherry.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/bee.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/ghost.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/bluebolt.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/amano.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/whisker.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/leopard.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/rednose.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/tangerine.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/malawa.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/sulawesi.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/redclaw.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/redwhitecleaner.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/bumblebeeshrimp.png" alt="Shrimp Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: SNAILS -->
+        <section class="fish-section">
+            <h2 class="fish-title">Snails</h2>
+            <div class="photo-grid">
+                <div class="guide-card">
+                    <img src="Guides/malasyantrumpet.png" alt="Snail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/nerite.png" alt="Snail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/freshwaterclams.png" alt="Snail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/hairy.png" alt="Snail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/blackpanther.png" alt="Snail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/leopardsnail.png" alt="Snail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/whitewizard.png" alt="Snail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/pagoda.png" alt="Snail Care" onerror="this.src='Icon.png'">
+                </div>
+                <div class="guide-card">
+                    <img src="Guides/greenwolf.png" alt="Snail Care" onerror="this.src='Icon.png'">
+                </div>
+            </div>
+        </section>
+
+
     </div>
 
-    <h1 class="main-page-title">Fish Care Visual Guides</h1>
+    <div id="zoomView" onclick="this.style.display='none'">
+        <img id="zoomImg" alt="zoom" src="">
+    </div>
 
-    <!-- SECTION: BETTA -->
-    <section class="fish-section">
-        <h2 class="fish-title">Betta Fish</h2>
-        <div class="photo-grid">
-            <div class="guide-card">
-                <img src="Guides/bettaGuide.png" alt="Betta Care Guide" onerror="this.src='Icon.png'">
-            </div>
-            <!-- Add more <img> here if needed -->
-        </div>
-    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const zoomView = document.getElementById('zoomView');
+            const zoomImg = document.getElementById('zoomImg');
+            const images = document.querySelectorAll('.guide-card img');
 
-    <!-- SECTION: GOLDFISH -->
-    <section class="fish-section">
-        <h2 class="fish-title">Goldfish</h2>
-        <div class="photo-grid">
-            <div class="guide-card">
-                <img src="Guides/goldfishCare.png" alt="Goldfish Care Guide" onerror="this.src='Icon.png'">
-            </div>
-        </div>
-    </section>
-
-    <!-- To add a new fish: 
-    Copy from <section> to </section> and change the title and image path. -->
-
-</div>
-
-<!-- Zoom View Overlay -->
-<div id="zoomView" onclick="this.style.display='none'">
-    <img id="zoomImg" alt="zoom" src="">
-</div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const zoomView = document.getElementById('zoomView');
-        const zoomImg = document.getElementById('zoomImg');
-        const images = document.querySelectorAll('.guide-card img');
-
-        images.forEach(img => {
-            img.addEventListener('click', () => {
-                zoomImg.src = img.src;
-                zoomView.style.display = 'flex';
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    zoomImg.src = img.src;
+                    zoomView.style.display = 'flex';
+                });
             });
         });
-    });
-</script>
+    </script>
 
 </body>
+
 </html>
