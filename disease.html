@@ -651,6 +651,24 @@
 
             </div>
 
+            <!-- NEON TETRA DISEASE -->
+            <div class="disease-card" onclick="openModal('neonTetraModal')">
+                <img src="Diseases/NeonTetraDisease/neontetra1.jpg" alt="Neon Tetra Disease">
+                <div class="disease-card-content">
+                    <h3>Neon Tetra Disease</h3>
+                    <p>Parasitic infection causing pale patches and wasting.</p>
+                </div>
+            </div>
+
+            <!-- BLACK SPOT DISEASE -->
+            <div class="disease-card" onclick="openModal('blackSpotModal')">
+                <img src="Diseases/BlackSpotDisease/blackspot1.jpg" alt="Black Spot Disease">
+                <div class="disease-card-content">
+                    <h3>Black Spot Disease / Black Ich</h3>
+                    <p>Small black dots caused by parasitic trematode larvae.</p>
+                </div>
+            </div>
+
         </div> <!-- END FISH DISEASES -->
 
 
@@ -2000,6 +2018,117 @@
 
     </div>
 
+    <!-- ====================================== -->
+    <!-- NEON TETRA DISEASE -->
+    <!-- ====================================== -->
+
+    <div id="neonTetraModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('neonTetraModal')">&times;</span>
+
+            <h2>Neon Tetra Disease</h2>
+
+            <div class="info-box" style="border-left-color: #e74c3c;">
+                <strong>Mortality Rate:</strong> Extremely High (Often 100%).
+            </div>
+
+            <h3>What Is It?</h3>
+            <p>
+                Neon Tetra Disease (NTD) is a highly contagious and usually fatal parasitic disease
+                primarily affecting characins, but can also infect other fish species.
+                It's caused by the microsporidian parasite <em>Pleistophora hyphessobryconis</em>.
+                There is no known cure, and it's best to act quickly to prevent spread.
+            </p>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li><strong>Pale/Discolored Patches:</strong> Loss of color, especially in the neon stripe.</li>
+                <li><strong>Wasting Away:</strong> Fish becomes emaciated despite eating (often mistaken for Fish TB).</li>
+                <li><strong>Lumps or Cysts:</strong> May appear on the body.</li>
+                <li><strong>Spinal Deformities:</strong> Curved spine as the disease progresses.</li>
+                <li><strong>Erratic Swimming:</strong> Jerky movements or difficulty swimming.</li>
+                <li><strong>Secondary Infections:</strong> Fungus or bacterial infections may develop on weakened fish.</li>
+            </ul>
+
+            <h3>Quarantine & Prevention</h3>
+            <ul>
+                <li><strong>Immediate Euthanasia:</strong> Unfortunately, the best course of action for an infected fish is humane euthanasia to prevent spread.</li>
+                <li><strong>Remove Carcasses:</strong> The parasite spreads when healthy fish eat infected dead fish or their waste.</li>
+                <li><strong>Disinfect:</strong> Do NOT share equipment (nets, siphons) between tanks. Sterilize everything that has come into contact with the infected tank.</li>
+                <li><strong>Quarantine New Fish:</strong> Always quarantine new fish for 4-6 weeks to prevent introducing the disease.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>No Cure:</strong> There is no effective treatment for Neon Tetra Disease once established.</li>
+                <li><strong>Supportive Care:</strong> Keeping water quality pristine and reducing stress can sometimes prolong life but will not cure the disease.</li>
+            <li>Euthanasia is the most humane option for infected individuals.</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/NeonTetraDisease/neontetra2.jpg" alt="Neon Tetra Disease symptoms" onclick="openImage(this.src)">
+                <img src="Diseases/NeonTetraDisease/neontetra3.jpg" alt="Neon Tetra Disease wasting" onclick="openImage(this.src)">
+                <img src="Diseases/NeonTetraDisease/neontetra4.jpg" alt="Neon Tetra Disease spinal curve" onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================== -->
+    <!-- BLACK SPOT DISEASE -->
+    <!-- ====================================== -->
+
+    <div id="blackSpotModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('blackSpotModal')">&times;</span>
+
+            <h2>Black Spot Disease / Black Ich</h2>
+
+            <div class="info-box">
+                <strong>Mortality Rate:</strong> Low (usually not fatal, but highly irritating).
+            </div>
+
+            <h3>What Is It?</h3>
+            <p>
+                Black Spot Disease (also known as Black Ich or Black Grub) is caused by the larval stage
+                (metacercariae) of parasitic trematodes (flukes) of the genus <em>Posthodiplostomum</em> or
+                <em>Apophallus</em>. The black spots are actually the fish's melanistic (dark pigment) reaction
+                to wall off the parasite under the skin. It typically enters the aquarium through live food or wild-caught fish. <br>
+                It can sometimes get confused with necrotic or healed injuries.
+            </p>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li><strong>Small Black Dots:</strong> Visible tiny black dots (like pepper flakes) scattered on the
+                    body, fins, and sometimes eyes.</li>
+                <li><strong>Flashing/Scratching:</strong> Fish will rub against objects to try and dislodge the parasites.</li>
+                <li><strong>Lethargy:</strong> May appear stressed or less active in severe infestations.</li>
+                <li><strong>Reduced Appetite:</strong> In rare, heavy infestations.</li>
+            </ul>
+
+            <h3>Quarantine & Prevention</h3>
+            <ul>
+                <li><strong>Quarantine New Fish:</strong> Always quarantine new fish for at least 4 weeks.</li>
+                <li><strong>Avoid Wild-Caught Food:</strong> Do not feed live foods collected from the wild that could carry parasites.</li>
+                <li><strong>Snail Control:</strong> The parasite's life cycle often involves snails as an intermediate host. Removing snails can break the cycle.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>Praziquantel:</strong> Medications containing praziquantel (e.g., API General Cure) are effective.</li>
+                <li><strong>Salt Baths:</strong> Short-term salt baths can help dislodge some parasites and alleviate irritation.</li>
+                <li><strong>Copper-Based Medications:</strong> Can be effective, but use with caution and avoid with invertebrates.</li>
+                <li><strong>Improve Water Quality:</strong> Maintaining pristine water conditions helps fish recover and reduces stress.</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/BlackSpotDisease/blackspot2.jpg" alt="Black Spot Disease on fish body" onclick="openImage(this.src)">
+                <img src="Diseases/BlackSpotDisease/blackspot3.jpg" alt="Black Spot Disease on fins" onclick="openImage(this.src)">
+                <img src="Diseases/BlackSpotDisease/blackspot4.jpg" alt="Close up of Black Spot Disease" onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- FINISH FISH DISEASE -->
     <!-- SHRIMPS -->
 
     <!-- CLADOGONIUM -->
