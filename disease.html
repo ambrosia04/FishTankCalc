@@ -678,6 +678,24 @@
                 </div>
             </div>
 
+            <!-- CHILODONELLA -->
+            <div class="disease-card" onclick="openModal('chilodonellaModal')">
+                <img src="Diseases/Chilodonella/chilodonella1.jpg" alt="Chilodonella Disease">
+                <div class="disease-card-content">
+                    <h3>Chilodonella</h3>
+                    <p>Highly lethal parasitic infection of skin and gills.</p>
+                </div>
+            </div>
+
+            <!-- alkalosis -->
+            <div class="disease-card" onclick="openModal('alkalosisModal')">
+                <img src="Diseases/alkalosis/alkalosis1.jpg" alt="alkalosis in fish">
+                <div class="disease-card-content">
+                    <h3>alkalosis</h3>
+                    <p>Stress and tissue damage from excessively high pH levels.</p>
+                </div>
+            </div>
+
         </div> <!-- END FISH DISEASES -->
 
 
@@ -2179,7 +2197,8 @@
                 similar water molds, that specifically affects the mouth region of fish. It can also be a secondary
                 bacterial infection. It is characterized by swollen, often white or fuzzy, lesions around the mouth,
                 making it difficult for the fish to eat or breathe properly. <br>
-                It can be confused with other mouth deformities like Lip Fibromas or other injuries, so proper diagnosis is important.
+                It can be confused with other mouth deformities like Lip Fibromas or other injuries, so proper diagnosis
+                is important.
             </p>
 
             <h3>Symptoms</h3>
@@ -2223,6 +2242,146 @@
                 <img src="Diseases/DuckLips/ducklips3.jpg" alt="Duck Lips Disease fungal growth"
                     onclick="openImage(this.src)">
                 <img src="Diseases/DuckLips/ducklips4.jpg" alt="Fish with Duck Lips Disease"
+                    onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================== -->
+    <!-- CHILODONELLA -->
+    <!-- ====================================== -->
+
+    <div id="chilodonellaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('chilodonellaModal')">&times;</span>
+
+            <h2>Chilodonella</h2>
+
+            <div class="info-box" style="border-left-color: #e74c3c;">
+                <strong>Mortality Rate:</strong> Very High (especially in weakened fish or crowded tanks).
+            </div>
+
+            <h3>What Is It?</h3>
+            <p>
+                Chilodonella is a highly pathogenic, ciliated protozoan parasite that infects the skin and gills of
+                freshwater fish.
+                It causes severe irritation and can quickly lead to suffocation if the gills are heavily infested.
+                It thrives in poor water quality and cooler temperatures.
+            </p>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li><strong>Cloudy or Milky Skin:</strong> A bluish-grey film or slime coat on the body.</li>
+                <li><strong>Flashing/Rubbing:</strong> Fish constantly scrape themselves against decorations or
+                    substrate.</li>
+                <li><strong>Clamped Fins:</strong> Fins held close to the body.</li>
+                <li><strong>Rapid Breathing/Gasping:</strong> If gills are affected, fish may gasp at the surface.</li>
+                <li><strong>Lethargy:</strong> Fish become listless and may hide or stay at the bottom.</li>
+                <li><strong>Loss of Appetite:</strong> Refusal to eat.</li>
+            </ul>
+
+            <h3>Quarantine & Prevention</h3>
+            <ul>
+                <li><strong>Treat Entire Tank:</strong> Chilodonella is highly contagious and spreads rapidly, requiring
+                    whole-tank treatment.</li>
+                <li><strong>Improve Water Quality:</strong> Maintain pristine water parameters and good oxygenation.
+                </li>
+                <li><strong>Avoid Overcrowding:</strong> Reduces stress and spread of parasites.</li>
+                <li><strong>Quarantine New Fish:</strong> Isolate new fish for at least 4 weeks.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>Increase Temperature:</strong> Gradually raise the water temperature to 82-86°F (28-30°C) to
+                    speed up the parasite's life cycle, making it more vulnerable to medication.</li>
+                <li><strong>Aquarium Salt:</strong> 2-3 tablespoons per 5 gallons can be effective, especially in a
+                    hospital tank.</li>
+                <li><strong>Formalin-based medications:</strong> Highly effective against Chilodonella. Follow product
+                    instructions carefully.</li>
+                <li><strong>Malachite Green:</strong> Also very effective, often found in combination with formalin.
+                </li>
+                <li><strong>Frequent Water Changes:</strong> Essential for removing free-swimming parasites.</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/Chilodonella/chilodonella2.jpg" alt="Chilodonella cloudy skin"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/Chilodonella/chilodonella3.jpg" alt="Fish with Chilodonella infection"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/Chilodonella/chilodonella4.jpg" alt="Chilodonella infected gills"
+                    onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================== -->
+    <!-- alkalosis -->
+    <!-- ====================================== -->
+
+    <div id="alkalosisModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('alkalosisModal')">&times;</span>
+
+            <h2>alkalosis (High pH Stress)</h2>
+
+            <div class="info-box" style="border-left-color: #e74c3c;">
+                <strong>Mortality Rate:</strong> Moderate to High (if not corrected quickly).
+            </div>
+
+            <h3>What Is It?</h3>
+            <p>
+                alkalosis is a condition in fish caused by exposure to excessively high pH levels in the aquarium
+                water.
+                While some fish prefer alkaline water, extreme or sudden spikes in pH can burn gills, damage the slime
+                coat,
+                and interfere with vital bodily functions, leading to severe stress, disease, and potentially death.
+            </p>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li><strong>Rapid Gilling:</strong> Fish breathing heavily, often gasping at the surface.</li>
+                <li><strong>Clamped Fins:</strong> Fins held close to the body, indicating severe stress.</li>
+                <li><strong>Slime Coat Issues:</strong> Cloudy eyes, excess slime production, or visible damage to the
+                    slime coat.</li>
+                <li><strong>Faded Colors:</strong> Fish lose their vibrant coloration.</li>
+                <li><strong>Lethargy/Erratic Swimming:</strong> Listlessness, hiding, or swimming erratically.</li>
+                <li><strong>Fin/Skin Erosion:</strong> In severe cases, fins and skin may show signs of chemical burns.
+                </li>
+                <li><strong>Death:</strong> Sudden, unexplained deaths.</li>
+            </ul>
+
+            <h3>Quarantine & Prevention</h3>
+            <ul>
+                <li><strong>Test pH Regularly:</strong> Use a reliable pH test kit. Know the ideal pH range for your
+                    specific fish species.</li>
+                <li><strong>Buffer Water Appropriately:</strong> Use appropriate buffers or substrates (like crushed
+                    coral for high pH, Indian almond leaves for low pH) to maintain stable pH.</li>
+                <li><strong>Avoid Sudden Changes:</strong> Never make drastic pH adjustments. Any changes should be slow
+                    and gradual over hours or days.</li>
+                <li><strong>Check Tap Water:</strong> Test your tap water's pH before adding it to the tank during water
+                    changes.</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <ul>
+                <li><strong>Gradual Water Changes:</strong> Perform small, frequent water changes (10-15% daily) with
+                    properly conditioned water that matches the tank's *target* pH, not necessarily the current high pH.
+                    The goal is to slowly bring the pH down.</li>
+                <li><strong>Increase Aeration:</strong> High pH can make ammonia more toxic; increased oxygenation helps
+                    reduce stress.</li>
+                <li><strong>Indian Almond Leaves/Alder Cones:</strong> These release tannins that can naturally and
+                    gently lower pH over time, and provide soothing properties.</li>
+                <li><strong>pH Lowering Products:</strong> Use commercial pH lowering products ONLY if you understand
+                    how to use them safely and gradually, as sudden drops can be more harmful than high pH.</li>
+                <li><strong>Monitor Fish Closely:</strong> Observe for signs of recovery or worsening condition.</li>
+            </ul>
+
+            <div class="gallery">
+                <img src="Diseases/alkalosis/alkalosis2.jpg" alt="Fish with alkalosis symptoms"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/alkalosis/alkalosis3.jpg" alt="Gills affected by high pH"
+                    onclick="openImage(this.src)">
+                <img src="Diseases/alkalosis/alkalosis4.jpg" alt="Stressed fish due to high pH"
                     onclick="openImage(this.src)">
             </div>
         </div>
