@@ -77122,6 +77122,90 @@
     ]
   },
   {
+    "latin_name": "Pseudomugil furcatus",
+    "common_name": "Forktail Blue-eye",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 5.5,
+    "min_tank": 60,
+    "temperature": [
+      24,
+      28
+    ],
+    "ph": [
+      7.0,
+      8.0
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 8,
+    "max_group": 25,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "high",
+    "tank_position": "top",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.5,
+    "current_size_cm": 2.5,
+    "max_size_cm": 6.0,
+    "growth_rate_cm_per_month": 0.4,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 7.5,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Tuvilimba nigrans",
+      "Corydoras habrosus",
+      "Caridina multidentata"
+    ]
+  },
+  {
+    "latin_name": "Pseudomugil paskai",
+    "common_name": "Paska's Blue-eye",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 3.5,
+    "min_tank": 40,
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      6.5,
+      7.5
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 8,
+    "max_group": 20,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "top",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.4,
+    "current_size_cm": 1.5,
+    "max_size_cm": 3.5,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 7.0,
+    "flow_requirement": "low",
+    "predatory": false,
+    "compatible_with": [
+      "Boraras brigittae",
+      "Neocaridina davidi",
+      "Microdevario kubotai"
+    ]
+  },
+  {
     "latin_name": "Pseudomugil signifer",
     "common_name": "Pacific Blue-eye",
     "type": "brackish",
