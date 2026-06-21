@@ -113186,8 +113186,49 @@
     "flow_requirement": "low",
     "predatory": true,
     "compatible_with": [
-      "Small reef gobies",
-      "Micro-crustaceans"
+      "Small reef gobies"
+    ]
+  },
+  {
+    "latin_name": "Triops cancriformis",
+    "common_name": "Tadpole Shrimp",
+    "category": "shrimp",
+    "type": "freshwater",
+    "size_cm": 10.0,
+    "min_tank": 40,
+    "temperature": [
+      15,
+      25
+    ],
+    "ph": [
+      6.5,
+      8.5
+    ],
+    "aggression": "peaceful",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 15,
+    "bioload": "medium",
+    "plant_safe": false,
+    "activity": "high",
+    "tank_position": "bottom",
+    "eat_shrimp": true,
+    "eat_snails": true,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.6,
+    "current_size_cm": 2.0,
+    "max_size_cm": 10.0,
+    "growth_rate_cm_per_month": 2.5,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.0,
+    "flow_requirement": "low",
+    "predatory": true,
+    "compatible_with": [
+      "Oryzias latipes",
+      "Corydoras paleatus",
+      "Tanichthys albonubes"
     ]
   },
   {
