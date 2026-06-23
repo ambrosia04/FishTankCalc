@@ -175,7 +175,7 @@
 </div>
 
 <!-- Center Screen Zoom View -->
-<div id="zoomView"><img id="zoomImg" src=""></div>
+<div id="zoomView"><img id="zoomImg" src="" alt="Zoomed image view"></div>
 
 <script>
     const microData = [
@@ -331,6 +331,15 @@
             role: "Most species are scavengers or filter feeders, but some are herbivorous and can chew noticeable holes in aquarium plants. They are usually introduced as eggs on live plants.",
             removal: "Manual removal is the easiest method; simply pick them out with tweezers. Most fish find them delicious, though the protective case makes it hard for smaller fish to eat them.",
             folder: "Caddisfly_Larvae"
+        },
+        {
+            id: "vinegar_eels",
+            name: "Vinegar Eels",
+            status: "Good",
+            description: "Microscopic, non-parasitic nematodes (Turbatrix aceti) that swim continuously with a smooth wiggling motion throughout the water column.",
+            role: "An exceptional live food source. Because they are tiny and swim near the surface, newborn fry and micro fish (like Chili Rasboras, Endlers, and tetras) love to hunt them. They do not drop to the substrate and can survive in freshwater for several days without dying, which prevents water fouling.",
+            removal: "Extremely easy to breed and farm with virtually no ongoing maintenance. To culture them, fill a jar with a 50/50 mix of apple cider vinegar and dechlorinated water, add a few slices of raw apple, and add a starter culture. To harvest, use the 'long-neck bottle' method: fill a bottle with the culture up to the neck, push a small piece of cotton or filter floss into the neck, and gently pour clean, dechlorinated water on top. The eels will swim up through the cotton into the fresh water to breathe, allowing you to siphon them out easily without transferring any vinegar.",
+            folder: "Vinegar_Eels"
         }
     ];
 
@@ -348,7 +357,7 @@
         else if (item.status === "Bad") card.classList.add('border-bad');
         else if (item.status === "Neutral") card.classList.add('border-neutral');
 
-        card.innerHTML = `<img src="Microfauna/${item.folder}/1.jpg" onerror="this.src='Icon.png'"><h3>${item.name}</h3>`;
+        card.innerHTML = `<img src="Microfauna/${item.folder}/1.jpg" onerror="this.src='Icon.png'" alt="${item.name}"><h3>${item.name}</h3>`;
         card.onclick = () => openModal(item);
         gallery.appendChild(card);
     });
@@ -378,7 +387,7 @@
         const statusClass = 'status-' + item.status.toLowerCase();
         modalBody.innerHTML = `
             <h1>${item.name}</h1>
-            <img src="Microfauna/${item.folder}/1.jpg" class="modal-main-img" onerror="this.style.display='none'">
+            <img src="Microfauna/${item.folder}/1.jpg" class="modal-main-img" onerror="this.style.display='none'" alt="${item.name}">
             <div class="info-section">
                 <p><strong>What is it?</strong><br>${item.description}</p>
                 <p><strong>Is it good or bad?</strong><br> <span class="${statusClass}">${item.status === 'Neutral' ? 'Both Good and Bad' : item.status}</span> - ${item.role}</p>
