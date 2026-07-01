@@ -25,11 +25,12 @@ fetch("fish.json")
 });
 
 const linkedSpecies = {
-    "corydoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster"],
-    "hoplisoma": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster"],
-    "aspidoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster"],
-    "gastrodermus": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster"],
-    "osteogaster": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster"],
+    "corydoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
+    "hoplisoma": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
+    "aspidoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
+    "gastrodermus": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
+    "osteogaster": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
+    "brochis": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
     "nassarius": ["nassarius", "tritia"],
     "tritia": ["nassarius", "tritia"],
     "nanochromis": ["nanochromis", "distichodus"],
@@ -45,6 +46,7 @@ const genusLinks = {
     "aspidoras": "corydoras",
     "gastrodermus": "corydoras",
     "osteogaster": "corydoras",
+    "brochis": "corydoras",
     "nassarius": "tritia",
     "tritia": "nassarius",
     "nanochromis": "distichodus",

@@ -30666,6 +30666,174 @@
     ]
   },
   {
+    "latin_name": "Corydoras schultzei var. Black",
+    "common_name": "Black Venezuela Cory",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 5.0,
+    "min_tank": 60,
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      6.0,
+      7.5
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 6,
+    "max_group": 20,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "bottom",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.5,
+    "current_size_cm": 2.5,
+    "max_size_cm": 5.0,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.0,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Paracheirodon axelrodi",
+      "Trigonostigma heteromorpha",
+      "Microgeophagus ramirezi"
+    ]
+  },
+  {
+    "latin_name": "Corydoras venezuelanus var. Orange",
+    "common_name": "Venezuela Orange Cory",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 5.0,
+    "min_tank": 60,
+    "temperature": [
+      20,
+      26
+    ],
+    "ph": [
+      6.0,
+      7.5
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 6,
+    "max_group": 20,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "bottom",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.5,
+    "current_size_cm": 2.5,
+    "max_size_cm": 5.0,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.0,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Hyphessobrycon eques",
+      "Pterophyllum scalare",
+      "Caridina multidentata"
+    ]
+  },
+  {
+    "latin_name": "Brochis haraldschultzi",
+    "common_name": "Harald Schultz's Cory",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 8.0,
+    "min_tank": 100,
+    "temperature": [
+      24,
+      28
+    ],
+    "ph": [
+      6.0,
+      7.5
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 6,
+    "max_group": 20,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "bottom",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.6,
+    "current_size_cm": 3.5,
+    "max_size_cm": 8.0,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.5,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Hyphessobrycon pulchripinnis",
+      "Apistogramma borellii",
+      "Paracheirodon axelrodi"
+    ]
+  },
+  {
+    "latin_name": "Corydoras sp. CW010",
+    "common_name": "Gold Laser Cory",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 6.5,
+    "min_tank": 80,
+    "temperature": [
+      22,
+      27
+    ],
+    "ph": [
+      6.0,
+      7.8
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 6,
+    "max_group": 15,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "bottom",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.6,
+    "current_size_cm": 3.0,
+    "max_size_cm": 6.5,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.5,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Phenacogrammus interruptus",
+      "Apistogramma cacatuoides",
+      "Hemigrammus rhodostomus"
+    ]
+  },
+  {
     "latin_name": "Corydoras ellisae",
     "common_name": "Ellis's Corydoras",
     "type": "freshwater",
@@ -96014,8 +96182,14 @@
     "type": "freshwater",
     "size_cm": 6.0,
     "min_tank": 80,
-    "temperature": [20, 28],
-    "ph": [7.0, 8.5],
+    "temperature": [
+      20,
+      28
+    ],
+    "ph": [
+      7.0,
+      8.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 5,
@@ -96037,7 +96211,11 @@
     "oxygen_requirement_mg_per_l": 6.0,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Corydoras aeneus", "Poecilia reticulata", "Hyphessobrycon herbertaxelrodi"]
+    "compatible_with": [
+      "Corydoras aeneus",
+      "Poecilia reticulata",
+      "Hyphessobrycon herbertaxelrodi"
+    ]
   },
   {
     "latin_name": "Xiphophorus maculatus var. Red",
@@ -96046,8 +96224,14 @@
     "type": "freshwater",
     "size_cm": 6.0,
     "min_tank": 80,
-    "temperature": [20, 28],
-    "ph": [7.0, 8.5],
+    "temperature": [
+      20,
+      28
+    ],
+    "ph": [
+      7.0,
+      8.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 5,
@@ -96069,7 +96253,11 @@
     "oxygen_requirement_mg_per_l": 6.0,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Danio rerio", "Corydoras paleatus", "Poecilia sphenops"]
+    "compatible_with": [
+      "Danio rerio",
+      "Corydoras paleatus",
+      "Poecilia sphenops"
+    ]
   },
   {
     "latin_name": "Xiphophorus maculatus var. Yellow",
@@ -96078,8 +96266,14 @@
     "type": "freshwater",
     "size_cm": 6.0,
     "min_tank": 80,
-    "temperature": [20, 28],
-    "ph": [7.0, 8.5],
+    "temperature": [
+      20,
+      28
+    ],
+    "ph": [
+      7.0,
+      8.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 5,
@@ -96101,7 +96295,11 @@
     "oxygen_requirement_mg_per_l": 6.0,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Puntius titteya", "Trichogaster lalius", "Caridina multidentata"]
+    "compatible_with": [
+      "Puntius titteya",
+      "Trichogaster lalius",
+      "Caridina multidentata"
+    ]
   },
   {
     "latin_name": "Xiphophorus maculatus var. Tuxedo",
@@ -96110,8 +96308,14 @@
     "type": "freshwater",
     "size_cm": 6.0,
     "min_tank": 80,
-    "temperature": [20, 28],
-    "ph": [7.0, 8.5],
+    "temperature": [
+      20,
+      28
+    ],
+    "ph": [
+      7.0,
+      8.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 5,
@@ -96133,7 +96337,11 @@
     "oxygen_requirement_mg_per_l": 6.0,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Corydoras panda", "Tanichthys albonubes", "Paracheirodon innesi"]
+    "compatible_with": [
+      "Corydoras panda",
+      "Tanichthys albonubes",
+      "Paracheirodon innesi"
+    ]
   },
   {
     "latin_name": "Xiphophorus maculatus var. Coral Zebra",
@@ -96142,8 +96350,14 @@
     "type": "freshwater",
     "size_cm": 5.0,
     "min_tank": 80,
-    "temperature": [22, 28],
-    "ph": [7.0, 8.2],
+    "temperature": [
+      22,
+      28
+    ],
+    "ph": [
+      7.0,
+      8.2
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 5,
@@ -96165,7 +96379,11 @@
     "oxygen_requirement_mg_per_l": 6.0,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Poecilia wingei", "Microgeophagus ramirezi", "Neocaridina davidi"]
+    "compatible_with": [
+      "Poecilia wingei",
+      "Microgeophagus ramirezi",
+      "Neocaridina davidi"
+    ]
   },
   {
     "latin_name": "Xiphophorus maculatus var. Wild",
@@ -96174,8 +96392,14 @@
     "type": "freshwater",
     "size_cm": 6.0,
     "min_tank": 80,
-    "temperature": [18, 26],
-    "ph": [7.5, 8.5],
+    "temperature": [
+      18,
+      26
+    ],
+    "ph": [
+      7.5,
+      8.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 6,
@@ -96197,7 +96421,11 @@
     "oxygen_requirement_mg_per_l": 6.5,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Xiphophorus helleri", "Ameca splendens", "Corydoras habrosus"]
+    "compatible_with": [
+      "Xiphophorus helleri",
+      "Ameca splendens",
+      "Corydoras habrosus"
+    ]
   },
   {
     "latin_name": "Aegla platensis",
