@@ -7169,47 +7169,6 @@
     ]
   },
   {
-    "latin_name": "Ancistrus sp. LDA016",
-    "common_name": "Calico Bristlenose",
-    "photo": "images/Ancistrus_LDA016.jpg",
-    "type": "freshwater",
-    "size_cm": 12,
-    "min_tank": 100,
-    "temperature": [
-      22,
-      28
-    ],
-    "ph": [
-      6.0,
-      8.0
-    ],
-    "aggression": "peaceful",
-    "schooling": false,
-    "min_school": 0,
-    "max_group": 2,
-    "bioload": "medium",
-    "plant_safe": true,
-    "activity": "low",
-    "tank_position": "bottom",
-    "eat_shrimp": false,
-    "eat_snails": false,
-    "needs_algae": true,
-    "diet": "algae_eater",
-    "waste_factor": 1.2,
-    "current_size_cm": 3.0,
-    "max_size_cm": 12.0,
-    "growth_rate_cm_per_month": 0.5,
-    "territorial": true,
-    "territory_volume_liters": 30,
-    "oxygen_requirement_mg_per_l": 6.5,
-    "flow_requirement": "medium",
-    "predatory": false,
-    "compatible_with": [
-      "Paracheirodon axelrodi",
-      "Corydoras panda"
-    ]
-  },
-  {
     "latin_name": "Ancistrus tamboensis",
     "common_name": "Tambo River Bristlenose",
     "photo": "images/Ancistrus_tamboensis.jpg",
