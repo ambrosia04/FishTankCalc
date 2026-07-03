@@ -1,4 +1,4 @@
-const APP_VERSION = "1.0.2";
+const APP_VERSION = "1.0.3";
 let fishDB = [];
 let selectedFish = [];
 let currentDbHash = "";
@@ -19,14 +19,32 @@ let activeWaterTypes = {
 };
 
 fetch("fish.json")
-.then(res => res.text()) // Changed from .json() to .text()
+.then(res => {
+    if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status} (${res.statusText})`);
+    }
+    return res.text();
+})
 .then(text => {
-    currentDbHash = generateHash(text); // Added hashing
-    fishDB = JSON.parse(text);          // Added parsing
-    checkVersionAndReset();             // Added state verification check
+    currentDbHash = generateHash(text); 
+    fishDB = JSON.parse(text);          
+    checkVersionAndReset();             
     populate();
     checkEmojiSupport();
     loadState();
+})
+.catch(error => {
+    console.error("Initialization Error:", error);
+    const select = document.getElementById("fishSelect");
+    const countEl = document.getElementById("speciesCount");
+    
+    if (select) {
+        select.innerHTML = `<option disabled selected style="color: #ff6b6b;">Error: Database failed to load</option>`;
+    }
+    if (countEl) {
+        countEl.textContent = "Database loading error";
+        countEl.style.color = "#ff6b6b";
+    }
 });
 
 // Simple hashing utility to detect modifications to fish.json
