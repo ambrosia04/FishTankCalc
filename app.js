@@ -1,5 +1,7 @@
+const APP_VERSION = "1.0.1";
 let fishDB = [];
 let selectedFish = [];
+let currentDbHash = "";
 let activeCategories = {
     fish: true,
     shrimp: true,
@@ -17,13 +19,42 @@ let activeWaterTypes = {
 };
 
 fetch("fish.json")
-.then(res => res.json())
-.then(data => {
-    fishDB = data;
+.then(res => res.text()) // Changed from .json() to .text()
+.then(text => {
+    currentDbHash = generateHash(text); // Added hashing
+    fishDB = JSON.parse(text);          // Added parsing
+    checkVersionAndReset();             // Added state verification check
     populate();
     checkEmojiSupport();
     loadState();
 });
+
+// Simple hashing utility to detect modifications to fish.json
+function generateHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = (hash << 5) - hash + str.charCodeAt(i);
+        hash |= 0; // Convert to 32bit integer
+    }
+    return hash.toString();
+}
+
+// Reset local storage ONLY if database or app version changed
+function checkVersionAndReset() {
+    const saved = localStorage.getItem("aquariumCalcState");
+    if (!saved) return;
+
+    try {
+        const state = JSON.parse(saved);
+        // If app version doesn't match OR if the database hash has changed
+        if (state.appVersion !== APP_VERSION || state.dbHash !== currentDbHash) {
+            console.log("New update detected. Resetting local storage to apply changes.");
+            localStorage.removeItem("aquariumCalcState");
+        }
+    } catch (e) {
+        localStorage.removeItem("aquariumCalcState");
+    }
+}
 
 const linkedSpecies = {
     "corydoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
@@ -1374,6 +1405,8 @@ async function generatePDF() {
 // Function to save current data to Local Storage
 function saveState() {
     const state = {
+        appVersion: APP_VERSION,     // Added to track app.js changes
+        dbHash: currentDbHash,       // Added to track fish.json changes
         selectedFish: selectedFish,
         activeCategories: activeCategories,
         userLevel: document.getElementById("userLevel").value,
