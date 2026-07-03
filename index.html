@@ -36,18 +36,18 @@
 
 <div class="tank-input">
     <!-- Main Tank Input -->
-    <input type="number" id="tankSize" value="100" placeholder="Size">
-    <select id="unit" onchange="convertTank()">
+    <input type="number" id="tankSize" value="100" placeholder="Size" min="1" aria-label="Tank Size">
+    <select id="unit" onchange="convertTank()" aria-label="Tank Size Unit">
         <option value="liters">Liters</option>
         <option value="gallons">Gallons</option>
     </select>
 
     <!-- Dimension Calculator and Button -->
     <div class="dimension-calculator">
-        <input type="number" id="dimLength" placeholder="L" min="1">
-        <input type="number" id="dimWidth" placeholder="W" min="1">
-        <input type="number" id="dimHeight" placeholder="H" min="1">
-        <select id="dimUnit">
+        <input type="number" id="dimLength" placeholder="L" min="1" aria-label="Tank Length">
+        <input type="number" id="dimWidth" placeholder="W" min="1" aria-label="Tank Width">
+        <input type="number" id="dimHeight" placeholder="H" min="1" aria-label="Tank Height">
+        <select id="dimUnit" aria-label="Dimension Unit">
             <option value="cm">cm</option>
             <option value="inch">inch</option>
         </select>
@@ -72,13 +72,13 @@
 
 <div style="display:flex; gap:15px; align-items:center; margin-top: 1%;">
     <label id="plantedLabel">Planted</label>
-    <input type="checkbox" id="planted">
+    <input type="checkbox" id="planted" aria-label="Planted">
 
     <label id="hasSandLabel">Has Sand</label>
-    <input type="checkbox" id="hasSand">
+    <input type="checkbox" id="hasSand" aria-label="Has Sand">
 
     <label id="matureTankLabel">Mature Tank / Algae Available</label>
-    <input type="checkbox" id="matureTank">
+    <input type="checkbox" id="matureTank" aria-label="Mature Tank / Algae Available">
 </div>
 
 </div>
@@ -113,11 +113,12 @@
     </div>
         
     <div class="fish-input-row">
-        <input type="text" id="fishInput" placeholder="Type to filter...">
-        <input type="number" id="amount" value="1" min="1">
+        <input type="text" id="fishInput" placeholder="Type to filter..." aria-label="Type to filter fish"">
+        <input type="number" id="amount" value="1" min="1" aria-label="Amount of fish to add">
         <button onclick="addFish()">Add</button>
     </div>
     <select id="fishSelect" size="8"></select>
+    <div id="speciesCount" style="margin-top: 5px; font-weight: bold; color: #1e90ff;">0 species available</div>
 </div>
 
 </div>
@@ -137,7 +138,7 @@
     <button onclick="generatePDF()" class="btn-nav" style="background: #27ae60;">Download Stocking Report</button>
     <h3>Converter (Liters/Gallons)</h3>
     <div class="converter-row">
-        <input type="number" id="convertValue" min="1">
+        <input type="number" id="convertValue" min="1" aria-label="Convert Value">
         <select id="convertFrom">
             <option value="liters">Liters</option>
             <option value="gallons">Gallons</option>
@@ -161,8 +162,8 @@
         <div id="volumeLiters" class="input-group">
             <label>Tank Size</label>
             <div class="inline-row">
-                <input type="number" id="tankVolumeInput" placeholder="Tank Size"  min="1">
-                <select id="tankVolumeUnit">
+                <input type="number" id="tankVolumeInput" placeholder="Tank Size"  min="1" aria-label="Tank Size">
+                <select id="tankVolumeUnit" aria-label="Tank Volume Unit">
                     <option value="liters">Liters</option>
                     <option value="gallons">Gallons</option>
                 </select>
@@ -172,10 +173,10 @@
         <div id="volumeDimensions" class="input-group" style="display:none">
             <label>Dimensions</label>
             <div class="dimension-grid">
-                <input type="number" id="length" placeholder="Length" min="1">
-                <input type="number" id="width" placeholder="Width" min="1">
-                <input type="number" id="height" placeholder="Height" min="1">
-                <select id="dimensionUnit">
+                <input type="number" id="length" placeholder="Length" min="1" aria-label="Tank Length">
+                <input type="number" id="width" placeholder="Width" min="1" aria-label="Tank Width">
+                <input type="number" id="height" placeholder="Height" min="1" aria-label="Tank Height">
+                <select id="dimensionUnit" aria-label="Dimension Unit">
                     <option value="cm">cm</option>
                     <option value="inch">inch</option>
                 </select>
@@ -184,12 +185,12 @@
 
         <div class="input-group">
             <label>Substrate (kg)</label>
-            <input type="number" id="substrate" placeholder="0"  min="0">
+            <input type="number" id="substrate" placeholder="0"  min="0" aria-label="Substrate (kg)">
         </div>
 
         <div class="input-group">
             <label>Big Rocks (10cm cubes)</label>
-            <input type="number" id="rocks" placeholder="0" min="0">
+            <input type="number" id="rocks" placeholder="0" min="0" aria-label="Big Rocks (10cm cubes)">
         </div>
 
         <button onclick="calculateRealVolume()">Calculate Real Volume</button>
@@ -200,11 +201,18 @@
     <a href="ammonia.html" class="btn-nav">Ammonia Calculator</a>
 </div>
 
+<!-- Footer section added here -->
+<footer style="text-align: center; padding: 20px 10px; margin-top: 40px; border-top: 1px solid #1e90ff; font-size: 0.9em; color: #b0c4de; clear: both; width: 100%;">
+    <p>In case you want to add a new species or think something is wrong, send an email to: 
+        <a href="mailto:fishtankambrosia@gmail.com" style="color: #1e90ff; text-decoration: none; font-weight: bold;">fishtankambrosia@gmail.com</a>
+    </p>
+</footer>
+
 <script src="app.js"></script>
 
 <!-- Add this right before the end of the <body> tag -->
 <div id="fishPreview" style="display:none; position: fixed; z-index: 9999; pointer-events: none; background: #132938; padding: 5px; border-radius: 10px; border: 2px solid #1e90ff;">
-    <img id="previewImg" src="" style="max-width: 200px; display: block; border-radius: 5px;">
+    <img id="previewImg" src="" style="max-width: 200px; display: block; border-radius: 5px;" alt="Fish Preview">
 </div>
 </body>
 </html>

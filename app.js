@@ -1,4 +1,4 @@
-const APP_VERSION = "1.0.1";
+const APP_VERSION = "1.0.2";
 let fishDB = [];
 let selectedFish = [];
 let currentDbHash = "";
@@ -331,6 +331,7 @@ function filterFish(query) {
 
 function renderSelectOptions(fishArray) {
     const select = document.getElementById("fishSelect");
+    const countEl = document.getElementById("speciesCount"); // Get the count container
     select.innerHTML = ""; 
 
     // 1. Create a unique list based on latin_name to prevent duplicates
@@ -347,6 +348,18 @@ function renderSelectOptions(fishArray) {
 
     // 2. Sort the unique list
     const sorted = [...uniqueFish].sort((a, b) => a.latin_name.localeCompare(b.latin_name));
+    
+    const noWaterTypesSelected = Object.values(activeWaterTypes).every(v => !v);
+    const noCategoriesSelected = Object.values(activeCategories).every(v => !v);
+
+    // Update species count number
+    if (countEl) {
+        if (noWaterTypesSelected || noCategoriesSelected) {
+            countEl.textContent = "0 species available";
+        } else {
+            countEl.textContent = `${sorted.length} species available`;
+        }
+    }
 
     // 3. Render
     sorted.forEach(fish => {
@@ -364,8 +377,6 @@ function renderSelectOptions(fishArray) {
         select.appendChild(option);
     });
 
-    const noWaterTypesSelected = Object.values(activeWaterTypes).every(v => !v);
-    const noCategoriesSelected = Object.values(activeCategories).every(v => !v);
 
     if (noWaterTypesSelected || noCategoriesSelected) {
 
@@ -583,11 +594,11 @@ function updateList() {
             <span style="margin-left:10px; font-weight:bold; font-size: 1.1em;">${fish.amount}</span>
 
             <!-- Remove Controls -->
-            <input type="number" value="0" min="0" style="width:50px; margin-left:15px;" id="removeInput-${i}">
+            <input type="number" value="1" min="1" style="width:50px; margin-left:15px;" id="removeInput-${i}">
             <button onclick="removeFish(${i})" style="margin-left:5px; background:#b67474; color:white; border:none; border-radius:4px;">Remove</button>
             
             <!-- Add Controls -->
-            <input type="number" value="0" min="0" style="width:50px; margin-left:15px;" id="addInput-${i}">
+            <input type="number" value="1" min="1" style="width:50px; margin-left:15px;" id="addInput-${i}">
             <button onclick="addMoreFish(${i})" style="margin-left:5px; background:#27ae60; color:white; border:none; border-radius:4px;">Add</button>
 
             <!-- Remove All -->
