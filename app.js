@@ -579,9 +579,9 @@ function updateList() {
             (tankType === "marine" && fish.type !== "marine");
 
         if (isHardIncompatible) {
-            invalid = "invalid"; // RED
+            invalid = "invalid"; // RED color
         } else if (isSoftCompatible) {
-            invalid = "warning-yellow"; // YELLOW
+            invalid = "warning-yellow"; // YELLOW color
         }
 
         const li = document.createElement("li");
