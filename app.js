@@ -6,7 +6,8 @@ let activeCategories = {
     snail: true,
     crab: true,
     stars: true,
-    coral: true
+    coral: true,
+    smallshrimp: true
 };
 
 let activeWaterTypes = {
@@ -257,11 +258,13 @@ function filterFish(query) {
     const filtered = fishDB.filter(fish => {
         const latin = fish.latin_name.toLowerCase();
         const common = (fish.common_name || "").toLowerCase();
+
         const category = fish.category || "fish";
+        const filterCategory = category === "smallshrimp" ? "shrimp" : category;
         const waterType = fish.type || "freshwater";
 
         // Category filter
-        if (!activeCategories[category]) return false;
+        if (!activeCategories[filterCategory]) return false;
 
         // Water type filter
         if (!activeWaterTypes[waterType]) return false;
