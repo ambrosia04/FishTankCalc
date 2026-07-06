@@ -93097,6 +93097,48 @@
     ]
   },
   {
+    "latin_name": "Osphronemus laticlavius",
+    "common_name": "Giant Red Tail Gourami",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 70.0,
+    "min_tank": 800,
+    "temperature": [
+      20,
+      30
+    ],
+    "ph": [
+      6.5,
+      8.0
+    ],
+    "aggression": "semi-aggressive",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 2,
+    "bioload": "high",
+    "plant_safe": false,
+    "activity": "medium",
+    "tank_position": "all",
+    "eat_shrimp": true,
+    "eat_snails": true,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 2.5,
+    "current_size_cm": 10.0,
+    "max_size_cm": 70.0,
+    "growth_rate_cm_per_month": 2.5,
+    "territorial": true,
+    "territory_volume_liters": 300,
+    "oxygen_requirement_mg_per_l": 6.0,
+    "flow_requirement": "medium",
+    "predatory": true,
+    "compatible_with": [
+      "Astronotus ocellatus",
+      "Pangasianodon hypophthalmus",
+      "Osteoglossum bicirrhosum"
+    ]
+  },
+  {
     "latin_name": "Trichogaster fasciata",
     "common_name": "Banded Gourami",
     "type": "freshwater",
@@ -108727,8 +108769,14 @@
     "type": "freshwater",
     "size_cm": 9.0,
     "min_tank": 60,
-    "temperature": [22, 26],
-    "ph": [6.0, 7.0],
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      6.0,
+      7.0
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 6,
@@ -108750,7 +108798,10 @@
     "oxygen_requirement_mg_per_l": 6.5,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Boraras brigittae", "Trigonostigma heteromorpha"]
+    "compatible_with": [
+      "Boraras brigittae",
+      "Trigonostigma heteromorpha"
+    ]
   },
   {
     "latin_name": "Pangio myersi",
@@ -108759,8 +108810,14 @@
     "type": "freshwater",
     "size_cm": 10.0,
     "min_tank": 80,
-    "temperature": [22, 26],
-    "ph": [6.0, 7.5],
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      6.0,
+      7.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 6,
@@ -108782,7 +108839,10 @@
     "oxygen_requirement_mg_per_l": 6.0,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Pangio oblonga", "Corydoras panda"]
+    "compatible_with": [
+      "Pangio oblonga",
+      "Corydoras panda"
+    ]
   },
   {
     "latin_name": "Pangio oblonga",
@@ -108791,8 +108851,14 @@
     "type": "freshwater",
     "size_cm": 10.0,
     "min_tank": 60,
-    "temperature": [23, 28],
-    "ph": [6.0, 7.5],
+    "temperature": [
+      23,
+      28
+    ],
+    "ph": [
+      6.0,
+      7.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 6,
@@ -108814,7 +108880,10 @@
     "oxygen_requirement_mg_per_l": 6.0,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Danio margaritatus", "Trichopsis pumila"]
+    "compatible_with": [
+      "Danio margaritatus",
+      "Trichopsis pumila"
+    ]
   },
   {
     "latin_name": "Pangio pangia",
@@ -108823,8 +108892,14 @@
     "type": "freshwater",
     "size_cm": 8.0,
     "min_tank": 60,
-    "temperature": [22, 26],
-    "ph": [6.5, 7.5],
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      6.5,
+      7.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 6,
@@ -108846,7 +108921,10 @@
     "oxygen_requirement_mg_per_l": 6.5,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Boraras urophthalmoides", "Neocaridina davidi"]
+    "compatible_with": [
+      "Boraras urophthalmoides",
+      "Neocaridina davidi"
+    ]
   },
   {
     "latin_name": "Pangio semicincta",
@@ -108855,8 +108933,14 @@
     "type": "freshwater",
     "size_cm": 10.0,
     "min_tank": 60,
-    "temperature": [21, 26],
-    "ph": [6.0, 7.0],
+    "temperature": [
+      21,
+      26
+    ],
+    "ph": [
+      6.0,
+      7.0
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 6,
@@ -108878,7 +108962,10 @@
     "oxygen_requirement_mg_per_l": 6.5,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Pangio shelfordii", "Pseudomugil gertrudae"]
+    "compatible_with": [
+      "Pangio shelfordii",
+      "Pseudomugil gertrudae"
+    ]
   },
   {
     "latin_name": "Acantopsis dialuzona",
@@ -108887,8 +108974,14 @@
     "type": "freshwater",
     "size_cm": 20.0,
     "min_tank": 150,
-    "temperature": [24, 28],
-    "ph": [6.0, 7.5],
+    "temperature": [
+      24,
+      28
+    ],
+    "ph": [
+      6.0,
+      7.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 3,
@@ -108910,7 +109003,10 @@
     "oxygen_requirement_mg_per_l": 7.5,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Trichopodus leerii", "Barbonymus schwanenfeldii"]
+    "compatible_with": [
+      "Trichopodus leerii",
+      "Barbonymus schwanenfeldii"
+    ]
   },
   {
     "latin_name": "Lepidocephalichthys thermalis",
@@ -108919,8 +109015,14 @@
     "type": "freshwater",
     "size_cm": 8.0,
     "min_tank": 60,
-    "temperature": [22, 28],
-    "ph": [6.0, 8.0],
+    "temperature": [
+      22,
+      28
+    ],
+    "ph": [
+      6.0,
+      8.0
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 5,
@@ -108942,7 +109044,10 @@
     "oxygen_requirement_mg_per_l": 6.5,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Devario aequipinnatus", "Puntius titteya"]
+    "compatible_with": [
+      "Devario aequipinnatus",
+      "Puntius titteya"
+    ]
   },
   {
     "latin_name": "Lepidocephalichthys zeppelini",
@@ -108951,8 +109056,14 @@
     "type": "freshwater",
     "size_cm": 4.0,
     "min_tank": 40,
-    "temperature": [23, 27],
-    "ph": [6.5, 7.5],
+    "temperature": [
+      23,
+      27
+    ],
+    "ph": [
+      6.5,
+      7.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 6,
@@ -108974,7 +109085,10 @@
     "oxygen_requirement_mg_per_l": 7.0,
     "flow_requirement": "low",
     "predatory": false,
-    "compatible_with": ["Boraras brigittae", "Neocaridina davidi"]
+    "compatible_with": [
+      "Boraras brigittae",
+      "Neocaridina davidi"
+    ]
   },
   {
     "latin_name": "Misgurnus buphoensis",
@@ -108983,8 +109097,14 @@
     "type": "freshwater",
     "size_cm": 20.0,
     "min_tank": 150,
-    "temperature": [10, 24],
-    "ph": [6.5, 8.0],
+    "temperature": [
+      10,
+      24
+    ],
+    "ph": [
+      6.5,
+      8.0
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 3,
@@ -109006,7 +109126,10 @@
     "oxygen_requirement_mg_per_l": 7.0,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Carassius auratus", "Misgurnus anguillicaudatus"]
+    "compatible_with": [
+      "Carassius auratus",
+      "Misgurnus anguillicaudatus"
+    ]
   },
   {
     "latin_name": "Misgurnus fossilis",
@@ -109015,8 +109138,14 @@
     "type": "freshwater",
     "size_cm": 30.0,
     "min_tank": 250,
-    "temperature": [4, 20],
-    "ph": [6.0, 8.0],
+    "temperature": [
+      4,
+      20
+    ],
+    "ph": [
+      6.0,
+      8.0
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 3,
@@ -109038,7 +109167,10 @@
     "oxygen_requirement_mg_per_l": 8.0,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Rhodeus amarus", "Gasterosteus aculeatus"]
+    "compatible_with": [
+      "Rhodeus amarus",
+      "Gasterosteus aculeatus"
+    ]
   },
   {
     "latin_name": "Misgurnus mizolepis",
@@ -109047,8 +109179,14 @@
     "type": "freshwater",
     "size_cm": 25.0,
     "min_tank": 200,
-    "temperature": [15, 25],
-    "ph": [6.5, 8.0],
+    "temperature": [
+      15,
+      25
+    ],
+    "ph": [
+      6.5,
+      8.0
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 3,
@@ -109070,7 +109208,10 @@
     "oxygen_requirement_mg_per_l": 7.0,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Common Goldfish", "Tanichthys albonubes"]
+    "compatible_with": [
+      "Common Goldfish",
+      "Tanichthys albonubes"
+    ]
   },
   {
     "latin_name": "Misgurnus mohoity",
@@ -109079,8 +109220,14 @@
     "type": "freshwater",
     "size_cm": 22.0,
     "min_tank": 150,
-    "temperature": [10, 24],
-    "ph": [6.5, 8.0],
+    "temperature": [
+      10,
+      24
+    ],
+    "ph": [
+      6.5,
+      8.0
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 3,
@@ -109102,7 +109249,10 @@
     "oxygen_requirement_mg_per_l": 7.5,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Corydoras paleatus", "Goldfish"]
+    "compatible_with": [
+      "Corydoras paleatus",
+      "Goldfish"
+    ]
   },
   {
     "latin_name": "Misgurnus multimaculatus",
@@ -109111,8 +109261,14 @@
     "type": "freshwater",
     "size_cm": 20.0,
     "min_tank": 150,
-    "temperature": [18, 25],
-    "ph": [6.5, 7.8],
+    "temperature": [
+      18,
+      25
+    ],
+    "ph": [
+      6.5,
+      7.8
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 3,
@@ -109134,7 +109290,10 @@
     "oxygen_requirement_mg_per_l": 7.0,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Danio rerio", "Puntius titteya"]
+    "compatible_with": [
+      "Danio rerio",
+      "Puntius titteya"
+    ]
   },
   {
     "latin_name": "Misgurnus nikolskyi",
@@ -109143,8 +109302,14 @@
     "type": "freshwater",
     "size_cm": 20.0,
     "min_tank": 150,
-    "temperature": [10, 22],
-    "ph": [6.5, 7.5],
+    "temperature": [
+      10,
+      22
+    ],
+    "ph": [
+      6.5,
+      7.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 3,
@@ -109166,7 +109331,10 @@
     "oxygen_requirement_mg_per_l": 7.5,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Temperate fish", "Oryzias latipes"]
+    "compatible_with": [
+      "Temperate fish",
+      "Oryzias latipes"
+    ]
   },
   {
     "latin_name": "Misgurnus tonkinensis",
@@ -109175,8 +109343,14 @@
     "type": "freshwater",
     "size_cm": 12.0,
     "min_tank": 100,
-    "temperature": [20, 26],
-    "ph": [6.0, 7.5],
+    "temperature": [
+      20,
+      26
+    ],
+    "ph": [
+      6.0,
+      7.5
+    ],
     "aggression": "peaceful",
     "schooling": true,
     "min_school": 4,
@@ -109198,7 +109372,10 @@
     "oxygen_requirement_mg_per_l": 7.0,
     "flow_requirement": "medium",
     "predatory": false,
-    "compatible_with": ["Puntius titteya", "Trichogaster lalius"]
+    "compatible_with": [
+      "Puntius titteya",
+      "Trichogaster lalius"
+    ]
   },
   {
     "latin_name": "Gastromyzon sp. Bloody Mary",
