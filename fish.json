@@ -8146,6 +8146,48 @@
     ]
   },
   {
+    "latin_name": "Hyphessobrycon sp. \"Muzel Red Cherry\"",
+    "common_name": "Red Cherry Tetra",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 4.0,
+    "min_tank": 60,
+    "temperature": [
+      24,
+      28
+    ],
+    "ph": [
+      5.5,
+      7.0
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 8,
+    "max_group": 30,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "high",
+    "tank_position": "middle",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.5,
+    "current_size_cm": 2.0,
+    "max_size_cm": 4.0,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.5,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Corydoras panda",
+      "Paracheirodon axelrodi",
+      "Apistogramma borellii"
+    ]
+  },
+  {
     "latin_name": "Aphyocharax rathbuni",
     "common_name": "Rathbun's Bloodfin Tetra",
     "photo": "images/Aphyocharax_rathbuni.jpg",
@@ -50304,6 +50346,132 @@
     ]
   },
   {
+    "latin_name": "Hyphessobrycon citrus",
+    "common_name": "Citrus Tetra",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 4.0,
+    "min_tank": 60,
+    "temperature": [
+      22,
+      27
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 8,
+    "max_group": 30,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "high",
+    "tank_position": "middle",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.5,
+    "current_size_cm": 2.0,
+    "max_size_cm": 4.0,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.5,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Corydoras habrosus",
+      "Paracheirodon axelrodi",
+      "Caridina multidentata"
+    ]
+  },
+  {
+    "latin_name": "Hyphessobrycon eilyos",
+    "common_name": "Eilyos Tetra",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 3.8,
+    "min_tank": 60,
+    "temperature": [
+      23,
+      28
+    ],
+    "ph": [
+      6.0,
+      7.2
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 8,
+    "max_group": 25,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "middle",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.5,
+    "current_size_cm": 1.8,
+    "max_size_cm": 3.8,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.5,
+    "flow_requirement": "low",
+    "predatory": false,
+    "compatible_with": [
+      "Nannostomus eques",
+      "Apistogramma borellii",
+      "Hemigrammus rhodostomus"
+    ]
+  },
+  {
+    "latin_name": "Hyphessobrycon negodagua",
+    "common_name": "Nego Dagua Tetra",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 3.0,
+    "min_tank": 40,
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      5.5,
+      7.0
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 10,
+    "max_group": 50,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "high",
+    "tank_position": "middle",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.4,
+    "current_size_cm": 1.5,
+    "max_size_cm": 3.0,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 7.0,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Boraras brigittae",
+      "Otocinclus vittatus",
+      "Neocaridina davidi"
+    ]
+  },
+  {
     "latin_name": "Hyphessobrycon robustulus",
     "common_name": "Robust Tetra",
     "type": "freshwater",
@@ -53146,6 +53314,48 @@
       "Centropyge bispinosa",
       "Chrysiptera talboti",
       "Pterapogon kauderni"
+    ]
+  },
+  {
+    "latin_name": "Hemigrammus sp. \"Morse Code\"",
+    "common_name": "Morse Code Tetra",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 4.0,
+    "min_tank": 60,
+    "temperature": [
+      23,
+      28
+    ],
+    "ph": [
+      5.5,
+      7.0
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 8,
+    "max_group": 30,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "high",
+    "tank_position": "middle",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.5,
+    "current_size_cm": 2.0,
+    "max_size_cm": 4.0,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.5,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Corydoras panda",
+      "Paracheirodon axelrodi",
+      "Petitella georgiae"
     ]
   },
   {
