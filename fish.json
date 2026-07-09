@@ -29683,6 +29683,48 @@
     ]
   },
   {
+    "latin_name": "Corydoras sp. C123",
+    "common_name": "Yellow Cory",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 5.5,
+    "min_tank": 60,
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      6.0,
+      7.5
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 6,
+    "max_group": 20,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "bottom",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.5,
+    "current_size_cm": 2.5,
+    "max_size_cm": 5.5,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.5,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Hyphessobrycon rosaceus",
+      "Paracheirodon axelrodi",
+      "Apistogramma borellii"
+    ]
+  },
+  {
     "latin_name": "Corydoras amapaensis",
     "common_name": "Amapa Corydoras",
     "type": "freshwater",
@@ -54704,6 +54746,48 @@
     "compatible_with": [
       "Neocaridina davidi",
       "Ember Tetra"
+    ]
+  },
+  {
+    "latin_name": "Gyraulus chinensis",
+    "common_name": "Chinese Mini Ramshorn Snail",
+    "category": "snail",
+    "type": "freshwater",
+    "size_cm": 0.5,
+    "min_tank": 10,
+    "temperature": [
+      18,
+      28
+    ],
+    "ph": [
+      6.5,
+      8.0
+    ],
+    "aggression": "peaceful",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 100,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "all",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": true,
+    "diet": "omnivore",
+    "waste_factor": 0.05,
+    "current_size_cm": 0.2,
+    "max_size_cm": 0.5,
+    "growth_rate_cm_per_month": 0.2,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 5.0,
+    "flow_requirement": "low",
+    "predatory": false,
+    "compatible_with": [
+      "Neocaridina davidi",
+      "Boraras brigittae",
+      "Caridina multidentata"
     ]
   },
   {
@@ -93269,6 +93353,7 @@
   {
     "latin_name": "Trichogaster chuna",
     "common_name": "Honey Gourami",
+    "photo":"images/Trichogaster_chuna.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 60,
