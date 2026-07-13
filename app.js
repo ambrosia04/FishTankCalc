@@ -87,7 +87,9 @@ const linkedSpecies = {
     "erethistes jerdoni": ["erethistes jerdoni", "hara jerdoni"],
     "hara jerdoni": ["erethistes jerdoni", "hara jerdoni"],
     "celestichthys": ["danio", "celestichthys"],
-    "danio": ["danio", "celestichthys"],
+    "danio": ["danio", "celestichthys", "glofish", "glo"],
+    "glofish": ["danio", "celestichthys", "glofish", "glo"],
+    "glo": ["danio", "celestichthys", "glofish", "glo"],
     "Megalamphodus megalopterus": ["Megalamphodus megalopterus", "Hyphessobrycon megalopterus"]
 };
 
