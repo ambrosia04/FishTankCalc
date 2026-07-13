@@ -19,33 +19,33 @@ let activeWaterTypes = {
 };
 
 fetch("fish.json")
-.then(res => {
-    if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status} (${res.statusText})`);
-    }
-    return res.text();
-})
-.then(text => {
-    currentDbHash = generateHash(text); 
-    fishDB = JSON.parse(text);          
-    checkVersionAndReset();             
-    populate();
-    checkEmojiSupport();
-    loadState();
-})
-.catch(error => {
-    console.error("Initialization Error:", error);
-    const select = document.getElementById("fishSelect");
-    const countEl = document.getElementById("speciesCount");
-    
-    if (select) {
-        select.innerHTML = `<option disabled selected style="color: #ff6b6b;">Error: Database failed to load</option>`;
-    }
-    if (countEl) {
-        countEl.textContent = "Database loading error";
-        countEl.style.color = "#ff6b6b";
-    }
-});
+    .then(res => {
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status} (${res.statusText})`);
+        }
+        return res.text();
+    })
+    .then(text => {
+        currentDbHash = generateHash(text);
+        fishDB = JSON.parse(text);
+        checkVersionAndReset();
+        populate();
+        checkEmojiSupport();
+        loadState();
+    })
+    .catch(error => {
+        console.error("Initialization Error:", error);
+        const select = document.getElementById("fishSelect");
+        const countEl = document.getElementById("speciesCount");
+
+        if (select) {
+            select.innerHTML = `<option disabled selected style="color: #ff6b6b;">Error: Database failed to load</option>`;
+        }
+        if (countEl) {
+            countEl.textContent = "Database loading error";
+            countEl.style.color = "#ff6b6b";
+        }
+    });
 
 // Simple hashing utility to detect modifications to fish.json
 function generateHash(str) {
@@ -75,19 +75,20 @@ function checkVersionAndReset() {
 }
 
 const linkedSpecies = {
-    "corydoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
-    "hoplisoma": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
-    "aspidoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
-    "gastrodermus": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
-    "osteogaster": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
-    "brochis": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster","brochis"],
+    "corydoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster", "brochis"],
+    "hoplisoma": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster", "brochis"],
+    "aspidoras": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster", "brochis"],
+    "gastrodermus": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster", "brochis"],
+    "osteogaster": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster", "brochis"],
+    "brochis": ["corydoras", "hoplisoma", "aspidoras", "gastrodermus", "osteogaster", "brochis"],
     "nassarius": ["nassarius", "tritia"],
     "tritia": ["nassarius", "tritia"],
     "nanochromis": ["nanochromis", "distichodus"],
     "erethistes jerdoni": ["erethistes jerdoni", "hara jerdoni"],
     "hara jerdoni": ["erethistes jerdoni", "hara jerdoni"],
     "celestichthys": ["danio", "celestichthys"],
-    "danio": ["danio", "celestichthys"]
+    "danio": ["danio", "celestichthys"],
+    "Megalamphodus megalopterus": ["Megalamphodus megalopterus", "Hyphessobrycon megalopterus"]
 };
 
 const genusLinks = {
@@ -101,7 +102,8 @@ const genusLinks = {
     "tritia": "nassarius",
     "nanochromis": "distichodus",
     "erethistes": "hara",
-    "celestichthys": "danio"
+    "celestichthys": "danio",
+    "Megalamphodus": "Hyphessobrycon"
 };
 
 const commonSynonyms = {
@@ -121,11 +123,11 @@ function populate() {
     const select = document.getElementById("fishSelect");
 
     // Sort fish alphabetically
-    const sortedFish = [...fishDB].map((fish, idx) => ({fish, idx}))
-                                  .sort((a,b) => a.fish.latin_name.localeCompare(b.fish.latin_name));
+    const sortedFish = [...fishDB].map((fish, idx) => ({ fish, idx }))
+        .sort((a, b) => a.fish.latin_name.localeCompare(b.fish.latin_name));
 
     // Populate select with all fish
-    sortedFish.forEach(({fish, idx}) => {
+    sortedFish.forEach(({ fish, idx }) => {
         let option = document.createElement("option");
         option.value = idx; // original index in fishDB
         option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
@@ -144,7 +146,7 @@ function populate() {
     // When user clicks a fish in the select
     select.addEventListener("change", () => {
         let idx = select.value;
-        if(idx !== ""){
+        if (idx !== "") {
             input.value = fishDB[idx].latin_name; // use original index
         }
     });
@@ -158,7 +160,7 @@ function populate() {
             // Get the first visible option
             const firstOption = Array.from(select.options).find(opt => opt.style.display !== "none");
 
-            if(firstOption){
+            if (firstOption) {
                 select.value = firstOption.value; // select the first matching fish
                 addFish(); // add it
                 input.value = ""; // clear input
@@ -213,7 +215,7 @@ function populate() {
         const el = document.getElementById(id);
         if (el) preventNegativeInput(el, 1);
     });
-    
+
 }
 
 function toggleCategory(category) {
@@ -329,8 +331,8 @@ function filterFish(query) {
 
         // Logic C: Genus-links (e.g., Corydoras / Hoplisoma)
         if (!match && words.length > 1) {
-            let genus = words[0]; 
-            let species = words.slice(1).join(" "); 
+            let genus = words[0];
+            let species = words.slice(1).join(" ");
             if (genusLinks[genus]) {
                 const linkedLatin = genusLinks[genus] + " " + species;
                 match = latin.includes(linkedLatin);
@@ -350,7 +352,7 @@ function filterFish(query) {
 function renderSelectOptions(fishArray) {
     const select = document.getElementById("fishSelect");
     const countEl = document.getElementById("speciesCount"); // Get the count container
-    select.innerHTML = ""; 
+    select.innerHTML = "";
 
     // 1. Create a unique list based on latin_name to prevent duplicates
     const uniqueFish = [];
@@ -366,7 +368,7 @@ function renderSelectOptions(fishArray) {
 
     // 2. Sort the unique list
     const sorted = [...uniqueFish].sort((a, b) => a.latin_name.localeCompare(b.latin_name));
-    
+
     const noWaterTypesSelected = Object.values(activeWaterTypes).every(v => !v);
     const noCategoriesSelected = Object.values(activeCategories).every(v => !v);
 
@@ -383,15 +385,15 @@ function renderSelectOptions(fishArray) {
     sorted.forEach(fish => {
         // Find the original index in the main fishDB for adding logic
         let originalIndex = fishDB.findIndex(f => f.latin_name === fish.latin_name);
-        
+
         let option = document.createElement("option");
         option.value = originalIndex;
         option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
-        
-        if(fish.photo) {
+
+        if (fish.photo) {
             option.setAttribute('data-photo', fish.photo);
         }
-        
+
         select.appendChild(option);
     });
 
@@ -424,7 +426,7 @@ function renderSelectOptions(fishArray) {
 }
 
 // Hover logic - Place this inside or after your populate() function
-document.addEventListener('mousemove', function(e) {
+document.addEventListener('mousemove', function (e) {
     const previewDiv = document.getElementById("fishPreview");
     const previewImg = document.getElementById("previewImg");
     const select = document.getElementById("fishSelect");
@@ -432,7 +434,7 @@ document.addEventListener('mousemove', function(e) {
     // Check if we are hovering over the select box
     if (e.target.tagName === 'OPTION' && e.target.parentElement.id === 'fishSelect') {
         const photoUrl = e.target.getAttribute('data-photo');
-        
+
         if (photoUrl) {
             previewImg.src = photoUrl;
             previewDiv.style.display = "block";
@@ -455,13 +457,13 @@ function addFish() {
     let amount = parseInt(document.getElementById("amount").value) || 1;
 
     // Prevent adding if nothing is selected
-    if(index === "" || !fishDB[index]) return;
+    if (index === "" || !fishDB[index]) return;
 
     let existing = selectedFish.find(f => f.latin_name === fishDB[index].latin_name);
 
-    if(existing){
+    if (existing) {
         existing.amount += amount;
-    }else{
+    } else {
         selectedFish.push({
             ...fishDB[index],
             amount: amount
@@ -484,9 +486,9 @@ function calculateRealVolume() {
     if (mode === "liters") {
         let size = parseFloat(document.getElementById("tankVolumeInput").value);
         let unit = document.getElementById("tankVolumeUnit").value;
-        
+
         if (isNaN(size) || size <= 0) { alert("Please enter tank size"); return; }
-        
+
         volume = (unit === "gallons") ? size * 3.785 : size;
     } else {
         let l = parseFloat(document.getElementById("length").value) || 0;
@@ -523,16 +525,16 @@ function calculateRealVolume() {
     `;
 }
 
-function updateAmount(index,value){
+function updateAmount(index, value) {
 
-value = parseInt(value);
+    value = parseInt(value);
 
-if(value < 0) value = 0;
+    if (value < 0) value = 0;
 
-selectedFish[index].amount = value;
+    selectedFish[index].amount = value;
 
-updateList();
-calculate();
+    updateList();
+    calculate();
 
 }
 
@@ -551,7 +553,7 @@ function removeFish(index) {
     }
 
     // Reset the input box to 0
-    if(inputEl) inputEl.value = 0;
+    if (inputEl) inputEl.value = 0;
 
     updateList();
     calculate();
@@ -629,10 +631,10 @@ function updateList() {
         list.appendChild(li);
 
         // Apply restrictions to both inputs (Remove and Add)
-        [ `removeInput-${i}`, `addInput-${i}` ].forEach(id => {
+        [`removeInput-${i}`, `addInput-${i}`].forEach(id => {
             const inputEl = document.getElementById(id);
             inputEl.addEventListener("keydown", (e) => {
-                if (["Backspace","Delete","Tab","Escape","Enter","ArrowLeft","ArrowRight"].includes(e.key)) return;
+                if (["Backspace", "Delete", "Tab", "Escape", "Enter", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
                 if (e.key === "-" || isNaN(Number(e.key))) e.preventDefault();
             });
             inputEl.addEventListener("input", () => {
@@ -650,9 +652,9 @@ function getSpeciesRule(fish) {
     // Default base rule
     let rule = {
         factor: fish.bioload === "low" ? 1
-              : fish.bioload === "medium" ? 1.5
-              : fish.bioload === "high" ? 2.5
-              : 3.5,
+            : fish.bioload === "medium" ? 1.5
+                : fish.bioload === "high" ? 2.5
+                    : 3.5,
         warnings: [],
         territoryLiters: fish.territorial ? fish.territory_volume_liters || 0 : 0,
         predatory: fish.predatory || false,
@@ -698,12 +700,21 @@ function getSpeciesRule(fish) {
     }
 
     // Cichlids (territorial)
-    const cichlids = ["amatitlania","amphilophus","aequidens","altolamprologus","acarichthys","acaronia"];
+    const cichlids = ["amatitlania", "amphilophus", "aequidens", "altolamprologus", "acarichthys", "acaronia", "mikrogeophagus", "apistogramma"];
     if (cichlids.some(c => latin.startsWith(c))) {
         rule.factor = 2.25;
         rule.warnings.push("Cichlid: territorial; pairs or solo often work best.");
         rule.warnings.push("May eat shrimp/snails.");
         rule.territoryLiters = fish.territory_volume_liters || 50;
+    }
+
+    // Gouramis / Anabantoids (territorial) - added check for territorial gouramis
+    const territorialAnabantoids = ["trichogaster", "colisa", "betta", "trichopodus"];
+    if (territorialAnabantoids.some(g => latin.startsWith(g))) {
+        rule.factor = 2.0;
+        rule.warnings.push("Anabantoid: males can be highly territorial toward conspecifics or similar-looking species.");
+        rule.territoryLiters = fish.territory_volume_liters || 40;
+        rule.territorial = true; // explicitly flag as territorial
     }
 
     // Bottom-dwellers
@@ -715,10 +726,10 @@ function getSpeciesRule(fish) {
 
         if (planted && !sand) {
             rule.warnings.push("Bottom-dweller: needs sand to sift.");
-        } 
+        }
         else if (!planted && sand) {
             rule.warnings.push("Bottom-dweller: needs hiding spaces.");
-        } 
+        }
         else if (!planted && !sand) {
             rule.warnings.push("Bottom-dweller: needs hides and floor space.");
         }
@@ -728,7 +739,7 @@ function getSpeciesRule(fish) {
     }
 
     // Huge species where min_tank dominates
-    const hugeSpecies = ["huso","acipenser"];
+    const hugeSpecies = ["huso", "acipenser"];
     if (hugeSpecies.some(h => latin.startsWith(h)) || common.includes("sturgeon") || common.includes("ray") || common.includes("shark") || common.includes("guitarfish")) {
         rule.factor = 0;
         rule.isHuge = true; // flag for special handling
@@ -818,7 +829,7 @@ function calculate() {
 
     const tankType = document.getElementById("tankType").value;
 
-    
+
     let userLevel = document.getElementById("userLevel").value;
 
     if (userLevel === "expert") {
@@ -850,7 +861,7 @@ function calculate() {
         // --- GROWTH PROJECTION ---
         let monthsAhead = 6; // or make this a UI input later
 
-        let projectedSize = fish.current_size_cm 
+        let projectedSize = fish.current_size_cm
             ? fish.current_size_cm + (fish.growth_rate_cm_per_month || 0) * monthsAhead
             : fish.size_cm;
 
@@ -876,6 +887,18 @@ function calculate() {
 
         const rule = getSpeciesRule(fish);
 
+        if (fish.aggression === "predatory") predators.push(fish);
+
+        // Push to territorial list if flagged by database OR by getSpeciesRule overrides
+        if (
+            fish.aggression === "territorial" || 
+            fish.aggression === "semi-aggressive" || 
+            rule.territorial || 
+            rule.territoryLiters > 0
+        ) {
+            territorialFish.push(fish);
+        }
+
         // Track min tank
         if (fish.min_tank && fish.min_tank > maxMinTankRequirement) {
             maxMinTankRequirement = fish.min_tank;
@@ -889,7 +912,7 @@ function calculate() {
         // --- Bioload ---
         if (fish.category === "shrimp") {
             totalBioloadLiters += fish.amount * rule.litersPerFish;
-        } 
+        }
         else if (fish.category === "snail") {
             totalBioloadLiters += fish.amount * rule.litersPerFish;
         } else {
@@ -936,7 +959,7 @@ function calculate() {
         }
 
         // Warn if user exceeds the max group
-        if(fish.max_group && fish.amount > fish.max_group){
+        if (fish.max_group && fish.amount > fish.max_group) {
             warningSet.add(`<div class="warning-yellow">${fish.latin_name} max group size is ${fish.max_group}</div>`);
         }
 
@@ -950,11 +973,6 @@ function calculate() {
         if (fish.ph) {
             phMins.push(fish.ph[0]);
             phMaxs.push(fish.ph[fish.ph.length - 1]);
-        }
-
-        // Schooling
-        if (fish.schooling && fish.amount < fish.min_school) {
-            warningSet.add(`<div class="warning">${fish.latin_name} needs at least ${fish.min_school} fish</div>`);
         }
 
         // Group limits
@@ -1039,7 +1057,7 @@ function calculate() {
     // --- PREDATORS ---
     predators.forEach(p => {
         selectedFish.forEach(other => {
-            if(p !== other && p.size_cm > other.size_cm * 1.5){
+            if (p !== other && p.size_cm > other.size_cm * 1.5) {
                 warningSet.add(`<div class="warning">${p.latin_name} may eat ${other.latin_name}</div>`);
             }
         });
@@ -1049,15 +1067,15 @@ function calculate() {
     let oxygenNeeds = [];
 
     selectedFish.forEach(f => {
-        if(f.oxygen_requirement_mg_per_l){
+        if (f.oxygen_requirement_mg_per_l) {
             oxygenNeeds.push(f.oxygen_requirement_mg_per_l);
         }
     });
 
-    if(oxygenNeeds.length){
+    if (oxygenNeeds.length) {
         let maxOxygen = Math.max(...oxygenNeeds);
 
-        if(maxOxygen > 7 && tank > 25){
+        if (maxOxygen > 7 && tank > 25) {
             warningSet.add(`<div class="warning">High oxygen-demand species present — requires strong aeration</div>`);
         }
     }
@@ -1065,25 +1083,25 @@ function calculate() {
     // --- FLOW REQUIREMENTS ---
     let flows = selectedFish.map(f => f.flow_requirement).filter(Boolean);
 
-    if(flows.length > 1){
+    if (flows.length > 1) {
         let unique = [...new Set(flows)];
-        if(unique.length > 1){
+        if (unique.length > 1) {
             warningSet.add(`<div class="warning">Flow requirement mismatch (low vs high flow species)</div>`);
         }
     }
 
     // --- TANK POSITIONING ---
-    let positions = {top:0, middle:0, bottom:0};
+    let positions = { top: 0, middle: 0, bottom: 0 };
 
     selectedFish.forEach(f => {
-        if(positions[f.tank_position] !== undefined){
+        if (positions[f.tank_position] !== undefined) {
             positions[f.tank_position] += f.amount;
         }
     });
 
-    let bottomLimit = Math.max(8, tank / 10); 
+    let bottomLimit = Math.max(8, tank / 10);
 
-    if(positions.bottom > bottomLimit){
+    if (positions.bottom > bottomLimit) {
         warningSet.add(`<div class="warning">High density of bottom-dwellers (${positions.bottom}) — ensure enough floor space/hides.</div>`);
     }
 
@@ -1091,7 +1109,7 @@ function calculate() {
     let diets = selectedFish.map(f => f.diet).filter(Boolean);
     let uniqueDiets = [...new Set(diets)];
 
-    if(uniqueDiets.length > 2){
+    if (uniqueDiets.length > 2) {
         warningSet.add(`<div class="warning">Mixed diets may complicate feeding</div>`);
     }
 
@@ -1157,24 +1175,26 @@ function calculate() {
 
     // --- FINAL CAPACITY ---
     let effectiveTank = tank * tankMultiplier;
+    // Only apply the high combined territorial volume if there are multiple competing territorial species
+    let territorialNeed = (territorialFish.length > 1) ? adjustedTerritory : 0;
+    let requiredLiters = Math.max(totalBioloadLiters, maxMinTankRequirement, territorialNeed);
     let percent = (totalBioloadLiters / effectiveTank) * 100;
 
-    /*let requiredLiters = hardMinTankOnly
-        ? maxMinTankRequirement
-        : Math.max(totalBioloadLiters, maxMinTankRequirement);
-    */
-    let requiredLiters = Math.max(totalBioloadLiters, maxMinTankRequirement);
-
     let capacityEl = document.getElementById("capacity");
-    console.log("capacityEl:", capacityEl);
 
-    if (percent > 100 || tank < maxMinTankRequirement) {
+    // Check if overstocked, under-dimensioned, or if territorial needs exceed tank size
+    if (percent > 100 || tank < maxMinTankRequirement || (territorialFish.length > 1 && tank < adjustedTerritory)) {
         capacityEl.classList.add("overstock");
 
         let requiredGallons = requiredLiters / 3.785;
-        let reason = (tank < maxMinTankRequirement)
-            ? " (Tank too small for species)"
-            : " (Overcrowded)";
+        
+        // Determine the primary driving factor for the tank size warning
+        let reason = " (Overcrowded)";
+        if (tank < maxMinTankRequirement) {
+            reason = " (Tank too small for species)";
+        } else if (territorialFish.length > 1 && tank < adjustedTerritory) {
+            reason = " (Territorial space constraint)";
+        }
 
         capacityEl.innerHTML = `
             Capacity: ${percent.toFixed(1)}% ${reason}
@@ -1200,7 +1220,7 @@ function calculate() {
     saveState();
 }
 
-function reloadTankType(){
+function reloadTankType() {
     updateCategoryButtons();
     updateList();
     calculate();
@@ -1210,21 +1230,21 @@ function reloadTankType(){
     filterFish(query);
 }
 
-function getTankLiters(){
+function getTankLiters() {
 
-let size = parseFloat(document.getElementById("tankSize").value);
-let unit = document.getElementById("unit").value;
+    let size = parseFloat(document.getElementById("tankSize").value);
+    let unit = document.getElementById("unit").value;
 
-if(unit === "gallons"){
-return size * 3.785;
+    if (unit === "gallons") {
+        return size * 3.785;
+    }
+
+    return size;
+
 }
 
-return size;
-
-}
-
-function convertTank(){
-calculate();
+function convertTank() {
+    calculate();
 }
 
 function convertMini() {
@@ -1264,12 +1284,12 @@ function checkEmojiSupport() {
 
     // Get pixel data from the canvas
     const pixels = ctx.getImageData(0, 0, 20, 20).data;
-    
+
     // Check if any pixels were actually colored (not black/transparent)
     // If the emoji isn't supported, it usually draws nothing or a thin empty box
     let supported = false;
     for (let i = 0; i < pixels.length; i += 4) {
-        if (pixels[i] !== 0 || pixels[i+1] !== 0 || pixels[i+2] !== 0) {
+        if (pixels[i] !== 0 || pixels[i + 1] !== 0 || pixels[i + 2] !== 0) {
             supported = true;
             break;
         }
@@ -1287,13 +1307,13 @@ function calculateTankFromDimensions() {
     let unit = document.getElementById("dimUnit").value;
     let resEl = document.getElementById("dimResult");
 
-    if(l <=0 || w <=0 || h <=0){
+    if (l <= 0 || w <= 0 || h <= 0) {
         resEl.innerHTML = "Enter all dimensions!";
         return;
     }
 
     // Convert to cm if inch
-    if(unit === "inch"){
+    if (unit === "inch") {
         l *= 2.54;
         w *= 2.54;
         h *= 2.54;
