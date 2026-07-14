@@ -93353,7 +93353,7 @@
   {
     "latin_name": "Trichogaster chuna",
     "common_name": "Honey Gourami",
-    "photo":"images/Trichogaster_chuna.jpg",
+    "photo": "images/Trichogaster_chuna.jpg",
     "type": "freshwater",
     "size_cm": 5,
     "min_tank": 60,
@@ -93511,6 +93511,48 @@
     "compatible_with": [
       "Trichogaster fasciata",
       "Pangio kuhlii"
+    ]
+  },
+  {
+    "latin_name": "Ciliopagurus strigatus",
+    "common_name": "Halloween Hermit Crab",
+    "category": "crab",
+    "type": "saltwater",
+    "size_cm": 6.0,
+    "min_tank": 60,
+    "temperature": [
+      22,
+      27
+    ],
+    "ph": [
+      8.1,
+      8.4
+    ],
+    "aggression": "peaceful",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 5,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "bottom",
+    "eat_shrimp": false,
+    "eat_snails": true,
+    "needs_algae": true,
+    "diet": "omnivore",
+    "waste_factor": 0.2,
+    "current_size_cm": 2.0,
+    "max_size_cm": 6.0,
+    "growth_rate_cm_per_month": 0.2,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 7.0,
+    "flow_requirement": "low",
+    "predatory": false,
+    "compatible_with": [
+      "Amphiprion ocellaris",
+      "Zebrasoma flavescens",
+      "Chrysiptera parasema"
     ]
   },
   {
@@ -111548,6 +111590,90 @@
     ]
   },
   {
+    "latin_name": "Linckia laevigata",
+    "common_name": "Blue Sea Star",
+    "category": "starfish",
+    "type": "saltwater",
+    "size_cm": 30.0,
+    "min_tank": 200,
+    "temperature": [
+      24,
+      28
+    ],
+    "ph": [
+      8.1,
+      8.4
+    ],
+    "aggression": "peaceful",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 2,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "low",
+    "tank_position": "all",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": true,
+    "diet": "omnivore",
+    "waste_factor": 0.2,
+    "current_size_cm": 10.0,
+    "max_size_cm": 30.0,
+    "growth_rate_cm_per_month": 0.2,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 7.5,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Amphiprion ocellaris",
+      "Zebrasoma flavescens",
+      "Lysmata amboinensis"
+    ]
+  },
+  {
+    "latin_name": "Turbo fluctuosus",
+    "common_name": "Mexican Turbo Snail",
+    "category": "snail",
+    "type": "saltwater",
+    "size_cm": 6.0,
+    "min_tank": 60,
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      8.1,
+      8.4
+    ],
+    "aggression": "peaceful",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 10,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "all",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": true,
+    "diet": "herbivore",
+    "waste_factor": 0.2,
+    "current_size_cm": 2.5,
+    "max_size_cm": 6.0,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 7.0,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Amphiprion ocellaris",
+      "Zebrasoma flavescens",
+      "Lysmata amboinensis"
+    ]
+  },
+  {
     "latin_name": "Turbo imperialis",
     "common_name": "Imperial Turban",
     "category": "snail",
@@ -116819,6 +116945,84 @@
       "Valenciennea puellaris"
     ]
   },
+  {
+    "latin_name": "Engina mendicaria",
+    "common_name": "Bumble Bee Snail",
+    "category": "snail",
+    "type": "saltwater",
+    "size_cm": 2.0,
+    "min_tank": 40,
+    "temperature": [
+      24,
+      28
+    ],
+    "ph": [
+      8.1,
+      8.4
+    ],
+    "aggression": "peaceful",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 10,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "all",
+    "eat_shrimp": false,
+    "eat_snails": true,
+    "needs_algae": false,
+    "diet": "carnivore",
+    "waste_factor": 0.1,
+    "current_size_cm": 1.0,
+    "max_size_cm": 2.5,
+    "growth_rate_cm_per_month": 0.1,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.5,
+    "flow_requirement": "medium",
+    "predatory": true,
+    "compatible_with": [
+      "Amphiprion ocellaris",
+      "Chrysiptera parasema",
+      "Lysmata amboinensis"
+    ]
+  },
+  {
+  "latin_name": "Lithopoma phobium",
+  "common_name": "Silvermouth Turban Snail",
+  "category": "snail",
+  "type": "saltwater",
+  "size_cm": 5.0,
+  "min_tank": 40,
+  "temperature": [22, 26],
+  "ph": [8.1, 8.4],
+  "aggression": "peaceful",
+  "schooling": false,
+  "min_school": 1,
+  "max_group": 10,
+  "bioload": "low",
+  "plant_safe": true,
+  "activity": "medium",
+  "tank_position": "all",
+  "eat_shrimp": false,
+  "eat_snails": false,
+  "needs_algae": true,
+  "diet": "herbivore",
+  "waste_factor": 0.15,
+  "current_size_cm": 2.0,
+  "max_size_cm": 6.0,
+  "growth_rate_cm_per_month": 0.2,
+  "territorial": false,
+  "territory_volume_liters": 0,
+  "oxygen_requirement_mg_per_l": 7.0,
+  "flow_requirement": "medium",
+  "predatory": false,
+  "compatible_with": [
+    "Amphiprion ocellaris",
+    "Salarias fasciatus",
+    "Lysmata amboinensis"
+  ]
+},
   {
     "latin_name": "Nassarius stolatus",
     "common_name": "Branded Dog Whelk",

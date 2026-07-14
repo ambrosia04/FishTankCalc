@@ -90,7 +90,8 @@ const linkedSpecies = {
     "danio": ["danio", "celestichthys", "glofish", "glo"],
     "glofish": ["danio", "celestichthys", "glofish", "glo"],
     "glo": ["danio", "celestichthys", "glofish", "glo"],
-    "Megalamphodus megalopterus": ["Megalamphodus megalopterus", "Hyphessobrycon megalopterus"]
+    "Megalamphodus megalopterus": ["Megalamphodus megalopterus", "Hyphessobrycon megalopterus"],
+    "Lithopoma phobium": ["Astraea phoebia", "Lithopoma phobium"]
 };
 
 const genusLinks = {
