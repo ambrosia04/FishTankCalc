@@ -88287,6 +88287,92 @@
       "Corydoras sterbai"
     ]
   },
+  [
+    {
+      "latin_name": "Hoplisoma sp. (CW021)",
+      "common_name": "Black Panare Cory",
+      "category": "fish",
+      "type": "freshwater",
+      "size_cm": 5.5,
+      "min_tank": 60,
+      "temperature": [
+        22,
+        26
+      ],
+      "ph": [
+        6.0,
+        7.5
+      ],
+      "aggression": "peaceful",
+      "schooling": true,
+      "min_school": 6,
+      "max_group": 20,
+      "bioload": "low",
+      "plant_safe": true,
+      "activity": "medium",
+      "tank_position": "bottom",
+      "eat_shrimp": false,
+      "eat_snails": false,
+      "needs_algae": false,
+      "diet": "omnivore",
+      "waste_factor": 0.5,
+      "current_size_cm": 2.5,
+      "max_size_cm": 5.5,
+      "growth_rate_cm_per_month": 0.3,
+      "territorial": false,
+      "territory_volume_liters": 0,
+      "oxygen_requirement_mg_per_l": 6.5,
+      "flow_requirement": "medium",
+      "predatory": false,
+      "compatible_with": [
+        "Paracheirodon axelrodi",
+        "Hemigrammus rhodostomus",
+        "Apistogramma borellii"
+      ]
+    },
+    {
+      "latin_name": "Epalzeorhynchos kalopterus",
+      "common_name": "Flying Fox",
+      "category": "fish",
+      "type": "freshwater",
+      "size_cm": 15.0,
+      "min_tank": 200,
+      "temperature": [
+        24,
+        28
+      ],
+      "ph": [
+        6.5,
+        7.5
+      ],
+      "aggression": "semi-aggressive",
+      "schooling": false,
+      "min_school": 1,
+      "max_group": 1,
+      "bioload": "medium",
+      "plant_safe": true,
+      "activity": "high",
+      "tank_position": "bottom",
+      "eat_shrimp": true,
+      "eat_snails": false,
+      "needs_algae": true,
+      "diet": "omnivore",
+      "waste_factor": 0.8,
+      "current_size_cm": 5.0,
+      "max_size_cm": 15.0,
+      "growth_rate_cm_per_month": 0.5,
+      "territorial": true,
+      "territory_volume_liters": 50,
+      "oxygen_requirement_mg_per_l": 7.5,
+      "flow_requirement": "medium",
+      "predatory": false,
+      "compatible_with": [
+        "Phenacogrammus interruptus",
+        "Chromobotia macracanthus",
+        "Trichopodus leerii"
+      ]
+    }
+  ],
   {
     "latin_name": "Symphysodon tarzoo",
     "common_name": "Green Discus",
