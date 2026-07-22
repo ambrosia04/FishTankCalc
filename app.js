@@ -126,8 +126,13 @@ function populate() {
     const select = document.getElementById("fishSelect");
 
     // Sort fish alphabetically
-    const sortedFish = [...fishDB].map((fish, idx) => ({ fish, idx }))
-        .sort((a, b) => a.fish.latin_name.localeCompare(b.fish.latin_name));
+    const sortedFish = [...fishDB]
+        .map((fish, idx) => ({ fish, idx }))
+        .sort((a, b) => {
+            const nameA = a.fish?.latin_name || "";
+            const nameB = b.fish?.latin_name || "";
+            return nameA.localeCompare(nameB);
+        });
 
     // Populate select with all fish
     sortedFish.forEach(({ fish, idx }) => {
@@ -310,7 +315,8 @@ function filterFish(query) {
     }
 
     const filtered = fishDB.filter(fish => {
-        const latin = fish.latin_name.toLowerCase();
+        if (!fish) return false;
+        const latin = (fish.latin_name || "").toLowerCase();
         const common = (fish.common_name || "").toLowerCase();
 
         const category = fish.category || "fish";
@@ -362,8 +368,9 @@ function renderSelectOptions(fishArray) {
     const seenNames = new Set();
 
     fishArray.forEach(fish => {
-        const name = fish.latin_name.toLowerCase().trim();
-        if (!seenNames.has(name)) {
+        if (!fish) return;
+        const name = (fish.latin_name || "").toLowerCase().trim();
+        if (name && !seenNames.has(name)) {
             seenNames.add(name);
             uniqueFish.push(fish);
         }
@@ -387,11 +394,11 @@ function renderSelectOptions(fishArray) {
     // 3. Render
     sorted.forEach(fish => {
         // Find the original index in the main fishDB for adding logic
-        let originalIndex = fishDB.findIndex(f => f.latin_name === fish.latin_name);
+        let originalIndex = fishDB.findIndex(f => f && f.latin_name === fish.latin_name);
 
         let option = document.createElement("option");
         option.value = originalIndex;
-        option.text = `${fish.latin_name} (${fish.common_name || "Unknown"})`;
+        option.text = `${fish.latin_name || "Unnamed Species"} (${fish.common_name || "Unknown"})`;
 
         if (fish.photo) {
             option.setAttribute('data-photo', fish.photo);
