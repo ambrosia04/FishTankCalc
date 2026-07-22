@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Icon.png">
     <style>
-        .guide-container { padding: 40px; max-width: 1100px; margin: auto; }
-        
+        .guide-container {
+            padding: 40px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
         .intro-box {
             background: #132938;
             padding: 25px;
@@ -32,19 +37,38 @@
             position: relative;
             transition: 0.3s;
         }
-        
-        .param-name { color: #a0c4ff; font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; display: block; }
-        .param-aim { color: #27ae60; font-weight: bold; font-size: 0.9rem; margin-bottom: 15px; display: block; }
-        .param-analogy { 
-            background: rgba(142, 68, 173, 0.2); 
-            color: #d7bde2; 
-            padding: 5px 10px; 
-            border-radius: 5px; 
-            font-size: 0.8rem; 
+
+        .param-name {
+            color: #a0c4ff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .param-aim {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .param-analogy {
+            background: rgba(142, 68, 173, 0.2);
+            color: #d7bde2;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
             display: inline-block;
             margin-bottom: 15px;
         }
-        .param-desc { font-size: 0.9rem; line-height: 1.5; color: #ccc; }
+
+        .param-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #ccc;
+        }
 
         /* Collapsible Section Styling */
         .collapsible-header {
@@ -58,10 +82,26 @@
             background: rgba(142, 68, 173, 0.05);
             transition: 0.2s;
         }
-        .collapsible-header:hover { background: rgba(142, 68, 173, 0.15); }
-        .category-title { color: #a0c4ff; margin: 0; font-size: 1.3rem; }
-        .toggle-icon { color: #8e44ad; font-size: 1.2rem; transition: transform 0.3s; }
-        .active .toggle-icon { transform: rotate(180deg); }
+
+        .collapsible-header:hover {
+            background: rgba(142, 68, 173, 0.15);
+        }
+
+        .category-title {
+            color: #a0c4ff;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .toggle-icon {
+            color: #8e44ad;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .active .toggle-icon {
+            transform: rotate(180deg);
+        }
 
         .setup-section {
             display: grid;
@@ -76,8 +116,19 @@
             border-radius: 12px;
             border-top: 3px solid #1e90ff;
         }
-        .info-card h3 { color: #1e90ff; margin-top: 0; font-size: 1.1rem; text-transform: uppercase; }
-        .info-card p { font-size: 0.9rem; line-height: 1.5; color: #ccc; }
+
+        .info-card h3 {
+            color: #1e90ff;
+            margin-top: 0;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #ccc;
+        }
 
         .warning-box {
             background: rgba(231, 76, 60, 0.1);
@@ -89,220 +140,403 @@
         }
 
         .status-badge {
-            position: absolute; top: 15px; right: 15px;
-            font-size: 0.7rem; padding: 4px 8px; border-radius: 4px;
-            text-transform: uppercase; font-weight: bold;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
         }
-        .essential { background: #2980b9; color: white; }
-        .danger { background: #c0392b; color: white; }
-        .safe { background: #27ae60; color: white; }
+
+        .essential {
+            background: #2980b9;
+            color: white;
+        }
+
+        .danger {
+            background: #c0392b;
+            color: white;
+        }
+
+        .safe {
+            background: #27ae60;
+            color: white;
+        }
 
         .expert-tip {
-            background: #2c3e50; border-left: 5px solid #f1c40f;
-            padding: 20px; border-radius: 10px; margin-top: 40px;
+            background: #2c3e50;
+            border-left: 5px solid #f1c40f;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        /* Footer Styling */
+        .guide-footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+        }
+
+        .guide-footer h3 {
+            color: #a0c4ff;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links li::before {
+            content: "🔗";
+            margin-right: 10px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .footer-links a:hover {
+            color: #a0c4ff;
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
 
-<div class="guide-container">
-    <div class="back-row">
-        <a href="Tips.html" class="btn-nav">← Back to Tips</a>
-    </div>
+    <div class="guide-container">
+        <div class="back-row">
+            <a href="Tips.html" class="btn-nav">← Back to Tips</a>
+        </div>
 
-    <h1 style="color: #1e90ff; text-align: center; font-size: 2.5rem;">Water Chemistry Simplified</h1>
-    <p style="text-align: center; color: #a0c4ff; margin-bottom: 40px;">Think of the water as the "air" your fish breathe. If the chemistry is right, everything else follows.</p>
+        <h1 style="color: #1e90ff; text-align: center; font-size: 2.5rem;">Water Chemistry Simplified</h1>
+        <p style="text-align: center; color: #a0c4ff; margin-bottom: 40px;">Think of the water as the "air" your fish
+            breathe. If the chemistry is right, everything else follows.</p>
 
-    <div class="intro-box">
-        <h3>The Golden Rule</h3>
-        <p>In fishkeeping, <strong>Stability is more important than "Perfect" numbers.</strong> Most fish can adapt to a wide range of pH or Hardness, but they will get sick if those numbers swing wildly every day.</p>
-    </div>
+        <div class="intro-box">
+            <h3>The Golden Rule</h3>
+            <p>In fishkeeping, <strong>Stability is more important than "Perfect" numbers.</strong> Most fish can adapt
+                to a wide range of pH or Hardness, but they will get sick if those numbers swing wildly every day.</p>
+        </div>
 
-    <!-- MAIN PARAMETERS -->
-    <div class="param-grid">
-        <!-- AMMONIA -->
-        <div class="param-card">
-            <span class="status-badge danger">Toxic</span>
-            <span class="param-name">Ammonia (NH₃)</span>
-            <span class="param-aim">Aim for: 0 ppm</span>
-            <span class="param-analogy">Analogy: The Poison</span>
-            <p class="param-desc">Produced by waste. Even detectable amounts burn fish gills. Bacteria must eat this instantly in a cycled tank.</p>
-            <p class="param-desc">Any detectable amount (≥0.25 ppm) requires an <strong>immediate 50% water change</strong> to protect livestock gills.</p>
-        </div>
-        <!-- NITRITE -->
-        <div class="param-card">
-            <span class="status-badge danger">Toxic</span>
-            <span class="param-name">Nitrite (NO₂⁻)</span>
-            <span class="param-aim">Aim for: 0 ppm</span>
-            <span class="param-analogy">Analogy: The Suffocator</span>
-            <p class="param-desc">Prevents fish blood from carrying oxygen. Small amounts are fatal very quickly.</p>
-            <p class="param-desc">If you see even 0.25 ppm, perform an <strong>immediate 50% water change</strong> to prevent suffocation.</p>
-        </div>
-        <!-- NITRATE -->
-        <div class="param-card">
-            <span class="status-badge safe">Safe-ish</span>
-            <span class="param-name">Nitrate (NO₃⁻)</span>
-            <span class="param-aim">Aim for: 5–40 ppm</span>
-            <span class="param-analogy">Analogy: The Leftovers</span>
-            <p class="param-desc">Final stage. Less toxic. Plants love it! Keep under 40ppm via water changes.</p>
-            <p class="param-desc">If it reaches 80+ ppm, do a 50% water change to reset the levels to 40 ppm.</p>
-        </div>
-        <!-- KH -->
-        <div class="param-card">
-            <span class="status-badge essential">Essential</span>
-            <span class="param-name">KH (Carbonate Hardness)</span>
-            <span class="param-aim">Aim for: ~5 dKH</span>
-            <span class="param-analogy">Analogy: The Shock Absorber</span>
-            <p class="param-desc">Prevents pH crashes. Think of it as a shield that protects your water from becoming acidic suddenly.</p>
-        </div>
-        <!-- GH -->
-        <div class="param-card">
-            <span class="status-badge essential">Essential</span>
-            <span class="param-name">GH (General Hardness)</span>
-            <span class="param-aim">Aim for: ~10 dGH</span>
-            <span class="param-analogy">Analogy: The Vitamins</span>
-            <p class="param-desc">Measures Calcium/Magnesium. Essential for fish bones and shrimp shells.</p>
-        </div>
-        <!-- PH -->
-        <div class="param-card">
-            <span class="status-badge essential">Essential</span>
-            <span class="param-name">pH Level</span>
-            <span class="param-aim">Aim for: 6.5 – 7.5</span>
-            <span class="param-analogy">Analogy: The Acid Balance</span>
-            <p class="param-desc">Stability is key here. As long as it stays steady, most fish will thrive.</p>
-        </div>
-    </div>
-
-    <!-- WATER CHANGE CALCULATOR LOGIC -->
-    <div class="intro-box" style="border-left-color: #27ae60; background: rgba(39, 174, 96, 0.05); margin-top: -20px;">
-        <h3 style="color: #27ae60;">💧 Water Change Strategy</h3>
-        <p>Water changes work by <strong>direct percentage reduction</strong>. To cut toxins in half, you must change half the water. However, the amount you change depends on your tank's specific bioload.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 15px;">
-            <!-- 10-20% Rule -->
-            <div style="background: rgba(41, 128, 185, 0.1); padding: 15px; border-radius: 8px; border: 1px solid #2980b9;">
-                <h4 style="color: #3498db; margin-top: 0;">10–20% (Maintenance)</h4>
-                <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">Weekly or Bi-weekly</p>
-                <ul style="font-size: 0.85rem; color: #ccc; padding-left: 20px;">
-                    <li>Low bioload tanks (Shrimp only, few fish).</li>
-                    <li>Heavily planted "Jungle" tanks.</li>
-                    <li>Nitrates stay consistently below 20 ppm.</li>
-                    <li>Replenishing trace minerals without shocking the system.</li>
-                </ul>
+        <!-- MAIN PARAMETERS -->
+        <div class="param-grid">
+            <!-- AMMONIA -->
+            <div class="param-card">
+                <span class="status-badge danger">Toxic</span>
+                <span class="param-name">Ammonia (NH₃)</span>
+                <span class="param-aim">Aim for: 0 ppm</span>
+                <span class="param-analogy">Analogy: The Poison</span>
+                <p class="param-desc">Produced by waste. Even detectable amounts burn fish gills. Bacteria must eat this
+                    instantly in a cycled tank.</p>
+                <p class="param-desc">Any detectable amount (≥0.25 ppm) requires an <strong>immediate 50% water
+                        change</strong> to protect livestock gills.</p>
             </div>
-
-            <!-- 50% Rule -->
-            <div style="background: rgba(241, 196, 15, 0.05); padding: 15px; border-radius: 8px; border: 1px solid #f1c40f;">
-                <h4 style="color: #f1c40f; margin-top: 0;">50% (Correction)</h4>
-                <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">As needed</p>
-                <ul style="font-size: 0.85rem; color: #ccc; padding-left: 20px;">
-                    <li>Ammonia/Nitrite is detected (<strong>0.25–0.50 ppm</strong>).</li>
-                    <li>Nitrate is approaching <strong>40–80 ppm</strong>.</li>
-                    <li>High-bioload maintenance (Goldfish, large Cichlids).</li>
-                </ul>
+            <!-- NITRITE -->
+            <div class="param-card">
+                <span class="status-badge danger">Toxic</span>
+                <span class="param-name">Nitrite (NO₂⁻)</span>
+                <span class="param-aim">Aim for: 0 ppm</span>
+                <span class="param-analogy">Analogy: The Suffocator</span>
+                <p class="param-desc">Prevents fish blood from carrying oxygen. Small amounts are fatal very quickly.
+                </p>
+                <p class="param-desc">If you see even 0.25 ppm, perform an <strong>immediate 50% water change</strong>
+                    to prevent suffocation.</p>
             </div>
-
-            <!-- 70-80% Rule -->
-            <div style="background: rgba(192, 57, 43, 0.1); padding: 15px; border-radius: 8px; border: 1px solid #c0392b;">
-                <h4 style="color: #e74c3c; margin-top: 0;">70–80% (Emergency)</h4>
-                <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">Immediate action</p>
-                <ul style="font-size: 0.85rem; color: #ccc; padding-left: 20px;">
-                    <li>Toxins hit the lethal zone (<strong>Ammonia > 1.0 ppm</strong>).</li>
-                    <li>Contamination (Soap, aerosols, perfumes).</li>
-                    <li>Fish are gasping or acting highly erratic.</li>
-                    <li>After a full course of <strong>Medication</strong>.</li>
-                </ul>
+            <!-- NITRATE -->
+            <div class="param-card">
+                <span class="status-badge safe">Safe-ish</span>
+                <span class="param-name">Nitrate (NO₃⁻)</span>
+                <span class="param-aim">Aim for: 5–40 ppm</span>
+                <span class="param-analogy">Analogy: The Leftovers</span>
+                <p class="param-desc">Final stage. Less toxic. Plants love it! Keep under 40ppm via water changes.</p>
+                <p class="param-desc">If it reaches 80+ ppm, do a 50% water change to reset the levels to 40 ppm.</p>
+            </div>
+            <!-- KH -->
+            <div class="param-card">
+                <span class="status-badge essential">Essential</span>
+                <span class="param-name">KH (Carbonate Hardness)</span>
+                <span class="param-aim">Aim for: ~5 dKH</span>
+                <span class="param-analogy">Analogy: The Shock Absorber</span>
+                <p class="param-desc">Prevents pH crashes. Think of it as a shield that protects your water from
+                    becoming acidic suddenly.</p>
+            </div>
+            <!-- GH -->
+            <div class="param-card">
+                <span class="status-badge essential">Essential</span>
+                <span class="param-name">GH (General Hardness)</span>
+                <span class="param-aim">Aim for: ~10 dGH</span>
+                <span class="param-analogy">Analogy: The Vitamins</span>
+                <p class="param-desc">Measures Calcium/Magnesium. Essential for fish bones and shrimp shells.</p>
+            </div>
+            <!-- PH -->
+            <div class="param-card">
+                <span class="status-badge essential">Essential</span>
+                <span class="param-name">pH Level</span>
+                <span class="param-aim">Aim for: 6.5 – 7.5</span>
+                <span class="param-analogy">Analogy: The Acid Balance</span>
+                <p class="param-desc">Stability is key here. As long as it stays steady, most fish will thrive.</p>
             </div>
         </div>
 
-        <div style="background: #1b2e3b; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 5px solid #8e44ad;">
-            <h4 style="color: #a0c4ff; margin-top: 0;">🌍 Every Tank is its Own World</h4>
-            <p style="font-size: 0.95rem; color: #ddd; margin-bottom: 0;">
-                No two aquariums are the same. A 40-liter tank with two goldfish needs much more aggressive changes than a 40-liter tank with 100 plants and 5 shrimp. 
-                <strong>Don't just follow a calendar; follow your test kit.</strong> 
-                By testing weekly for a month, you will see how fast <em>your</em> nitrates rise. This lets you find your tank's unique "rhythm" and decide if you need to change 10% every two weeks or 50% every week.
+        <!-- SIMPLIFIED TERMINOLOGY -->
+        <div class="collapsible-header" onclick="toggleSection('simpleTermGrid', this)">
+            <h2 class="category-title">Even simpler explanations of the terminology</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div id="simpleTermGrid" class="setup-section" style="display: none;">
+            <div class="info-card" style="border-top-color: #e74c3c;">
+                <h3>Ammonia & Nitrite</h3>
+                <p><strong>What they are:</strong> The absolute worst toxins. Think of them like leaving rotting garbage
+                    inside a sealed room. Fish breathe this in, and it burns them instantly. In a healthy tank,
+                    invisible beneficial bacteria eat this trash constantly to keep the air clean.</p>
+            </div>
+            <div class="info-card" style="border-top-color: #27ae60;">
+                <h3>Nitrate</h3>
+                <p><strong>What it is:</strong> Safe leftovers. After the bacteria finish cleaning the toxic trash
+                    (Ammonia and Nitrite), they leave behind Nitrate. It is mostly harmless in small amounts. Think of
+                    it as plant food (fertilizer) - your live plants eat it, and you throw away the excess whenever you
+                    do a water change.</p>
+            </div>
+            <div class="info-card" style="border-top-color: #a0c4ff;">
+                <h3>pH (The Flavor)</h3>
+                <p><strong>What it is:</strong> How "sour" or "sweet" the water feels to your fish. Low pH is acidic
+                    (like lemon juice), and high pH is alkaline (like baking soda). Fish hate sudden changes to this
+                    flavor more than anything else. Keeping it steady is much more important than hitting a exact
+                    decimal point.</p>
+            </div>
+            <div class="info-card" style="border-top-color: #8e44ad;">
+                <h3>KH & GH (The Mineral Shields)</h3>
+                <p>• <strong>KH (The Sponge):</strong> Chemically measures dissolved <strong>carbonates and
+                        bicarbonates</strong>. It acts as a safety buffer that absorbs acids. Without KH, your pH can
+                    crash overnight like a stone.<br>
+                    <em>Normal Range: 4–8 dKH (approx. 70–140 ppm) for community tanks.</em><br><br>
+                    • <strong>GH (The Vitamins):</strong> Chemically measures dissolved <strong>calcium and magnesium
+                        ions</strong>. Your fish and shrimp absorb these minerals directly to build strong skeletons and
+                    hard shells.<br>
+                    <em>Normal Range: 4–12 dGH (approx. 70–200 ppm) for community tanks.</em>
+                </p>
+            </div>
+            <div class="info-card" style="border-top-color: #f1c40f;">
+                <h3>TDS & RO Water</h3>
+                <p>• <strong>TDS (Total Dissolved Solids):</strong> Measures absolutely everything dissolved in your
+                    water - minerals, salts, metals, and organic waste. Think of it as a "water clutter index." Too much
+                    clutter makes it physically harder for fish to breathe and regulate their bodies.<br>
+                    <em>Normal Range: 100–300 ppm (Softwater species and sensitive Caridina shrimp require low TDS of
+                        100–150 ppm; Neocaridina shrimp, snails, crabs, and hardwater fish prefer 150–300+
+                        ppm).</em><br><br>
+                </p>
+            </div>
+            <div class="info-card" style="border-top-color: #0f5ef1;">
+                <h3>RO, Distilled, & Bottled Water</h3>
+                <p>• <strong>RO (Reverse Osmosis):</strong> Water pushed through a fine membrane that strips out 99% of
+                    minerals, chemicals, and impurities (0 TDS). It is a completely blank slate with no buffers, meaning
+                    you must manually add minerals back (remineralize) before using it in your tank.</p>
+                <p>• <strong>Distilled Water:</strong> Purified by boiling water into steam and condensing the vapor
+                    back into liquid. Physically, it is identical in purity to RO water (0 TDS) and is a perfect
+                    alternative, but it also has zero minerals and must be fully remineralized.</p>
+                <p>• <strong>The "Low Mineral" Trap:</strong> Bottled water labeled as "spring" or "low mineral" is
+                    processed for human drinking taste, not aquariums. To a human, "low mineral" can still mean a TDS of
+                    50–150+ ppm. Worse, these bottles often contain added minerals for flavor (like sodium or silica,
+                    which can trigger diatom algae blooms), making them unpredictable and risky compared to true RO or
+                    distilled water.</p>
+            </div>
+        </div>
+
+        <!-- WATER CHANGE CALCULATOR LOGIC -->
+        <div class="intro-box"
+            style="border-left-color: #27ae60; background: rgba(39, 174, 96, 0.05); margin-top: 20px;">
+            <h3 style="color: #27ae60;">💧 Water Change Strategy</h3>
+            <p>Water changes work by <strong>direct percentage reduction</strong>. To cut toxins in half, you must
+                change half the water. However, the amount you change depends on your tank's specific bioload.</p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 15px;">
+                <!-- 10-20% Rule -->
+                <div
+                    style="background: rgba(41, 128, 185, 0.1); padding: 15px; border-radius: 8px; border: 1px solid #2980b9;">
+                    <h4 style="color: #3498db; margin-top: 0;">10–20% (Maintenance)</h4>
+                    <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">Weekly or Bi-weekly</p>
+                    <ul style="font-size: 0.85rem; color: #ccc; padding-left: 20px;">
+                        <li>Low bioload tanks (Shrimp only, few fish).</li>
+                        <li>Heavily planted "Jungle" tanks.</li>
+                        <li>Nitrates stay consistently below 20 ppm.</li>
+                        <li>Replenishing trace minerals without shocking the system.</li>
+                    </ul>
+                </div>
+
+                <!-- 50% Rule -->
+                <div
+                    style="background: rgba(241, 196, 15, 0.05); padding: 15px; border-radius: 8px; border: 1px solid #f1c40f;">
+                    <h4 style="color: #f1c40f; margin-top: 0;">50% (Correction)</h4>
+                    <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">As needed</p>
+                    <ul style="font-size: 0.85rem; color: #ccc; padding-left: 20px;">
+                        <li>Ammonia/Nitrite is detected (<strong>0.25–0.50 ppm</strong>).</li>
+                        <li>Nitrate is approaching <strong>40–80 ppm</strong>.</li>
+                        <li>High-bioload maintenance (Goldfish, large Cichlids).</li>
+                    </ul>
+                </div>
+
+                <!-- 70-80% Rule -->
+                <div
+                    style="background: rgba(192, 57, 43, 0.1); padding: 15px; border-radius: 8px; border: 1px solid #c0392b;">
+                    <h4 style="color: #e74c3c; margin-top: 0;">70–80% (Emergency)</h4>
+                    <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">Immediate action</p>
+                    <ul style="font-size: 0.85rem; color: #ccc; padding-left: 20px;">
+                        <li>Toxins hit the lethal zone (<strong>Ammonia > 1.0 ppm</strong>).</li>
+                        <li>Contamination (Soap, aerosols, perfumes).</li>
+                        <li>Fish are gasping or acting highly erratic.</li>
+                        <li>After a full course of <strong>Medication</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                style="background: #1b2e3b; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 5px solid #8e44ad;">
+                <h4 style="color: #a0c4ff; margin-top: 0;">🌍 Every Tank is its Own World</h4>
+                <p style="font-size: 0.95rem; color: #ddd; margin-bottom: 0;">
+                    No two aquariums are the same. A 40-liter tank with two goldfish needs much more aggressive changes
+                    than a 40-liter tank with 100 plants and 5 shrimp.
+                    <strong>Don't just follow a calendar; follow your test kit.</strong>
+                    By testing weekly for a month, you will see how fast <em>your</em> nitrates rise. This lets you find
+                    your tank's unique "rhythm" and decide if you need to change 10% every two weeks or 50% every week.
+                </p>
+            </div>
+
+            <p style="font-size: 0.9rem; margin-top: 20px; border-top: 1px solid #444; padding-top: 10px;">
+                <strong>⚠️ Pro Tip:</strong> Large water changes (>50%) are safe <strong>only if</strong> you match the
+                temperature and dechlorinate properly. If you are unsure, two 30% changes over two days is safer than
+                one 80% change.
             </p>
         </div>
 
-        <p style="font-size: 0.9rem; margin-top: 20px; border-top: 1px solid #444; padding-top: 10px;">
-            <strong>⚠️ Pro Tip:</strong> Large water changes (>50%) are safe <strong>only if</strong> you match the temperature and dechlorinate properly. If you are unsure, two 30% changes over two days is safer than one 80% change.
-        </p>
-    </div>
+        <!-- ADJUSTMENT SECTION -->
+        <div class="collapsible-header" onclick="toggleSection('adjustGrid', this)">
+            <h2 class="category-title">How to Adjust Your Parameters</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div id="adjustGrid" class="setup-section" style="display: none;">
+            <!-- INCREASING -->
+            <div class="info-card" style="border-top-color: #27ae60;">
+                <h3>Increasing pH / KH / GH</h3>
+                <p><strong>Crushed Coral (Slow Release):</strong> Place in a mesh bag inside your filter. This is the
+                    <strong>safest method</strong> because it dissolves slowly over weeks, preventing sudden pH swings.
+                </p>
+                <p><strong>Limestone/Seiryu Rock:</strong> These rocks naturally leach minerals into the water column
+                    over time, raising GH and KH steadily.</p>
+            </div>
+            <!-- DECREASING -->
+            <div class="info-card" style="border-top-color: #e67e22;">
+                <h3>Decreasing pH / KH / GH</h3>
+                <p><strong>Catappa Leaves (Slow Release):</strong> As they decay, they release humic acids that gently
+                    lower pH over 2-3 weeks. This is much safer than chemical "pH Down" products.</p>
+                <p><strong>RO/DI Water:</strong> The professional standard. Mixing your tap water with Reverse Osmosis
+                    water dilutes minerals instantly and precisely.</p>
+            </div>
+            <!-- WARNING -->
+            <div class="info-card" style="border-top-color: #e74c3c;">
+                <h3>⚠️ Avoid "The Bounce"</h3>
+                <p>Using liquid "pH Up" or "pH Down" creates a chemical war with your KH. Once the liquid wears off
+                    (usually in 24 hours), the pH will <strong>bounce back</strong> to its original level, often killing
+                    sensitive fish like Shrimp or Neons.</p>
+            </div>
+        </div>
 
-    <!-- ADJUSTMENT SECTION -->
-    <div class="collapsible-header" onclick="toggleSection('adjustGrid', this)">
-        <h2 class="category-title">How to Adjust Your Parameters</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div id="adjustGrid" class="setup-section" style="display: none;">
-        <!-- INCREASING -->
-        <div class="info-card" style="border-top-color: #27ae60;">
-            <h3>Increasing pH / KH / GH</h3>
-            <p><strong>Crushed Coral (Slow Release):</strong> Place in a mesh bag inside your filter. This is the <strong>safest method</strong> because it dissolves slowly over weeks, preventing sudden pH swings.</p>
-            <p><strong>Limestone/Seiryu Rock:</strong> These rocks naturally leach minerals into the water column over time, raising GH and KH steadily.</p>
+        <!-- TANNINS SECTION -->
+        <div class="collapsible-header" onclick="toggleSection('tanninGrid', this)">
+            <h2 class="category-title">Tannins & The Blackwater Effect</h2>
+            <span class="toggle-icon">▼</span>
         </div>
-        <!-- DECREASING -->
-        <div class="info-card" style="border-top-color: #e67e22;">
-            <h3>Decreasing pH / KH / GH</h3>
-            <p><strong>Catappa Leaves (Slow Release):</strong> As they decay, they release humic acids that gently lower pH over 2-3 weeks. This is much safer than chemical "pH Down" products.</p>
-            <p><strong>RO/DI Water:</strong> The professional standard. Mixing your tap water with Reverse Osmosis water dilutes minerals instantly and precisely.</p>
-        </div>
-        <!-- WARNING -->
-        <div class="info-card" style="border-top-color: #e74c3c;">
-            <h3>⚠️ Avoid "The Bounce"</h3>
-            <p>Using liquid "pH Up" or "pH Down" creates a chemical war with your KH. Once the liquid wears off (usually in 24 hours), the pH will <strong>bounce back</strong> to its original level, often killing sensitive fish like Shrimp or Neons.</p>
-        </div>
-    </div>
+        <div id="tanninGrid" class="setup-section" style="display: none;">
+            <div class="info-card" style="border-top-color: #f1c40f;">
+                <h3>Source & Preparation</h3>
+                <p><strong>Why Boil?</strong> Always boil botanicals to kill bacteria/pests and help them sink
+                    instantly.</p>
+                <ul style="font-size: 0.85rem; color: #ccc; line-height: 1.4;">
+                    <li><strong>Catappa Leaves:</strong> Boil 2-3 mins. Replace every <strong>3-4 weeks</strong> (or
+                        when only the "skeleton" remains).</li>
+                    <li><strong>Alder Cones:</strong> Boil 2 mins. Keep in for <strong>1 month</strong>. Very potent!
+                    </li>
+                    <li><strong>Driftwood:</strong> Boil 1-2 hours (small) or 5+ hours (large). Lasts
+                        <strong>years</strong>.
+                    </li>
+                </ul>
+            </div>
 
-    <!-- TANNINS SECTION -->
-    <div class="collapsible-header" onclick="toggleSection('tanninGrid', this)">
-        <h2 class="category-title">Tannins & The Blackwater Effect</h2>
-        <span class="toggle-icon">▼</span>
-    </div>
-    <div id="tanninGrid" class="setup-section" style="display: none;">
-        <div class="info-card" style="border-top-color: #f1c40f;">
-            <h3>Source & Preparation</h3>
-            <p><strong>Why Boil?</strong> Always boil botanicals to kill bacteria/pests and help them sink instantly.</p>
-            <ul style="font-size: 0.85rem; color: #ccc; line-height: 1.4;">
-                <li><strong>Catappa Leaves:</strong> Boil 2-3 mins. Replace every <strong>3-4 weeks</strong> (or when only the "skeleton" remains).</li>
-                <li><strong>Alder Cones:</strong> Boil 2 mins. Keep in for <strong>1 month</strong>. Very potent!</li>
-                <li><strong>Driftwood:</strong> Boil 1-2 hours (small) or 5+ hours (large). Lasts <strong>years</strong>.</li>
+            <div class="info-card">
+                <h3>Benefits of "Tea" Water</h3>
+                <p>Tannins provide natural anti-fungal and anti-bacterial protection for your fish. They mimic the
+                    natural habitats of Bettas, Tetras, Discus..., significantly lowering stress levels and encouraging
+                    breeding behavior.</p>
+            </div>
+
+            <div class="info-card" style="border-top-color: #1e90ff;">
+                <h3>How to Remove Tannins</h3>
+                <p>If you prefer crystal clear water, you can remove the "amber" tint easily:</p>
+                <p>• <strong>Seachem Purigen:</strong> The "magic" solution. Put it in your filter and the water will be
+                    clear in 24 hours.<br>
+                    • <strong>Activated Carbon:</strong> Absorbs color but must be replaced monthly.<br>
+                    • <strong>Water Changes:</strong> 20% weekly will slowly dilute the tint.</p>
+            </div>
+        </div>
+
+        <div class="expert-tip">
+            <h3 style="color: #f1c40f; margin-top: 0;">✨ The "Invisible" Danger: TDS</h3>
+            <p style="margin-bottom: 0;"><strong>Total Dissolved Solids (TDS)</strong> measures *everything* in the
+                water. While not a specific toxin, a high TDS usually means the water is getting "old." If your nitrates
+                are low but your TDS is climbing, it's still time for a water change!</p>
+        </div>
+
+        <!-- FOOTER LINKS SECTION -->
+        <div class="guide-footer">
+            <h3>For more information visit:</h3>
+            <ul class="footer-links">
+                <li><a href="https://www.aquariumcoop.com/blogs/aquarium/ph-gh-kh?srsltid=AfmBOoqiApzoBjVdRocvys1wXc8cQaDA2iDNCu5vQvV3QtkVzzvzzYvT" target="_blank" rel="noopener">The Fish Keeper’s Guide to pH, GH, and KH - aquariumcoop</a></li>
+                <li><a href="https://www.2hraquarist.com/en-es/blogs/ph-kh-gh-tds/introduction-to-basic-water-parameters?srsltid=AfmBOorP-Bu4Lp19eHQ5NdeW6bvCEmxrGPzmbmWO88ak4d8G5DAf_eJP" target="_blank" rel="noopener">Basic water parameters and how they affect an aquarium - 2hraquarist</a></li>
+                <li><a href="https://aquariumscience.org/4-5-water-hardness/" target="_blank" rel="noopener">Water Hardness - aquariumscience</a></li>
+                <li><a href="https://www.aquascapeguide.com/post/unlocking-your-planted-tank-s-potential-understanding-gh-kh-for-thriving-aquariums?srsltid=AfmBOoremc5sfvhrz4dGAETwHRTG6fqyzKGJZbjlpQQCeSKIARGcvHy3" target="_blank" rel="noopener">Planted Tank GH & KH - aquascapeguide</a></li>
+                <li><a href="https://www.2hraquarist.com/es-es/blogs/ph-kh-gh-tds/kh-explicado?srsltid=AfmBOopy0sEaxIpEMIddRssCmOt-Q8NUrdgm9hZ5giFhsQIdXuIkShAx" target="_blank" rel="noopener">KH in planted aquarium - 2hraquarist</a></li>
+                <li><a href="https://www.2hraquarist.com/es-es/blogs/ph-kh-gh-tds?srsltid=AfmBOopmLdXDq2q6M_7CTklbzYzIAkU5-f70D-KRW4gQU3DLdGBiv5LA" target="_blank" rel="noopener">Aquarium Water Parameters:pH,KH,GH y TDS - 2hraquarist</a></li>
+                <li><a href="https://www.fishbits.com.au/blogs/news/understanding-gh-kh-tds-for-shrimp?srsltid=AfmBOop6J7GW_X6pD8KpQlg1iU55K2WOSuVU15pG6uNFrDxz2wNaPArU" target="_blank" rel="noopener">Understanding GH, KH & TDS for Shrimp - fishbits</a></li>
+                <li><a href="https://fresh.bulkreefsupply.com/content/post/tannins-the-pros-and-cons-of-blackwater-for-beginners" target="_blank" rel="noopener">Tannins: The Pros & Cons of Blackwater for Beginners - brsfresh</a></li>
+                <li><a href="https://en.aqua-fish.net/articles/controlling-ammonia-related-substances-aquariums" target="_blank" rel="noopener">Managing Ammonia, Nitrates, and Nitrites in Aquariums - aqua-fish</a></li>
+                <li><a href="https://www.aquariumindustries.com.au/wp-content/uploads/2015/03/pH-_-A-Guide.pdf" target="_blank" rel="noopener">pH—A Guide - aquariumindustries</a></li>
+                
             </ul>
         </div>
-        
-        <div class="info-card">
-            <h3>Benefits of "Tea" Water</h3>
-            <p>Tannins provide natural anti-fungal and anti-bacterial protection for your fish. They mimic the natural habitats of Bettas, Tetras, Discus..., significantly lowering stress levels and encouraging breeding behavior.</p>
-        </div>
 
-        <div class="info-card" style="border-top-color: #1e90ff;">
-            <h3>How to Remove Tannins</h3>
-            <p>If you prefer crystal clear water, you can remove the "amber" tint easily:</p>
-            <p>• <strong>Seachem Purigen:</strong> The "magic" solution. Put it in your filter and the water will be clear in 24 hours.<br>
-               • <strong>Activated Carbon:</strong> Absorbs color but must be replaced monthly.<br>
-               • <strong>Water Changes:</strong> 20% weekly will slowly dilute the tint.</p>
-        </div>
     </div>
 
-    <div class="expert-tip">
-        <h3 style="color: #f1c40f; margin-top: 0;">✨ The "Invisible" Danger: TDS</h3>
-        <p style="margin-bottom: 0;"><strong>Total Dissolved Solids (TDS)</strong> measures *everything* in the water. While not a specific toxin, a high TDS usually means the water is getting "old." If your nitrates are low but your TDS is climbing, it's still time for a water change!</p>
-    </div>
-
-</div>
-
-<script>
-    function toggleSection(id, header) {
-        const grid = document.getElementById(id);
-        if (grid.style.display === "none" || grid.style.display === "") {
-            grid.style.display = "grid";
-            header.classList.add('active');
-        } else {
-            grid.style.display = "none";
-            header.classList.remove('active');
+    <script>
+        function toggleSection(id, header) {
+            const grid = document.getElementById(id);
+            if (grid.style.display === "none" || grid.style.display === "") {
+                grid.style.display = "grid";
+                header.classList.add('active');
+            } else {
+                grid.style.display = "none";
+                header.classList.remove('active');
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
+
 </html>
