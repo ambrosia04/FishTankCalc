@@ -93442,7 +93442,7 @@
     "photo": "images/Trichogaster_chuna.jpg",
     "type": "freshwater",
     "size_cm": 5,
-    "min_tank": 60,
+    "min_tank": 40,
     "temperature": [
       22,
       28
