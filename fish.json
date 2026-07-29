@@ -98615,6 +98615,48 @@
     ]
   },
   {
+    "latin_name": "Danionella translucida",
+    "common_name": "Translucent Danionella",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 1.2,
+    "min_tank": 30,
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      6.0,
+      7.0
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 10,
+    "max_group": 50,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "medium",
+    "tank_position": "all",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.1,
+    "current_size_cm": 0.6,
+    "max_size_cm": 1.2,
+    "growth_rate_cm_per_month": 0.2,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.0,
+    "flow_requirement": "low",
+    "predatory": false,
+    "compatible_with": [
+      "Limnopilos naiyanetri",
+      "Neocaridina davidi",
+      "Boraras brigittae"
+    ]
+  },
+  {
     "latin_name": "Caridina sp 'Black Shadow Single Lined'",
     "common_name": "King Kong Shrimp",
     "category": "shrimp",
