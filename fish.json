@@ -54791,6 +54791,48 @@
     ]
   },
   {
+    "latin_name": "Sturisomatichthys aureus",
+    "common_name": "Golden Whiptail Catfish",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 20.0,
+    "min_tank": 150,
+    "temperature": [
+      22,
+      28
+    ],
+    "ph": [
+      6.0,
+      7.5
+    ],
+    "aggression": "peaceful",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 4,
+    "bioload": "medium",
+    "plant_safe": true,
+    "activity": "low",
+    "tank_position": "bottom",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": true,
+    "diet": "omnivore",
+    "waste_factor": 0.8,
+    "current_size_cm": 8.0,
+    "max_size_cm": 20.0,
+    "growth_rate_cm_per_month": 0.6,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 7.5,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Paracheirodon axelrodi",
+      "Symphysodon aequifasciatus",
+      "Corydoras sterbai"
+    ]
+  },
+  {
     "latin_name": "Planorbella duryi",
     "common_name": "Ramshorn Snail",
     "category": "snail",
