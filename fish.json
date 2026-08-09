@@ -16015,92 +16015,90 @@
       "Rasbora kalochroma"
     ]
   },
-  [
-    {
-      "latin_name": "Melanoides tuberculata",
-      "common_name": "Malaysian Trumpet Snail",
-      "category": "snail",
-      "type": "freshwater",
-      "size_cm": 3.0,
-      "min_tank": 10,
-      "temperature": [
-        18,
-        28
-      ],
-      "ph": [
-        7.0,
-        8.0
-      ],
-      "aggression": "peaceful",
-      "schooling": false,
-      "min_school": 1,
-      "max_group": 100,
-      "bioload": "low",
-      "plant_safe": true,
-      "activity": "high",
-      "tank_position": "bottom",
-      "eat_shrimp": false,
-      "eat_snails": false,
-      "needs_algae": true,
-      "diet": "omnivore",
-      "waste_factor": 0.1,
-      "current_size_cm": 1.0,
-      "max_size_cm": 3.0,
-      "growth_rate_cm_per_month": 0.3,
-      "territorial": false,
-      "territory_volume_liters": 0,
-      "oxygen_requirement_mg_per_l": 4.0,
-      "flow_requirement": "low",
-      "predatory": false,
-      "compatible_with": [
-        "Neocaridina davidi",
-        "Corydoras pygmaeus",
-        "Boraras brigittae"
-      ]
-    },
-    {
-      "latin_name": "Pomacea bridgesii",
-      "common_name": "Mystery Snail",
-      "category": "snail",
-      "type": "freshwater",
-      "size_cm": 5.0,
-      "min_tank": 20,
-      "temperature": [
-        20,
-        28
-      ],
-      "ph": [
-        7.0,
-        8.5
-      ],
-      "aggression": "peaceful",
-      "schooling": false,
-      "min_school": 1,
-      "max_group": 10,
-      "bioload": "medium",
-      "plant_safe": true,
-      "activity": "high",
-      "tank_position": "all",
-      "eat_shrimp": false,
-      "eat_snails": false,
-      "needs_algae": true,
-      "diet": "omnivore",
-      "waste_factor": 0.4,
-      "current_size_cm": 2.5,
-      "max_size_cm": 6.0,
-      "growth_rate_cm_per_month": 0.5,
-      "territorial": false,
-      "territory_volume_liters": 0,
-      "oxygen_requirement_mg_per_l": 6.0,
-      "flow_requirement": "low",
-      "predatory": false,
-      "compatible_with": [
-        "Poecilia reticulata",
-        "Betta splendens",
-        "Caridina multidentata"
-      ]
-    }
-  ],
+  {
+    "latin_name": "Melanoides tuberculata",
+    "common_name": "Malaysian Trumpet Snail",
+    "category": "snail",
+    "type": "freshwater",
+    "size_cm": 3.0,
+    "min_tank": 10,
+    "temperature": [
+      18,
+      28
+    ],
+    "ph": [
+      7.0,
+      8.0
+    ],
+    "aggression": "peaceful",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 100,
+    "bioload": "low",
+    "plant_safe": true,
+    "activity": "high",
+    "tank_position": "bottom",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": true,
+    "diet": "omnivore",
+    "waste_factor": 0.1,
+    "current_size_cm": 1.0,
+    "max_size_cm": 3.0,
+    "growth_rate_cm_per_month": 0.3,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 4.0,
+    "flow_requirement": "low",
+    "predatory": false,
+    "compatible_with": [
+      "Neocaridina davidi",
+      "Corydoras pygmaeus",
+      "Boraras brigittae"
+    ]
+  },
+  {
+    "latin_name": "Pomacea bridgesii",
+    "common_name": "Mystery Snail",
+    "category": "snail",
+    "type": "freshwater",
+    "size_cm": 5.0,
+    "min_tank": 20,
+    "temperature": [
+      20,
+      28
+    ],
+    "ph": [
+      7.0,
+      8.5
+    ],
+    "aggression": "peaceful",
+    "schooling": false,
+    "min_school": 1,
+    "max_group": 10,
+    "bioload": "medium",
+    "plant_safe": true,
+    "activity": "high",
+    "tank_position": "all",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": true,
+    "diet": "omnivore",
+    "waste_factor": 0.4,
+    "current_size_cm": 2.5,
+    "max_size_cm": 6.0,
+    "growth_rate_cm_per_month": 0.5,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 6.0,
+    "flow_requirement": "low",
+    "predatory": false,
+    "compatible_with": [
+      "Poecilia reticulata",
+      "Betta splendens",
+      "Caridina multidentata"
+    ]
+  },
   {
     "latin_name": "Betta patoti",
     "common_name": "Tiger Betta",
