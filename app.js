@@ -91,7 +91,8 @@ const linkedSpecies = {
     "glofish": ["danio", "celestichthys", "glofish", "glo"],
     "glo": ["danio", "celestichthys", "glofish", "glo"],
     "Megalamphodus megalopterus": ["Megalamphodus megalopterus", "Hyphessobrycon megalopterus"],
-    "Lithopoma phobium": ["Astraea phoebia", "Lithopoma phobium"]
+    "Lithopoma phobium": ["Astraea phoebia", "Lithopoma phobium"],
+    "Crenicichla": ["Lugubria", "Crenicichla", "Wallaciia"]
 };
 
 const genusLinks = {
@@ -106,7 +107,13 @@ const genusLinks = {
     "nanochromis": "distichodus",
     "erethistes": "hara",
     "celestichthys": "danio",
-    "Megalamphodus": "Hyphessobrycon"
+    "Megalamphodus": "Hyphessobrycon",
+    "Chrenicichla": "Lugubria",
+    "Chrenicichla": "Wallaciia",
+    "Lugubria": "Chrenicichla",
+    "Lugubria": "Wallaciia",
+    "Wallaciia": "Lugubria",
+    "Wallaciia": "Chrenicichla"
 };
 
 const commonSynonyms = {
