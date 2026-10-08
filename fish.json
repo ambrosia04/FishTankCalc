@@ -73154,7 +73154,7 @@
     ],
     "aggression": "peaceful",
     "schooling": true,
-    "min_school": 5,
+    "min_school": 6,
     "max_group": 10,
     "bioload": "medium",
     "plant_safe": true,
