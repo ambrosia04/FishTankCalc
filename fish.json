@@ -71309,8 +71309,14 @@
     "type": "freshwater",
     "size_cm": 10.0,
     "min_tank": 100,
-    "temperature": [23, 27],
-    "ph": [7.0, 8.5],
+    "temperature": [
+      23,
+      27
+    ],
+    "ph": [
+      7.0,
+      8.5
+    ],
     "aggression": "semi-aggressive",
     "schooling": false,
     "min_school": 1,
@@ -71345,8 +71351,14 @@
     "type": "freshwater",
     "size_cm": 12.0,
     "min_tank": 120,
-    "temperature": [24, 28],
-    "ph": [6.5, 7.5],
+    "temperature": [
+      24,
+      28
+    ],
+    "ph": [
+      6.5,
+      7.5
+    ],
     "aggression": "aggressive",
     "schooling": false,
     "min_school": 1,
@@ -71381,8 +71393,14 @@
     "type": "freshwater",
     "size_cm": 15.0,
     "min_tank": 150,
-    "temperature": [23, 28],
-    "ph": [6.5, 7.5],
+    "temperature": [
+      23,
+      28
+    ],
+    "ph": [
+      6.5,
+      7.5
+    ],
     "aggression": "aggressive",
     "schooling": false,
     "min_school": 1,
@@ -71417,8 +71435,14 @@
     "type": "freshwater",
     "size_cm": 13.0,
     "min_tank": 120,
-    "temperature": [23, 28],
-    "ph": [6.5, 7.5],
+    "temperature": [
+      23,
+      28
+    ],
+    "ph": [
+      6.5,
+      7.5
+    ],
     "aggression": "aggressive",
     "schooling": false,
     "min_school": 1,
@@ -71453,8 +71477,14 @@
     "type": "freshwater",
     "size_cm": 22.0,
     "min_tank": 300,
-    "temperature": [23, 28],
-    "ph": [6.5, 7.8],
+    "temperature": [
+      23,
+      28
+    ],
+    "ph": [
+      6.5,
+      7.8
+    ],
     "aggression": "aggressive",
     "schooling": false,
     "min_school": 1,
@@ -71489,8 +71519,14 @@
     "type": "freshwater",
     "size_cm": 18.0,
     "min_tank": 250,
-    "temperature": [24, 28],
-    "ph": [6.5, 7.8],
+    "temperature": [
+      24,
+      28
+    ],
+    "ph": [
+      6.5,
+      7.8
+    ],
     "aggression": "aggressive",
     "schooling": false,
     "min_school": 1,
@@ -71525,8 +71561,14 @@
     "type": "freshwater",
     "size_cm": 18.0,
     "min_tank": 200,
-    "temperature": [22, 26],
-    "ph": [6.5, 7.5],
+    "temperature": [
+      22,
+      26
+    ],
+    "ph": [
+      6.5,
+      7.5
+    ],
     "aggression": "aggressive",
     "schooling": false,
     "min_school": 1,
@@ -73136,6 +73178,48 @@
       "Piaractus brachypomus",
       "Brycon hilarii",
       "Retroculus lapidifer"
+    ]
+  },
+  {
+    "latin_name": "Pimephales promelas",
+    "common_name": "Fathead / Rosy Red Minnow",
+    "category": "fish",
+    "type": "freshwater",
+    "size_cm": 8.0,
+    "min_tank": 80,
+    "temperature": [
+      10,
+      24
+    ],
+    "ph": [
+      7.0,
+      8.2
+    ],
+    "aggression": "peaceful",
+    "schooling": true,
+    "min_school": 6,
+    "max_group": 25,
+    "bioload": "medium",
+    "plant_safe": true,
+    "activity": "high",
+    "tank_position": "middle",
+    "eat_shrimp": false,
+    "eat_snails": false,
+    "needs_algae": false,
+    "diet": "omnivore",
+    "waste_factor": 0.6,
+    "current_size_cm": 3.0,
+    "max_size_cm": 8.0,
+    "growth_rate_cm_per_month": 0.5,
+    "territorial": false,
+    "territory_volume_liters": 0,
+    "oxygen_requirement_mg_per_l": 7.0,
+    "flow_requirement": "medium",
+    "predatory": false,
+    "compatible_with": [
+      "Tanichthys albonubes",
+      "Corydoras paleatus",
+      "Rhodeus amarus"
     ]
   },
   {
